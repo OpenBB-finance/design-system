@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  ._btn-common {
+    @apply inline-flex items-center justify-center gap-2 rounded-full transition duration-150 ease-out py-2 px-6 text-center w-fit;
+  }
+  ._btn {
+    @apply _btn-common bg-grey-100 text-grey-800 hover:bg-white hover:active:text-grey-900 active:bg-grey-200 focus:outline outline-offset-2 focus:outline-2 focus:outline-grey-500 disabled:bg-grey-300 disabled:text-grey-500 active:disabled:bg-grey-300 active:disabled:text-grey-500;
+  }
+  ._btn-secondary {
+    @apply _btn-common text-grey-300 border border-grey-300 hover:active:text-white hover:active:border-white active:bg-grey-800 focus:outline outline-offset-0 focus:outline-2 focus:outline-grey-500 disabled:text-grey-500 disabled:border-grey-500 active:disabled:bg-transparent active:disabled:border-grey-500 active:disabled:text-grey-500;
+  }
+  ._btn-tertiary {
+    @apply _btn-common bg-grey-900 text-grey-50 hover:bg-grey-800 hover:active:text-white active:bg-grey-700 focus:outline outline-offset-2 focus:bg-grey-900 focus:outline-2 focus:outline-grey-500 disabled:bg-grey-500 disabled:text-grey-700 active:disabled:bg-grey-500 active:disabled:text-grey-700;
+  }
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("../fonts/FiraCode-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("../fonts/FiraCode-Bold.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
