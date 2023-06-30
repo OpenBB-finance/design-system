@@ -1,41 +1,78 @@
 {
-  "name": "design-system",
+  "name": "openbb-ui",
   "homepage": "http://openbb-finance.github.io/design-system",
-  "private": true,
-  "version": "0.0.0",
+  "description": "OpenBB UI is a React component library for OpenBB Finance",
+  "author": {
+    "name": "José Donato"
+  },
+  "private": false,
+  "version": "0.0.7",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "./dist/openbb-ui.umd.js",
+  "module": "./dist/openbb-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/openbb-ui.es.js",
+      "require": "./dist/openbb-ui.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages"
   },
-  "dependencies": {
-    "@radix-ui/react-tabs": "^0.1.5",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  },
   "devDependencies": {
-    "@babel/core": "^7.17.9",
-    "@storybook/addon-actions": "^6.4.22",
-    "@storybook/addon-essentials": "^6.4.22",
-    "@storybook/addon-interactions": "^6.4.22",
-    "@storybook/addon-links": "^6.4.22",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@babel/core": "^7.22.5",
+    "@storybook/addon-actions": "^7.0.21",
+    "@storybook/addon-essentials": "^7.0.21",
+    "@storybook/addon-interactions": "^7.0.21",
+    "@storybook/addon-links": "^7.0.21",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/react": "^6.4.22",
-    "@storybook/storybook-deployer": "^2.8.11",
-    "@storybook/testing-library": "^0.0.11",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@vitejs/plugin-react": "^1.3.0",
-    "autoprefixer": "^10.4.5",
-    "babel-loader": "^8.2.5",
-    "clsx": "^1.1.1",
-    "postcss": "^8.4.12",
-    "storybook-dark-mode": "^1.1.0",
-    "tailwindcss": "^3.0.24",
-    "typescript": "^4.6.3",
-    "vite": "^2.9.5"
+    "@storybook/react": "^7.0.21",
+    "@storybook/storybook-deployer": "^2.8.16",
+    "@storybook/testing-library": "^0.1.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^9.1.2",
+    "clsx": "^1.2.1",
+    "postcss": "^8.4.24",
+    "storybook-dark-mode": "^3.0.0",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.3.9"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "es2020": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parserOptions": {
+      "sourceType": "module"
+    }
   }
 }
