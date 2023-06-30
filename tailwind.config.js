@@ -1,4 +1,5 @@
 module.exports = {
+  prefix: "twobb-",
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
