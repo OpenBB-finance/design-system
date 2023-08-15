@@ -13,6 +13,13 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    backgrounds: {
+      default: "dark",
+      values: [
+        { name: "light", value: "#fff" },
+        { name: "dark", value: "#131313" },
+      ],
+    },
   },
 
   decorators: [
