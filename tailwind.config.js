@@ -3,12 +3,7 @@ const { colors } = require("./src/styles/colors.cjs");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-  ],
+  content: ["./src/**/*.{ts,tsx,js,jsx,mdx}"],
   theme: {
     container: {
       center: true,
