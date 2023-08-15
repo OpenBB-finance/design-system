@@ -29,6 +29,9 @@
     "deploy-storybook": "storybook-to-ghpages",
     "lint": "npx eslint src --fix && npx prettier --write src"
   },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.22.10",
     "@remix-run/eslint-config": "^1.19.3",
@@ -64,6 +67,9 @@
     "typescript": "^5.1.6",
     "vite": "^4.4.9"
   },
+  "resolutions": {
+    "jackspeak": "2.1.1"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -75,8 +81,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "resolutions": {
-    "jackspeak": "2.1.1"
   }
 }
