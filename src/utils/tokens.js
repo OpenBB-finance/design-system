@@ -1,3 +1,4 @@
+/** @deprecated never used */
 function getDesignTokens(obj) {
   const keys = Object.keys(obj["color"]);
   const colors = {};

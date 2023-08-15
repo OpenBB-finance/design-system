@@ -1,0 +1,21 @@
+{
+  "include": ["./src/**/*.{ts,tsx}"],
+  "exclude": ["node_modules", "build", "dist"],
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ES2019"],
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "target": "ES2019",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true
+  }
+}
