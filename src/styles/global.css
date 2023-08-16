@@ -74,3 +74,32 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Fonts */
+
+@font-face {
+  font-family: "aktiv-grotesk-extended";
+  src: url("https://use.typekit.net/af/5a2c6f/00000000000000003b9ad13c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3")
+    format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "aktiv-grotesk-extended";
+  src: url("https://use.typekit.net/af/3f03c1/00000000000000003b9ad13e/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+    format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("~/fonts/Inter.var.woff2") format("woff2-variations");
+  font-weight: 1 999;
+  font-display: swap;
+}

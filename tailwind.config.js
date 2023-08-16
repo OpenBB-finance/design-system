@@ -1,4 +1,5 @@
 const { colors, gradients } = require("./src/styles/colors");
+const { typographyPlugin } = require("./src/styles/typography");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -73,8 +74,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("@mariohamann/tailwindcss-var"),
-    require("tailwindcss-animate"),
-  ],
+  plugins: [require("tailwindcss-animate"), typographyPlugin],
 };
