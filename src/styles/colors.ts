@@ -188,17 +188,12 @@ export const colors = {
 
 /* Gradients */
 
-export const gradient01 =
-  `linear-gradient(136deg, ${burgundy[500]} 0%, ${purple[500]} 97.40%)` as const;
-export const gradient02 =
-  `linear-gradient(140deg, ${purple[500]} 0%, ${darkBlue[400]} 97.40%)` as const;
-export const gradient03 =
-  `linear-gradient(132deg, ${darkBlue[700]} 0%, ${lightBlue[500]} 100%)` as const;
-export const gradient04 =
-  `linear-gradient(138deg, ${cardinal[500]} 0%, ${burgundy[500]} 31.45%, ${purple[500]} 60.57%, #1451A0 95.83%)` as const;
-export const gradient05 =
-  `linear-gradient(138deg, ${burgundy[500]} 0%, #E15529 97.40%)` as const;
-export const gradient06 =
-  `linear-gradient(136deg, #E05E00 0%, #FFEC00 100%)` as const;
-export const gradient07 =
-  `linear-gradient(135deg, #FCED00 0%, ${orange[500]} 17.64%, ${cardinal[500]} 34.65%, ${burgundy[500]} 51.05%, ${purple[500]} 66.61%, #2D378C 82.10%, ${darkBlue[500]} 95.72%)` as const;
+export const gradients = {
+  "gradient-01": `linear-gradient(136deg, ${burgundy[500]} 0%, ${purple[500]} 97.40%)`,
+  "gradient-02": `linear-gradient(140deg, ${purple[500]} 0%, ${darkBlue[400]} 97.40%)`,
+  "gradient-03": `linear-gradient(132deg, ${darkBlue[700]} 0%, ${lightBlue[500]} 100%)`,
+  "gradient-04": `linear-gradient(138deg, ${cardinal[500]} 0%, ${burgundy[500]} 31.45%, ${purple[500]} 60.57%, #1451A0 95.83%)`,
+  "gradient-05": `linear-gradient(138deg, ${burgundy[500]} 0%, #E15529 97.40%)`,
+  "gradient-06": `linear-gradient(136deg, #E05E00 0%, #FFEC00 100%)`,
+  "gradient-07": `linear-gradient(135deg, #FCED00 0%, ${orange[500]} 17.64%, ${cardinal[500]} 34.65%, ${burgundy[500]} 51.05%, ${purple[500]} 66.61%, #2D378C 82.10%, ${darkBlue[500]} 95.72%)`,
+} as const;

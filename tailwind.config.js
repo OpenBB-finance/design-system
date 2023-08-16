@@ -1,4 +1,4 @@
-const { colors } = require("./src/styles/colors.cjs");
+const { colors, gradients } = require("./src/styles/colors");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -12,10 +12,9 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    colors,
     extend: {
       colors: {
-        ...colors,
-        /* Shadcn */
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -50,6 +49,9 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      backgroundImage: {
+        ...gradients,
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -71,5 +73,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("@mariohamann/tailwindcss-var"),
+    require("tailwindcss-animate"),
+  ],
 };
