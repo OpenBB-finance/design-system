@@ -1,0 +1,92 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Typography" />
+
+# Typography
+
+## How to use
+
+[Figma reference](https://ant.design/components/typography/)
+
+Use typography names as they are in Figma, but with some differences:
+
+- Lowercase name and replace `/` with `-` in class names
+- Replace `s` -> `sm`, `m` -> `md`, `l` -> `lg` in class names
+
+Example: `TITLE/L/BOLD` -> `.title-lg-bold`
+
+## Examples
+
+<div className="sb-unstyled grid min-w-[1000px] grid-cols-3 gap-4">
+  <div className="col-span-3 flex flex-col gap-4">
+    <div className="title-xl-bold">Title/XL/BOLD</div>
+    <div className="title-xl-medium">Title/XL/MEDIUM</div>
+    <div className="title-xl-regular">Title/XL/REGULAR</div>
+  </div>
+  <div className="col-span-3 flex flex-col gap-4">
+    <div className="title-lg-bold">Title/L/BOLD</div>
+    <div className="title-lg-medium">Title/L/MEDIUM</div>
+    <div className="title-lg-regular">Title/L/REGULAR</div>
+  </div>
+  <>
+    <div className="title-md-bold">Title/M/BOLD</div>
+    <div className="title-md-medium">Title/M/MEDIUM</div>
+    <div className="title-md-regular">Title/M/REGULAR</div>
+  </>
+  <>
+    <div className="title-sm-bold">Title/S/BOLD</div>
+    <div className="title-sm-medium">Title/S/MEDIUM</div>
+    <div className="title-sm-regular">Title/S/REGULAR</div>
+  </>
+  <>
+    <div className="title-xs-bold">Title/XS/BOLD</div>
+    <div className="title-xs-medium">Title/XS/MEDIUM</div>
+    <div className="title-xs-regular">Title/XS/REGULAR</div>
+  </>
+</div>
+
+<div className="sb-unstyled mt-20 grid min-w-[1000px] grid-cols-3 gap-4">
+  <>
+    <div className="subtitle-xl-bold">Subtitle/XL/BOLD</div>
+    <div className="subtitle-xl-medium">Subtitle/XL/MEDIUM</div>
+    <div className="subtitle-xl-regular">Subtitle/XL/REGULAR</div>
+  </>
+  <>
+    <div className="subtitle-lg-bold">Subtitle/L/BOLD</div>
+    <div className="subtitle-lg-medium">Subtitle/L/MEDIUM</div>
+    <div className="subtitle-lg-regular">Subtitle/L/REGULAR</div>
+  </>
+  <>
+    <div className="subtitle-md-bold">Subtitle/M/BOLD</div>
+    <div className="subtitle-md-medium">Subtitle/M/MEDIUM</div>
+    <div className="subtitle-md-regular">Subtitle/M/REGULAR</div>
+  </>
+</div>
+
+<div className="sb-unstyled mt-20 grid min-w-[1000px] grid-cols-3 gap-4">
+  <>
+    <div className="body-xl-bold">Body/XL/BOLD</div>
+    <div className="body-xl-medium">Body/XL/MEDIUM</div>
+    <div className="body-xl-regular">Body/XL/REGULAR</div>
+  </>
+  <>
+    <div className="body-lg-bold">Body/L/Bold</div>
+    <div className="body-lg-medium">Body/L/Medium</div>
+    <div className="body-lg-regular">Body/L/Regular</div>
+  </>
+  <>
+    <div className="body-md-bold">Body/M/Bold</div>
+    <div className="body-md-medium">Body/M/Medium</div>
+    <div className="body-md-regular">Body/M/Regular</div>
+  </>
+  <>
+    <div className="body-sm-bold">Body/S/Bold</div>
+    <div className="body-sm-medium">Body/S/Medium</div>
+    <div className="body-sm-regular">Body/S/Regular</div>
+  </>
+  <>
+    <div className="body-xs-bold">Body/XS/Bold</div>
+    <div className="body-xs-medium">Body/XS/Medium</div>
+    <div className="body-xs-regular">Body/XS/Regular</div>
+  </>
+</div>
