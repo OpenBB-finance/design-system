@@ -6,8 +6,8 @@ import { cn } from "~/utils";
 
 const buttonVariants = cva(
   [
-    "text-md inline-flex items-center justify-center rounded-md font-medium ring-offset-background transition-colors",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+    "BB-Button inline-flex items-center justify-center rounded-md font-medium ring-offset-background transition-colors",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
     "disabled:pointer-events-none disabled:opacity-50",
   ],
   {
