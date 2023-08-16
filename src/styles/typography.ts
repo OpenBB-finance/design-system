@@ -56,13 +56,6 @@ export const typographyPlugin = plugin(function ({ addUtilities }) {
       const size = _size as Size<typeof style>;
       for (const _weight in WEIGHT) {
         const weight = _weight as Weight;
-        console.log(
-          "Add utility",
-          style,
-          size,
-          weight,
-          `.${style}-${size}-${weight}`,
-        );
         addUtilities({
           [`.${style}-${size}-${weight}`]: {
             ...STYLE[style],

@@ -11,7 +11,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/lib/index.js"),
+      entry: path.resolve(__dirname, "src/index.ts"),
       name: "OpenBB UI",
       fileName: (format) => `openbb-ui.${format}.js`,
     },
