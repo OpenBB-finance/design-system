@@ -6,33 +6,56 @@ import { cn } from "~/utils";
 
 const buttonVariants = cva(
   [
-    "BB-Button inline-flex items-center justify-center rounded-md font-medium ring-offset-background transition-colors",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-    "disabled:pointer-events-none disabled:opacity-50",
+    "BB-Button inline-flex items-center justify-center rounded-sm font-normal ring-offset-background",
+    "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring",
+    "disabled:pointer-events-none",
+    "transition",
   ],
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        primary: [
+          "bg-primary text-primary-foreground",
+          "hover:bg-white",
+          "active:bg-grey-200",
+          "disabled:bg-muted disabled:text-muted-foreground",
+        ],
+        secondary: [
+          "border border-input bg-background text-secondary-foreground",
+          "hover:border-white hover:text-white",
+          "active:bg-grey-850 active:text-white",
+          "disabled:border-grey-700 disabled:bg-grey-850 disabled:text-muted-foreground",
+          "focus-visible:text-white",
+        ],
+        tertiary: [
+          "bg-tertiary text-tertiary-foreground",
+          "hover:bg-grey-800 hover:text-white",
+          "active:bg-grey-700 active:text-white",
+          "disabled:bg-muted disabled:text-muted-foreground",
+          "focus-visible:text-white",
+        ],
+        destructive: [
+          "bg-destructive text-destructive-foreground",
+          "hover:bg-destructive-500",
+          "active:bg-destructive-700",
+          "disabled:opacity-50",
+        ],
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        sm: "h-8 rounded-md px-3 text-xs/[1.125rem]",
+        md: "h-10 px-6 py-0.5 text-sm/[1.25rem]",
+        lg: "h-12 rounded-md px-8 text-base/6",
+      },
+      icon: {
+        true: "aspect-square p-0",
+        false: "",
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: "primary",
+      size: "md",
     },
   },
 );
@@ -45,11 +68,14 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  (
+    { className, variant, size, icon = false, asChild = false, ...props },
+    ref,
+  ) => {
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(buttonVariants({ variant, size, icon, className }))}
         ref={ref}
         {...props}
       />

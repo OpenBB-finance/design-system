@@ -21,11 +21,11 @@ const render: Story["render"] = (args) => {
         <Button {...args} />
       </div>
       <div className="flex flex-col items-center gap-4">
-        <span className="text-xs text-grey-300">disabled</span>
+        <span className="text-xs text-grey-300">:disabled</span>
         <Button {...args} disabled />
       </div>
       <div className="flex flex-col items-center gap-4">
-        <span className="text-xs text-grey-300">focused</span>
+        <span className="text-xs text-grey-300">:focus</span>
         <Button {...args} autoFocus />
       </div>
     </div>
@@ -49,17 +49,9 @@ export const Secondary: Story = {
   render,
 };
 
-export const Outline: Story = {
+export const Tertiary: Story = {
   args: {
-    variant: "outline",
-    children: "Button",
-  },
-  render,
-};
-
-export const Link: Story = {
-  args: {
-    variant: "link",
+    variant: "tertiary",
     children: "Button",
   },
   render,
@@ -68,6 +60,14 @@ export const Link: Story = {
 export const Ghost: Story = {
   args: {
     variant: "ghost",
+    children: "Button",
+  },
+  render,
+};
+
+export const Link: Story = {
+  args: {
+    variant: "link",
     children: "Button",
   },
   render,
@@ -101,7 +101,7 @@ export const Large: Story = {
 
 export const Icon: Story = {
   args: {
-    size: "icon",
+    icon: true,
     children: "!",
   },
   render,
