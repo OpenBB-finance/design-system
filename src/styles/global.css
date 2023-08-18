@@ -64,7 +64,7 @@
     --destructive-foreground: theme(colors.grey.100);
 
     --border: theme(colors.grey.300);
-    --input: theme(colors.grey.300);
+    --input: theme(colors.grey.400);
     --ring: theme(colors.grey.500);
   }
 }
