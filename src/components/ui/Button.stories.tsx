@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "./Button";
+import { Icon } from "./Icon";
 
 const meta = {
   title: "UI/Button",
@@ -99,10 +100,10 @@ export const Large: Story = {
   render,
 };
 
-export const Icon: Story = {
+export const IconSize: Story = {
   args: {
     icon: true,
-    children: "!",
+    children: <Icon name="x" className="h-4 w-4" />,
   },
   render,
 };

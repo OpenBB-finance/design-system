@@ -1,6 +1,8 @@
 import { cva } from "class-variance-authority";
 import React, { useEffect, useState } from "react";
 import { cn } from "~/utils";
+import { CopyButton } from "./CopyButton";
+import { Icon } from "./Icon";
 
 const groupVariants = cva(
   [
@@ -19,8 +21,8 @@ const groupVariants = cva(
         default: "",
       },
       size: {
-        sm: "h-7 px-3 text-xs",
-        md: "h-10 px-4 text-sm",
+        sm: "h-7 px-2 text-xs",
+        md: "h-10 px-3 text-sm",
         lg: "h-12 px-4 text-sm",
       },
     },
@@ -31,7 +33,7 @@ const groupVariants = cva(
 );
 
 const inputVariants = cva([
-  "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2",
+  "bg-transparent flex h-10 w-full border-none py-2 text-white",
   "placeholder:text-muted-foreground",
   "file:bg-transparent file:border-0 file:text-sm file:font-medium",
   "disabled:cursor-not-allowed disabled:opacity-50",
@@ -55,135 +57,168 @@ export interface InputProps extends ReactInputProps {
   /** Add React element inside border after input. */
   suffix?: React.ReactNode;
   size?: "sm" | "md" | "lg";
-  value: string | undefined;
+  value?: string;
   /** Make it red. */
   error?: boolean;
+  /** Replace password with 🦋. */
+  butterflies?: boolean;
   onChange?: (value: string) => void;
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const {
-    // default props
-    className,
-    type: defaultType = "text",
-    placeholder,
-    value,
-    onFocus,
-    onBlur,
-    // custom props
-    prefix,
-    suffix,
-    size = "md",
-    error = false,
-    message,
-    onChange,
-    readOnly = props.readOnly || !onChange,
-    clearable = !readOnly,
-    copiable = false,
-    revealable = defaultType === "password",
-    ...rest
-  } = props;
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  (props, fwRef) => {
+    const {
+      // default props
+      className,
+      type: defaultType = "text",
+      placeholder,
+      value,
+      onFocus,
+      onBlur,
+      // custom props
+      prefix,
+      suffix,
+      size = "md",
+      error = false,
+      onChange,
+      disabled,
+      readOnly,
+      clearable = !readOnly && !disabled,
+      copiable = false,
+      revealable = defaultType === "password",
+      butterflies = revealable,
+      ...rest
+    } = props;
 
-  const [type, setType] = useState(defaultType ?? "text");
-  const [isFocused, setFocused] = useState(false);
+    // Uncontrolled state support
+    const localRef = React.useRef<HTMLInputElement>(null);
+    const ref = (fwRef as React.RefObject<HTMLInputElement>) ?? localRef;
+    const [localValue, setLocalValue] = useState(value);
 
-  const isHidden = type === "password";
-  const state = readOnly
-    ? "readOnly"
-    : props.disabled
-    ? "disabled"
-    : isFocused
-    ? "focus"
-    : error
-    ? "error"
-    : "default";
+    const isControlled = !!onChange;
+    const hasValue = isControlled ? !!value : !!localValue;
 
-  function handleFocus(e: React.FocusEvent<HTMLInputElement>) {
-    setFocused(true);
-    onFocus?.(e);
-  }
+    const [type, setType] = useState(defaultType ?? "text");
+    const [isFocused, setFocused] = useState(false);
 
-  function handleBlur(e: React.FocusEvent<HTMLInputElement>) {
-    setFocused(false);
-    onBlur?.(e);
-  }
+    const isHidden = type === "password";
+    const state = readOnly
+      ? "readOnly"
+      : props.disabled
+      ? "disabled"
+      : isFocused
+      ? "focus"
+      : error
+      ? "error"
+      : "default";
 
-  function switchReveal() {
-    setType(type === "password" ? "text" : "password");
-  }
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+      setLocalValue(e.target.value);
+      onChange?.(e.target.value);
+    }
 
-  useEffect(() => {
-    setType(defaultType ?? "text");
-  }, [defaultType]);
+    function handleFocus(e: React.FocusEvent<HTMLInputElement>) {
+      setFocused(true);
+      onFocus?.(e);
+    }
 
-  const groupClasses = cn(
-    groupVariants({ state, size }),
-    value && "text-white border-white",
-    className,
-  );
+    function handleBlur(e: React.FocusEvent<HTMLInputElement>) {
+      setFocused(false);
+      onBlur?.(e);
+    }
 
-  const inputClasses = cn(inputVariants(), type === "date" && "cursor-text");
+    function switchReveal() {
+      setType(type === "password" ? "text" : "password");
+    }
 
-  return (
-    <div className={groupClasses}>
-      {prefix && <div className="flex-shrink">{prefix}</div>}
-      <div className="relative min-w-[3rem] flex-1">
-        <input
-          type={type}
-          className={inputClasses}
-          placeholder={placeholder}
-          value={value}
-          readOnly={readOnly}
-          aria-invalid={error}
-          ref={ref}
-          onChange={(e) => onChange?.(e.target.value)}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          style={{ fontSize: "inherit", lineHeight: "inherit" }}
-          {...rest}
-        />
-        {defaultType === "date" && (
-          <CalendarIcon className="pointer-events-none absolute bottom-1/2 right-0 -mb-2 h-4 w-4" />
+    function clear() {
+      onChange?.("");
+      if (!isControlled) {
+        setLocalValue("");
+        const input = ref.current;
+        if (input) {
+          input.value = "";
+        }
+      }
+    }
+
+    useEffect(() => {
+      setType(defaultType ?? "text");
+    }, [defaultType]);
+
+    const groupClasses = cn(
+      groupVariants({ state, size }),
+      hasValue && !disabled && !error && "border-white",
+      className,
+    );
+
+    const inputClasses = cn(inputVariants(), type === "date" && "cursor-text");
+
+    return (
+      <div className={groupClasses}>
+        {prefix && <div className="flex-shrink">{prefix}</div>}
+        <div className="relative min-w-[3rem] flex-1">
+          <input
+            type={type}
+            className={inputClasses}
+            placeholder={placeholder}
+            value={value}
+            disabled={disabled}
+            readOnly={readOnly}
+            aria-invalid={error}
+            ref={ref}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            style={{ fontSize: "inherit", lineHeight: "inherit" }}
+            {...rest}
+          />
+          {defaultType === "date" && (
+            <Icon
+              name="calendar"
+              className="pointer-events-none absolute bottom-1/2 right-0 -mb-2 h-4 w-4"
+            />
+          )}
+        </div>
+        {clearable && hasValue && (
+          <button
+            type="button"
+            className="bg-transparent text-grey-400 transition-all hover:text-white"
+            onClick={(e) => {
+              e.stopPropagation();
+              clear();
+            }}
+          >
+            <Icon name="x" className="h-4 w-4" />
+          </button>
+        )}
+        {copiable && hasValue && (
+          <CopyButton
+            className="bg-transparent hover:bg-transparent hover:text-white"
+            text={value ?? localValue ?? ""}
+          />
+        )}
+        {revealable && (
+          <button
+            type="button"
+            className="bg-transparent text-inherit transition-all hover:text-white"
+            onClick={(e) => {
+              e.stopPropagation();
+              switchReveal();
+            }}
+          >
+            {isHidden ? (
+              <Icon name="eye" className="h-4 w-4" />
+            ) : (
+              <Icon name="eye-off" className="h-4 w-4" />
+            )}
+          </button>
+        )}
+        {suffix && (
+          <div className="flex flex-shrink items-center">{suffix}</div>
         )}
       </div>
-      {clearable && !!value && (
-        <button
-          type="button"
-          className="bg-transparent text-grey-400 transition-all hover:text-white"
-          onClick={(e) => {
-            e.stopPropagation();
-            onChange?.("");
-          }}
-        >
-          <CloseIcon className="h-4 w-4" />
-        </button>
-      )}
-      {copiable && !!value && (
-        <CopyButton
-          className="bg-transparent hover:bg-transparent hover:text-white"
-          text={value}
-        />
-      )}
-      {revealable && (
-        <button
-          type="button"
-          className="bg-transparent text-grey-400 transition-all hover:text-white"
-          onClick={(e) => {
-            e.stopPropagation();
-            switchReveal();
-          }}
-        >
-          {isHidden ? (
-            <EyeIcon className="h-4 w-4" />
-          ) : (
-            <EyeOffIcon className="h-4 w-4" />
-          )}
-        </button>
-      )}
-      {suffix && <div className="flex flex-shrink items-center">{suffix}</div>}
-    </div>
-  );
-});
+    );
+  },
+);
 Input.displayName = "Input";
-
-export { Input };

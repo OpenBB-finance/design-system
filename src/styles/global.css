@@ -42,7 +42,7 @@
     --card: theme(colors.grey.850);
     --card-foreground: theme(colors.grey.100);
 
-    --popover: theme(colors.grey.850);
+    --popover: theme(colors.grey.900);
     --popover-foreground: theme(colors.grey.100);
 
     --primary: theme(colors.grey.100);

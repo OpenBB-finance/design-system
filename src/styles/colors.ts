@@ -1,5 +1,9 @@
 /* Base colors */
 
+export const current = "currentColor" as const;
+export const inherit = "inherit" as const;
+export const transparent = "transparent" as const;
+
 export const white = "#FFFFFF" as const;
 export const black = "#000000" as const;
 
@@ -164,6 +168,10 @@ export const yellowFeedback = warning;
 export const greenFeedback = success;
 
 export const colors = {
+  current,
+  inherit,
+  transparent,
+
   white,
   black,
   grey,
