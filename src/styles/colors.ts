@@ -188,6 +188,7 @@ export const colors = {
   danger,
   warning,
   success,
+  info: lightBlue,
 
   "red-feedback": redFeedback,
   "yellow-feedback": yellowFeedback,
