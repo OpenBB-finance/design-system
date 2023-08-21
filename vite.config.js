@@ -1,6 +1,7 @@
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 
 // https://vitejs.dev/config/
@@ -31,6 +32,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
+    dts({ rollupTypes: true, insertTypesEntry: true }),
     createSvgIconsPlugin({
       iconDirs: [path.resolve(__dirname, "src/icons")],
       symbolId: "icon-[dir]-[name]",
