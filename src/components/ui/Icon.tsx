@@ -10,7 +10,7 @@ export function Icon(props: Props) {
   const { name, className, ...rest } = props;
 
   const symbolId = `#icon-${name}`;
-  const iconClasses = cn("h-6 w-6", className);
+  const iconClasses = cn("BB-Icon h-6 w-6", className);
 
   return (
     <svg className={iconClasses} {...rest}>

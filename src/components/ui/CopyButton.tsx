@@ -31,7 +31,7 @@ export function CopyButton(props: Props) {
         <button
           type="button"
           className={twMerge(
-            "rounded-md bg-grey-850/50 p-2 text-foreground backdrop-blur-sm",
+            "BB-CopyButton rounded-md bg-grey-850/50 p-2 text-foreground backdrop-blur-sm",
             "hover:bg-grey-800 hover:text-white",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
             "transition",
@@ -42,7 +42,7 @@ export function CopyButton(props: Props) {
           <Icon name="copy" className="h-4 w-4" />
         </button>
       </PopoverTrigger>
-      <PopoverContent className="py-2 uppercase body-sm-regular border border-white">
+      <PopoverContent className="border border-white py-2 uppercase body-sm-regular">
         Copied
       </PopoverContent>
     </Popover>

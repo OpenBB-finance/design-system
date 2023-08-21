@@ -6,7 +6,7 @@ import { Icon } from "./Icon";
 
 const groupVariants = cva(
   [
-    "BB-TextField group flex w-full items-center gap-2 rounded-sm border border-input text-grey-600",
+    "BB-Input group flex w-full items-center gap-2 rounded-sm border border-input text-grey-600",
     "hover:border-grey-200 hover:text-grey-200",
     "data-focus:border-white",
     "transition-all",
@@ -60,7 +60,7 @@ export interface InputProps extends ReactInputProps {
   value?: string;
   /** Make it red. */
   error?: boolean;
-  /** Replace password with 🦋. */
+  /** TODO: Replace password with 🦋. */
   butterflies?: boolean;
   onChange?: (value: string) => void;
 }
