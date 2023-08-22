@@ -1,5 +1,6 @@
 export * from "./Alert";
 export * from "./Button";
+export * from "./Checkbox";
 export * from "./CopyButton";
 export * from "./Icon";
 export * from "./Input";

@@ -33,9 +33,9 @@ const groupVariants = cva(
 );
 
 const inputVariants = cva([
-  "bg-transparent flex h-10 w-full border-none py-2 text-white",
+  "flex h-full w-full border-none !bg-transparent py-2 text-white",
   "placeholder:text-muted-foreground",
-  "file:bg-transparent file:border-0 file:text-sm file:font-medium",
+  "file:border-0 file:bg-transparent file:text-sm file:font-medium",
   "disabled:cursor-not-allowed disabled:opacity-50",
   "focus-visible:outline-none",
 ]);
@@ -157,7 +157,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className={groupClasses}>
         {prefix && <div className="flex-shrink">{prefix}</div>}
-        <div className="relative min-w-[3rem] flex-1">
+        <div className="relative h-full min-w-[3rem] flex-1">
           <input
             type={type}
             className={inputClasses}

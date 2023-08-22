@@ -23,8 +23,7 @@
     },
     "./dist/style.css": "./dist/style.css",
     "./tailwind.config.js": "./tailwind.config.js",
-    "./dev/*": "./src/*",
-    "./dev/style.css": "./src/styles/global.css"
+    "./dev/*": "./src/*"
   },
   "scripts": {
     "dev": "vite",
@@ -37,6 +36,7 @@
     "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
+    "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-popover": "^1.0.6",
     "@radix-ui/react-slot": "^1.0.2"
   },
