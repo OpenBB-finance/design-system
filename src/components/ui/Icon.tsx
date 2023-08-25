@@ -4,16 +4,17 @@ import { cn } from "~/utils";
 
 interface Props extends React.SVGProps<SVGSVGElement> {
   name: string;
+  size?: number;
 }
 
 export function Icon(props: Props) {
-  const { name, className, ...rest } = props;
+  const { name, className, size = 16, ...rest } = props;
 
   const symbolId = `#icon-${name}`;
-  const iconClasses = cn("BB-Icon h-6 w-6", className);
+  const iconClasses = cn("BB-Icon", className);
 
   return (
-    <svg className={iconClasses} {...rest}>
+    <svg className={iconClasses} width={size} height={size} {...rest}>
       <use href={symbolId} fill="currentColor" />
     </svg>
   );
