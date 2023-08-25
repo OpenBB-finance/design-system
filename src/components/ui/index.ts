@@ -5,5 +5,6 @@ export * from "./CopyButton";
 export * from "./Form";
 export * from "./Icon";
 export * from "./Input";
+export * from "./LinkButton";
 export * from "./Popover";
 export * from "./TextField";
