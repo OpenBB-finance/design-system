@@ -84,6 +84,10 @@
     margin: 0;
     @apply bg-background text-foreground;
   }
+
+  hr {
+    @apply border-grey-600;
+  }
 }
 
 /* Fonts */
