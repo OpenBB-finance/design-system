@@ -72,7 +72,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       className,
       type: defaultType = "text",
       placeholder,
-      value,
+      // value,
       onFocus,
       onBlur,
       // custom props
@@ -80,7 +80,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       suffix,
       size = "md",
       error = false,
-      onChange,
+      // onChange,
       disabled,
       readOnly,
       clearable = !readOnly && !disabled,
@@ -93,10 +93,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     // Uncontrolled state support
     const localRef = React.useRef<HTMLInputElement>(null);
     const ref = (fwRef as React.RefObject<HTMLInputElement>) ?? localRef;
-    const [localValue, setLocalValue] = useState(value);
+    // const [localValue, setLocalValue] = useState(value);
 
-    const isControlled = !!onChange;
-    const hasValue = isControlled ? !!value : !!localValue;
+    // const isControlled = !!onChange;
+    // const hasValue = isControlled ? !!value : !!localValue;
 
     const [type, setType] = useState(defaultType ?? "text");
     const [isFocused, setFocused] = useState(false);
@@ -112,8 +112,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       ? "error"
       : "default";
 
+    const value = props.value ?? ref.current?.value ?? "";
+    const hasValue = !!value;
+
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-      setLocalValue(e.target.value);
+      // setLocalValue(e.target.value);
       onChange?.(e.target.value);
     }
 
@@ -132,15 +135,27 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     }
 
     function clear() {
-      onChange?.("");
-      if (!isControlled) {
-        setLocalValue("");
+      const onChange = props.onChange! as (value: string) => void;
+      if (onChange) {
+        onChange("");
+      } else {
         const input = ref.current;
         if (input) {
           input.value = "";
         }
       }
     }
+
+    // function clear() {
+    //   onChange?.("");
+    //   if (!isControlled) {
+    //     setLocalValue("");
+    //     const input = ref.current;
+    //     if (input) {
+    //       input.value = "";
+    //     }
+    //   }
+    // }
 
     useEffect(() => {
       setType(defaultType ?? "text");
@@ -162,7 +177,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             type={type}
             className={inputClasses}
             placeholder={placeholder}
-            value={value}
+            // value={value}
             disabled={disabled}
             readOnly={readOnly}
             aria-invalid={error}
@@ -195,7 +210,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {copiable && hasValue && (
           <CopyButton
             className="bg-transparent hover:bg-transparent hover:text-white"
-            text={value ?? localValue ?? ""}
+            text={value}
           />
         )}
         {revealable && (

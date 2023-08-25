@@ -13,6 +13,7 @@ export function sleep(ms: number) {
 
 /* Math */
 
+/** @deprecated use React.useId() instead */
 export function makeRandomId(name?: string) {
   const suffix = Math.random().toString(36).substring(6);
   return [name, suffix].filter(Boolean).join("-");

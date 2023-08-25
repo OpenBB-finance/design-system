@@ -32,6 +32,13 @@ export const Focus: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
+    placeholder: "Muted placeholder",
+  },
+};
+
+export const DisabledWithValue: Story = {
+  args: {
+    disabled: true,
     value: "Muted text",
   },
 };

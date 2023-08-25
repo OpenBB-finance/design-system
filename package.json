@@ -36,9 +36,13 @@
     "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.0",
     "@radix-ui/react-checkbox": "^1.0.4",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-popover": "^1.0.6",
-    "@radix-ui/react-slot": "^1.0.2"
+    "@radix-ui/react-slot": "^1.0.2",
+    "react-hook-form": "^7.45.4",
+    "zod": "^3.22.2"
   },
   "devDependencies": {
     "@babel/core": "^7.22.10",
