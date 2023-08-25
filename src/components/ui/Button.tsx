@@ -6,7 +6,7 @@ import { cn } from "~/utils";
 
 const buttonVariants = cva(
   [
-    "BB-Button inline-flex items-center justify-center rounded-sm font-normal ring-offset-background",
+    "BB-Button inline-flex items-center justify-center gap-2 rounded-sm font-normal ring-offset-background",
     "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring",
     "disabled:pointer-events-none",
     "transition",
