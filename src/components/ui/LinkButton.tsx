@@ -62,7 +62,7 @@ const LinkButton = React.forwardRef<HTMLButtonElement, LinkButtonProps>(
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
-        className={cn(linkButtonVariants({ variant, icon, className }))}
+        className={cn(linkButtonVariants({ variant, icon }), className)}
         ref={ref}
         {...rest}
       />
