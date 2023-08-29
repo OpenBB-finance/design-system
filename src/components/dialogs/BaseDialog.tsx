@@ -2,8 +2,8 @@ import { type ReactNode } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/Dialog";
 
 export interface BaseDialogProps {
-  open: boolean;
-  onClose: () => void;
+  open?: boolean;
+  onClose?: () => void;
   className?: string;
   trigger?: ReactNode;
 }
