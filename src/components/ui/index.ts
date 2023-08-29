@@ -9,3 +9,4 @@ export * from "./Input";
 export * from "./LinkButton";
 export * from "./Popover";
 export * from "./TextField";
+export * from "./Tooltip";
