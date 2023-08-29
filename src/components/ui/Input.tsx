@@ -46,6 +46,8 @@ type ReactInputProps = Omit<
 >;
 
 export interface InputProps extends ReactInputProps {
+  /** Add floating label. Requires `placeholder`. */
+  floatingLabel?: boolean;
   /** When value is not empty, x icon appears to clear input. */
   clearable?: boolean;
   /** Show copy icon appears to copy input value. */
@@ -71,11 +73,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       // default props
       className,
       type: defaultType = "text",
-      placeholder,
+      placeholder: _placeholder,
       // value,
       onFocus,
       onBlur,
       // custom props
+      floatingLabel,
       prefix,
       suffix,
       size = "md",
@@ -89,6 +92,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       butterflies = revealable,
       ...rest
     } = props;
+
+    const placeholder = floatingLabel ? " " : _placeholder;
 
     // Uncontrolled state support
     const localRef = React.useRef<HTMLInputElement>(null);
@@ -175,7 +180,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <div className="relative h-full min-w-[3rem] flex-1">
           <input
             type={type}
-            className={inputClasses}
+            className={cn("peer", inputClasses)}
             placeholder={placeholder}
             // value={value}
             disabled={disabled}
@@ -188,6 +193,18 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             style={{ fontSize: "inherit", lineHeight: "inherit" }}
             {...rest}
           />
+          {floatingLabel && (
+            <label
+              htmlFor={props.id}
+              className={cn(
+                "absolute left-2 top-2 z-0 origin-[0] -translate-y-8 scale-75 px-1 text-sm text-grey-500 duration-300",
+                "peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100",
+                "peer-focus:-top-2 peer-focus:left-0 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:px-1 peer-focus:text-white",
+              )}
+            >
+              {_placeholder}
+            </label>
+          )}
           {defaultType === "date" && (
             <Icon
               name="calendar"

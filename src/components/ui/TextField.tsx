@@ -9,7 +9,7 @@ import {
 import { Input, type InputProps } from "./Input";
 
 interface Props extends Omit<InputProps, "id"> {
-  label: ReactNode;
+  label?: ReactNode;
   message?: ReactNode;
 }
 
