@@ -7,7 +7,7 @@ import {
   DialogDescription,
   DialogFooter,
   DialogTitle,
-} from "../ui/dialog";
+} from "../ui/Dialog";
 import { BaseDialog, type BaseDialogProps } from "./BaseDialog";
 
 interface BaseProps extends BaseDialogProps {
