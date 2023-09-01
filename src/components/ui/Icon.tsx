@@ -19,3 +19,4 @@ export function Icon(props: Props) {
     </svg>
   );
 }
+Icon.displayName = "Icon";

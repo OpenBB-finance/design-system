@@ -26,3 +26,4 @@ export function BaseDialog(props: Props) {
     </Dialog>
   );
 }
+BaseDialog.displayName = "BaseDialog";

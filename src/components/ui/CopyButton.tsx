@@ -48,3 +48,4 @@ export function CopyButton(props: Props) {
     </Popover>
   );
 }
+CopyButton.displayName = "CopyButton";
