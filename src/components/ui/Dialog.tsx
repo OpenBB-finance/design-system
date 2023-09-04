@@ -108,20 +108,6 @@ const DialogDescription = React.forwardRef<
 ));
 DialogDescription.displayName = DialogPrimitive.Description.displayName;
 
-//?
-const DialogActions = React.forwardRef<
-  React.ElementRef<typeof DialogFooter>,
-  React.ComponentPropsWithoutRef<typeof DialogFooter>
->(({ children, ...props }, ref) => (
-  <DialogFooter ref={ref} {...props}>
-    {children}
-    <DialogClose>
-      <Button variant="secondary">Cancel</Button>
-    </DialogClose>
-  </DialogFooter>
-));
-DialogActions.displayName = "DialogActions";
-
 export {
   Dialog,
   DialogClose,
