@@ -87,6 +87,10 @@
     "vite-plugin-dts": "^3.5.2",
     "vite-plugin-svg-icons": "^2.0.1"
   },
+  "peerDependencies": {
+    "tailwindcss": "^3.3.3",
+    "tailwindcss-animate": "^1.0.6"
+  },
   "resolutions": {
     "jackspeak": "2.1.1"
   },

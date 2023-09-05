@@ -1,3 +1,4 @@
+const animatePlugin = require("tailwindcss-animate");
 const { colors, gradients } = require("./src/styles/colors");
 const { typographyPlugin } = require("./plugins/typography");
 
@@ -88,5 +89,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), typographyPlugin],
+  plugins: [animatePlugin, typographyPlugin],
 };

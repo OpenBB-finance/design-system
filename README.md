@@ -4,6 +4,28 @@ Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3a
 
 ## Installation
 
+This library requires TailwindCSS to be installed in your project.
+
+```bash
+npm i -S openbb-ui tailwindcss tailwindcss-animate
+```
+
+Then add TailwindCSS into your `tailwind.config.js`:
+
+```js
+import ui from "openbb-ui/tailwind.config.js";
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  ...ui,
+  // content: [],
+  // theme: {
+  //   extend: {},
+  // },
+  // plugins: [],
+};
+```
+
 ## Development
 
 ### Install dependencies
