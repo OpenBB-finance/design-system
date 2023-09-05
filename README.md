@@ -34,6 +34,17 @@ export default {
 npm ci
 ```
 
+### Update dependencies
+
+Use [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) to update dependencies.
+
+```bash
+ncu -u
+npm i
+```
+
+> **Important!** dont't update `eslint-plugin-unused-imports`! It should be `2.0.0`
+
 ### Storybook
 
 ```bash
