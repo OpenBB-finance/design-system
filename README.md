@@ -72,8 +72,8 @@ npm run build
 ## Publish
 
 ```bash
-npm run build
 npm version patch
+npm run build
 npm publish
 ```
 
