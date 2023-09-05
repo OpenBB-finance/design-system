@@ -6,7 +6,7 @@
     "name": "José Donato"
   },
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "files": [
     "dist",
     "README.md",
@@ -102,6 +102,5 @@
       "last 1 safari version"
     ]
   },
-  "readme": "ERROR: No README data found!",
-  "_id": "openbb-ui@0.0.10"
+  "readme": "ERROR: No README data found!"
 }
