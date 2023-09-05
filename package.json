@@ -10,7 +10,9 @@
   "files": [
     "dist",
     "README.md",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "src/styles/colors.ts",
+    "plugins/*"
   ],
   "main": "./dist/openbb-ui.umd.js",
   "module": "./dist/openbb-ui.es.js",
