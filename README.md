@@ -13,9 +13,9 @@ npm i -S openbb-ui tailwindcss tailwindcss-animate
 Then add TailwindCSS into your `tailwind.config.js`:
 
 ```js
-import ui from "openbb-ui/tailwind.config.js";
+import type { Config } from "tailwindcss";
+import ui from "openbb-ui/tailwind.config";
 
-/** @type {import('tailwindcss').Config} */
 export default {
   ...ui,
   // content: [],
@@ -23,7 +23,7 @@ export default {
   //   extend: {},
   // },
   // plugins: [],
-};
+} satisfies Config;
 ```
 
 ## Development

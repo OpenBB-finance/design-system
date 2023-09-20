@@ -1,9 +1,9 @@
-const animatePlugin = require("tailwindcss-animate");
-const { colors, gradients } = require("./src/styles/colors");
-const { typographyPlugin } = require("./plugins/typography");
+import type { Config } from "tailwindcss";
+import animatePlugin from "tailwindcss-animate";
+import { typographyPlugin } from "./plugins/typography";
+import { colors, gradients } from "./src/styles/colors";
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   darkMode: ["class"],
   content: ["./src/**/*.{ts,tsx,js,jsx,mdx}"],
   theme: {
@@ -65,22 +65,22 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0" },
         },
         /** Used in Alert */
         "fade-in": {
-          "0%": { opacity: 0 },
-          "100%": { opacity: 1 },
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
         /** Used in Alert */
         "fade-out": {
-          "0%": { opacity: 1 },
-          "100%": { opacity: 0 },
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
         },
       },
       animation: {
@@ -90,4 +90,4 @@ module.exports = {
     },
   },
   plugins: [animatePlugin, typographyPlugin],
-};
+} satisfies Config;
