@@ -26,6 +26,12 @@ export default {
 } satisfies Config;
 ```
 
+And finally, import styles into your code:
+
+```js
+import "openbb-ui/dist/style.css";
+```
+
 ## Development
 
 ### Install dependencies
