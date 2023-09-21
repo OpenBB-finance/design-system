@@ -28,8 +28,8 @@ export default {
 
 And finally, import styles into your code:
 
-```js
-import "openbb-ui/dist/style.css";
+```css
+@import "openbb-ui/dist/style.css";
 ```
 
 ## Development
