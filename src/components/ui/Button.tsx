@@ -21,7 +21,7 @@ const buttonVariants = cva(
           "disabled:bg-muted disabled:text-muted-foreground",
         ],
         secondary: [
-          "border border-border bg-background text-secondary-foreground",
+          "border border-border bg-transparent text-secondary-foreground",
           "hover:border-white hover:text-white",
           "active:bg-grey-850 active:text-white",
           "disabled:border-grey-700 disabled:bg-grey-850 disabled:text-muted-foreground",
