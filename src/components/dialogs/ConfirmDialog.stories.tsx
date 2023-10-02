@@ -28,6 +28,7 @@ const render: Story["render"] = (args) => {
 };
 
 const renderStateful: Story["render"] = (args) => {
+  // eslint-disable-next-line unused-imports/no-unused-vars
   const { open: _open = false, onClose, children, ...rest } = args;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [open, setOpen] = useState(_open);

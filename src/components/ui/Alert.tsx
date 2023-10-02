@@ -21,7 +21,7 @@ const alertVariants = cva(
           "border-success-600 bg-success-100 text-grey-900 [&>svg]:text-success-600",
         warning:
           "border-warning-600 bg-warning-200 text-grey-900 [&>svg]:text-warning-600",
-        info: "border-info-600 bg-info-200 [&>svg]:text-info-700 text-grey-900",
+        info: "border-info-600 bg-info-200 text-grey-900 [&>svg]:text-info-700",
       },
     },
     defaultVariants: {
@@ -88,17 +88,19 @@ const Alert = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
 });
 Alert.displayName = "Alert";
 
-const AlertTitle = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h5 ref={ref} className={cn("body-sm-bold", className)} {...props} />
-));
+interface AlertTitleProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+const AlertTitle = React.forwardRef<HTMLParagraphElement, AlertTitleProps>(
+  ({ className, ...props }, ref) => (
+    <h5 ref={ref} className={cn("body-sm-bold", className)} {...props} />
+  ),
+);
 AlertTitle.displayName = "AlertTitle";
 
+interface AlertDescriptionProps
+  extends React.HTMLAttributes<HTMLParagraphElement> {}
 const AlertDescription = React.forwardRef<
   HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
+  AlertDescriptionProps
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}

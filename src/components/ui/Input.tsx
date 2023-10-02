@@ -63,7 +63,7 @@ export interface InputProps extends ReactInputProps {
   /** Make it red. */
   error?: boolean;
   /** TODO: Replace password with 🦋. */
-  butterflies?: boolean;
+  // butterflies?: boolean;
   onChange?: (value: string) => void;
 }
 
@@ -89,7 +89,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       clearable = !readOnly && !disabled,
       copiable = false,
       revealable = defaultType === "password",
-      butterflies = revealable,
+      // butterflies = revealable,
       ...rest
     } = props;
 
