@@ -14,15 +14,16 @@ process.env.VITE_BUILD_INFO = `v. ${
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  root: path.resolve(__dirname, "."),
   resolve: {
     alias: {
-      "~": path.resolve(__dirname, "./src"),
+      "~": "./src",
     },
   },
   build: {
     minify: false,
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
+      entry: "src/index.ts",
       name: "OpenBB UI Main",
       fileName: (format) => `openbb-ui.${format}.js`,
     },
@@ -42,8 +43,9 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      entryRoot: path.resolve(__dirname, "./dist"),
-      rollupTypes: true,
+      // entryRoot: path.resolve(__dirname, "./dist"),
+      // entryRoot: "src",
+      // rollupTypes: true, //! <- this shit breaks lint and build
       insertTypesEntry: true,
     }),
     createSvgIconsPlugin({

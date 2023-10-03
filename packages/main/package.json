@@ -3,25 +3,28 @@
   "version": "0.0.0",
   "private": true,
   "sideEffects": false,
-  "main": "src/index.ts",
+  "main": "./dist/openbb-ui.es.js",
+  "types": "./dist/openbb-ui.es.d.ts",
   "exports": {
     ".": {
       "import": "./dist/openbb-ui.es.js",
-      "types": "./dist/openbb-ui.es.d.ts"
+      "require": "./dist/openbb-ui.cjs.js"
     },
+    "./tailwind.config": "./tailwind.config.ts",
     "./src/*": "./src/*"
   },
+  "files": [
+    "dist",
+    "src",
+    "tailwind.config.ts"
+  ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
-    "build-vite": "vite build",
-    "storybook": "storybook dev -p 6006",
-    "lint": "npx eslint src --fix && npx prettier --write src"
+    "build": "vite build",
+    "lint": "npx eslint src --fix && npx prettier --write src",
+    "storybook": "npm run dev -w workshop"
   },
   "dependencies": {
     "common": "*",
     "utils": "*"
-  },
-  "devDependencies": {
-    "tsup": "^7.2.0"
   }
 }

@@ -33,7 +33,7 @@
     --radius: 0.5rem;
   }
 
-  .dark {
+  :root[class~="dark"] {
     --background: theme(colors.grey.850);
     --foreground: theme(colors.grey.100);
 

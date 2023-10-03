@@ -1,7 +1,7 @@
 import { withThemeByClassName } from "@storybook/addon-styling";
 import type { Preview } from "@storybook/react";
+import "main/src/global.css";
 
-import "../src/styles/global.css";
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },

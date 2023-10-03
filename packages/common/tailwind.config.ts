@@ -4,7 +4,7 @@ import { typographyPlugin } from "./plugins/typography";
 import { colors, gradients } from "./src/styles/colors";
 
 export default {
-  darkMode: ["class"],
+  darkMode: "class",
   content: ["./src/**/*.{ts,tsx,js,jsx,mdx}"],
   theme: {
     container: {
