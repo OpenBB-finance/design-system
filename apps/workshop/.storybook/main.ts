@@ -24,8 +24,8 @@ const config: StorybookConfig = {
       files: "*.stories.*",
     },
     {
-      directory: "../../../packages/main/src/**",
-      titlePrefix: "Main UI",
+      directory: "../../../packages/ui/src/**",
+      titlePrefix: "@openbb-ui",
       files: "*.stories.*",
     },
   ],

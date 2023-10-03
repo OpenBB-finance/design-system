@@ -1,6 +1,6 @@
+import "@openbb/ui/src/global.css";
 import { withThemeByClassName } from "@storybook/addon-styling";
 import type { Preview } from "@storybook/react";
-import "main/src/global.css";
 
 const preview: Preview = {
   parameters: {

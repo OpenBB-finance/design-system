@@ -1,6 +1,6 @@
 {
-  "name": "main",
-  "version": "0.0.0",
+  "name": "@openbb/ui",
+  "version": "0.2.0",
   "private": true,
   "sideEffects": false,
   "main": "./dist/openbb-ui.es.js",
