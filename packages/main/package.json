@@ -1,0 +1,27 @@
+{
+  "name": "main",
+  "version": "0.0.0",
+  "private": true,
+  "sideEffects": false,
+  "main": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/openbb-ui.es.js",
+      "types": "./dist/openbb-ui.es.d.ts"
+    },
+    "./src/*": "./src/*"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "build-vite": "vite build",
+    "storybook": "storybook dev -p 6006",
+    "lint": "npx eslint src --fix && npx prettier --write src"
+  },
+  "dependencies": {
+    "common": "*",
+    "utils": "*"
+  },
+  "devDependencies": {
+    "tsup": "^7.2.0"
+  }
+}

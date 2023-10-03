@@ -1,0 +1,68 @@
+@import "common/src/styles/global.css";
+
+@layer base {
+  :root {
+    --background: hsl(0 0% 100%);
+    --foreground: theme(colors.grey.850);
+
+    --card: hsl(0 0% 100%);
+    --card-foreground: theme(colors.grey.850);
+
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: theme(colors.grey.850);
+
+    --primary: hsl(0 0% 9%);
+    --primary-foreground: theme(colors.grey.100);
+
+    --secondary: hsl(0 0% 96.1%);
+    --secondary-foreground: hsl(0 0% 9%);
+
+    --muted: hsl(0 0% 96.1%);
+    --muted-foreground: hsl(0 0% 45.1%);
+
+    --accent: hsl(0 0% 96.1%);
+    --accent-foreground: hsl(0 0% 9%);
+
+    --destructive: hsl(0 84.2% 60.2%);
+    --destructive-foreground: theme(colors.grey.100);
+
+    --border: hsl(0 0% 89.8%);
+    --input: hsl(0 0% 89.8%);
+    --ring: theme(colors.grey.500);
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: theme(colors.grey.850);
+    --foreground: theme(colors.grey.100);
+
+    --card: theme(colors.grey.850);
+    --card-foreground: theme(colors.grey.100);
+
+    --popover: theme(colors.grey.900);
+    --popover-foreground: theme(colors.grey.100);
+
+    --primary: theme(colors.grey.100);
+    --primary-foreground: theme(colors.grey.800);
+
+    --secondary: theme(colors.grey.300);
+    --secondary-foreground: theme(colors.grey.300);
+
+    --tertiary: theme(colors.grey.900);
+    --tertiary-foreground: theme(colors.grey.50);
+
+    --muted: theme(colors.grey.400);
+    --muted-foreground: theme(colors.grey.600);
+
+    --accent: theme(colors.grey.300);
+    --accent-foreground: theme(colors.grey.100);
+
+    --destructive: theme(colors.danger.600);
+    --destructive-foreground: theme(colors.grey.100);
+
+    --border: theme(colors.grey.300);
+    --input: theme(colors.grey.400);
+    --ring: theme(colors.grey.500);
+  }
+}

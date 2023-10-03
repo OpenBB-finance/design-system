@@ -8,7 +8,8 @@
   },
   "private": false,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "files": [
     "dist",
@@ -17,80 +18,24 @@
     "src/*",
     "plugins/*"
   ],
-  "main": "./dist/openbb-ui.umd.js",
-  "module": "./dist/openbb-ui.es.js",
-  "types": "./dist/openbb-ui.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/openbb-ui.es.js",
-      "require": "./dist/openbb-ui.umd.js",
-      "types": "./dist/openbb-ui.d.ts"
+    "./common": {
+      "import": "./packages/common/dist/openbb-ui.es.js",
+      "types": "./packages/common/dist/openbb-ui.es.d.ts"
     },
-    "./dist/style.css": "./dist/style.css",
-    "./tailwind.config": "./tailwind.config.ts",
-    "./src/*": "./src/*"
+    "./main": {
+      "import": "./packages/main/dist/openbb-ui.es.js",
+      "types": "./packages/main/dist/openbb-ui.es.d.ts"
+    }
   },
   "scripts": {
     "build": "vite build",
     "storybook": "storybook dev -p 6006",
-    "lint": "npx eslint src --fix && npx prettier --write src",
-    "chromatic": "npx chromatic --project-token=chpt_495dd3e21df316c",
-    "build-storybook": "storybook build",
-    "deploy-storybook": "storybook-to-ghpages"
+    "lint": "npx eslint src --fix && npx prettier --write src"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.3.1",
-    "@radix-ui/react-checkbox": "^1.0.4",
-    "@radix-ui/react-dialog": "^1.0.4",
-    "@radix-ui/react-label": "^2.0.2",
-    "@radix-ui/react-popover": "^1.0.6",
-    "@radix-ui/react-slot": "^1.0.2",
-    "@radix-ui/react-tooltip": "^1.0.6",
-    "react-hook-form": "^7.46.1",
-    "zod": "^3.22.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.22.15",
-    "@remix-run/eslint-config": "^1.19.3",
-    "@storybook/addon-essentials": "^7.4.0",
-    "@storybook/addon-interactions": "^7.4.0",
-    "@storybook/addon-links": "^7.4.0",
-    "@storybook/addon-onboarding": "^1.0.8",
-    "@storybook/addon-styling": "^1.3.7",
-    "@storybook/blocks": "^7.4.0",
-    "@storybook/react": "^7.4.0",
-    "@storybook/react-vite": "^7.4.0",
-    "@storybook/testing-library": "^0.2.0",
-    "@types/node": "^20.5.9",
-    "@vitejs/plugin-react": "^4.0.4",
-    "autoprefixer": "^10.4.15",
-    "babel-loader": "^9.1.3",
-    "chromatic": "^7.0.0",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
-    "eslint": "^8.48.0",
-    "eslint-plugin-storybook": "^0.6.13",
-    "eslint-plugin-unused-imports": "^2.0.0",
-    "lucide-react": "^0.274.0",
-    "postcss": "^8.4.29",
-    "prettier": "3.0.3",
-    "prettier-plugin-organize-imports": "^3.2.3",
-    "prettier-plugin-tailwindcss": "^0.5.4",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "storybook": "^7.4.0",
-    "tailwind-merge": "^1.14.0",
-    "tailwindcss": "^3.3.3",
-    "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.2.2",
-    "vite": "^4.4.9",
-    "vite-plugin-dts": "^3.5.3",
-    "vite-plugin-svg-icons": "^2.0.1"
-  },
-  "peerDependencies": {
-    "tailwindcss": "^3.3.3",
-    "tailwindcss-animate": "^1.0.6"
+    "common": "*",
+    "utils": "*"
   },
   "resolutions": {
     "jackspeak": "2.1.1"
@@ -106,6 +51,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "readme": "ERROR: No README data found!"
+  }
 }
