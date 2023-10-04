@@ -2,15 +2,15 @@
   "name": "@openbb/ui-pro",
   "version": "0.2.0",
   "sideEffects": false,
-  "main": "./dist/index.es.js",
-  "types": "./dist/index.es.d.ts",
+  "main": "./dist/lib.es.js",
+  "types": "./dist/lib.es.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
+      "import": "./dist/lib.es.js",
+      "require": "./dist/lib.cjs.js"
     },
     "./style.css": "./dist/style.css",
-    "./tailwind.config": "./tailwind.config.ts",
+    "./tailwind.config": "./dist/tailwind.es.js",
     "./src/*": "./src/*"
   },
   "files": [

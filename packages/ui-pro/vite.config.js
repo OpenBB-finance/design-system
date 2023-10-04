@@ -23,9 +23,12 @@ export default defineConfig({
   build: {
     minify: false,
     lib: {
-      entry: "src/index.ts",
+      entry: {
+        lib: "src/index.ts",
+        tailwind: "tailwind.config.ts",
+      },
       name: "OpenBB UI Pro",
-      fileName: (format) => `index.${format}.js`,
+      fileName: (format, name) => `${name}.${format}.js`,
     },
     rollupOptions: {
       // externalize deps that shouldn't be bundled
