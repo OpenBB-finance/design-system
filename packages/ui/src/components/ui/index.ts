@@ -1,5 +1,3 @@
-export * from "common/src/components/Icon";
-
 export * from "./Alert";
 export * from "./Button";
 export * from "./Checkbox";

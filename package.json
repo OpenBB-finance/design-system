@@ -1,10 +1,10 @@
 {
-  "name": "openbb-ui",
+  "name": "@openbb/design-system",
   "version": "0.2.0",
   "homepage": "http://openbb-finance.github.io/design-system",
   "description": "OpenBB UI is a React component library for OpenBB Finance",
   "author": {
-    "name": "José Donato"
+    "name": "José Donato, Aleksandr Azarov"
   },
   "private": false,
   "workspaces": [
@@ -25,19 +25,22 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.6",
     "clsx": "^2.0.0",
-    "@openbb/ui": "*",
     "react-hook-form": "^7.46.1",
     "tailwind-merge": "^1.14.0",
     "zod": "^3.22.2"
   },
   "devDependencies": {
     "@babel/core": "^7.22.15",
+    "@remix-run/eslint-config": "^2.0.1",
     "@types/node": "^20.5.9",
     "@vitejs/plugin-react": "^4.0.4",
     "autoprefixer": "^10.4.15",
     "babel-loader": "^9.1.3",
     "chromatic": "^7.0.0",
     "class-variance-authority": "^0.7.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-unused-imports": "^3.0.0",
     "lucide-react": "^0.274.0",
     "postcss": "^8.4.29",
     "prettier": "3.0.3",

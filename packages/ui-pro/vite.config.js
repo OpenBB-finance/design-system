@@ -24,7 +24,7 @@ export default defineConfig({
     minify: false,
     lib: {
       entry: "src/index.ts",
-      name: "OpenBB UI",
+      name: "OpenBB UI Pro",
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {

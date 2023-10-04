@@ -5,7 +5,7 @@ import { colors, gradients } from "./src/styles/colors";
 
 export default {
   darkMode: "class",
-  content: ["./src/**/*.{ts,tsx,js,jsx,mdx}"],
+  content: ["../../packages/common/src/**/*.{js,jsx,ts,tsx,mdx}"],
   theme: {
     container: {
       center: true,

@@ -1,5 +1,5 @@
 {
-  "name": "@openbb/ui",
+  "name": "@openbb/ui-pro",
   "version": "0.2.0",
   "sideEffects": false,
   "main": "./dist/index.es.js",
