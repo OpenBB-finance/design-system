@@ -27,11 +27,14 @@ const Checkbox = React.forwardRef<
       <CheckboxPrimitive.Root
         ref={ref}
         className={cn(
-          "peer h-4 w-4 shrink-0 rounded-[2px] border border-primary ring-offset-background",
+          "peer h-4 w-4 shrink-0 rounded-[2px] border border-grey-400 ring-offset-background dark:border-primary",
           "hover:bg-grey-800",
-          "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring",
+
+          "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
+          "data-[state=checked]:hover:border-grey-700 data-[state=checked]:hover:bg-grey-700 dark:data-[state=checked]:hover:border-white dark:data-[state=checked]:hover:bg-white",
+
+          "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring dark:focus-visible:border-grey-300",
           "disabled:cursor-not-allowed disabled:opacity-50",
-          "data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground data-[state=checked]:hover:bg-white",
           "data-[error]:border-danger-700",
           "transition",
           label && "mt-[3px]",
@@ -49,7 +52,7 @@ const Checkbox = React.forwardRef<
       </CheckboxPrimitive.Root>
       {label && (
         <label
-          className="cursor-pointer body-sm-regular peer-disabled:text-grey-600"
+          className="cursor-pointer body-sm-regular peer-disabled:text-grey-600 dark:peer-disabled:text-grey-300"
           htmlFor={id}
         >
           {label}

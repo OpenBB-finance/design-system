@@ -42,10 +42,10 @@ export default {
           DEFAULT: "var(--muted)",
           foreground: "var(--muted-foreground)",
         },
-        accent: {
-          DEFAULT: "var(--accent)",
-          foreground: "var(--accent-foreground)",
-        },
+        // accent: {
+        //   DEFAULT: "var(--accent)",
+        //   foreground: "var(--accent-foreground)",
+        // },
         popover: {
           DEFAULT: "var(--popover)",
           foreground: "var(--popover-foreground)",

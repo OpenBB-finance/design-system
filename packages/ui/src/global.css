@@ -2,32 +2,32 @@
 
 @layer base {
   :root {
-    --background: hsl(0 0% 100%);
+    --background: theme(colors.white);
     --foreground: theme(colors.grey.850);
 
-    --card: hsl(0 0% 100%);
+    --card: theme(colors.grey.50);
     --card-foreground: theme(colors.grey.850);
 
-    --popover: hsl(0 0% 100%);
+    --popover: theme(colors.grey.50);
     --popover-foreground: theme(colors.grey.850);
 
-    --primary: hsl(0 0% 9%);
+    --primary: theme(colors.black);
     --primary-foreground: theme(colors.grey.100);
 
-    --secondary: hsl(0 0% 96.1%);
-    --secondary-foreground: hsl(0 0% 9%);
+    --secondary: theme(colors.grey.50);
+    --secondary-foreground: theme(colors.grey.900);
 
-    --muted: hsl(0 0% 96.1%);
-    --muted-foreground: hsl(0 0% 45.1%);
+    --muted: theme(colors.grey.200);
+    --muted-foreground: theme(colors.grey.300);
 
-    --accent: hsl(0 0% 96.1%);
-    --accent-foreground: hsl(0 0% 9%);
+    /* --accent: hsl(0 0% 96.1%);
+    --accent-foreground: hsl(0 0% 9%); */
 
-    --destructive: hsl(0 84.2% 60.2%);
+    --destructive: theme(colors.danger.600);
     --destructive-foreground: theme(colors.grey.100);
 
-    --border: hsl(0 0% 89.8%);
-    --input: hsl(0 0% 89.8%);
+    --border: theme(colors.grey.400);
+    --input: theme(colors.grey.400);
     --ring: theme(colors.grey.500);
 
     --radius: 0.5rem;
@@ -55,8 +55,8 @@
     --muted: theme(colors.grey.400);
     --muted-foreground: theme(colors.grey.600);
 
-    --accent: theme(colors.grey.300);
-    --accent-foreground: theme(colors.grey.100);
+    /* --accent: theme(colors.grey.300);
+    --accent-foreground: theme(colors.grey.100); */
 
     --destructive: theme(colors.danger.600);
     --destructive-foreground: theme(colors.grey.100);
