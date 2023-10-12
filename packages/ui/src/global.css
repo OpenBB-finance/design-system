@@ -14,7 +14,7 @@
     --primary: theme(colors.black);
     --primary-foreground: theme(colors.grey.100);
 
-    --secondary: theme(colors.grey.50);
+    --secondary: theme(colors.grey.100);
     --secondary-foreground: theme(colors.grey.900);
 
     --muted: theme(colors.grey.200);
@@ -47,7 +47,7 @@
     --primary-foreground: theme(colors.grey.800);
 
     --secondary: theme(colors.grey.300);
-    --secondary-foreground: theme(colors.grey.300);
+    --secondary-foreground: theme(colors.grey.800);
 
     --tertiary: theme(colors.grey.900);
     --tertiary-foreground: theme(colors.grey.50);

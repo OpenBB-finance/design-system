@@ -1,3 +1,4 @@
 {
-  "extends": "common/tsconfig.json"
+  "extends": "common/tsconfig.json",
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "plugins/typography.ts"]
 }

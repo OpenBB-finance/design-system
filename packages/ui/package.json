@@ -24,6 +24,7 @@
     "storybook": "npm run dev -w workshop"
   },
   "dependencies": {
+    "@radix-ui/react-radio-group": "^1.1.3",
     "common": "*",
     "utils": "*"
   }

@@ -7,5 +7,6 @@ export * from "./Form";
 export * from "./Input";
 export * from "./LinkButton";
 export * from "./Popover";
+export * from "./RadioGroup";
 export * from "./TextField";
 export * from "./Tooltip";
