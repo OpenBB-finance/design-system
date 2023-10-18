@@ -191,9 +191,8 @@ export const colors = {
   success,
   info: lightBlue,
 
-  "red-feedback": redFeedback,
-  "yellow-feedback": yellowFeedback,
-  "green-feedback": greenFeedback,
+  red: redFeedback,
+  green: greenFeedback,
 } as const;
 
 /* Gradients */
