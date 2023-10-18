@@ -28,6 +28,11 @@ const config: StorybookConfig = {
       titlePrefix: "@openbb-ui",
       files: "*.stories.*",
     },
+    {
+      directory: "../../../packages/ui-pro/src/**",
+      titlePrefix: "@openbb-ui-pro",
+      files: "*.stories.*",
+    },
   ],
   addons: [
     getAbsolutePath("@storybook/addon-links"),
