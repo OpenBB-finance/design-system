@@ -21,31 +21,48 @@ const RadioGroup = React.forwardRef<
 RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
 
 interface RadioGroupItemProps
-  extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {}
+  extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {
+  label?: React.ReactNode;
+  error?: boolean;
+}
 const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
   RadioGroupItemProps
->(({ className, children, ...props }, ref) => {
+>((props, ref) => {
+  const { className, children, label, id: _id, ...rest } = props;
+  const randomId = React.useId();
+  const id = _id ?? randomId;
   return (
-    <RadioGroupPrimitive.Item
-      ref={ref}
-      className={cn(
-        "aspect-square h-[18px] w-[18px] rounded-full border border-grey-800 text-grey-800 ring-offset-background",
-        "hover:border-black hover:text-black",
-        "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-        "disabled:cursor-not-allowed disabled:opacity-50",
+    <div className="flex gap-2">
+      <RadioGroupPrimitive.Item
+        ref={ref}
+        className={cn(
+          "aspect-square h-[18px] w-[18px] rounded-full border border-grey-800 text-grey-800 ring-offset-background",
+          "hover:border-black hover:text-black",
+          "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+          "disabled:cursor-not-allowed disabled:opacity-50",
 
-        "dark:border-grey-200 dark:text-grey-200",
-        "dark:hover:border-white dark:hover:text-white",
+          "dark:border-grey-200 dark:text-grey-200",
+          "dark:hover:border-white dark:hover:text-white",
 
-        className,
+          className,
+        )}
+        id={id}
+        {...rest}
+      >
+        <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
+          <Circle className="h-[9px] w-[9px] fill-current text-current" />
+        </RadioGroupPrimitive.Indicator>
+      </RadioGroupPrimitive.Item>
+      {label && (
+        <label
+          className="-mt-[2px] cursor-pointer body-sm-regular peer-disabled:text-grey-600 dark:peer-disabled:text-grey-300"
+          htmlFor={id}
+        >
+          {label}
+        </label>
       )}
-      {...props}
-    >
-      <RadioGroupPrimitive.Indicator className="flex items-center justify-center">
-        <Circle className="h-[9px] w-[9px] fill-current text-current" />
-      </RadioGroupPrimitive.Indicator>
-    </RadioGroupPrimitive.Item>
+    </div>
   );
 });
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;

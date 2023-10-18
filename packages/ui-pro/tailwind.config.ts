@@ -6,6 +6,7 @@ export default {
   content: [
     ...conf.content,
     "../../packages/ui-pro/src/**/*.{js,jsx,ts,tsx,mdx}",
+    "../../packages/ui/src/**/*.{js,jsx,ts,tsx,mdx}", //? TODO: move common components to common package
   ],
   presets: [conf],
 } satisfies Config;
