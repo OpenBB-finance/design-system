@@ -1,6 +1,6 @@
 {
   "name": "@openbb/ui",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "sideEffects": false,
   "main": "./dist/lib.es.js",
   "types": "./dist/lib.es.d.ts",
