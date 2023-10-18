@@ -1,6 +1,6 @@
 {
   "name": "@openbb/ui",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "sideEffects": false,
   "main": "./dist/lib.es.js",
   "types": "./dist/lib.es.d.ts",
@@ -21,7 +21,8 @@
   "scripts": {
     "build": "vite build",
     "lint": "npx eslint src --fix && npx prettier --write src",
-    "storybook": "npm run dev -w workshop"
+    "storybook": "npm run dev -w workshop",
+    "postversion": "npm run build"
   },
   "dependencies": {
     "@radix-ui/react-radio-group": "^1.1.3",
