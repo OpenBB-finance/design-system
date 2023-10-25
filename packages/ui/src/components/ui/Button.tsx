@@ -15,20 +15,29 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: [
-          "bg-primary text-primary-foreground",
+          // TODO: Light theme
+          "bg-grey-100 text-grey-800",
           "hover:bg-white",
           "active:bg-grey-200",
           "disabled:bg-muted disabled:text-muted-foreground",
         ],
         secondary: [
-          "border border-border bg-transparent text-secondary-foreground",
+          // TODO: Light theme
+          "border border-grey-300 bg-transparent text-grey-300",
           "hover:border-white hover:text-white",
           "active:bg-grey-850 active:text-white",
           "disabled:border-grey-700 disabled:bg-grey-850 disabled:text-muted-foreground",
           "focus-visible:text-white",
+
+          "dark:border-grey-300 dark:text-grey-300",
+          "dark:hover:border-white dark:hover:text-white",
+          "dark:active:bg-grey-850 dark:active:text-white",
+          "dark:disabled:border-grey-700 dark:disabled:bg-grey-850 dark:disabled:text-muted-foreground",
+          "dark:focus-visible:text-white",
         ],
         tertiary: [
-          "bg-tertiary text-tertiary-foreground",
+          // TODO: Light theme
+          "bg-grey-900 text-grey-50",
           "hover:bg-grey-800 hover:text-white",
           "active:bg-grey-700 active:text-white",
           "disabled:bg-muted disabled:text-muted-foreground",
