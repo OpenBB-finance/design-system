@@ -15,19 +15,22 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: [
-          // TODO: Light theme
-          "bg-grey-100 text-grey-800",
-          "hover:bg-white",
-          "active:bg-grey-200",
+          "bg-grey-900 text-grey-200",
+          "hover:bg-black",
+          "active:bg-grey-800",
           "disabled:bg-muted disabled:text-muted-foreground",
+
+          "dark:bg-grey-100 dark:text-grey-800",
+          "dark:hover:bg-white",
+          "dark:active:bg-grey-200",
+          "dark:disabled:bg-muted dark:disabled:text-muted-foreground",
         ],
         secondary: [
-          // TODO: Light theme
-          "border border-grey-300 bg-transparent text-grey-300",
-          "hover:border-white hover:text-white",
-          "active:bg-grey-850 active:text-white",
-          "disabled:border-grey-700 disabled:bg-grey-850 disabled:text-muted-foreground",
-          "focus-visible:text-white",
+          "border border-grey-700 bg-transparent text-grey-700",
+          "hover:border-black hover:text-black",
+          "active:bg-grey-850 active:text-black",
+          "disabled:border-grey-300 disabled:bg-grey-50 disabled:text-muted-foreground",
+          "focus-visible:text-black",
 
           "dark:border-grey-300 dark:text-grey-300",
           "dark:hover:border-white dark:hover:text-white",
@@ -36,12 +39,17 @@ const buttonVariants = cva(
           "dark:focus-visible:text-white",
         ],
         tertiary: [
-          // TODO: Light theme
-          "bg-grey-900 text-grey-50",
-          "hover:bg-grey-800 hover:text-white",
-          "active:bg-grey-700 active:text-white",
+          "bg-grey-100 text-grey-850",
+          "hover:bg-grey-200 hover:text-black",
+          "active:bg-grey-300 active:text-black",
           "disabled:bg-muted disabled:text-muted-foreground",
-          "focus-visible:text-white",
+          "focus-visible:text-black",
+
+          "dark:bg-grey-900 dark:text-grey-50",
+          "dark:hover:bg-grey-800 dark:hover:text-white",
+          "dark:active:bg-grey-700 dark:active:text-white",
+          "dark:disabled:bg-muted dark:disabled:text-muted-foreground",
+          "dark:focus-visible:text-white",
         ],
         danger: [
           "bg-destructive text-destructive-foreground",
@@ -50,11 +58,17 @@ const buttonVariants = cva(
           "disabled:opacity-50",
         ],
         ghost: [
-          "text-grey-200",
-          "hover:text-white",
-          "active:text-grey-200",
-          "focus-visible:text-white",
-          "disabled:text-grey-600",
+          "text-grey-800",
+          "hover:text-black",
+          "active:text-grey-800",
+          "focus-visible:text-black",
+          "disabled:text-grey-400",
+
+          "dark:text-grey-200",
+          "dark:hover:text-white",
+          "dark:active:text-grey-200",
+          "dark:focus-visible:text-white",
+          "dark:disabled:text-grey-600",
         ],
         link: "text-primary underline-offset-4 hover:underline",
       },
