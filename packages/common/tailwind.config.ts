@@ -17,6 +17,8 @@ export default {
     colors,
     extend: {
       colors: {
+        accent: colors["light-blue"],
+
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
@@ -42,10 +44,6 @@ export default {
           DEFAULT: "var(--muted)",
           foreground: "var(--muted-foreground)",
         },
-        // accent: {
-        //   DEFAULT: "var(--accent)",
-        //   foreground: "var(--accent-foreground)",
-        // },
         popover: {
           DEFAULT: "var(--popover)",
           foreground: "var(--popover-foreground)",

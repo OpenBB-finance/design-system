@@ -28,7 +28,7 @@
 
     --border: theme(colors.grey.400);
     --input: theme(colors.grey.400);
-    --ring: theme(colors.grey.500);
+    --ring: theme(colors.grey.300);
 
     --radius: 0.5rem;
   }
@@ -63,6 +63,6 @@
 
     --border: theme(colors.grey.300);
     --input: theme(colors.grey.400);
-    --ring: theme(colors.grey.500);
+    --ring: theme(colors.grey.400);
   }
 }

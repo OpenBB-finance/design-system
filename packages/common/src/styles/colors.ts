@@ -22,6 +22,21 @@ export const grey = {
   900: "#070707",
 } as const;
 
+export const dark = {
+  50: "#8A8A90",
+  100: "#6D6E74",
+  200: "#5A5961",
+  300: "#505059",
+  400: "#46464F",
+  500: "#36363F",
+  600: "#303038",
+  700: "#2A2A31",
+  750: "#24242A",
+  800: "#212126",
+  850: "#1F1E23",
+  900: "#151518",
+} as const;
+
 /* Primary colors */
 
 export const lightBlue = {
@@ -176,6 +191,7 @@ export const colors = {
   white,
   black,
   grey,
+  dark,
 
   "light-blue": lightBlue,
   "dark-blue": darkBlue,
