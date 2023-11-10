@@ -70,7 +70,7 @@ const FormItem = React.forwardRef<HTMLDivElement, FormItemProps>(
   (props, ref) => {
     const { className, ...rest } = props;
     const id = React.useId();
-    const classNames = cn("group space-y-3", className);
+    const classNames = cn("group space-y-1", className);
 
     return (
       <FormItemContext.Provider value={{ id }}>

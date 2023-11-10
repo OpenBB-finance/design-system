@@ -5,10 +5,13 @@ import * as React from "react";
 import { cn } from "utils";
 
 const labelVariants = cva([
-  "text-grey-400 body-xs-medium",
-  "group-disabled:cursor-not-allowed group-disabled:text-grey-600",
-  // group modifiers works, not sure about peer
-  "peer-disabled:cursor-not-allowed peer-disabled:text-grey-600",
+  "text-grey-400 body-xs-regular",
+  "group-aria-disabled:cursor-not-allowed group-aria-disabled:text-grey-300",
+  "peer-disabled:cursor-not-allowed peer-disabled:text-grey-300",
+
+  "dark:text-dark-100",
+  "dark:group-aria-disabled:text-dark-200",
+  "dark:peer-disabled:text-dark-200",
 ]);
 
 const Label = React.forwardRef<
