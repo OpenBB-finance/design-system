@@ -43,11 +43,11 @@ const Checkbox = React.forwardRef<
           // Dark theme
           "dark:border-dark-50",
           "dark:hover:border-grey-400 dark:hover:bg-grey-850",
-          "dark:focus-visible:border-grey-400 dark:focus-visible:bg-white dark:focus-visible:text-dark-900",
-          "dark:disabled:border-grey-600 dark:disabled:bg-grey-500",
+          "dark:focus-visible:border-dark-100 dark:focus-visible:bg-transparent dark:focus-visible:text-grey-900",
+          "dark:disabled:border-dark-400 dark:disabled:bg-dark-800",
           "dark:data-[state=checked]:border-grey-50 dark:data-[state=checked]:bg-grey-50 dark:data-[state=checked]:text-grey-900",
           "dark:data-[state=checked]:hover:border-grey-200 dark:data-[state=checked]:hover:bg-grey-200 dark:data-[state=checked]:hover:text-grey-900",
-          "dark:data-[state=checked]:disabled:border-grey-500 dark:data-[state=checked]:disabled:bg-grey-500 dark:data-[state=checked]:disabled:text-grey-600",
+          "dark:data-[state=checked]:disabled:border-dark-400 dark:data-[state=checked]:disabled:bg-dark-400 dark:data-[state=checked]:disabled:text-dark-800",
 
           label && "mt-[3px]",
           className,
