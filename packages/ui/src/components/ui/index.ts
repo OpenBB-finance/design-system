@@ -5,7 +5,6 @@ export * from "./CopyButton";
 export * from "./Dialog";
 export * from "./Form";
 export * from "./Input";
-export * from "./LEGACY_TextField";
 export * from "./LinkButton";
 export * from "./Popover";
 export * from "./RadioGroup";
