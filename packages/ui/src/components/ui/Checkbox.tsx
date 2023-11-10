@@ -1,8 +1,8 @@
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { Check } from "lucide-react";
 import * as React from "react";
 
 import { cn, makeRandomId } from "utils";
+import { Icon } from "..";
 
 export interface CheckboxProps
   extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
@@ -27,16 +27,28 @@ const Checkbox = React.forwardRef<
       <CheckboxPrimitive.Root
         ref={ref}
         className={cn(
-          "peer h-4 w-4 shrink-0 rounded-[2px] border border-grey-400 ring-offset-background dark:border-primary",
-          "hover:bg-grey-800",
-
-          "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
-          "data-[state=checked]:hover:border-grey-700 data-[state=checked]:hover:bg-grey-700 dark:data-[state=checked]:hover:border-white dark:data-[state=checked]:hover:bg-white",
-
-          "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring dark:focus-visible:border-grey-300",
-          "disabled:cursor-not-allowed disabled:opacity-50",
-          "data-[error]:border-danger-700",
+          "BB-Checkbox peer h-4 w-4 shrink-0 rounded-[2px] border ring-offset-background",
+          "disabled:cursor-not-allowed",
+          "data-[error]:!border-danger-500",
+          "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring ",
           "transition",
+          // Light theme
+          "border-grey-400",
+          "hover:border-grey-600 hover:bg-grey-50",
+          "focus-visible:bg-white focus-visible:text-white",
+          "disabled:border-grey-300 disabled:bg-grey-100",
+          "data-[state=checked]:border-grey-800 data-[state=checked]:bg-grey-800 data-[state=checked]:text-grey-100",
+          "data-[state=checked]:hover:border-grey-900 data-[state=checked]:hover:bg-grey-900 data-[state=checked]:hover:text-white",
+          "data-[state=checked]:disabled:border-grey-300 data-[state=checked]:disabled:bg-grey-300 data-[state=checked]:disabled:text-grey-400",
+          // Dark theme
+          "dark:border-dark-50",
+          "dark:hover:border-grey-400 dark:hover:bg-grey-850",
+          "dark:focus-visible:border-grey-400 dark:focus-visible:bg-white dark:focus-visible:text-dark-900",
+          "dark:disabled:border-grey-600 dark:disabled:bg-grey-500",
+          "dark:data-[state=checked]:border-grey-50 dark:data-[state=checked]:bg-grey-50 dark:data-[state=checked]:text-grey-900",
+          "dark:data-[state=checked]:hover:border-grey-200 dark:data-[state=checked]:hover:bg-grey-200 dark:data-[state=checked]:hover:text-grey-900",
+          "dark:data-[state=checked]:disabled:border-grey-500 dark:data-[state=checked]:disabled:bg-grey-500 dark:data-[state=checked]:disabled:text-grey-600",
+
           label && "mt-[3px]",
           className,
         )}
@@ -47,12 +59,22 @@ const Checkbox = React.forwardRef<
         <CheckboxPrimitive.Indicator
           className={cn("flex items-center justify-center text-current")}
         >
-          <Check className="h-4 w-4" />
+          <Icon name="check" size={16} />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
       {label && (
         <label
-          className="cursor-pointer body-sm-regular peer-disabled:text-grey-600 dark:peer-disabled:text-grey-300"
+          className={cn(
+            "cursor-pointer body-sm-regular",
+            "peer-disabled:cursor-not-allowed",
+            "transition",
+            // Light theme
+            "text-grey-900",
+            "peer-disabled:text-grey-400",
+            // Dark theme
+            "dark:text-grey-100",
+            "dark:peer-disabled:text-grey-500",
+          )}
           htmlFor={id}
         >
           {label}
