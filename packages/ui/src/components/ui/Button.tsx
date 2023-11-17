@@ -30,7 +30,7 @@ const buttonVariants = cva(
           "disabled:bg-grey-200 disabled:text-grey-300",
 
           "dark:bg-dark-600 dark:text-grey-200",
-          "dark:hover:text-white",
+          "dark:hover:bg-dark-600 dark:hover:text-white",
           "dark:focus-visible:bg-dark-700 dark:focus-visible:text-white",
           "dark:disabled:bg-dark-800 dark:disabled:text-dark-500",
         ],
