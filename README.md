@@ -99,13 +99,14 @@ npm run storybook
 ### Link to another project
 
 ```bash
+cd packages/ui
 npm link
 ```
 
 In target project:
 
 ```bash
-npm link openbb-ui
+npm link @openbb/ui
 ```
 
 Then build UI after any change:
