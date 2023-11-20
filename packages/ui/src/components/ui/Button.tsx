@@ -35,7 +35,7 @@ const buttonVariants = cva(
           "dark:disabled:bg-dark-800 dark:disabled:text-dark-500",
         ],
         outlined: [
-          "border border-dark-300 text-grey-700",
+          "border border-grey-300 text-grey-700",
           "hover:border-grey-600 hover:text-grey-850",
           "focus-visible:ring-grey-200",
           "disabled:border-grey-300 disabled:bg-grey-100 disabled:text-grey-300",
