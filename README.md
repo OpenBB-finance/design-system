@@ -11,7 +11,7 @@ Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3a
 - [ ] Radio
 - [ ] Toggle
 - [ ] Scroll bar
-- [x] Dropdown (SelectTrigger)
+- [x] Dropdown (SelectTrigger, DropdownItem)
 - [ ] Tag
 - [ ] Background
 - [ ] Tooltip
@@ -20,8 +20,8 @@ Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3a
 
 #### Molecules
 
-- [x] Menu items (SelectContent, SelectItem)
-- [ ] Select (Dropdown + Menu items)
+- [x] Menu items (SelectContent, SelectItem, DropdownMenuContent, DropdownMenuItem)
+- [x] Select (Dropdown + Menu items)
 - [ ] Color picker
 - [ ] Sidebar
 - [ ] Chips
@@ -36,10 +36,6 @@ Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3a
 - [ ] Widgets
 - [ ] AI Chat
 - [ ] Table
-
-#### Ecosystem
-
-- [ ] Templates
 
 ## Installation
 
