@@ -8,4 +8,5 @@ export * from "./Input";
 export * from "./LinkButton";
 export * from "./Popover";
 export * from "./RadioGroup";
+export * from "./Select";
 export * from "./Tooltip";

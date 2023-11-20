@@ -11,7 +11,7 @@ Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3a
 - [ ] Radio
 - [ ] Toggle
 - [ ] Scroll bar
-- [ ] Dropdown
+- [x] Dropdown (SelectTrigger)
 - [ ] Tag
 - [ ] Background
 - [ ] Tooltip
@@ -20,7 +20,7 @@ Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3a
 
 #### Molecules
 
-- [ ] Menu items
+- [x] Menu items (SelectContent, SelectItem)
 - [ ] Select (Dropdown + Menu items)
 - [ ] Color picker
 - [ ] Sidebar
