@@ -3,8 +3,12 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Icon } from "common";
 import * as React from "react";
 import { cn } from "utils";
+import {
+  DropdownMenuContentVariants,
+  DropdownMenuItemVariants,
+} from "./DropdownMenu";
 
-const selectTriggerVariants = cva(
+export const SelectTriggerVariants = cva(
   [
     "BB-Select flex w-full items-center justify-between rounded-sm border body-xs-regular [&>span]:line-clamp-1",
     /* Light theme */
@@ -33,6 +37,16 @@ const selectTriggerVariants = cva(
   },
 );
 
+export const SelectContentVariants = cva(DropdownMenuContentVariants(), {
+  variants: {
+    position: {
+      popper:
+        "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+      "item-aligned": "",
+    },
+  },
+});
+
 const Select = SelectPrimitive.Root;
 
 const SelectGroup = SelectPrimitive.Group;
@@ -41,7 +55,7 @@ const SelectValue = SelectPrimitive.Value;
 
 interface SelectTriggerProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>,
-    VariantProps<typeof selectTriggerVariants> {}
+    VariantProps<typeof SelectTriggerVariants> {}
 
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
@@ -49,7 +63,7 @@ const SelectTrigger = React.forwardRef<
 >(({ className, children, size = "md", ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
-    className={cn(selectTriggerVariants({ size }), className)}
+    className={cn(SelectTriggerVariants({ size }), className)}
     {...props}
   >
     {children}
@@ -64,9 +78,13 @@ const SelectTrigger = React.forwardRef<
 ));
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
+interface SelectScrollUpButtonProps
+  extends React.ComponentPropsWithoutRef<
+    typeof SelectPrimitive.ScrollUpButton
+  > {}
 const SelectScrollUpButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
+  SelectScrollUpButtonProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollUpButton
     ref={ref}
@@ -81,9 +99,13 @@ const SelectScrollUpButton = React.forwardRef<
 ));
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
 
+interface SelectScrollDownButtonProps
+  extends React.ComponentPropsWithoutRef<
+    typeof SelectPrimitive.ScrollDownButton
+  > {}
 const SelectScrollDownButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
+  SelectScrollDownButtonProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollDownButton
     ref={ref}
@@ -103,26 +125,19 @@ const SelectScrollDownButton = React.forwardRef<
 SelectScrollDownButton.displayName =
   SelectPrimitive.ScrollDownButton.displayName;
 
+// @ts-ignore props overlapping
+interface SelectContentProps
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>,
+    VariantProps<typeof SelectContentVariants> {}
+
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
+  SelectContentProps
 >(({ className, children, position = "popper", ...props }, ref) => (
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
       ref={ref}
-      className={cn(
-        "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-sm border shadow-md body-xs-regular",
-        "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
-        "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
-        "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-        position === "popper" &&
-          "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
-        /* Light theme */
-        "border-grey-200 bg-white text-grey-750",
-        /* Dark theme */
-        "dark:border-dark-600 dark:bg-dark-700 dark:text-dark-100",
-        className,
-      )}
+      className={cn(SelectContentVariants({ position }), className)}
       position={position}
       {...props}
     >
@@ -142,9 +157,12 @@ const SelectContent = React.forwardRef<
 ));
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
+//! Didn't touch
+interface SelectLabelProps
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label> {}
 const SelectLabel = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
+  SelectLabelProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
@@ -154,21 +172,15 @@ const SelectLabel = React.forwardRef<
 ));
 SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
+interface SelectItemProps
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> {}
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
+  SelectItemProps
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Item
     ref={ref}
-    className={cn(
-      "relative flex w-full cursor-default select-none items-center rounded-sm p-1 pr-8 outline-none body-xs-regular",
-      "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-      /* Light theme */
-      "focus:bg-grey-50 focus:text-grey-750",
-      /* Dark theme */
-      "dark:focus:bg-dark-500 dark:focus:text-grey-100",
-      className,
-    )}
+    className={cn(DropdownMenuItemVariants(), className)}
     {...props}
   >
     <span className="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
@@ -186,9 +198,11 @@ const SelectItem = React.forwardRef<
 ));
 SelectItem.displayName = SelectPrimitive.Item.displayName;
 
+interface SelectSeparatorProps
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator> {}
 const SelectSeparator = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
+  SelectSeparatorProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Separator
     ref={ref}
