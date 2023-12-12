@@ -45,6 +45,17 @@ const buttonVariants = cva(
           "dark:focus-visible:text-grey-100 dark:focus-visible:ring-grey-300",
           "dark:disabled:border-dark-500 dark:disabled:bg-dark-850 dark:disabled:text-dark-600",
         ],
+        danger: [
+          "bg-danger-600 text-white",
+          "hover:bg-danger-700",
+          "focus-visible:ring-danger-200",
+          "disabled:bg-danger-300 disabled:text-grey-400",
+
+          "dark:bg-danger-600 dark:text-white",
+          "dark:hover:bg-danger-700",
+          "dark:focus-visible:ring-danger-200",
+          "dark:disabled:bg-danger-300 dark:disabled:text-dark-400",
+        ],
       },
       size: {
         xs: "px-2 py-1 body-xs-medium",
