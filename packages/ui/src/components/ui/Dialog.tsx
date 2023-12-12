@@ -49,7 +49,8 @@ const DialogContent = React.forwardRef<
       ref={ref}
       className={cn(
         "fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%]",
-        "flex w-[calc(100%-1rem*2)] max-w-xl flex-col gap-6 rounded-sm border border-grey-600 bg-grey-900 p-6 shadow-lg body-sm-regular",
+        "flex w-[calc(100%-1rem*2)] max-w-xl flex-col gap-6 rounded-sm border border-grey-600 bg-white p-6 shadow-lg body-sm-regular",
+        "dark:bg-dark-850",
         "md:gap-10 md:p-10 lg:max-w-[750px]",
         "data-[state=open]:duration-100 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
         "data-[state=open]:duration-200 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%]",
@@ -60,9 +61,9 @@ const DialogContent = React.forwardRef<
       {children}
       <DialogPrimitive.Close
         asChild
-        className="absolute right-6 top-6 md:right-10 md:top-10"
+        className="DialogXButton absolute right-6 top-6 md:right-10 md:top-10"
       >
-        <Button variant="ghost" icon className="h-7 w-7">
+        <Button variant="outlined" icon className="h-7 w-7 border-none">
           <Icon name="x" className="h-6 w-6" />
           <span className="sr-only">Close</span>
         </Button>
