@@ -1,8 +1,6 @@
 export * from "common/src/components/Icon";
 
-export * from "@openbb/ui/src/components/ui/Button";
-export * from "@openbb/ui/src/components/ui/Checkbox";
-export * from "@openbb/ui/src/components/ui/Form";
-export * from "@openbb/ui/src/components/ui/RadioGroup";
+export * from "@openbb/ui/src/components/dialogs/index";
+export * from "@openbb/ui/src/components/ui/index";
 
 export * from "./ui/Tabs";

@@ -4,7 +4,7 @@ import * as React from "react";
 
 import { cn } from "utils";
 
-const buttonVariants = cva(
+export const ghostButtonVariants = cva(
   [
     "BB-GhostButton group inline-flex items-center justify-center rounded-sm px-1 ring-offset-background",
     "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-grey-200",
@@ -42,35 +42,34 @@ const buttonVariants = cva(
 
 export interface GhostButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+    VariantProps<typeof ghostButtonVariants> {
   /** Apply props and styles to child component  */
   asChild?: boolean;
 }
 
-const GhostButton = React.forwardRef<HTMLButtonElement, GhostButtonProps>(
-  (props, ref) => {
-    const {
-      className,
-      size = "md",
-      icon = false,
-      asChild = false,
-      children,
-      ...rest
-    } = props;
-    const Comp = asChild ? Slot : "button";
-    return (
-      <Comp
-        className={cn(buttonVariants({ size, icon }), className)}
-        ref={ref}
-        {...rest}
-      >
-        <span className="inline-flex items-center justify-center border-b border-inherit transition group-focus-visible:rounded-md group-focus-visible:px-1">
-          {children}
-        </span>
-      </Comp>
-    );
-  },
-);
+export const GhostButton = React.forwardRef<
+  HTMLButtonElement,
+  GhostButtonProps
+>((props, ref) => {
+  const {
+    className,
+    size = "md",
+    icon = false,
+    asChild = false,
+    children,
+    ...rest
+  } = props;
+  const Comp = asChild ? Slot : "button";
+  return (
+    <Comp
+      className={cn(ghostButtonVariants({ size, icon }), className)}
+      ref={ref}
+      {...rest}
+    >
+      <span className="inline-flex items-center justify-center border-b border-inherit transition group-focus-visible:rounded-md group-focus-visible:px-1">
+        {children}
+      </span>
+    </Comp>
+  );
+});
 GhostButton.displayName = "GhostButton";
-
-export { buttonVariants, GhostButton };
