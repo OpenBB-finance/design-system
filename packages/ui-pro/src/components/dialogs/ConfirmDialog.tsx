@@ -43,7 +43,7 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
     cancelText = "Cancel",
   } = props;
 
-  const dialogClasses = cn("gap-4 md:gap-6", className);
+  const dialogClasses = cn("gap-4", className);
 
   function renderConfirmButton() {
     if ("confirmButton" in props) return props.confirmButton;
@@ -51,7 +51,7 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
     const { confirmText = "Confirm", onConfirm } = props;
 
     return (
-      <Button variant="primary" onClick={onConfirm}>
+      <Button variant="primary" size="sm" onClick={onConfirm}>
         {confirmText}
       </Button>
     );
@@ -62,7 +62,7 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
       <DialogFooter>
         {renderConfirmButton()}
         <DialogClose asChild>
-          <Button variant="secondary" onClick={onClose}>
+          <Button variant="secondary" size="sm" onClick={onClose}>
             {cancelText}
           </Button>
         </DialogClose>
