@@ -25,7 +25,6 @@
     "postversion": "npm run build"
   },
   "dependencies": {
-    "@radix-ui/react-tabs": "^1.0.4",
     "common": "*",
     "utils": "*"
   }
