@@ -34,19 +34,19 @@ const Checkbox = React.forwardRef<
           "transition",
           // Light theme
           "border-grey-400",
-          "hover:border-grey-600 hover:bg-grey-50",
+          "hover:enabled:border-grey-600 hover:enabled:bg-grey-50",
           "focus-visible:bg-white focus-visible:text-white",
           "disabled:border-grey-300 disabled:bg-grey-100",
           "data-[state=checked]:border-grey-800 data-[state=checked]:bg-grey-800 data-[state=checked]:text-grey-100",
-          "data-[state=checked]:hover:border-grey-900 data-[state=checked]:hover:bg-grey-900 data-[state=checked]:hover:text-white",
+          "data-[state=checked]:hover:enabled:border-grey-900 data-[state=checked]:hover:enabled:bg-grey-900 data-[state=checked]:hover:enabled:text-white",
           "data-[state=checked]:disabled:border-grey-300 data-[state=checked]:disabled:bg-grey-300 data-[state=checked]:disabled:text-grey-400",
           // Dark theme
           "dark:border-dark-50",
-          "dark:hover:border-grey-400 dark:hover:bg-grey-850",
+          "dark:hover:enabled:border-grey-400 dark:hover:enabled:bg-grey-850",
           "dark:focus-visible:border-dark-100 dark:focus-visible:bg-transparent dark:focus-visible:text-grey-900",
           "dark:disabled:border-dark-400 dark:disabled:bg-dark-800",
           "dark:data-[state=checked]:border-grey-50 dark:data-[state=checked]:bg-grey-50 dark:data-[state=checked]:text-grey-900",
-          "dark:data-[state=checked]:hover:border-grey-200 dark:data-[state=checked]:hover:bg-grey-200 dark:data-[state=checked]:hover:text-grey-900",
+          "dark:data-[state=checked]:hover:enabled:border-grey-200 dark:data-[state=checked]:hover:enabled:bg-grey-200 dark:data-[state=checked]:hover:enabled:text-grey-900",
           "dark:data-[state=checked]:disabled:border-dark-400 dark:data-[state=checked]:disabled:bg-dark-400 dark:data-[state=checked]:disabled:text-dark-800",
 
           label && "mt-[3px]",

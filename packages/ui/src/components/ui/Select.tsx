@@ -11,14 +11,15 @@ import {
 export const SelectTriggerVariants = cva(
   [
     "BB-Select flex w-full items-center justify-between rounded-sm border body-xs-regular [&>span]:line-clamp-1",
+    "transition",
     /* Light theme */
     "border-grey-200 bg-white text-grey-700 placeholder:text-grey-500",
-    "hover:text-grey-900",
+    "hover:enabled:text-grey-900",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-grey-300",
     "disabled:cursor-not-allowed disabled:border-grey-200 disabled:bg-grey-200 disabled:text-grey-400 disabled:placeholder:text-grey-400",
     /* Dark theme */
     "dark:border-dark-600 dark:bg-dark-800 dark:text-grey-400 dark:placeholder:text-grey-500",
-    "dark:hover:border-dark-400 dark:hover:bg-dark-600 dark:hover:text-grey-300",
+    "dark:hover:enabled:border-dark-400 dark:hover:enabled:bg-dark-600 dark:hover:enabled:text-grey-300",
     "dark:focus-visible:ring-dark-50",
     "dark:disabled:border-dark-750 dark:disabled:bg-dark-800 dark:disabled:text-dark-400 dark:disabled:placeholder:text-dark-400",
   ],
