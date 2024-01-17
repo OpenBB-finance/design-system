@@ -68,4 +68,21 @@ const RadioGroupItem = React.forwardRef<
 });
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
 
-export { RadioGroup, RadioGroupItem };
+interface RadioGroupLabelProps extends React.ComponentPropsWithoutRef<"div"> {}
+const RadioGroupLabel = React.forwardRef<
+  React.ElementRef<React.FC>,
+  RadioGroupLabelProps
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "mb-1.5 text-grey-400 body-xs-regular",
+      "dark:text-dark-50",
+      className,
+    )}
+    {...props}
+  />
+));
+RadioGroupLabel.displayName = "RadioGroupLabel";
+
+export { RadioGroup, RadioGroupItem, RadioGroupLabel };
