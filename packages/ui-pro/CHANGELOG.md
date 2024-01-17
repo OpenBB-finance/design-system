@@ -1,5 +1,13 @@
 # @openbb/ui-pro
 
+## 0.3.8
+
+### Patch Changes
+
+- Fixed radio group styles
+- Added RadioGroupLabel component
+- Fixed SelectLabel style
+
 ## 0.3.7
 
 ### Patch Changes
