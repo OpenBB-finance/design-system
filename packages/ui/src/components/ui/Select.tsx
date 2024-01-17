@@ -157,7 +157,6 @@ const SelectContent = React.forwardRef<
 ));
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
-//! Didn't touch
 interface SelectLabelProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label> {}
 const SelectLabel = React.forwardRef<
@@ -166,7 +165,11 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cn("py-1.5 pl-8 pr-2 text-sm font-semibold", className)}
+    className={cn(
+      "mb-1.5 text-grey-400 body-xs-regular",
+      "dark:text-dark-50",
+      className,
+    )}
     {...props}
   />
 ));
