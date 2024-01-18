@@ -21,6 +21,12 @@
   hr {
     @apply border-grey-600;
   }
+
+  input.BB-Input[type="date"]::-webkit-inner-spin-button,
+  input.BB-Input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+  }
 }
 
 /* Fonts */

@@ -50,7 +50,7 @@ const groupVariants = cva(
 
 const inputVariants = cva(
   [
-    "flex w-full border-none bg-transparent",
+    "BB-Input flex w-full border-none bg-transparent",
     "file:border-0 file:bg-transparent file:text-sm file:font-medium",
     "disabled:cursor-not-allowed disabled:bg-transparent",
     "focus-visible:outline-none",

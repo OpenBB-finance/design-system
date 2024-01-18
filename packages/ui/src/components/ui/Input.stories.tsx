@@ -1,9 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Icon } from "common";
-import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Form, FormField } from "./Form";
+import { Form, FormField, useForm } from "./Form";
 import { Input } from "./Input";
 
 const meta = {
@@ -111,6 +110,15 @@ export const PrefixAndSuffix: Story = {
     ...Default.args,
     prefix: <Icon name="calendar" className="h-4 w-4" />,
     suffix: <Icon name="calendar" className="h-4 w-4" />,
+  },
+  render,
+};
+
+export const DatePicker: Story = {
+  args: {
+    type: "date",
+    label: "Date of birth",
+    defaultValue: "2019-03-12",
   },
   render,
 };
