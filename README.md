@@ -143,6 +143,8 @@ npm run publish-packages
 
 ### Chromatic (will be removed after CI integration)
 
+You can look at [Storybook](https://64e3853d29abbc78e8331735-byynxcbmzt.chromatic.com/?path=/docs/common-colors--docs) online, run visual tests and see differences between versions at [Chromatic]()
+
 ```bash
 npm run chromatic
 ```

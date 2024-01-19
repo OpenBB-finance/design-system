@@ -40,7 +40,7 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-onboarding"),
     getAbsolutePath("@storybook/addon-interactions"),
     {
-      name: "@storybook/addon-styling",
+      name: getAbsolutePath("@storybook/addon-themes"),
       options: {},
     },
   ],
