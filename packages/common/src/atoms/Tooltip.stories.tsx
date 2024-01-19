@@ -22,14 +22,16 @@ type Story = StoryObj<typeof meta>;
 
 const render: Story["render"] = (args) => {
   return (
-    <TooltipProvider>
-      <Tooltip {...args}>
-        <TooltipTrigger>
-          <Button>Hover me</Button>
-        </TooltipTrigger>
-        <TooltipContent>You hovered the button</TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <div className="p-4">
+      <TooltipProvider>
+        <Tooltip {...args}>
+          <TooltipTrigger>
+            <Button>Hover me</Button>
+          </TooltipTrigger>
+          <TooltipContent>You hovered the button</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    </div>
   );
 };
 

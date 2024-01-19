@@ -38,7 +38,7 @@ const render: Story["render"] = (args) => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSubmit)}>
+      <form className="p-4" onSubmit={form.handleSubmit(handleSubmit)}>
         <FormField
           name="name"
           control={form.control}

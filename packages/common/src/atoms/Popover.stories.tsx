@@ -17,12 +17,14 @@ type Story = StoryObj<typeof meta>;
 
 const render: Story["render"] = (args) => {
   return (
-    <Popover {...args}>
-      <PopoverTrigger>
-        <Button>Click me</Button>
-      </PopoverTrigger>
-      <PopoverContent>You clicked the button</PopoverContent>
-    </Popover>
+    <div className="p-4">
+      <Popover {...args}>
+        <PopoverTrigger>
+          <Button>Click me</Button>
+        </PopoverTrigger>
+        <PopoverContent>You clicked the button</PopoverContent>
+      </Popover>
+    </div>
   );
 };
 

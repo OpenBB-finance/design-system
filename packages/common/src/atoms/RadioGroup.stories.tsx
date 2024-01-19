@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 const render: Story["render"] = (args) => {
   return (
-    <RadioGroup className="flex items-end gap-4" defaultValue="2">
+    <RadioGroup className="flex items-end gap-4 p-4" defaultValue="2">
       <div
         className={cn(
           "flex flex-col items-center gap-4",

@@ -30,7 +30,7 @@ const render: Story["render"] = (args) => {
   }, []);
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-4">
+    <div className="flex flex-wrap items-center justify-center gap-4 p-4">
       {names.map((name: string) => (
         <div key={name} className="flex flex-col items-center gap-2">
           <Icon {...args} name={name} />
