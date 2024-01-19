@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.4.1
+
+### Patch Changes
+
+- fix export conflict
+
 ## 0.4.0
 
 ### Minor Changes
