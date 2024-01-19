@@ -1,6 +1,6 @@
 {
   "name": "@openbb/design-system",
-  "version": "0.3.6",
+  "version": "0.4.0",
   "homepage": "http://openbb-finance.github.io/design-system",
   "description": "OpenBB UI is a React component library for OpenBB Finance",
   "author": {
@@ -15,7 +15,7 @@
     "build": "vite build",
     "lint": "npx eslint src --fix && npx prettier --write src",
     "storybook": "npm run dev -w workshop",
-    "publish-packages": "turbo run lint && changeset version && turbo run build && changeset publish",
+    "publish-packages": "turbo run lint && changeset version && turbo run build && changeset publish && npm run chromatic",
     "chromatic": "npm run chromatic -w workshop"
   },
   "dependencies": {
