@@ -2,8 +2,8 @@
   "name": "@openbb/ui-pro",
   "version": "0.3.8",
   "sideEffects": false,
-  "main": "./dist/lib.es.js",
-  "types": "./dist/lib.d.ts",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
   "exports": {
     ".": {
       "import": "./dist/lib.es.js",

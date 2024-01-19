@@ -21,7 +21,7 @@ const meta = {
         type: "text",
       },
     },
-    description: {
+    children: {
       control: {
         type: "text",
       },
@@ -33,10 +33,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const render: Story["render"] = (args) => {
-  const { variant, title, description } = args;
+  const { variant, title, children } = args;
   return (
     <Alert variant={variant} title={title} onClose={true}>
-      {description}
+      {children}
     </Alert>
   );
 };
@@ -47,7 +47,7 @@ export const Success: Story = {
   args: {
     variant: "success",
     title: "Something went good",
-    description: "Operation completed successfully",
+    children: "Operation completed successfully",
   },
   render,
 };
@@ -56,7 +56,7 @@ export const Error: Story = {
   args: {
     variant: "error",
     title: "Something went wrong",
-    description: "Please try again later",
+    children: "Please try again later",
   },
   render,
 };
@@ -65,7 +65,7 @@ export const Warning: Story = {
   args: {
     variant: "warning",
     title: "Something need your attention",
-    description: "Please check your input",
+    children: "Please check your input",
   },
   render,
 };
@@ -74,7 +74,7 @@ export const Info: Story = {
   args: {
     variant: "info",
     title: "Something you need to know",
-    description: "Please read carefully",
+    children: "Please read carefully",
   },
   render,
 };

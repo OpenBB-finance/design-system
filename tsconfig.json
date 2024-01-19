@@ -1,0 +1,18 @@
+{
+  "extends": "common/tsconfig.json",
+  // "include": ["./src/**/*.ts", "./src/**/*.tsx", "plugins/typography.ts"],
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "plugins/typography.ts",
+    "../common/src/**/*.tsx",
+    "../ui/src/**/*.tsx"
+  ],
+  "compilerOptions": {
+    "paths": {
+      // "@openbb/ui/*": ["../ui/*"],
+      // "ui/*": ["../ui/*"],
+      // "common/*": ["../common/*"]
+    }
+  }
+}

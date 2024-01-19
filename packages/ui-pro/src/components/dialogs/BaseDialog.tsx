@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "./Dialog";
 
 export interface BaseDialogProps {

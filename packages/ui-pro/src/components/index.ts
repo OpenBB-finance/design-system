@@ -1,2 +1,3 @@
-// export * from "./dialogs";
 export * from "./ui";
+
+export * from "./dialogs";

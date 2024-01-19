@@ -37,19 +37,32 @@ Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3a
 - [ ] AI Chat
 - [ ] Table
 
+## Compatibility
+
+This library is compatible with `React 18+`.
+
+For bundle tool, please use `Vite 4`. Other bundlers haven't tested and might cause errors because of ES6 modules.
+Type hints are available for TypeScript users without .d.ts files because of using this [pattern](https://turbo.build/blog/you-might-not-need-typescript-project-references#internal-typescript-packages)
+
 ## Installation
 
 This library requires TailwindCSS to be installed in your project.
 
 ```bash
-npm i -S openbb-ui tailwindcss tailwindcss-animate
+npm i -S @openbb/ui tailwindcss tailwindcss-animate
+```
+
+or
+
+```bash
+npm i -S @openbb/ui-pro tailwindcss tailwindcss-animate
 ```
 
 Then add TailwindCSS into your `tailwind.config.js`:
 
 ```js
 import type { Config } from "tailwindcss";
-import ui from "openbb-ui/tailwind.config";
+import ui from "@openbb/ui/tailwind.config";
 
 export default {
   ...ui,
@@ -64,7 +77,7 @@ export default {
 And finally, import styles into your code:
 
 ```css
-@import "openbb-ui/dist/style.css";
+@import "@openbb/ui/dist/style.css";
 ```
 
 ## Development
@@ -113,10 +126,16 @@ npm run build
 
 ## Publish
 
+At first, create a changeset. Follow instructions in terminal, pick modified packages and bump versions:
+
 ```bash
-npm version patch
-npm run build
-npm publish
+npx changeset
+```
+
+Then, run this command
+
+```bash
+npm run publish-packages
 ```
 
 ### Chromatic (will be removed after CI integration)

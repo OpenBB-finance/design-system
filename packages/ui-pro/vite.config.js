@@ -2,7 +2,6 @@ import react from "@vitejs/plugin-react";
 import { execSync } from "child_process";
 import path from "path";
 import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import packageData from "./package.json";
 
@@ -27,7 +26,7 @@ export default defineConfig({
         lib: "src/index.ts",
         tailwind: "tailwind.config.ts",
       },
-      name: "OpenBB UI Pro",
+      name: "UIPro",
       fileName: (format, name) => `${name}.${format}.js`,
     },
     rollupOptions: {
@@ -45,12 +44,10 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    dts({
-      // entryRoot: path.resolve(__dirname, "./dist"),
-      // entryRoot: "src",
-      // rollupTypes: true, //! <- this shit breaks lint and build
-      insertTypesEntry: true,
-    }),
+    // dts({
+    //   entryRoot: "src",
+    //   rollupTypes: true, //! <- this shit breaks lint and build
+    // }),
     createSvgIconsPlugin({
       iconDirs: [path.resolve(__dirname, "../common/src/icons")],
       symbolId: "icon-[dir]-[name]",
