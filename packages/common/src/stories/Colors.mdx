@@ -7,7 +7,7 @@ export function StoriesColor(props) {
   const { title, value, className } = props;
   return (
     <div
-      className="flex flex-col items-center justify-center text-xs"
+      className="flex flex-col items-center justify-center text-xs text-grey-100 dark:text-black"
       style={{ width: "80px", gap: "4px" }}
     >
       <div
@@ -19,12 +19,7 @@ export function StoriesColor(props) {
           backgroundColor: value,
         }}
       />
-      <div
-        className="text-foreground"
-        style={{ whiteSpace: "nowrap", textAlign: "center" }}
-      >
-        {title}
-      </div>
+      <div style={{ whiteSpace: "nowrap", textAlign: "center" }}>{title}</div>
       <div className="text-grey-400">{value}</div>
     </div>
   );
@@ -36,7 +31,14 @@ export function renderPalette(name) {
   ));
 }
 
-<Meta title="Colors" />
+<Meta
+  title="Colors"
+  parameters={{
+    themes: {
+      themeOverride: "dark",
+    },
+  }}
+/>
 
 # Colors
 

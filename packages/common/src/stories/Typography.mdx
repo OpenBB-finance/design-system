@@ -1,6 +1,13 @@
 import { Meta } from "@storybook/blocks";
 
-<Meta title="Typography" />
+<Meta
+  title="Typography"
+  parameters={{
+    themes: {
+      themeOverride: "dark",
+    },
+  }}
+/>
 
 # Typography
 
@@ -11,13 +18,13 @@ import { Meta } from "@storybook/blocks";
 Use typography names as they are in Figma, but with some differences:
 
 - Lowercase name and replace `/` with `-` in class names
-- Replace `s` -> `sm`, `m` -> `md`, `l` -> `lg` in class names
+- Replace `S` -> `sm`, `M` -> `md`, `L` -> `lg` in class names
 
 Example: `TITLE/L/BOLD` -> `.title-lg-bold`
 
 ## Examples
 
-<div className="sb-unstyled grid min-w-[1000px] grid-cols-3 gap-2">
+<div className="sb-unstyled grid min-w-[1000px] grid-cols-3 gap-2 text-grey-100">
   <div className="col-span-3 flex flex-col gap-2">
     <div className="title-xl-bold">Title/XL/BOLD</div>
     <div className="title-xl-medium">Title/XL/MEDIUM</div>
@@ -45,7 +52,7 @@ Example: `TITLE/L/BOLD` -> `.title-lg-bold`
   </>
 </div>
 
-<div className="sb-unstyled mt-16 grid min-w-[1000px] grid-cols-3 gap-2">
+<div className="sb-unstyled mt-16 grid min-w-[1000px] grid-cols-3 gap-2 text-grey-100">
   <>
     <div className="subtitle-xl-bold">Subtitle/XL/BOLD</div>
     <div className="subtitle-xl-medium">Subtitle/XL/MEDIUM</div>
@@ -61,9 +68,24 @@ Example: `TITLE/L/BOLD` -> `.title-lg-bold`
     <div className="subtitle-md-medium">Subtitle/M/MEDIUM</div>
     <div className="subtitle-md-regular">Subtitle/M/REGULAR</div>
   </>
+  <>
+    <div className="subtitle-sm-bold">Subtitle/S/BOLD</div>
+    <div className="subtitle-sm-medium">Subtitle/S/MEDIUM</div>
+    <div className="subtitle-sm-regular">Subtitle/S/REGULAR</div>
+  </>
+  <>
+    <div className="subtitle-xs-bold">Subtitle/XS/BOLD</div>
+    <div className="subtitle-xs-medium">Subtitle/XS/MEDIUM</div>
+    <div className="subtitle-xs-regular">Subtitle/XS/REGULAR</div>
+  </>
+  <>
+    <div className="subtitle-xs2-bold">Subtitle/XS2/BOLD</div>
+    <div className="subtitle-xs2-medium">Subtitle/XS2/MEDIUM</div>
+    <div className="subtitle-xs2-regular">Subtitle/XS2/REGULAR</div>
+  </>
 </div>
 
-<div className="sb-unstyled mt-16 grid min-w-[1000px] grid-cols-3 gap-2">
+<div className="sb-unstyled mt-16 grid min-w-[1000px] grid-cols-3 gap-2 text-grey-100">
   <>
     <div className="body-xl-bold">Body/XL/BOLD</div>
     <div className="body-xl-medium">Body/XL/MEDIUM</div>
