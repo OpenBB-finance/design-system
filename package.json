@@ -16,7 +16,7 @@
     "lint": "npx eslint src --fix && npx prettier --write src",
     "storybook": "npm run dev -w workshop",
     "publish-packages": "turbo run lint && changeset version && turbo run build && changeset publish && npm run chromatic",
-    "chromatic": "npm run chromatic -w workshop"
+    "chromatic": "npm run -w workshop chromatic"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.1",

@@ -39,6 +39,14 @@ const render: Story["render"] = (args) => {
   );
 };
 
+const renderSimple: Story["render"] = (args) => {
+  return (
+    <ThemedPreview>
+      <Checkbox {...args} />
+    </ThemedPreview>
+  );
+};
+
 /* Variants */
 
 export const Primary: Story = {
@@ -50,6 +58,7 @@ export const WithLabel: Story = {
   args: {
     label: "Remember me",
   },
+  render: renderSimple,
 };
 
 export const MultilineLabel: Story = {
@@ -62,6 +71,7 @@ export const MultilineLabel: Story = {
       </>
     ),
   },
+  render: renderSimple,
 };
 
 export const Error: Story = {
@@ -69,4 +79,5 @@ export const Error: Story = {
     label: "Remember me",
     error: true,
   },
+  render: renderSimple,
 };

@@ -15,7 +15,7 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      // default: "dark",
+      default: "light",
       values: [
         { name: "light", value: "#fff" },
         { name: "dark", value: "#131313" },
@@ -31,10 +31,10 @@ const preview: Preview = {
     // NOTE: requires setting "darkMode" to "class" in your tailwind config
     withThemeByClassName<ReactRenderer>({
       themes: {
-        light: "light",
+        light: "",
         dark: "dark",
       },
-      defaultTheme: "dark",
+      defaultTheme: "light",
     }),
   ],
 };
