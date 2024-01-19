@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Icon } from "common";
+import ThemedPreview from "utils/src/ThemedPreview";
 import { Button } from "./Button";
 
 const meta = {
@@ -17,19 +18,21 @@ type Story = StoryObj<typeof meta>;
 
 const render: Story["render"] = (args) => {
   return (
-    <div className="flex items-end gap-4 p-4">
-      <div className="flex flex-col items-center gap-4">
-        <Button {...args} />
+    <ThemedPreview>
+      <div className="flex items-end gap-4">
+        <div className="flex flex-col items-center gap-4">
+          <Button {...args} />
+        </div>
+        <div className="flex flex-col items-center gap-4">
+          <span className="text-xs text-grey-300">:disabled</span>
+          <Button {...args} disabled />
+        </div>
+        <div className="flex flex-col items-center gap-4">
+          <span className="text-xs text-grey-300">:focus</span>
+          <Button {...args} autoFocus />
+        </div>
       </div>
-      <div className="flex flex-col items-center gap-4">
-        <span className="text-xs text-grey-300">:disabled</span>
-        <Button {...args} disabled />
-      </div>
-      <div className="flex flex-col items-center gap-4">
-        <span className="text-xs text-grey-300">:focus</span>
-        <Button {...args} autoFocus />
-      </div>
-    </div>
+    </ThemedPreview>
   );
 };
 
