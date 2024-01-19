@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { CopyButton } from "./CopyButton";
 
 const meta = {
-  title: "UI/CopyButton",
+  title: "Atoms/CopyButton",
   component: CopyButton,
   parameters: {
     layout: "centered",

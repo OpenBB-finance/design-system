@@ -11,7 +11,7 @@ import {
 } from "./DropdownMenu";
 
 const meta = {
-  title: "UI/DropdownMenu",
+  title: "Atoms/DropdownMenu",
   component: DropdownMenu,
   parameters: {
     layout: "centered",

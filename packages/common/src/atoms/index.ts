@@ -4,6 +4,7 @@ export * from "./Checkbox";
 export * from "./CopyButton";
 export * from "./Form";
 export * from "./GhostButton";
+export * from "./Icon";
 export * from "./Input";
 export * from "./LinkButton";
 export * from "./Popover";

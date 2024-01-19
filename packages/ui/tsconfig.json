@@ -1,4 +1,34 @@
 {
   "extends": "common/tsconfig.json",
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "plugins/typography.ts"]
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "plugins/typography.ts",
+    "../common/src/atoms/Alert.stories.tsx",
+    "../common/src/atoms/Alert.tsx",
+    "../common/src/atoms/Button.stories.tsx",
+    "../common/src/atoms/Button.tsx",
+    "../common/src/atoms/Checkbox.stories.tsx",
+    "../common/src/atoms/Checkbox.tsx",
+    "../common/src/atoms/CopyButton.stories.tsx",
+    "../common/src/atoms/CopyButton.tsx",
+    "../common/src/atoms/DropdownMenu.stories.tsx",
+    "../common/src/atoms/DropdownMenu.tsx",
+    "../common/src/atoms/Form.tsx",
+    "../common/src/atoms/GhostButton.stories.tsx",
+    "../common/src/atoms/GhostButton.tsx",
+    "../common/src/atoms/Input.stories.tsx",
+    "../common/src/atoms/Input.tsx",
+    "../common/src/atoms/Label.tsx",
+    "../common/src/atoms/LinkButton.stories.tsx",
+    "../common/src/atoms/LinkButton.tsx",
+    "../common/src/atoms/Popover.stories.tsx",
+    "../common/src/atoms/Popover.tsx",
+    "../common/src/atoms/RadioGroup.stories.tsx",
+    "../common/src/atoms/RadioGroup.tsx",
+    "../common/src/atoms/Select.stories.tsx",
+    "../common/src/atoms/Select.tsx",
+    "../common/src/atoms/Tooltip.stories.tsx",
+    "../common/src/atoms/Tooltip.tsx"
+  ]
 }

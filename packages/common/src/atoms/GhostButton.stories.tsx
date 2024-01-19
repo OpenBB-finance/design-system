@@ -4,7 +4,7 @@ import { Icon } from "common";
 import { GhostButton } from "./GhostButton";
 
 const meta = {
-  title: "UI/GhostButton",
+  title: "Atoms/GhostButton",
   component: GhostButton,
   parameters: {
     layout: "centered",

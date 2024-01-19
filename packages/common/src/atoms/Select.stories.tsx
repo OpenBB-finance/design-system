@@ -9,7 +9,7 @@ import {
 } from "./Select";
 
 const meta = {
-  title: "UI/Select",
+  title: "Atoms/Select",
   component: SelectTrigger,
   parameters: {
     layout: "centered",

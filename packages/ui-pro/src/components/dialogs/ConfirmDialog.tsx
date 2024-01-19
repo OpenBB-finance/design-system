@@ -2,7 +2,7 @@ import { type ReactNode } from "react";
 
 import { cn } from "utils";
 
-import { Button } from "../ui";
+import { Button } from "../atoms";
 import { BaseDialog, type BaseDialogProps } from "./BaseDialog";
 import {
   DialogClose,

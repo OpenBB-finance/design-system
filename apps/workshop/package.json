@@ -13,8 +13,9 @@
     "chromatic": "npx chromatic --project-token=chpt_495dd3e21df316c"
   },
   "dependencies": {
-    "@openbb/ui": "*",
     "common": "*",
+    "@openbb/ui": "*",
+    "@openbb/ui-pro": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

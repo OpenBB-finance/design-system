@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { useState } from "react";
-import { Button } from "../ui";
+import { Button } from "../atoms";
 import { ConfirmDialog } from "./ConfirmDialog";
 
 const meta = {
-  title: "Dialogs/ConfirmDialog",
+  title: "Molecules/ConfirmDialog",
   component: ConfirmDialog,
   parameters: {
     layout: "centered",

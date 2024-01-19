@@ -4,7 +4,7 @@ import { cn } from "utils";
 import { RadioGroup, RadioGroupItem } from "./RadioGroup";
 
 const meta = {
-  title: "UI/RadioGroup",
+  title: "Atoms/RadioGroup",
   component: RadioGroupItem,
   parameters: {
     layout: "centered",

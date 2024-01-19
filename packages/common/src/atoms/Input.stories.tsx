@@ -6,7 +6,7 @@ import { Form, FormField, useForm } from "./Form";
 import { Input } from "./Input";
 
 const meta = {
-  title: "UI/Input",
+  title: "Atoms/Input",
   component: Input,
   parameters: {
     layout: "centered",

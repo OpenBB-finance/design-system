@@ -5,7 +5,7 @@ import { useMemo } from "react";
 import { Icon } from "./Icon";
 
 const meta = {
-  title: "UI/Icon",
+  title: "Atoms/Icon",
   component: Icon,
   parameters: {
     layout: "centered",

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Alert } from "./Alert";
 
 const meta = {
-  title: "UI/Alert",
+  title: "Atoms/Alert",
   component: Alert,
   parameters: {
     layout: "centered",

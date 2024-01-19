@@ -9,7 +9,7 @@ import {
 } from "./Tooltip";
 
 const meta = {
-  title: "UI/Tooltip",
+  title: "Atoms/Tooltip",
   component: TooltipContent,
   parameters: {
     layout: "centered",

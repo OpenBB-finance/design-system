@@ -25,7 +25,6 @@
     "postversion": "npm run build"
   },
   "dependencies": {
-    "@openbb/ui": "*",
     "common": "*",
     "utils": "*"
   }
