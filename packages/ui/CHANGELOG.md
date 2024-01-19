@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.3.9
+
+### Patch Changes
+
+- fix(common): include useForm hook to exports
+
 ## 0.3.8
 
 ### Patch Changes
