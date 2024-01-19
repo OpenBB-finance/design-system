@@ -1,7 +1,7 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import * as React from "react";
 
-import { Icon } from "common/src/components/Icon";
+import { Icon } from "common";
 import { cn } from "utils";
 import { Button } from "../ui";
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-import { Icon } from "common/src/components/Icon";
+import { Icon } from "common";
 import { sleep } from "utils";
 
 import { Popover, PopoverContent, PopoverTrigger } from "./Popover";

@@ -5,6 +5,7 @@
       "~/*": ["./src/*"]
     },
     "allowJs": true,
+    "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

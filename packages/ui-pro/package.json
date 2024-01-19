@@ -3,7 +3,7 @@
   "version": "0.3.8",
   "sideEffects": false,
   "main": "./dist/lib.es.js",
-  "types": "./dist/lib.es.d.ts",
+  "types": "./dist/lib.d.ts",
   "exports": {
     ".": {
       "import": "./dist/lib.es.js",
@@ -25,6 +25,7 @@
     "postversion": "npm run build"
   },
   "dependencies": {
+    "@openbb/ui": "*",
     "common": "*",
     "utils": "*"
   }

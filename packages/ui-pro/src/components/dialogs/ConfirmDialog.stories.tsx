@@ -50,6 +50,7 @@ export const Stateless: Story = {
   args: {
     title: "Do you really want to delete thing?",
     description: "This action cannot be undone.",
+    onConfirm: () => {},
   },
   render,
 };
@@ -59,6 +60,7 @@ export const Stateful: Story = {
     open: true,
     title: "Do you really want to delete thing?",
     description: "This action cannot be undone.",
+    onConfirm: () => {},
   },
   render: renderStateful,
 };

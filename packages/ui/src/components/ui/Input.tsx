@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 import React, { useEffect, useState } from "react";
 
-import { Icon } from "common/src/components/Icon";
+import { Icon } from "common";
 import { cn } from "utils";
 
 import { CopyButton } from "./CopyButton";

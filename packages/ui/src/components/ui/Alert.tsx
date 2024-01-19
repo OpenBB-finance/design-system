@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
-import { Icon } from "common/src/components/Icon";
+import { Icon } from "common";
 import { cn } from "utils";
 
 const alertVariants = cva(
