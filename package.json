@@ -15,7 +15,8 @@
     "build": "vite build",
     "lint": "npx eslint src --fix && npx prettier --write src",
     "storybook": "npm run dev -w workshop",
-    "publish-packages": "turbo run lint && changeset version && turbo run build && changeset publish"
+    "publish-packages": "turbo run lint && changeset version && turbo run build && changeset publish",
+    "chromatic": "npm run chromatic -w workshop"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.1",

@@ -2,19 +2,20 @@
 
 Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3ajbr7lw/Styleguide?type=design&node-id=23-26&mode=design&t=ACcxkQNaADUUe1PL-4) and [Molecules](https://www.figma.com/file/zrku7cFZzdFFswOL5snYCj/Components---Molecules?type=design&node-id=1-5186&mode=dev).
 
-## 0.3 Work in progress:
+## 0.4 Work in progress:
 
 #### Atoms
 
 - [x] Button
 - [x] Checkbox
-- [ ] Radio
+- [x] CopyButton
+- [x] RadioGroup
 - [ ] Toggle
 - [ ] Scroll bar
 - [x] Dropdown (SelectTrigger, DropdownItem)
 - [ ] Tag
 - [ ] Background
-- [ ] Tooltip
+- [x] Tooltip & Popover
 - [ ] Loader
 - [x] Input
 
@@ -25,13 +26,15 @@ Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3a
 - [ ] Color picker
 - [ ] Sidebar
 - [ ] Chips
-- [ ] Modal
+- [x] Dialog (Modal)
+- [x] BaseDialog
+- [x] ConfirmDialog
 - [ ] Tab
 - [ ] Error
 - [x] Toast message (Alert)
 - [ ] Calendar
 
-#### Organisms
+#### Organisms (Not sure about this should be in design system)
 
 - [ ] Widgets
 - [ ] AI Chat

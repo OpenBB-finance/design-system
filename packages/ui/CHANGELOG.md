@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.4.0
+
+### Minor Changes
+
+- fix(common): move components to common folder
+
 ## 0.3.9
 
 ### Patch Changes
