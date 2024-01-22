@@ -37,7 +37,7 @@ const RadioGroupItem = React.forwardRef<
       <RadioGroupPrimitive.Item
         ref={ref}
         className={cn(
-          "aspect-square h-4 w-4 rounded-full border border-grey-800 text-grey-800 ring-offset-background",
+          "peer aspect-square h-4 w-4 rounded-full border border-grey-800 text-grey-800 ring-offset-background",
           "flex items-center justify-center",
           "transition",
           "hover:enabled:border-black hover:enabled:text-black",
@@ -58,7 +58,18 @@ const RadioGroupItem = React.forwardRef<
       </RadioGroupPrimitive.Item>
       {label && (
         <label
-          className="cursor-pointer body-xs-regular peer-disabled:text-grey-600 dark:peer-disabled:text-grey-300"
+          className={cn(
+            "cursor-pointer body-xs-regular",
+            "max-w-[calc(100%-1rem-0.5rem)]",
+            "peer-disabled:cursor-not-allowed",
+            "transition",
+            // Light theme
+            "text-grey-900",
+            "peer-disabled:text-grey-400",
+            // Dark theme
+            "dark:text-grey-100",
+            "dark:peer-disabled:text-grey-500",
+          )}
           htmlFor={id}
         >
           {label}

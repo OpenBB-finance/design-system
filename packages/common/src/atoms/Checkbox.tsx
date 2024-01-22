@@ -48,8 +48,6 @@ const Checkbox = React.forwardRef<
           "dark:data-[state=checked]:border-grey-50 dark:data-[state=checked]:bg-grey-50 dark:data-[state=checked]:text-grey-900",
           "dark:data-[state=checked]:hover:enabled:border-grey-200 dark:data-[state=checked]:hover:enabled:bg-grey-200 dark:data-[state=checked]:hover:enabled:text-grey-900",
           "dark:data-[state=checked]:disabled:border-dark-400 dark:data-[state=checked]:disabled:bg-dark-400 dark:data-[state=checked]:disabled:text-dark-800",
-
-          label && "mt-[3px]",
           className,
         )}
         id={id}
@@ -65,7 +63,8 @@ const Checkbox = React.forwardRef<
       {label && (
         <label
           className={cn(
-            "cursor-pointer body-sm-regular",
+            "cursor-pointer body-xs-regular",
+            "max-w-[calc(100%-1rem-0.5rem)]",
             "peer-disabled:cursor-not-allowed",
             "transition",
             // Light theme
