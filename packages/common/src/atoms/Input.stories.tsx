@@ -1,9 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Icon } from "common";
+import { Button, Icon } from "common";
 import { z } from "zod";
 import { Form, FormField, useForm } from "./Form";
-import { Input } from "./Input";
+import { FormInput, Input } from "./Input";
 
 const meta = {
   title: "Atoms/Input",
@@ -17,13 +17,21 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const render: Story["render"] = (args) => {
+  return (
+    <div className="w-60 p-4">
+      <Input label="Full name" {...args} />
+    </div>
+  );
+};
+
 const formSchema = z.object({
   name: z.string().min(6).max(50),
 });
 
 type TForm = z.infer<typeof formSchema>;
 
-const render: Story["render"] = (args) => {
+const renderInForm: Story["render"] = (args) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const form = useForm<TForm>({
     resolver: zodResolver(formSchema),
@@ -38,14 +46,18 @@ const render: Story["render"] = (args) => {
 
   return (
     <Form {...form}>
-      <form className="p-4" onSubmit={form.handleSubmit(handleSubmit)}>
+      <form
+        className="flex w-60 flex-col gap-4 p-4"
+        onSubmit={form.handleSubmit(handleSubmit)}
+      >
         <FormField
           name="name"
           control={form.control}
           render={({ field }) => {
-            return <Input {...field} {...args} />;
+            return <FormInput {...args} {...field} />;
           }}
         />
+        <Button type="submit">Submit</Button>
       </form>
     </Form>
   );
@@ -57,7 +69,6 @@ export const Default: Story = {
   args: {
     label: "Full name",
     placeholder: "Enter name",
-    message: "Name should contain first and last name",
   },
   render,
 };
@@ -89,9 +100,8 @@ export const Disabled: Story = {
 
 export const DisabledWithValue: Story = {
   args: {
-    ...Default.args,
+    ...WithValue.args,
     disabled: true,
-    defaultValue: "Muted text",
   },
   render,
 };
@@ -123,10 +133,29 @@ export const DatePicker: Story = {
   render,
 };
 
+export const Message: Story = {
+  args: {
+    ...Default.args,
+    message: "Info message is here",
+  },
+  render,
+};
+
 export const Error: Story = {
   args: {
     ...Default.args,
     defaultValue: "Wrong",
+    message: "Something went wrong",
+    error: true,
   },
   render,
+};
+
+export const InFormValidation: Story = {
+  args: {
+    ...Default.args,
+    label: "Full name",
+    message: "Try to submit empty form",
+  },
+  render: renderInForm,
 };

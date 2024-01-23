@@ -10,7 +10,7 @@ import {
 } from "react-hook-form";
 
 import { cn } from "utils";
-import { Label } from "./Label";
+import { Label, Message } from "./Label";
 
 const Form = FormProvider;
 
@@ -88,11 +88,13 @@ FormItem.displayName = "FormItem";
 
 interface FormLabelProps
   extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> {}
+/** A label form field. Use inside <Form> component only. */
 const FormLabel = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   FormLabelProps
 >(({ className, ...props }, ref) => {
   const { formItemId } = useFormField();
+  if (!props.children) return null;
   return (
     <Label ref={ref} className={className} htmlFor={formItemId} {...props} />
   );
@@ -142,27 +144,17 @@ const FormDescription = React.forwardRef<
 FormDescription.displayName = "FormDescription";
 
 interface FormMessageProps extends React.HTMLAttributes<HTMLParagraphElement> {}
-/** Shows validation error or children content by default */
+/** Shows validation error or children content by default. Use inside <Form> component only. */
 const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
   (props, ref) => {
-    const { className, children, ...rest } = props;
+    const { children, ...rest } = props;
     const { error, formMessageId } = useFormField();
     const body = error ? String(error?.message) : children;
 
-    if (!body) {
-      return null;
-    }
-
-    const elementClasses = cn(
-      "body-xs-regular",
-      error && "text-danger-500",
-      className,
-    );
-
     return (
-      <span ref={ref} id={formMessageId} className={elementClasses} {...rest}>
+      <Message ref={ref} id={formMessageId} error={!!error} {...rest}>
         {body}
-      </span>
+      </Message>
     );
   },
 );

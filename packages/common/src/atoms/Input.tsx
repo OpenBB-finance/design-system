@@ -5,13 +5,8 @@ import { Icon } from "common";
 import { cn } from "utils";
 
 import { CopyButton } from "./CopyButton";
-import {
-  FormControl,
-  FormItem,
-  FormLabel,
-  FormMessage,
-  useFormField,
-} from "./Form";
+import { FormControl, FormItem, FormLabel, FormMessage } from "./Form";
+import { Label, Message } from "./Label";
 
 const groupVariants = cva(
   [
@@ -99,13 +94,14 @@ export interface InputProps extends ReactInputProps {
   value?: string;
   /** Text below input */
   message?: React.ReactNode;
-  // /** Make it red and display error message */
-  // error?: React.ReactNode;
+  /** Make it red and display error message */
+  error?: boolean;
   /** TODO: Replace password with 🦋. */
   // butterflies?: boolean;
   onChange?: (value: string) => void;
 }
 
+/** Plain input component, can be used in form or outside it */
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (props, fwRef) => {
     const {
@@ -127,11 +123,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       clearable = !readOnly && !disabled,
       copiable = false,
       revealable = defaultType === "password",
+      error,
       // butterflies = revealable,
       ...rest
     } = props;
-
-    const { error } = useFormField();
 
     // Uncontrolled state support
     const localRef = React.useRef<HTMLInputElement>(null);
@@ -194,30 +189,29 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     );
 
     return (
-      <FormItem aria-disabled={disabled}>
-        <FormLabel>{label}</FormLabel>
+      <div aria-disabled={props.disabled}>
+        <Label>{label}</Label>
         <div className={groupClasses} data-focused={isFocused || null}>
           {prefix && <div className="flex-shrink">{prefix}</div>}
           <div className="relative h-full min-w-[3rem] flex-1">
-            <FormControl>
-              {/* @ts-ignore I didn't spend time for type mismatches */}
-              <input
-                key="qwe"
-                type={type}
-                className={cn("peer", inputClasses)}
-                placeholder={placeholder}
-                disabled={disabled}
-                readOnly={readOnly}
-                aria-invalid={error}
-                ref={ref}
-                defaultValue={props.defaultValue}
-                onChange={handleChange}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-                style={{ fontSize: "inherit", lineHeight: "inherit" }}
-                {...rest}
-              />
-            </FormControl>
+            {/* @ts-ignore I didn't spend time for type mismatches */}
+            <input
+              key="qwe"
+              type={type}
+              className={cn("peer", inputClasses)}
+              placeholder={placeholder}
+              disabled={disabled}
+              readOnly={readOnly}
+              aria-invalid={error}
+              ref={ref}
+              defaultValue={props.defaultValue}
+              onChange={handleChange}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              style={{ fontSize: "inherit", lineHeight: "inherit" }}
+              {...rest}
+            />
+
             {defaultType === "date" && (
               <Icon
                 name="calendar"
@@ -263,9 +257,31 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <div className="flex flex-shrink items-center">{suffix}</div>
           )}
         </div>
-        <FormMessage className="body-xs-medium">{message}</FormMessage>
-      </FormItem>
+        <Message error={error}>{message}</Message>
+      </div>
     );
   },
 );
 Input.displayName = "Input";
+
+/* Form */
+
+type FormInputProps = Omit<InputProps, "error">;
+
+/** Input field used inside <Form> only. */
+export const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
+  (props, ref) => {
+    const { label, message, ...rest } = props;
+
+    return (
+      <FormItem className="BB-FormInput group" aria-disabled={props.disabled}>
+        <FormLabel>{label}</FormLabel>
+        <FormControl>
+          <Input ref={ref} {...rest} />
+        </FormControl>
+        <FormMessage>{message}</FormMessage>
+      </FormItem>
+    );
+  },
+);
+FormInput.displayName = "FormInput";

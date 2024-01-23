@@ -1,6 +1,6 @@
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { cva, type VariantProps } from "class-variance-authority";
-import { Icon } from "common";
+import { FormItem, FormLabel, FormMessage, Icon } from "common";
 import * as React from "react";
 import { cn } from "utils";
 import {
@@ -235,6 +235,7 @@ interface SelectProps
     VariantProps<typeof SelectTriggerVariants> {
   // Model
   options: SelectOption[] | SelectOptionGroup[];
+  onChange?: SelectPrimitive.SelectProps["onValueChange"];
   // Trigger
   className?: string;
   placeholder?: string;
@@ -244,6 +245,7 @@ interface SelectProps
   message?: React.ReactNode;
   error?: boolean;
 }
+/** Plain select component, can be used in form or outside it */
 const Select = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Root>,
   SelectProps
@@ -251,6 +253,7 @@ const Select = React.forwardRef<
   const {
     // Model
     options,
+    onChange,
     // Trigger
     className,
     placeholder,
@@ -281,13 +284,18 @@ const Select = React.forwardRef<
   }
 
   return (
-    <SelectRoot {...rest}>
+    <SelectRoot onValueChange={onChange} {...rest}>
       <div className="BB-Select group" aria-disabled={props.disabled}>
-        {label && <Label>{label}</Label>}
-        <SelectTrigger className={className} size={size} autoFocus={autoFocus}>
+        <Label>{label}</Label>
+        <SelectTrigger
+          ref={ref}
+          className={className}
+          size={size}
+          autoFocus={autoFocus}
+        >
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
-        {message && <Message error={error}>{message}</Message>}
+        <Message error={error}>{message}</Message>
       </div>
       <SelectContent>
         {options.map((option) =>
@@ -299,7 +307,29 @@ const Select = React.forwardRef<
 });
 Select.displayName = "Select";
 
+/* Form */
+
+type FormSelectProps = Omit<SelectProps, "error">;
+
+/** Select field used inside <Form> only. */
+const FormSelect = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Root>,
+  FormSelectProps
+>((props, ref) => {
+  const { label, message, ...rest } = props;
+
+  return (
+    <FormItem className="BB-FormSelect group" aria-disabled={props.disabled}>
+      <FormLabel>{label}</FormLabel>
+      <Select ref={ref} {...rest} />
+      <FormMessage>{message}</FormMessage>
+    </FormItem>
+  );
+});
+FormSelect.displayName = "FormSelect";
+
 export {
+  FormSelect,
   Select,
   SelectContent,
   SelectGroup,

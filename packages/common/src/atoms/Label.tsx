@@ -16,17 +16,24 @@ const labelVariants = cva([
   "dark:peer-disabled:text-dark-200",
 ]);
 
+/**
+ * A label styled as a form field label. Can be used outside of Form.
+ * Won't be rendered if no children provided.
+ */
 export const Label = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
     VariantProps<typeof labelVariants>
->(({ className, ...props }, ref) => (
-  <LabelPrimitive.Root
-    ref={ref}
-    className={cn(labelVariants(), className)}
-    {...props}
-  />
-));
+>(({ className, ...props }, ref) => {
+  if (!props.children) return null;
+  return (
+    <LabelPrimitive.Root
+      ref={ref}
+      className={cn(labelVariants(), className)}
+      {...props}
+    />
+  );
+});
 Label.displayName = LabelPrimitive.Root.displayName;
 
 /* Message */
@@ -37,14 +44,19 @@ interface MessageProps {
   error?: boolean;
 }
 
+/**
+ * A message styled as a hint below form field. Can be used outside of Form.
+ * Won't be rendered if no children provided.
+ */
 export const Message = React.forwardRef<HTMLDivElement, MessageProps>(
   ({ className, error, ...props }, ref) => {
+    if (!props.children) return null;
     return (
       <div
         ref={ref}
         className={cn(
-          "BB-Message mt-1 body-xs-medium",
-          error && "text-red-500",
+          "BB-Message mt-1 body-xs-regular",
+          error && "text-red-500 body-xs-medium",
           className,
         )}
         {...props}

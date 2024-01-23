@@ -1,8 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import ThemedPreview from "utils/src/ThemedPreview";
+import { z } from "zod";
+import { Button } from "./Button";
+import { Form, FormField, useForm } from "./Form";
 import { Label } from "./Label";
 import {
+  FormSelect,
   Select,
   SelectContent,
   SelectItem,
@@ -40,7 +45,7 @@ function CompositedSelect(args: any) {
   return (
     <div>
       <SelectRoot>
-        {args.label && <Label>{args.label}</Label>}
+        <Label>{args.label}</Label>
         <SelectTrigger className="w-[180px]" {...args}>
           <SelectValue placeholder="Theme" />
         </SelectTrigger>
@@ -63,6 +68,44 @@ const renderComposited: Story["render"] = (args) => {
         <CompositedSelect {...args} label=":focused" autoFocus />
       </div>
     </ThemedPreview>
+  );
+};
+
+const formSchema = z.object({
+  theme: z.string().min(1, "This field is required"),
+});
+
+type TForm = z.infer<typeof formSchema>;
+
+const renderInForm: Story["render"] = (args) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const form = useForm<TForm>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      theme: (args.defaultValue as string) ?? "",
+    },
+  });
+
+  function handleSubmit(values: TForm) {
+    console.log(`✅ Valid form submitted with values:`, values);
+  }
+
+  return (
+    <Form {...form}>
+      <form
+        className="flex w-60 flex-col gap-4 p-4"
+        onSubmit={form.handleSubmit(handleSubmit)}
+      >
+        <FormField
+          name="theme"
+          control={form.control}
+          render={({ field }) => {
+            return <FormSelect {...args} {...field} />;
+          }}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
   );
 };
 
@@ -93,8 +136,8 @@ const groupedOptions = [
   },
 ];
 
-export const Primary: Story = {
-  args: { options, placeholder: "Theme" },
+export const Default: Story = {
+  args: { options, label: "Theme", placeholder: "Theme" },
   render,
 };
 
@@ -107,22 +150,22 @@ export const GroupedOptions: Story = {
 };
 
 export const SizeXS: Story = {
-  args: { ...Primary.args, size: "xs" },
+  args: { ...Default.args, size: "xs" },
   render,
 };
 
 export const SizeSM: Story = {
-  args: { ...Primary.args, size: "sm" },
+  args: { ...Default.args, size: "sm" },
   render,
 };
 
 export const SizeLG: Story = {
-  args: { ...Primary.args, size: "lg" },
+  args: { ...Default.args, size: "lg" },
   render,
 };
 
 export const Error: Story = {
-  args: { ...Primary.args, message: "This field is required", error: true },
+  args: { ...Default.args, message: "This field is required", error: true },
   render,
 };
 
@@ -130,4 +173,12 @@ export const Composited: Story = {
   // @ts-expect-error no args required
   args: {},
   render: renderComposited,
+};
+
+export const InFormValidation: Story = {
+  args: {
+    ...Default.args,
+    message: "Try to submit empty form",
+  },
+  render: renderInForm,
 };
