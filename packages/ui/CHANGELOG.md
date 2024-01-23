@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.4.2
+
+### Patch Changes
+
+- fix(common): radio group flex wrap
+
 ## 0.4.1
 
 ### Patch Changes
