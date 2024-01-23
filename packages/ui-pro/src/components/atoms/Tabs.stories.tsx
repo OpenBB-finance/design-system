@@ -34,8 +34,6 @@ const render: Story["render"] = (args) => {
 /* Variants */
 
 export const Primary: Story = {
-  args: {
-    // text: "You was hacked!",
-  },
+  args: {},
   render,
 };
