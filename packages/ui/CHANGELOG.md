@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.4.1
+
+### Patch Changes
+
+- fix(common): checkbox and radio titles
+
 ## 0.4.0
 
 ### Minor Changes

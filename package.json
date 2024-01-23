@@ -15,7 +15,7 @@
     "build": "vite build",
     "lint": "npx eslint src --fix && npx prettier --write src",
     "storybook": "npm run dev -w workshop",
-    "publish-packages": "turbo run lint && changeset version && turbo run build && changeset publish && npm run chromatic",
+    "publish-packages": "turbo run lint && changeset version && turbo run build && changeset publish",
     "chromatic": "npm run -w workshop chromatic"
   },
   "dependencies": {
