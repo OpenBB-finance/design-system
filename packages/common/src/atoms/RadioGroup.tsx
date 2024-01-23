@@ -38,7 +38,7 @@ const RadioGroupItem = React.forwardRef<
         ref={ref}
         className={cn(
           "peer aspect-square h-4 w-4 rounded-full border border-grey-800 text-grey-800 ring-offset-background",
-          "flex flex-wrap items-center justify-center",
+          "flex items-center justify-center",
           "transition",
           "hover:enabled:border-black hover:enabled:text-black",
           "focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
