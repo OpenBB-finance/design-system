@@ -33,7 +33,7 @@ const RadioGroupItem = React.forwardRef<
   const randomId = React.useId();
   const id = _id ?? randomId;
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-wrap gap-2">
       <RadioGroupPrimitive.Item
         ref={ref}
         className={cn(
