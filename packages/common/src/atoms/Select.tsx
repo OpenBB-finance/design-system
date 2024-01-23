@@ -7,6 +7,7 @@ import {
   DropdownMenuContentVariants,
   DropdownMenuItemVariants,
 } from "./DropdownMenu";
+import { Label, Message } from "./Label";
 
 export const SelectTriggerVariants = cva(
   [
@@ -48,7 +49,7 @@ export const SelectContentVariants = cva(DropdownMenuContentVariants(), {
   },
 });
 
-const Select = SelectPrimitive.Root;
+const SelectRoot = SelectPrimitive.Root;
 
 const SelectGroup = SelectPrimitive.Group;
 
@@ -158,11 +159,11 @@ const SelectContent = React.forwardRef<
 ));
 SelectContent.displayName = SelectPrimitive.Content.displayName;
 
-interface SelectLabelProps
+interface SelectGroupLabelProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label> {}
-const SelectLabel = React.forwardRef<
+const SelectGroupLabel = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,
-  SelectLabelProps
+  SelectGroupLabelProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
@@ -174,7 +175,7 @@ const SelectLabel = React.forwardRef<
     {...props}
   />
 ));
-SelectLabel.displayName = SelectPrimitive.Label.displayName;
+SelectGroupLabel.displayName = SelectPrimitive.Label.displayName;
 
 interface SelectItemProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> {}
@@ -216,12 +217,95 @@ const SelectSeparator = React.forwardRef<
 ));
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
+// Composed Select
+
+export interface SelectOption {
+  label: string;
+  value: string;
+  disabled?: boolean;
+}
+
+export interface SelectOptionGroup {
+  label: string;
+  options: SelectOption[];
+}
+
+interface SelectProps
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>,
+    VariantProps<typeof SelectTriggerVariants> {
+  // Model
+  options: SelectOption[] | SelectOptionGroup[];
+  // Trigger
+  className?: string;
+  placeholder?: string;
+  autoFocus?: boolean;
+  // Other components
+  label?: React.ReactNode;
+  message?: React.ReactNode;
+  error?: boolean;
+}
+const Select = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Root>,
+  SelectProps
+>((props, ref) => {
+  const {
+    // Model
+    options,
+    // Trigger
+    className,
+    placeholder,
+    size,
+    autoFocus,
+    // Other components
+    label,
+    message,
+    error,
+    ...rest
+  } = props;
+
+  function renderGroup(group: SelectOptionGroup) {
+    return (
+      <SelectGroup key={group.label}>
+        <SelectGroupLabel>{group.label}</SelectGroupLabel>
+        {group.options.map((option) => renderOption(option))}
+      </SelectGroup>
+    );
+  }
+
+  function renderOption(option: SelectOption) {
+    return (
+      <SelectItem key={option.value} value={option.value}>
+        {option.label}
+      </SelectItem>
+    );
+  }
+
+  return (
+    <SelectRoot {...rest}>
+      <div className="BB-Select group" aria-disabled={props.disabled}>
+        {label && <Label>{label}</Label>}
+        <SelectTrigger className={className} size={size} autoFocus={autoFocus}>
+          <SelectValue placeholder={placeholder} />
+        </SelectTrigger>
+        {message && <Message error={error}>{message}</Message>}
+      </div>
+      <SelectContent>
+        {options.map((option) =>
+          "options" in option ? renderGroup(option) : renderOption(option),
+        )}
+      </SelectContent>
+    </SelectRoot>
+  );
+});
+Select.displayName = "Select";
+
 export {
   Select,
   SelectContent,
   SelectGroup,
+  SelectGroupLabel,
   SelectItem,
-  SelectLabel,
+  SelectRoot,
   SelectScrollDownButton,
   SelectScrollUpButton,
   SelectSeparator,
