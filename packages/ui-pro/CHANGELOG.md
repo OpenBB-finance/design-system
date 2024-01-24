@@ -1,5 +1,18 @@
 # @openbb/ui-pro
 
+## 0.5.0
+
+### Minor Changes
+
+- Breaking: Split Input component into Input and FormInput
+- Breaking: Split Select component into Select and FormSelect
+
+### Patch Changes
+
+- fix(common): add array of strings to Select options
+- fix(pro): tabs hover jumping
+- fix(common): add Label and Message components
+
 ## 0.4.3
 
 ### Patch Changes
