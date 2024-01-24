@@ -219,11 +219,12 @@ SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
 // Composed Select
 
-export interface SelectOption {
+export interface SelectOptionObject {
   label: string;
   value: string;
   disabled?: boolean;
 }
+export type SelectOption = SelectOptionObject | string;
 
 export interface SelectOptionGroup {
   label: string;
@@ -276,9 +277,11 @@ const Select = React.forwardRef<
   }
 
   function renderOption(option: SelectOption) {
+    const value = typeof option === "string" ? option : option.value;
+    const label = typeof option === "string" ? option : option.label;
     return (
-      <SelectItem key={option.value} value={option.value}>
-        {option.label}
+      <SelectItem key={value} value={value}>
+        {label}
       </SelectItem>
     );
   }
@@ -299,7 +302,9 @@ const Select = React.forwardRef<
       </div>
       <SelectContent>
         {options.map((option) =>
-          "options" in option ? renderGroup(option) : renderOption(option),
+          typeof option === "object" && "options" in option
+            ? renderGroup(option)
+            : renderOption(option),
         )}
       </SelectContent>
     </SelectRoot>
