@@ -6,6 +6,7 @@ export * from "common/src/atoms/Form.tsx";
 export * from "common/src/atoms/GhostButton.tsx";
 export * from "common/src/atoms/Icon.tsx";
 export * from "common/src/atoms/Input.tsx";
+export * from "common/src/atoms/Label.tsx";
 export * from "common/src/atoms/LinkButton.tsx";
 export * from "common/src/atoms/Popover.tsx";
 export * from "common/src/atoms/RadioGroup.tsx";

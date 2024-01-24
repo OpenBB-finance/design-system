@@ -6,6 +6,7 @@ export * from "./Form";
 export * from "./GhostButton";
 export * from "./Icon";
 export * from "./Input";
+export * from "./Label";
 export * from "./LinkButton";
 export * from "./Popover";
 export * from "./RadioGroup";
