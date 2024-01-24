@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.5.1
+
+### Patch Changes
+
+- 0.5.0 is deprecated (did not bumped)
+
 ## 0.5.0
 
 ### Minor Changes
