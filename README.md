@@ -129,22 +129,32 @@ npm run build
 
 ## Publish
 
-At first, create a changeset. Follow instructions in terminal, pick modified packages and bump versions:
+### CHANGELOGs
+
+On every sufficient commit (fix, feat) you need to create a changeset. Follow instructions in terminal, pick modified packages and bump versions:
 
 ```bash
 npx changeset
 ```
 
-Then, run this command
+Keep in mind that if you change code in `common` package, you need to bump version of all packages that depend on it.
+
+### Test on Chromatic (will be removed after CI integration)
+
+Before making a PR, please test your changes on Chromatic:
+
+```bash
+npm run chromatic
+```
+
+If some tests failed and you know why, you need to review and approve changes by the following link.
+
+### Publish packages
+
+Then, run this command:
 
 ```bash
 npm run publish-packages
 ```
 
-### Chromatic (will be removed after CI integration)
-
-You can look at [Storybook](https://64e3853d29abbc78e8331735-byynxcbmzt.chromatic.com/?path=/docs/common-colors--docs) online, run visual tests and see differences between versions at [Chromatic]()
-
-```bash
-npm run chromatic
-```
+and commit bumped versions.
