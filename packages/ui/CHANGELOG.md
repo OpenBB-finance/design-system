@@ -1,10 +1,14 @@
 # @openbb/ui
 
-## 0.5.2
+## 0.5.3
 
 ### Patch Changes
 
 - b5acdf5: feat: add Tag component
+
+## 0.5.2
+
+deprecated: forgot to export Tag
 
 ## 0.5.1
 
