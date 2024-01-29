@@ -11,6 +11,7 @@ export * from "common/src/atoms/LinkButton.tsx";
 export * from "common/src/atoms/Popover.tsx";
 export * from "common/src/atoms/RadioGroup.tsx";
 export * from "common/src/atoms/Select.tsx";
+export * from "common/src/atoms/Tag.tsx";
 export * from "common/src/atoms/Tooltip.tsx";
 
 export * from "./Tabs";
