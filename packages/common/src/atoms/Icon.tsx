@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "utils";
-import "virtual:svg-icons-register";
+// import "virtual:svg-icons-register";
 
 interface Props extends React.SVGProps<SVGSVGElement> {
   name: string;

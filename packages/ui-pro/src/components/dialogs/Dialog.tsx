@@ -1,7 +1,7 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import * as React from "react";
 
-import { Icon } from "common";
+import { cn } from "utils";
 import {
   Dialog,
   DialogClose,
@@ -9,9 +9,8 @@ import {
   DialogOverlay,
   DialogPortal,
   DialogTrigger,
-} from "common/src/dialogs/Dialog";
-import { cn } from "utils";
-import { Button } from "../atoms";
+} from "../../../../common/src/dialogs/Dialog";
+import { Button, Icon } from "../atoms";
 
 interface DialogContentProps
   extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {}

@@ -19,12 +19,13 @@
     "tailwind.config.ts"
   ],
   "scripts": {
-    "build": "vite build",
+    "build-vite": "vite build",
+    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
     "lint": "npx eslint src --fix && npx prettier --write src",
     "storybook": "npm run dev -w workshop",
     "postversion": "npm run build"
   },
-  "dependencies": {
+  "devDependencies": {
     "common": "*",
     "utils": "*"
   }
