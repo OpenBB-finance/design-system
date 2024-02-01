@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.5.4
+
+### Patch Changes
+
+- 00895fa: fix: typings
+
 ## 0.5.3
 
 ### Patch Changes
