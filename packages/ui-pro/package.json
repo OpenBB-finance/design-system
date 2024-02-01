@@ -3,24 +3,26 @@
   "version": "0.5.3",
   "sideEffects": false,
   "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "types": "./dist/src/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/lib.es.js",
-      "require": "./dist/lib.cjs.js"
+      "require": "./dist/lib.umd.js"
     },
     "./style.css": "./dist/style.css",
-    "./tailwind.config": "./dist/tailwind.es.js",
-    "./src/*": "./src/*"
+    "./tailwind.config": "./dist/tailwind.config.js",
+    "./src/*": "./src/*",
+    "./dist/*": "./dist/*"
   },
   "files": [
-    "dist",
-    "src",
+    "dist/**/*",
+    "src/**/*",
     "tailwind.config.ts"
   ],
   "scripts": {
+    "build": "npm run build-vite && npm run build-dts",
     "build-vite": "vite build",
-    "build": "tsup src/index.ts --format esm,cjs --dts --external react",
+    "build-dts": "tsup",
     "lint": "npx eslint src --fix && npx prettier --write src",
     "storybook": "npm run dev -w workshop",
     "postversion": "npm run build"

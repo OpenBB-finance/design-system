@@ -1,6 +1,5 @@
 import React from "react";
 import { cn } from "utils";
-// import "virtual:svg-icons-register";
 
 interface Props extends React.SVGProps<SVGSVGElement> {
   name: string;
@@ -10,12 +9,14 @@ interface Props extends React.SVGProps<SVGSVGElement> {
 export function Icon(props: Props) {
   const { name, className, size = 16, ...rest } = props;
 
-  const symbolId = `#icon-${name}`;
-  const iconClasses = cn("BB-Icon", className);
-
   return (
-    <svg className={iconClasses} width={size} height={size} {...rest}>
-      <use href={symbolId} fill="currentColor" />
+    <svg
+      className={cn("BB-Icon inline-block", className)}
+      width={size}
+      height={size}
+      {...rest}
+    >
+      <use xlinkHref={`/__spritemap#sprite-${name}`} fill="currentColor" />
     </svg>
   );
 }
