@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.5.5
+
+### Patch Changes
+
+- 633ed17: feat: add icon name typings
+
 ## 0.5.4
 
 ### Patch Changes
