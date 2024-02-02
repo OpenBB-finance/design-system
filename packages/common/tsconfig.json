@@ -1,5 +1,5 @@
 {
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "plugins/typography.ts"],
+  "include": ["./*", "./src/**/*", "./plugins/*"],
   "compilerOptions": {
     "paths": {
       "~/*": ["./src/*"]

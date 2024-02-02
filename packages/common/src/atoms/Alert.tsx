@@ -3,6 +3,7 @@ import * as React from "react";
 
 import { Icon } from "common";
 import { cn } from "utils";
+import type { IconName } from "~/icons/icons";
 
 const alertVariants = cva(
   [
@@ -33,7 +34,7 @@ interface Props
     VariantProps<typeof alertVariants> {
   open?: boolean;
   onClose?: () => void;
-  icon?: string;
+  icon?: IconName;
   title?: React.ReactNode;
 }
 

@@ -16,7 +16,8 @@
     "./tailwind.config": "./tailwind.config.ts",
     "./tsconfig.json": "./tsconfig.json",
     "./tsconfig.node.json": "./tsconfig.node.json",
-    "./src/*": "./src/*"
+    "./src/*": "./src/*",
+    "./plugins/*": "./plugins/*"
   },
   "scripts": {
     "lint": "npx eslint src --fix && npx prettier --write src"

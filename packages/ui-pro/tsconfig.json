@@ -1,5 +1,10 @@
 {
   "extends": "common/tsconfig.json",
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "../common/**/*"],
+  "include": [
+    "./src/**/*",
+    "../common/*",
+    "../common/src/**/*",
+    "../common/plugins/*"
+  ],
   "exclude": ["../common/**/*.stories.tsx"]
 }

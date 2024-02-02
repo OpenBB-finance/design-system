@@ -7,4 +7,4 @@ export {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "common/src/dialogs/Dialog";
+} from "../../../../common/src/dialogs/Dialog";

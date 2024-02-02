@@ -1,1 +1,1 @@
-export * from "common/src/atoms/index";
+export * from "../../../../common/src/atoms/index";

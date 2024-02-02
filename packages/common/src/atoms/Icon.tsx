@@ -1,8 +1,9 @@
 import React from "react";
 import { cn } from "utils";
+import type { IconName } from "~/icons/icons";
 
 interface Props extends React.SVGProps<SVGSVGElement> {
-  name: string;
+  name: IconName;
   size?: number;
 }
 
