@@ -12,7 +12,8 @@ const groupVariants = cva(
   [
     "BB-Input group flex w-full items-center gap-2 rounded-sm border body-xs-regular",
     // "data-[focused]:ring-4 data-[focused]:ring-ring", //! focus-visible won't work here, so this is normal focus
-    "transition-all",
+    "disabled:cursor-not-allowed",
+    "transition",
 
     "border-grey-300 bg-white text-grey-600",
     "hover:bg-white",
@@ -27,7 +28,7 @@ const groupVariants = cva(
       state: {
         readOnly: "pointer-events-none",
         disabled:
-          "pointer-events-none border-grey-200 bg-grey-100 text-grey-600 dark:border-dark-700 dark:bg-dark-750 dark:text-dark-200",
+          "pointer-events-none border-grey-200 bg-grey-200 text-grey-600 dark:border-dark-700 dark:bg-dark-800 dark:text-dark-200",
         error: "!border-red-500",
         default: "",
       },
@@ -49,14 +50,17 @@ const inputVariants = cva(
     "file:border-0 file:bg-transparent file:text-sm file:font-medium",
     "disabled:cursor-not-allowed disabled:bg-transparent",
     "focus-visible:outline-none",
+    "transition",
 
     "text-grey-900",
-    "placeholder:text-grey-600",
-    "focus:placeholder:text-grey-500 dark:focus:placeholder:text-grey-400",
-    "disabled:text-grey-300 disabled:placeholder:text-grey-300",
+    "placeholder:text-grey-500",
+    "focus:placeholder:text-grey-500",
+    "disabled:text-grey-400 disabled:placeholder:text-grey-400",
 
     "dark:text-grey-50",
-    "dark:hover:placeholder:text-grey-300",
+    "dark:placeholder:text-grey-500",
+    "dark:focus:placeholder:text-grey-400",
+    "dark:disabled:text-dark-400 dark:disabled:placeholder:text-dark-400",
   ],
   {
     variants: {
