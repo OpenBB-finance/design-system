@@ -1,5 +1,12 @@
 # @openbb/ui-pro
 
+## 0.5.6
+
+### Patch Changes
+
+- a1d3d9d: fix: make form inputs more consistent
+- 79e90d5: fix: aoutofilled input background
+
 ## 0.5.5
 
 ### Patch Changes
