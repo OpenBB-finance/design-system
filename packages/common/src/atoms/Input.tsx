@@ -21,7 +21,7 @@ const groupVariants = cva(
 
     "dark:border-dark-600 dark:bg-dark-800 dark:text-grey-400",
     "dark:hover:bg-dark-700",
-    "data-[focused]:text-grey-50", //! focus-visible won't work here, so this is normal focus
+    "dark:data-[focused]:text-grey-50", //! focus-visible won't work here, so this is normal focus
   ],
   {
     variants: {
@@ -33,9 +33,9 @@ const groupVariants = cva(
         default: "",
       },
       size: {
-        sm: "px-2",
-        md: "px-3",
-        lg: "px-3",
+        sm: "gap-2 px-2",
+        md: "gap-3 px-3",
+        lg: "gap-3 px-3",
       },
     },
     defaultVariants: {
@@ -65,9 +65,9 @@ const inputVariants = cva(
   {
     variants: {
       size: {
-        sm: "py-1",
-        md: "py-2",
-        lg: "py-3",
+        sm: "py-1 pl-2",
+        md: "py-2 pl-3",
+        lg: "py-3 pl-3",
       },
     },
     defaultVariants: {
@@ -185,18 +185,23 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       setType(defaultType ?? "text");
     }, [defaultType]);
 
-    const groupClasses = cn(groupVariants({ state, size }), className);
+    const groupClasses = cn(
+      groupVariants({ state, size }),
+      className,
+      !prefix && "pl-0",
+    );
 
     const inputClasses = cn(
       inputVariants({ size }),
       type === "date" && "cursor-text",
+      prefix && "pl-0",
     );
 
     return (
       <div aria-disabled={props.disabled}>
         <Label>{label}</Label>
         <div className={groupClasses} data-focused={isFocused || null}>
-          {prefix && <div className="flex-shrink">{prefix}</div>}
+          {prefix && <div className="inline-flex flex-[0]">{prefix}</div>}
           <div className="relative h-full min-w-[3rem] flex-1">
             {/* @ts-ignore I didn't spend time for type mismatches */}
             <input
@@ -226,7 +231,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {clearable && hasValue && (
             <button
               type="button"
-              className="bg-transparent text-inherit transition-all hover:text-grey-900 dark:hover:text-grey-100"
+              className="inline-flex flex-[0] bg-transparent text-inherit transition-all hover:text-grey-900 dark:hover:text-grey-100"
               onClick={(e) => {
                 e.stopPropagation();
                 clear();
@@ -244,7 +249,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {revealable && (
             <button
               type="button"
-              className="bg-transparent text-inherit transition-all hover:text-grey-900 dark:hover:text-grey-100"
+              className="inline-flex flex-[0] bg-transparent text-inherit transition-all hover:text-grey-900 dark:hover:text-grey-100"
               onClick={(e) => {
                 e.stopPropagation();
                 switchReveal();
@@ -258,7 +263,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             </button>
           )}
           {suffix && (
-            <div className="flex flex-shrink items-center">{suffix}</div>
+            <div className="inline-flex flex-[0] items-center">{suffix}</div>
           )}
         </div>
         <Message error={error}>{message}</Message>
