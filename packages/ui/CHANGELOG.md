@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.5.7
+
+### Patch Changes
+
+- 19bc2b6: fix: icons display block
+
 ## 0.5.6
 
 ### Patch Changes
