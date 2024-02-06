@@ -12,7 +12,7 @@ export function Icon(props: Props) {
 
   return (
     <svg
-      className={cn("BB-Icon inline-block", className)}
+      className={cn("BB-Icon block", className)}
       width={size}
       height={size}
       {...rest}
