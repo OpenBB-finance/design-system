@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.5.9
+
+### Patch Changes
+
+- a9de9de: fix imports that doesn't work on 0.5.8 💀
+
 ## 0.5.8
 
 ### Patch Changes
