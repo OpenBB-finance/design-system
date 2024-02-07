@@ -27,6 +27,7 @@ const render: Story["render"] = (args) => {
 
 const formSchema = z.object({
   name: z.string().min(6).max(50),
+  port: z.coerce.number().gte(1).lte(65535),
 });
 
 type TForm = z.infer<typeof formSchema>;
@@ -51,7 +52,7 @@ const renderInForm: Story["render"] = (args) => {
         onSubmit={form.handleSubmit(handleSubmit)}
       >
         <FormField
-          name="name"
+          name="port"
           control={form.control}
           render={({ field }) => {
             return <FormInput {...args} {...field} />;

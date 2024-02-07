@@ -81,6 +81,8 @@ type ReactInputProps = Omit<
   "onChange" | "prefix" | "size" | "value"
 >;
 
+type InputValue = string | number;
+
 export interface InputProps extends ReactInputProps {
   /** Add floating label. Requires `placeholder`. */
   label?: React.ReactNode;
@@ -95,14 +97,14 @@ export interface InputProps extends ReactInputProps {
   /** Add React element inside border after input. */
   suffix?: React.ReactNode;
   size?: "sm" | "md" | "lg";
-  value?: string;
+  value?: InputValue;
   /** Text below input */
   message?: React.ReactNode;
   /** Make it red and display error message */
   error?: boolean;
   /** TODO: Replace password with 🦋. */
   // butterflies?: boolean;
-  onChange?: (value: string) => void;
+  onChange?: (value: InputValue) => void;
 }
 
 /** Plain input component, can be used in form or outside it */

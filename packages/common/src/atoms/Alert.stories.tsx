@@ -35,7 +35,7 @@ type Story = StoryObj<typeof meta>;
 const render: Story["render"] = (args) => {
   const { variant, title, children } = args;
   return (
-    <Alert variant={variant} title={title} onClose={true}>
+    <Alert variant={variant} title={title} onClose={() => true}>
       {children}
     </Alert>
   );

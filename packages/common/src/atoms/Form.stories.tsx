@@ -273,6 +273,6 @@ const render: Story["render"] = (args) => {
 
 /* Variants */
 
-export const Default: Story = {
+export const Test: Story = {
   render,
 };
