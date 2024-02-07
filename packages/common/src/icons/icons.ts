@@ -65,7 +65,6 @@ export const iconNames = [
   "heart",
   "help-outline-circle",
   "highlight",
-  "icons",
   "info-outline-circle",
   "key",
   "layers",
@@ -130,7 +129,8 @@ export const iconNames = [
   "x-outline-circle",
   "x",
   "zoom-in",
-  "zoom-out"
+  "zoom-out",
+  "user-circle"
 ] as const;
 
 export type IconName = typeof iconNames[number];
