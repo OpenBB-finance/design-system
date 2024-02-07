@@ -1,11 +1,12 @@
 # OpenBB Design System
 
-Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3ajbr7lw/Styleguide?type=design&node-id=23-26&mode=design&t=ACcxkQNaADUUe1PL-4) and [Molecules](https://www.figma.com/file/zrku7cFZzdFFswOL5snYCj/Components---Molecules?type=design&node-id=1-5186&mode=dev).
+Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3ajbr7lw/Styleguide?type=design&node-id=23-26&mode=design&t=ACcxkQNaADUUe1PL-4) and [Components](https://www.figma.com/file/RFg3HgmBqsbX3OuLaJTAbb/Components?type=design&node-id=1139-129&mode=dev).
 
-## 0.4 Work in progress:
+## 0.5 Work in progress:
 
 #### Atoms
 
+- [x] Avatar
 - [x] Button
 - [x] Checkbox
 - [x] CopyButton
@@ -13,7 +14,7 @@ Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3a
 - [ ] Toggle
 - [ ] Scroll bar
 - [x] Dropdown (SelectTrigger, DropdownItem)
-- [ ] Tag
+- [x] Tag
 - [ ] Background
 - [x] Tooltip & Popover
 - [ ] Loader
@@ -34,17 +35,11 @@ Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3a
 - [x] Toast message (Alert)
 - [ ] Calendar
 
-#### Organisms (Not sure about this should be in design system)
-
-- [ ] Widgets
-- [ ] AI Chat
-- [ ] Table
-
 ## Compatibility
 
 This library is compatible with `React 18+`.
 
-For bundle tool, please use `Vite 4`. Other bundlers haven't tested and might cause errors because of ES6 modules.
+For bundle tool, please use `Vite 4 or 5`. Other bundlers haven't tested and might cause errors because of ES6 modules.
 Type hints are available for TypeScript users without .d.ts files because of using this [pattern](https://turbo.build/blog/you-might-not-need-typescript-project-references#internal-typescript-packages)
 
 ## Installation
@@ -55,25 +50,23 @@ This library requires TailwindCSS to be installed in your project.
 npm i -S @openbb/ui tailwindcss tailwindcss-animate
 ```
 
-or
-
 ```bash
 npm i -S @openbb/ui-pro tailwindcss tailwindcss-animate
 ```
 
-Then add TailwindCSS into your `tailwind.config.js`:
+Then add TailwindCSS into your `tailwind.config.ts`:
 
 ```js
 import type { Config } from "tailwindcss";
-import ui from "@openbb/ui/tailwind.config";
+import conf from "@openbb/ui/tailwind.config";
 
 export default {
-  ...ui,
-  // content: [],
-  // theme: {
-  //   extend: {},
-  // },
-  // plugins: [],
+  presets: [conf],
+  theme: {
+    extend: {
+      // ... you can override tailwind things here
+    },
+  },
 } satisfies Config;
 ```
 
