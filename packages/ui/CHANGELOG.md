@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.5.8
+
+### Patch Changes
+
+- aa47aa6: feat: avatar component
+
 ## 0.5.7
 
 ### Patch Changes
