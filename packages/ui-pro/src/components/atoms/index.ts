@@ -6,6 +6,7 @@ export * from "../../../../common/src/atoms/Avatar.tsx";
 export * from "../../../../common/src/atoms/Button.tsx";
 export * from "../../../../common/src/atoms/Checkbox.tsx";
 export * from "../../../../common/src/atoms/CopyButton.tsx";
+export * from "../../../../common/src/atoms/DropdownMenu.tsx";
 export * from "../../../../common/src/atoms/Form.tsx";
 export * from "../../../../common/src/atoms/GhostButton.tsx";
 export * from "../../../../common/src/atoms/Icon.tsx";

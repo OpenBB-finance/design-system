@@ -3,6 +3,7 @@ export * from "./Avatar";
 export * from "./Button";
 export * from "./Checkbox";
 export * from "./CopyButton";
+export * from "./DropdownMenu";
 export * from "./Form";
 export * from "./GhostButton";
 export * from "./Icon";
