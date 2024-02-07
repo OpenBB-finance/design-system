@@ -154,8 +154,8 @@ export const Error: Story = {
 
 export const InFormValidation: Story = {
   args: {
-    ...Default.args,
-    label: "Full name",
+    label: "Port",
+    placeholder: "A number from 1 to 65535",
     message: "Try to submit empty form",
   },
   render: renderInForm,
