@@ -1,15 +1,55 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button, Icon } from "common";
+import type { FC } from "react";
 import { z } from "zod";
 import { Form, FormField, useForm } from "./Form";
+import type { InputProps } from "./Input";
 import { FormInput, Input } from "./Input";
 
 const meta = {
   title: "Atoms/Input",
-  component: Input,
+  component: Input as FC<InputProps>,
   parameters: {
     layout: "centered",
+  },
+  // TODO: fix autodocs!
+  argTypes: {
+    type: {
+      options: ["text", "password", "date"],
+      control: { type: "select" },
+    },
+    defaultValue: {
+      control: { type: "text" },
+    },
+    label: {
+      control: { type: "text" },
+    },
+    placeholder: {
+      control: { type: "text" },
+    },
+    message: {
+      control: { type: "text" },
+    },
+    prefix: {
+      control: { type: "text" },
+    },
+    suffix: {
+      control: { type: "text" },
+    },
+    clearable: {
+      defaultValue: true,
+      control: { type: "boolean" },
+    },
+    disabled: {
+      control: { type: "boolean" },
+    },
+    error: {
+      control: { type: "boolean" },
+    },
+    copiable: {
+      control: { type: "boolean" },
+    },
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof Input>;
