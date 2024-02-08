@@ -42,9 +42,4 @@ const render: Story["render"] = (args) => {
 
 /* Variants */
 
-export const Primary: Story = {
-  args: {
-    // text: "You was hacked!",
-  },
-  render,
-};
+export const Default: Story = { render };
