@@ -1,6 +1,16 @@
 # @openbb/ui-pro
 
+## 0.5.11
+
+### Patch Changes
+
+- 8112c9b: fix: rebuild icons
+
 ## 0.5.10
+
+### Deprecated
+
+No icons here, use 0.5.11
 
 ### Patch Changes
 

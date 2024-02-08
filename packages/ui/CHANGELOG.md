@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.5.11
+
+### Patch Changes
+
+- 8112c9b: fix: rebuild icons
+
 ## 0.5.10
 
 ### Patch Changes
