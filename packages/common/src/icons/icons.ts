@@ -88,7 +88,6 @@ export const iconNames = [
   "more-horizontal",
   "more-vertical",
   "mouse-pointer",
-  "move-paste",
   "move-tab-2",
   "move-tab",
   "move-to-sidebar",
@@ -145,7 +144,10 @@ export const iconNames = [
   "x",
   "zoom-in",
   "zoom-out",
+  "file-04",
+  "home-02",
   "log-in-02",
+  "pie-chart-01",
   "settings-01",
   "trash-04",
   "user-circle"

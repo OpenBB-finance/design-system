@@ -17,7 +17,7 @@ export function Icon(props: Props) {
       height={size}
       {...rest}
     >
-      <use xlinkHref={`/__spritemap#sprite-${name}`} fill="currentColor" />
+      <use xlinkHref={`/__spritemap#sprite-${name}`} />
     </svg>
   );
 }
