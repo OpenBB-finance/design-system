@@ -6,7 +6,7 @@ import * as React from "react";
 import { cn } from "utils";
 
 export const DropdownMenuContentVariants = cva([
-  "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-sm shadow-md body-xs-regular",
+  "BB-DropdownMenuContent shadow-1 relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-sm body-xs-regular",
   "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
   "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
   "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
@@ -17,7 +17,7 @@ export const DropdownMenuContentVariants = cva([
 ]);
 
 export const DropdownMenuItemVariants = cva([
-  "relative flex w-full cursor-default select-none items-center rounded-sm p-1 pr-8 outline-none transition body-xs-regular",
+  "BB-DropdownMenuItem relative flex w-full cursor-default select-none items-center rounded-sm p-1 pr-8 outline-none transition body-xs-regular",
   "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
   /* Light theme */
   "text-grey-750",
@@ -78,7 +78,7 @@ const DropdownMenuSubContent = React.forwardRef<
   <DropdownMenuPrimitive.SubContent
     ref={ref}
     className={cn(
-      "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+      "shadow-3 z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
       className,
     )}
     {...props}
