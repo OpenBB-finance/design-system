@@ -61,6 +61,14 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        "light-1": "0px 2px 10px 0px rgba(0, 0, 0, 0.10)",
+        "light-2": "2px 4px 15px 0px rgba(0, 0, 0, 0.10)",
+        "light-3": "0px 2px 10px 0px rgba(0, 0, 0, 0.20)",
+        "dark-1": "0px 2px 10px 0px rgba(0, 0, 0, 0.40)",
+        "dark-2": "2px 4px 15px 0px rgba(0, 0, 0, 0.60)",
+        "dark-3": "0px 2px 10px 0px rgba(0, 0, 0, 0.80)",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

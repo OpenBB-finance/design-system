@@ -27,6 +27,16 @@
     opacity: 0;
     cursor: pointer;
   }
+
+  .shadow-1 {
+    @apply shadow-light-1 dark:shadow-dark-1;
+  }
+  .shadow-2 {
+    @apply shadow-light-2 dark:shadow-dark-2;
+  }
+  .shadow-3 {
+    @apply shadow-light-3 dark:shadow-dark-3;
+  }
 }
 
 /* Fonts */
