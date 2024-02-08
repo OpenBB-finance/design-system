@@ -5,7 +5,7 @@
       stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     <path
       d="M2.55555 23L13.4444 23C14.3036 23 15 22.3036 15 21.4444L15 10.5556C15 9.69644 14.3036 9 13.4444 9L2.55556 9C1.69645 9 1 9.69644 1 10.5556L0.999999 21.4444C0.999999 22.3036 1.69644 23 2.55555 23Z"
-      fill="white" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+      fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
       stroke-linejoin="round" />
     <path d="M5.99999 13.3402L10.6598 13.3197L10.6804 17.9795" stroke="currentColor"
       stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -14,7 +14,7 @@
   </g>
   <defs>
     <clipPath id="clip0_2469_67">
-      <rect width="24" height="24" fill="white" />
+      <rect width="24" height="24" fill="currentColor" />
     </clipPath>
   </defs>
 </svg>

@@ -2,6 +2,7 @@
 // Do not edit it manually!
 
 export const iconNames = [
+  "activity",
   "anchor",
   "award",
   "backspace",
@@ -39,6 +40,8 @@ export const iconNames = [
   "credit-card",
   "crop",
   "database",
+  "delete-2",
+  "delete",
   "dollar",
   "dots-vertical",
   "dots",
@@ -74,12 +77,23 @@ export const iconNames = [
   "login",
   "logout",
   "menu",
+  "message-robot",
+  "message-square",
+  "message",
   "minus-outline-circle",
   "minus",
+  "more-horizontal",
+  "more-vertical",
   "move-paste",
   "move-tab-2",
   "move-tab",
   "move-to-sidebar",
+  "data-conectors",
+  "dollar-sign",
+  "life-buoy",
+  "mouse-pointer",
+  "tool",
+  "webhooks",
   "newspaper",
   "outline-circle",
   "percent",
@@ -99,6 +113,7 @@ export const iconNames = [
   "search",
   "send",
   "server",
+  "settings",
   "share-2",
   "share",
   "shuffle",
@@ -130,6 +145,9 @@ export const iconNames = [
   "x",
   "zoom-in",
   "zoom-out",
+  "log-in-02",
+  "settings-01",
+  "trash-04",
   "user-circle"
 ] as const;
 
