@@ -6,6 +6,6 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [
     react(),
-    VitePluginSvgSpritemap("../../packages/common/src/icons/*.svg"),
+    VitePluginSvgSpritemap("../../packages/common/src/icons/**/*.svg"),
   ],
 });

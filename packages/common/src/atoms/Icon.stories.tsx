@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import ThemedPreview from "utils/src/ThemedPreview";
 import { iconNames } from "../icons/icons";
 import { Icon } from "./Icon";
 
@@ -16,14 +17,16 @@ type Story = StoryObj<typeof meta>;
 
 const render: Story["render"] = (args) => {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-4 p-4">
-      {iconNames.map((name) => (
-        <div key={name} className="flex flex-col items-center gap-2">
-          <Icon {...args} name={name} />
-          <span className="text-xs text-grey-300">{name}</span>
-        </div>
-      ))}
-    </div>
+    <ThemedPreview>
+      <div className="grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-6">
+        {iconNames.map((name) => (
+          <div key={name} className="flex flex-col items-center gap-2">
+            <Icon {...args} name={name} />
+            <span className="text-center text-xs text-grey-300">{name}</span>
+          </div>
+        ))}
+      </div>
+    </ThemedPreview>
   );
 };
 
