@@ -6,14 +6,14 @@ import * as React from "react";
 import { cn } from "utils";
 
 export const DropdownMenuContentVariants = cva([
-  "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-sm border shadow-md body-xs-regular",
+  "relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-sm shadow-md body-xs-regular",
   "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
   "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
   "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
   /* Light theme */
-  "border-grey-200 bg-white text-grey-750",
+  "bg-white text-grey-750",
   /* Dark theme */
-  "dark:border-dark-600 dark:bg-dark-700 dark:text-dark-100",
+  "dark:bg-dark-750 dark:text-grey-200",
 ]);
 
 export const DropdownMenuItemVariants = cva([
@@ -24,7 +24,7 @@ export const DropdownMenuItemVariants = cva([
   "focus:bg-grey-50 focus:text-grey-750",
   /* Dark theme */
   "dark:text-grey-200",
-  "dark:focus:bg-dark-500 dark:focus:text-grey-300",
+  "dark:focus:bg-dark-600 dark:focus:text-grey-200",
 ]);
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
