@@ -1,5 +1,16 @@
 # @openbb/ui
 
+## 0.6.0
+
+### Minor Changes
+
+- 7976204: fix!: composed Tooltip
+
+### Patch Changes
+
+- 9991d52: fix: hr style
+- 3a69fdb: feat: add shadows
+
 ## 0.5.11
 
 ### Patch Changes
