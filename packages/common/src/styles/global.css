@@ -19,7 +19,7 @@
   }
 
   hr {
-    @apply border-grey-600;
+    @apply m-0 border-grey-200 dark:border-dark-500;
   }
 
   input.BB-Input[type="date"]::-webkit-inner-spin-button,
