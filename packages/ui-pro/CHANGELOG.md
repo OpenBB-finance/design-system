@@ -1,5 +1,13 @@
 # @openbb/ui-pro
 
+## 0.5.10
+
+### Patch Changes
+
+- 167ed1b: feat: export DropdownMenu
+- 572dd57: fix: icons colors and typings
+- 44b02a2: fix: add more icons
+
 ## 0.5.9
 
 ### Patch Changes
