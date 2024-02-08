@@ -46,7 +46,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    VitePluginSvgSpritemap("../common/src/icons/*.svg"),
+    VitePluginSvgSpritemap("../common/src/icons/**/*.svg"),
     // dts({ rollupTypes: true }) //! <- this doesn't work
   ],
 });
