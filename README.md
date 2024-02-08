@@ -77,6 +77,31 @@ And finally, import styles into your code:
 @import "@openbb/ui/dist/style.css";
 ```
 
+Also, copy icon assets to your public folder. Example for `vite.config.ts`:
+
+```bash
+npm i -D vite-plugin-static-copy
+```
+
+```js
+import { viteStaticCopy } from "vite-plugin-static-copy";
+
+export default defineConfig({
+  // ...
+  plugins: [
+    react(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: "./node_modules/@openbb/ui-pro/dist/assets",
+          dest: "",
+        },
+      ],
+    }),
+  ],
+});
+```
+
 ## Development
 
 ### Install dependencies
