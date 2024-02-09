@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "./Button";
-import { Popover, PopoverContent, PopoverTrigger } from "./Popover";
+import { PopoverContent, PopoverRoot, PopoverTrigger } from "./Popover";
 
 const meta = {
   title: "Atoms/Popover",
@@ -18,12 +18,12 @@ type Story = StoryObj<typeof meta>;
 const render: Story["render"] = (args) => {
   return (
     <div className="p-4">
-      <Popover {...args}>
+      <PopoverRoot {...args}>
         <PopoverTrigger>
           <Button>Click me</Button>
         </PopoverTrigger>
         <PopoverContent>You clicked the button</PopoverContent>
-      </Popover>
+      </PopoverRoot>
     </div>
   );
 };
