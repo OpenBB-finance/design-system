@@ -1,5 +1,13 @@
 # @openbb/ui
 
+## 0.6.2
+
+### Patch Changes
+
+- 640ec0e: fix: Input readonly and disabled states now interactive
+- 3ba8a72: fix: Popover and CopyButton to Tooltip standards
+- ba042de: fix: shadows
+
 ## 0.6.1
 
 ### Patch Changes
