@@ -18,12 +18,12 @@ const groupVariants = cva(
     "border-grey-300 bg-white text-grey-600",
     "data-[enabled]:hover:bg-white",
     "data-[focused]:text-grey-900", //! focus-visible wont work here, so this is normal focus
-    "disabled:border-grey-200 disabled:bg-grey-200 disabled:text-grey-600",
+    "group-aria-disabled:border-grey-200 group-aria-disabled:bg-grey-200 group-aria-disabled:text-grey-600",
 
     "dark:border-dark-600 dark:bg-dark-800 dark:text-grey-400",
     "dark:data-[enabled]:hover:bg-dark-700",
     "dark:data-[focused]:text-grey-50", //! focus-visible wont work here, so this is normal focus
-    "dark:disabled:border-dark-700 dark:disabled:bg-dark-800 dark:disabled:text-dark-200",
+    "dark:group-aria-disabled:border-dark-700 dark:group-aria-disabled:bg-dark-800 dark:group-aria-disabled:text-dark-200",
   ],
   {
     variants: {
