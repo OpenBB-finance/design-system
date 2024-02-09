@@ -44,6 +44,9 @@ const meta = {
     disabled: {
       control: { type: "boolean" },
     },
+    readOnly: {
+      control: { type: "boolean" },
+    },
     error: {
       control: { type: "boolean" },
     },
@@ -143,6 +146,40 @@ export const DisabledWithValue: Story = {
   args: {
     ...WithValue.args,
     disabled: true,
+  },
+  render,
+};
+
+export const DisabledCopiable: Story = {
+  args: {
+    ...DisabledWithValue.args,
+    copiable: true,
+  },
+  render,
+};
+
+export const Readonly: Story = {
+  args: {
+    ...Default.args,
+    readOnly: true,
+    placeholder: "Muted placeholder",
+  },
+  render,
+};
+
+export const ReadonlyWithValue: Story = {
+  args: {
+    ...WithValue.args,
+    readOnly: true,
+  },
+  render,
+};
+
+export const ReadonlyCopiable: Story = {
+  args: {
+    ...ReadonlyWithValue.args,
+    readOnly: true,
+    copiable: true,
   },
   render,
 };

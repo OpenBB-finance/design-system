@@ -11,24 +11,23 @@ import { Label, Message } from "./Label";
 const groupVariants = cva(
   [
     "BB-Input group flex w-full items-center gap-2 rounded-sm border body-xs-regular",
-    // "data-[focused]:ring-4 data-[focused]:ring-ring", //! focus-visible won't work here, so this is normal focus
+    // "data-[focused]:ring-4 data-[focused]:ring-ring", //! focus-visible wont work here, so this is normal focus
     "disabled:cursor-not-allowed",
     "transition",
 
     "border-grey-300 bg-white text-grey-600",
-    "hover:bg-white",
-    "data-[focused]:text-grey-900", //! focus-visible won't work here, so this is normal focus
+    "data-[enabled]:hover:bg-white",
+    "data-[focused]:text-grey-900", //! focus-visible wont work here, so this is normal focus
+    "disabled:border-grey-200 disabled:bg-grey-200 disabled:text-grey-600",
 
     "dark:border-dark-600 dark:bg-dark-800 dark:text-grey-400",
-    "dark:hover:bg-dark-700",
-    "dark:data-[focused]:text-grey-50", //! focus-visible won't work here, so this is normal focus
+    "dark:data-[enabled]:hover:bg-dark-700",
+    "dark:data-[focused]:text-grey-50", //! focus-visible wont work here, so this is normal focus
+    "dark:disabled:border-dark-700 dark:disabled:bg-dark-800 dark:disabled:text-dark-200",
   ],
   {
     variants: {
       state: {
-        readOnly: "pointer-events-none",
-        disabled:
-          "pointer-events-none border-grey-200 bg-grey-200 text-grey-600 dark:border-dark-700 dark:bg-dark-800 dark:text-dark-200",
         error: "!border-red-500",
         default: "",
       },
@@ -140,18 +139,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     const [type, setType] = useState(defaultType ?? "text");
     const [isFocused, setFocused] = useState(false);
-
     const isHidden = type === "password";
-    const state = readOnly
-      ? "readOnly"
-      : props.disabled
-      ? "disabled"
-      : error
-      ? "error"
-      : "default";
 
     const value = props.value ?? ref.current?.value ?? props.defaultValue ?? "";
     const hasValue = !!value;
+    const canEdit = !props.disabled && !props.readOnly;
+
+    const state = canEdit && error ? "error" : "default";
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
       onChange?.(e.target.value);
@@ -202,7 +196,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div aria-disabled={props.disabled}>
         <Label>{label}</Label>
-        <div className={groupClasses} data-focused={isFocused || null}>
+        <div
+          className={groupClasses}
+          data-focused={isFocused || null}
+          data-enabled={canEdit || null}
+        >
           {prefix && <div className="inline-flex flex-[0]">{prefix}</div>}
           <div className="relative h-full min-w-[3rem] flex-1">
             {/* @ts-ignore I didn't spend time for type mismatches */}
@@ -230,7 +228,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
               />
             )}
           </div>
-          {clearable && hasValue && (
+          {clearable && hasValue && canEdit && (
             <button
               type="button"
               className="inline-flex flex-[0] bg-transparent text-inherit transition-all hover:text-grey-900 dark:hover:text-grey-100"
