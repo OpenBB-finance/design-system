@@ -194,7 +194,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     );
 
     return (
-      <div aria-disabled={props.disabled}>
+      <div aria-disabled={props.disabled} className="group">
         <Label>{label}</Label>
         <div
           className={groupClasses}
