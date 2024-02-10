@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.6.4
+
+### Patch Changes
+
+- 22096de: fix: more icons
+
 ## 0.6.3
 
 ### Patch Changes
