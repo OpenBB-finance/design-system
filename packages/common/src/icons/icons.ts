@@ -145,6 +145,8 @@ export const iconNames = [
   "zoom-in",
   "zoom-out",
   "copy-03",
+  "edit-02",
+  "edit-03",
   "file-04",
   "home-02",
   "log-in-02",

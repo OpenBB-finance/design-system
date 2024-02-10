@@ -12,7 +12,7 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "turbo build --no-cache --force",
     "lint": "npx eslint src --fix && npx prettier --write src",
     "storybook": "npm run dev -w workshop",
     "publish-packages": "turbo run lint && changeset version && turbo run build && changeset publish",
