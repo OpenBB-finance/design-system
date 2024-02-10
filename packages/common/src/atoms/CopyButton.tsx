@@ -1,22 +1,21 @@
 import { useState } from "react";
-import { twMerge } from "tailwind-merge";
 
-import { Icon } from "common";
+import { Button, ButtonProps, Icon } from "common";
 import { sleep } from "utils";
 
 import { Popover } from "./Popover";
 
-interface Props {
+interface Props extends ButtonProps {
   text: string;
-  className?: string;
 }
 
 export function CopyButton(props: Props) {
-  const { text, className } = props;
+  const { text, onClick, ...buttonProps } = props;
 
   const [open, setOpen] = useState(false);
 
-  async function handleClick() {
+  async function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
+    onClick?.(e);
     try {
       await navigator.clipboard.writeText(text);
       setOpen(true);
@@ -29,19 +28,15 @@ export function CopyButton(props: Props) {
 
   return (
     <Popover open={open} onOpenChange={setOpen} content="Copied">
-      <button
-        type="button"
-        className={twMerge(
-          "BB-CopyButton rounded-md bg-grey-850/50 p-2 text-foreground backdrop-blur-sm",
-          "hover:bg-grey-800 hover:text-white",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-          "transition",
-          className,
-        )}
+      <Button
+        size="sm"
+        variant="secondary"
+        icon
+        {...buttonProps}
         onClick={handleClick}
       >
-        <Icon name="copy" className="h-4 w-4" />
-      </button>
+        <Icon name="copy-03" />
+      </Button>
     </Popover>
   );
 }

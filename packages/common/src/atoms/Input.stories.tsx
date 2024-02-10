@@ -53,6 +53,10 @@ const meta = {
     copiable: {
       control: { type: "boolean" },
     },
+    size: {
+      options: ["sm", "md", "lg"],
+      control: { type: "select" },
+    },
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof Input>;
@@ -236,4 +240,20 @@ export const InFormValidation: Story = {
     message: "Try to submit empty form",
   },
   render: renderInForm,
+};
+
+export const SizeSM: Story = {
+  args: {
+    ...WithValue.args,
+    size: "sm",
+  },
+  render,
+};
+
+export const SizeLG: Story = {
+  args: {
+    ...WithValue.args,
+    size: "lg",
+  },
+  render,
 };

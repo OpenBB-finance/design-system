@@ -32,9 +32,9 @@ const groupVariants = cva(
         default: "",
       },
       size: {
-        sm: "gap-2 px-2",
-        md: "gap-3 px-3",
-        lg: "gap-3 px-3",
+        sm: "gap-1 px-2 [&_button]:max-h-4",
+        md: "gap-2 px-3 [&_button]:max-h-6",
+        lg: "gap-2 px-3 [&_button]:max-h-8",
       },
     },
     defaultVariants: {
@@ -242,7 +242,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           )}
           {copiable && hasValue && (
             <CopyButton
-              className="bg-transparent text-inherit transition-all hover:text-grey-900 dark:hover:text-grey-100"
+              className="text-inherit transition-all hover:text-grey-900 group-aria-disabled:bg-transparent dark:hover:text-grey-100"
               text={value as string}
             />
           )}
