@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.6.5
+
+### Patch Changes
+
+- 67269c6: fix: common imports for better typings resolution
+
 ## 0.6.4
 
 ### Patch Changes
