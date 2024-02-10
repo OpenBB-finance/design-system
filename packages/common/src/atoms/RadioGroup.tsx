@@ -29,6 +29,7 @@ const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
   RadioGroupItemProps
 >((props, ref) => {
+  // eslint-disable-next-line unused-imports/no-unused-vars
   const { className, children, label, id: _id, ...rest } = props;
   const randomId = React.useId();
   const id = _id ?? randomId;

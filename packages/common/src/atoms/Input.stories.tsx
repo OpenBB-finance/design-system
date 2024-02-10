@@ -1,9 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, Icon } from "common";
 import type { FC } from "react";
 import { z } from "zod";
+import { Button } from "./Button";
 import { Form, FormField, useForm } from "./Form";
+import { Icon } from "./Icon";
 import type { InputProps } from "./Input";
 import { FormInput, Input } from "./Input";
 

@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import type { ButtonProps } from "common";
-import { Button, Icon } from "common";
 import { sleep } from "utils";
+import { Button, type ButtonProps } from "./Button";
 
+import { Icon } from "./Icon";
 import { Popover } from "./Popover";
 
 interface Props extends ButtonProps {

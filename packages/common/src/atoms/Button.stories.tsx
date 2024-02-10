@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Icon } from "common";
 import ThemedPreview from "utils/src/ThemedPreview";
 import { Button } from "./Button";
+import { Icon } from "./Icon";
 
 const meta = {
   title: "Atoms/Button",

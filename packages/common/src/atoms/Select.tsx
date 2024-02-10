@@ -1,12 +1,13 @@
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { cva, type VariantProps } from "class-variance-authority";
-import { FormItem, FormLabel, FormMessage, Icon } from "common";
 import * as React from "react";
 import { cn } from "utils";
 import {
   DropdownMenuContentVariants,
   DropdownMenuItemVariants,
 } from "./DropdownMenu";
+import { FormItem, FormLabel, FormMessage } from "./Form";
+import { Icon } from "./Icon";
 import { Label, Message } from "./Label";
 
 export const SelectTriggerVariants = cva(

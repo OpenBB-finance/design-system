@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Icon } from "common";
+import { Icon } from "./Icon";
 import { LinkButton } from "./LinkButton";
 
 const meta = {

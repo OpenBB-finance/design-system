@@ -61,7 +61,7 @@ export interface PopoverProps extends TooltipProps {
 export const Popover = React.forwardRef<
   React.ElementRef<typeof PopoverTrigger>,
   PopoverProps
->((props, ref) => {
+>((props) => {
   const {
     children,
     content,

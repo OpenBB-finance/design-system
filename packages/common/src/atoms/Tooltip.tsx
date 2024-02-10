@@ -71,7 +71,7 @@ export interface TooltipProps
 export const Tooltip = React.forwardRef<
   React.ElementRef<typeof TooltipTrigger>,
   TooltipProps
->((props, ref) => {
+>((props) => {
   const { children, content, arrow = false, ...contentProps } = props;
   return (
     <TooltipProvider>

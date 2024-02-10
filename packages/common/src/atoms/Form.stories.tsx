@@ -1,10 +1,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, Checkbox, FormSelect } from "common";
+
 import ThemedPreview from "utils/src/ThemedPreview";
 import { z } from "zod";
+import { Button } from "./Button";
+import { Checkbox } from "./Checkbox";
 import { Form, FormControl, FormField, FormItem, useForm } from "./Form";
 import { FormInput } from "./Input";
+import { FormSelect } from "./Select";
 
 const options = [
   { value: "1", label: "Option 1" },

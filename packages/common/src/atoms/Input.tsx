@@ -1,8 +1,8 @@
 import { cva } from "class-variance-authority";
 import React, { useEffect, useState } from "react";
 
-import { Icon } from "common";
 import { cn } from "utils";
+import { Icon } from "./Icon";
 
 import { CopyButton } from "./CopyButton";
 import { FormControl, FormItem, FormLabel, FormMessage } from "./Form";

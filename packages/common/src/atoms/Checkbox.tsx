@@ -1,8 +1,8 @@
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import * as React from "react";
 
-import { Icon } from "common";
 import { cn, makeRandomId } from "utils";
+import { Icon } from "./Icon";
 
 export interface CheckboxProps
   extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
