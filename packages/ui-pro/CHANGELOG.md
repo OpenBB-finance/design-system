@@ -1,5 +1,12 @@
 # @openbb/ui-pro
 
+## 0.6.3
+
+### Patch Changes
+
+- 2cc203d: fix: CopyButton style and size
+- ab08985: fix: Input disabled state
+
 ## 0.6.2
 
 ### Patch Changes

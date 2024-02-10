@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { Button, ButtonProps, Icon } from "common";
+import type { ButtonProps } from "common";
+import { Button, Icon } from "common";
 import { sleep } from "utils";
 
 import { Popover } from "./Popover";
