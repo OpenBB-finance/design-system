@@ -1,6 +1,6 @@
 {
   "name": "@openbb/ui-pro",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "sideEffects": false,
   "main": "./src/index.ts",
   "types": "./dist/src/index.d.ts",

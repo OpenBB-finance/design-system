@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.6.7
+
+### Patch Changes
+
+- 5dde645: fix: input paddings merged more precised
+
 ## 0.6.6
 
 ### Patch Changes
