@@ -1,6 +1,6 @@
 {
   "name": "@openbb/ui-pro",
-  "version": "0.2.9",
+  "version": "0.2.11",
   "sideEffects": false,
   "main": "./dist/lib.es.js",
   "types": "./dist/lib.es.d.ts",
