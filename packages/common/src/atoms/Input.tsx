@@ -32,9 +32,10 @@ const groupVariants = cva(
         default: "",
       },
       size: {
-        sm: "gap-1 px-2 [&_button]:max-h-4",
-        md: "gap-2 px-3 [&_button]:max-h-6",
-        lg: "gap-2 px-3 [&_button]:max-h-8",
+        //! Keep pl and pr, don't use px! It's overriding below.
+        sm: "gap-1 pl-2 pr-2 [&_button]:max-h-4",
+        md: "gap-2 pl-3 pr-3 [&_button]:max-h-6",
+        lg: "gap-2 pl-3 pr-3 [&_button]:max-h-8",
       },
     },
     defaultVariants: {
