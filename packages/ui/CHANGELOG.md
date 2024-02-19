@@ -1,5 +1,12 @@
 # @openbb/ui
 
+## 0.6.8
+
+### Patch Changes
+
+- a90d1e1: fix: dialog overlay
+- 170f299: fix: tabIndex at internal buttons in Input component
+
 ## 0.6.7
 
 ### Patch Changes
