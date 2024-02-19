@@ -82,7 +82,7 @@ const renderInForm: Story["render"] = (args) => {
   const form = useForm<TForm>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      theme: (args.defaultValue as string) ?? "",
+      theme: args.defaultValue as string,
     },
   });
 
