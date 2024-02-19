@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
+import { waitFor, within } from "@storybook/testing-library";
 import { useState } from "react";
+
+import { sleep } from "utils";
 import { Button } from "../atoms";
 import { ConfirmDialog } from "./ConfirmDialog";
 
@@ -9,6 +11,7 @@ const meta = {
   component: ConfirmDialog,
   parameters: {
     layout: "centered",
+    chromatic: { delay: 1000 },
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof ConfirmDialog>;
@@ -53,6 +56,13 @@ export const Stateless: Story = {
     onConfirm: () => console.log("Confirmed!"),
   },
   render,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement.ownerDocument.body);
+    const button = canvas.getByRole("button", { name: "Open" });
+    button.click();
+    await waitFor(() => canvas.getByRole("dialog"));
+    await sleep(500);
+  },
 };
 
 export const Stateful: Story = {
@@ -61,4 +71,5 @@ export const Stateful: Story = {
     ...Stateless.args,
   },
   render: renderStateful,
+  parameters: { chromatic: { delay: 500 } },
 };
