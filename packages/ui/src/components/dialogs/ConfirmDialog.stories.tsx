@@ -11,7 +11,6 @@ const meta = {
   component: ConfirmDialog,
   parameters: {
     layout: "centered",
-    chromatic: { delay: 1000 },
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof ConfirmDialog>;
