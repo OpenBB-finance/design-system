@@ -233,6 +233,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <button
               type="button"
               className="inline-flex flex-[0] bg-transparent text-inherit transition-all hover:text-grey-900 dark:hover:text-grey-100"
+              tabIndex={-1}
               onClick={(e) => {
                 e.stopPropagation();
                 clear();
@@ -245,12 +246,14 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <CopyButton
               className="text-inherit transition-all hover:text-grey-900 group-aria-disabled:bg-transparent dark:hover:text-grey-100"
               text={value as string}
+              tabIndex={-1}
             />
           )}
           {revealable && (
             <button
               type="button"
               className="inline-flex flex-[0] bg-transparent text-inherit transition-all hover:text-grey-900 dark:hover:text-grey-100"
+              tabIndex={-1}
               onClick={(e) => {
                 e.stopPropagation();
                 switchReveal();
