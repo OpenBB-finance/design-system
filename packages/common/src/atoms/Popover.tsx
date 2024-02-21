@@ -6,8 +6,9 @@ import type { TooltipProps } from "./Tooltip";
 import { tooltipArrowClasses, tooltipContentClasses } from "./Tooltip";
 
 export const PopoverRoot = PopoverPrimitive.Root;
-export const PopoverTrigger = PopoverPrimitive.Trigger;
+export const PopoverClose = PopoverPrimitive.Close;
 export const PopoverPortal = PopoverPrimitive.Portal;
+export const PopoverTrigger = PopoverPrimitive.Trigger;
 
 interface ContentProps
   extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> {}
