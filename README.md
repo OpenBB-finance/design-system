@@ -75,6 +75,15 @@ And finally, import styles into your code:
 
 ```css
 @import "@openbb/ui/dist/style.css";
+
+/* This part is required by Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Overriding code here */
+}
 ```
 
 Also, copy icon assets to your public folder. Example for `vite.config.ts`:

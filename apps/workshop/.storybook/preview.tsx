@@ -1,8 +1,8 @@
-import "@openbb/ui/src/global.css";
 import { withThemeByClassName } from "@storybook/addon-themes";
 import type { Preview, ReactRenderer } from "@storybook/react";
 import { themes } from "@storybook/theming";
 import React from "react";
+import "./styles.css";
 React; // keep it to prevent unused import deletion
 
 const preview: Preview = {
