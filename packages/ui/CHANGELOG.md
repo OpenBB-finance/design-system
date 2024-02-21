@@ -1,5 +1,12 @@
 # @openbb/ui
 
+## 0.6.9
+
+### Patch Changes
+
+- e2a3c51: fix: update colors
+- 96eb809: feat: add accent and warning button variants
+
 ## 0.6.8
 
 ### Patch Changes
