@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.7.0
+
+### Minor Changes
+
+- 6783da7: fix!: building styles
+
 ## 0.6.10
 
 ### Patch Changes
