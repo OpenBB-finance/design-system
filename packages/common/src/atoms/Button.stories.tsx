@@ -61,6 +61,30 @@ export const Outlined: Story = {
   render,
 };
 
+export const Accent: Story = {
+  args: {
+    variant: "accent",
+    children: "Button",
+  },
+  render,
+};
+
+export const Warning: Story = {
+  args: {
+    variant: "warning",
+    children: "Button",
+  },
+  render,
+};
+
+export const Danger: Story = {
+  args: {
+    variant: "danger",
+    children: "Button",
+  },
+  render,
+};
+
 /* Sizes */
 
 export const XtraSmall: Story = {

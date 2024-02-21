@@ -45,16 +45,26 @@ const buttonVariants = cva(
           "dark:focus-visible:text-grey-100 dark:focus-visible:ring-grey-300",
           "dark:disabled:border-dark-500 dark:disabled:bg-dark-850 dark:disabled:text-dark-600",
         ],
+        accent: [
+          "bg-accent-600 text-white",
+          "hover:bg-accent-700",
+          "focus-visible:ring-accent-600/30",
+          "disabled:bg-accent-900 disabled:text-grey-500",
+          "dark:focus-visible:ring-accent-600/50",
+        ],
+        warning: [
+          "bg-warning-600 text-white",
+          "hover:bg-warning-700",
+          "focus-visible:ring-warning-600/30",
+          "disabled:bg-warning-900 disabled:text-grey-500",
+          "dark:focus-visible:ring-warning-600/50",
+        ],
         danger: [
           "bg-danger-600 text-white",
           "hover:bg-danger-700",
-          "focus-visible:ring-danger-200",
-          "disabled:bg-danger-300 disabled:text-grey-400",
-
-          "dark:bg-danger-600 dark:text-white",
-          "dark:hover:bg-danger-700",
-          "dark:focus-visible:ring-danger-200",
-          "dark:disabled:bg-danger-300 dark:disabled:text-dark-400",
+          "focus-visible:ring-danger-600/30",
+          "disabled:bg-danger-900 disabled:text-grey-500",
+          "dark:focus-visible:ring-danger-600/50",
         ],
       },
       size: {
