@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.6.10
+
+### Patch Changes
+
+- a589b21: fix: add PopoverClose
+
 ## 0.6.9
 
 ### Patch Changes
