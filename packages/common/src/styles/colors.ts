@@ -40,7 +40,7 @@ export const dark = {
 /* Primary colors */
 
 export const lightBlue = {
-  50: "#CCEEFF",
+  50: "#ECF7FF",
   100: "#CCEEFF",
   200: "#99DDFF",
   300: "#66CCFF",
@@ -49,6 +49,7 @@ export const lightBlue = {
   600: "#0088CC",
   700: "#006699",
   800: "#004466",
+  900: "#002D48",
 } as const;
 
 export const darkBlue = {
@@ -61,6 +62,7 @@ export const darkBlue = {
   600: "#004A87",
   700: "#003765",
   800: "#002544",
+  900: "#000E21",
 } as const;
 
 export const purple = {
@@ -73,6 +75,7 @@ export const purple = {
   600: "#3A1F63",
   700: "#2B174A",
   800: "#1D1032",
+  900: "#16082C",
 } as const;
 
 export const burgundy = {
@@ -85,6 +88,7 @@ export const burgundy = {
   600: "#681E4E",
   700: "#4E173A",
   800: "#340F27",
+  900: "#200415",
 } as const;
 
 export const cardinal = {
@@ -97,6 +101,7 @@ export const cardinal = {
   600: "#9A2838",
   700: "#741E2A",
   800: "#4D141C",
+  900: "#34070D",
 } as const;
 
 export const ruby = {
@@ -109,6 +114,7 @@ export const ruby = {
   600: "#B6002E",
   700: "#890023",
   800: "#5B0017",
+  900: "#3F0009",
 } as const;
 
 export const orange = {
@@ -121,6 +127,7 @@ export const orange = {
   600: "#BF6400",
   700: "#8F4B00",
   800: "#603200",
+  900: "#421E00",
 } as const;
 
 export const yellow = {
@@ -133,6 +140,7 @@ export const yellow = {
   600: "#CCBE00",
   700: "#998E00",
   800: "#665F00",
+  900: "#2E2A00",
 } as const;
 
 /* Feedback colors */
