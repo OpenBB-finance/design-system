@@ -14,7 +14,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const render: Story["render"] = (args) => {
+const render: Story["render"] = () => {
   return (
     <div className="p-4">
       <Tabs defaultValue="1">

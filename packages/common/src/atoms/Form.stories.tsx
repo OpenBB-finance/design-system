@@ -33,7 +33,7 @@ const formSchema = z.object({
 
 type TForm = z.infer<typeof formSchema>;
 
-const render: Story["render"] = (args) => {
+const render: Story["render"] = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const form = useForm<TForm>({
     resolver: zodResolver(formSchema),
