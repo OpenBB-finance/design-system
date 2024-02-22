@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.7.1
+
+### Patch Changes
+
+- 5d851d5: feat: adjustable Icon url
+
 ## 0.7.0
 
 ### Minor Changes
