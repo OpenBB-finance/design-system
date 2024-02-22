@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.7.2
+
+### Patch Changes
+
+- 0e3d588: fix: full support of ES modules
+
 ## 0.7.1
 
 ### Patch Changes
