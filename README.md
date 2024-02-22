@@ -71,7 +71,7 @@ export default {
 } satisfies Config;
 ```
 
-And finally, import styles into your code:
+Then, import styles into your code:
 
 ```css
 @import "@openbb/ui/dist/style.css";
@@ -86,7 +86,7 @@ And finally, import styles into your code:
 }
 ```
 
-Also, copy icon assets to your public folder. Example for `vite.config.ts`:
+And finally, copy icon assets to your public folder. Example for `vite.config.ts`:
 
 ```bash
 npm i -D vite-plugin-static-copy
@@ -109,6 +109,15 @@ export default defineConfig({
     }),
   ],
 });
+```
+
+or override `Icon.defaultUrl` in your code:
+
+```js
+import { Icon } from "@openbb/ui";
+import spritemapUrl from "@openbb/ui/dist/assets/spritemap.svg";
+
+Icon.defaultUrl = spritemapUrl;
 ```
 
 ## Development

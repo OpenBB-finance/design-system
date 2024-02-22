@@ -17,8 +17,12 @@ export function Icon(props: Props) {
       height={size}
       {...rest}
     >
-      <use xlinkHref={`/__spritemap#sprite-${name}`} />
+      <use xlinkHref={`${Icon.defaultUrl}#sprite-${name}`} />
     </svg>
   );
 }
 Icon.displayName = "Icon";
+/**
+ * Sometimes it's not possible to copy a file from node_modules into bundle, so we can use this defaultUrl to point to the spritemap file
+ */
+Icon.defaultUrl = "/__spritemap";
