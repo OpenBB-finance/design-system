@@ -2,6 +2,7 @@
   "name": "@openbb/ui-pro",
   "version": "0.7.1",
   "sideEffects": false,
+  "type": "module",
   "main": "./src/index.ts",
   "types": "./dist/src/index.d.ts",
   "exports": {

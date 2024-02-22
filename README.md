@@ -62,6 +62,11 @@ import type { Config } from "tailwindcss";
 import conf from "@openbb/ui/tailwind.config";
 
 export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx,mdx}",
+    "./node_modules/@openbb/ui/dist/**/*.{js,jsx,ts,tsx}",
+  ],
   presets: [conf],
   theme: {
     extend: {
@@ -74,12 +79,10 @@ export default {
 Then, import styles into your code:
 
 ```css
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 @import "@openbb/ui/dist/style.css";
-
-/* This part is required by Tailwind */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   /* Overriding code here */
@@ -111,7 +114,7 @@ export default defineConfig({
 });
 ```
 
-or override `Icon.defaultUrl` in your code:
+or override `Icon.defaultUrl` somewhere in your root code:
 
 ```js
 import { Icon } from "@openbb/ui";

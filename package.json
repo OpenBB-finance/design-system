@@ -7,6 +7,7 @@
     "name": "José Donato, Aleksandr Azarov"
   },
   "private": true,
+  "type": "module",
   "workspaces": [
     "packages/*",
     "apps/*"
@@ -40,7 +41,7 @@
     "prop-types": "^15.8.1",
     "tsup": "^8.0.1",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9",
+    "vite": "^5.1.4",
     "vite-plugin-dts": "^3.7.1",
     "vite-plugin-svg-icons": "^2.0.1"
   },

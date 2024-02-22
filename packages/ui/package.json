@@ -2,6 +2,7 @@
   "name": "@openbb/ui",
   "version": "0.7.1",
   "sideEffects": false,
+  "type": "module",
   "main": "./src/index.ts",
   "types": "./dist/src/index.d.ts",
   "exports": {
@@ -16,8 +17,8 @@
     "./dist/*": "./dist/*"
   },
   "files": [
-    "dist",
-    "src",
+    "dist/**/*",
+    "src/**/*",
     "tailwind.config.ts"
   ],
   "scripts": {
