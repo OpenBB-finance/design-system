@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { cn } from "utils";
 import { Icon } from "./Icon";
@@ -135,7 +135,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     } = props;
 
     // Uncontrolled state support
-    const localRef = React.useRef<HTMLInputElement>(null);
+    const localRef = useRef<HTMLInputElement>(null);
     const ref = (fwRef as React.RefObject<HTMLInputElement>) ?? localRef;
 
     const [type, setType] = useState(defaultType ?? "text");
