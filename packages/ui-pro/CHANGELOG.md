@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.7.3
+
+### Patch Changes
+
+- 3e896f9: fix: add couple new icons
+
 ## 0.7.2
 
 ### Patch Changes
