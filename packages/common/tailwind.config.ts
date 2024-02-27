@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 import animatePlugin from "tailwindcss-animate";
 import { typographyPlugin } from "./plugins/typography";
-import { colors, gradients } from "./src/styles/colors";
+import { colors, gradients, radials } from "./src/styles/colors";
 
 export default {
   darkMode: "class",
@@ -55,6 +55,7 @@ export default {
       },
       backgroundImage: {
         ...gradients,
+        ...radials,
       },
       borderRadius: {
         lg: "var(--radius)",

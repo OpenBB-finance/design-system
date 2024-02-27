@@ -1,10 +1,10 @@
 import { Meta, Story } from "@storybook/blocks";
 
-import { colors } from "common/src/styles/colors";
+import { colors, gradients, radials } from "common/src/styles/colors";
 import { cn } from "utils";
 
 export function StoriesColor(props) {
-  const { title, value, className } = props;
+  const { title, color, image, className } = props;
   return (
     <div
       className="flex flex-col items-center justify-center text-xs text-grey-100 dark:text-black"
@@ -16,18 +16,36 @@ export function StoriesColor(props) {
           width: "80px",
           height: "50px",
           borderRadius: "5px",
-          backgroundColor: value,
+          backgroundColor: color,
+          backgroundImage: image,
         }}
       />
       <div style={{ whiteSpace: "nowrap", textAlign: "center" }}>{title}</div>
-      <div className="text-grey-400">{value}</div>
+      <div className="text-grey-400">{color}</div>
     </div>
   );
 }
 
 export function renderPalette(name) {
   return Object.entries(colors[name]).map(([key, value]) => (
-    <StoriesColor key={key} title={`${name}-${key}`} value={value} />
+    <StoriesColor key={key} title={`${name}-${key}`} color={value} />
+  ));
+}
+
+export function renderGradients() {
+  return Object.entries(gradients).map(([key, value]) => (
+    <StoriesColor key={key} title={`${key}`} image={value} />
+  ));
+}
+
+export function renderRadials() {
+  return Object.entries(radials).map(([key, value]) => (
+    <StoriesColor
+      key={key}
+      title={`${key}`}
+      image={value}
+      className="!aspect-square !h-auto"
+    />
   ));
 }
 
@@ -77,4 +95,16 @@ export function renderPalette(name) {
   <div className="flex flex-wrap gap-2">{renderPalette("ruby")}</div>
   <div className="flex flex-wrap gap-2">{renderPalette("orange")}</div>
   <div className="flex flex-wrap gap-2">{renderPalette("yellow")}</div>
+</div>
+
+## Linear gradients
+
+<div className="sb-unstyled flex flex-col gap-4">
+  <div className="flex flex-wrap gap-2">{renderGradients()}</div>
+</div>
+
+## Radial gradients
+
+<div className="sb-unstyled flex flex-col gap-4">
+  <div className="flex flex-wrap gap-4">{renderRadials()}</div>
 </div>
