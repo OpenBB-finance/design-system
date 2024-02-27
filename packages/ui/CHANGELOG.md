@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.7.4
+
+### Patch Changes
+
+- 95f3c3c: fix: add couple more icons
+
 ## 0.7.3
 
 ### Patch Changes
