@@ -1,5 +1,12 @@
 # @openbb/ui-pro
 
+## 0.7.5
+
+### Patch Changes
+
+- 5cecb97: fix: hat icon
+- 00a1ee8: feat: add radial gradients
+
 ## 0.7.4
 
 ### Patch Changes
