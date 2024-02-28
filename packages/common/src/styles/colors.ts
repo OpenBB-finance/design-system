@@ -230,16 +230,3 @@ export const gradients = {
   "gradient-06": `linear-gradient(136deg, #E05E00 0%, #FFEC00 100%)`,
   "gradient-07": `linear-gradient(135deg, #FCED00 0%, ${orange[500]} 17.64%, ${cardinal[500]} 34.65%, ${burgundy[500]} 51.05%, ${purple[500]} 66.61%, #2D378C 82.10%, ${darkBlue[500]} 95.72%)`,
 } as const;
-
-/* Radial gradients */
-
-export const radials = {
-  "radial-sky": `radial-gradient(50% 50% at 50% 50%, rgb(0 151 222 / 0.5) 0%, rgb(0 151 222 / 0) 100%)`,
-  "radial-blue": `radial-gradient(50% 50% at 50% 50%, rgb(20 81 160 / 0.8) 0%, rgb(20 81 160 / 0) 100%)`,
-  "radial-purple": `radial-gradient(50% 50% at 50% 50%, rgb(71 44 117 / 0.8) 0%, rgb(71 44 117 / 0) 100%)`,
-  "radial-burgundy": `radial-gradient(50% 50% at 50% 50%, rgb(130 38 97 / 0.5) 0%, rgb(130 38 97 / 0) 100%)`,
-  "radial-cardinal": `radial-gradient(50% 50% at 50% 50%, rgb(193 50 70 / 0.5) 0%, rgb(193 50 70 / 0) 100%)`,
-  "radial-red": `radial-gradient(50% 50% at 50% 50%, rgb(215 0 67 / 0.5) 0%, rgb(215 0 67 / 0) 100%)`,
-  "radial-orange": `radial-gradient(50% 50% at 50% 50%, rgb(228 118 0 / 0.5) 0%, rgb(228 118 0 / 0) 100%)`,
-  "radial-yellow": `radial-gradient(50% 50% at 50% 50%, rgb(255 236 0 / 0.5) 0%, rgb(255 236 0 / 0) 100%)`,
-} as const;

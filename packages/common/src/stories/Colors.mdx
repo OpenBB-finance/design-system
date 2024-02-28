@@ -1,6 +1,7 @@
 import { Meta, Story } from "@storybook/blocks";
 
-import { colors, gradients, radials } from "common/src/styles/colors";
+import { colors, gradients } from "common/src/styles/colors";
+import { RADIAL_COLORS } from "../../plugins/bg-radial";
 import { cn } from "utils";
 
 export function StoriesColor(props) {
@@ -39,12 +40,11 @@ export function renderGradients() {
 }
 
 export function renderRadials() {
-  return Object.entries(radials).map(([key, value]) => (
+  return Object.entries(RADIAL_COLORS).map(([key]) => (
     <StoriesColor
       key={key}
       title={`${key}`}
-      image={value}
-      className="!aspect-square !h-auto"
+      className={cn("!aspect-square !h-auto", `bg-radial-${key}`)}
     />
   ));
 }
@@ -106,5 +106,82 @@ export function renderRadials() {
 ## Radial gradients
 
 <div className="sb-unstyled flex flex-col gap-4">
-  <div className="flex flex-wrap gap-4">{renderRadials()}</div>
+  <div className="flex flex-wrap gap-2">
+    <StoriesColor
+      title="light-blue"
+      className="!aspect-square !h-auto bg-radial-light-blue"
+    />
+    <StoriesColor
+      title="dark-blue"
+      className="!aspect-square !h-auto bg-radial-dark-blue"
+    />
+    <StoriesColor
+      title="purple"
+      className="!aspect-square !h-auto bg-radial-purple"
+    />
+    <StoriesColor
+      title="burgundy"
+      className="!aspect-square !h-auto bg-radial-burgundy"
+    />
+    <StoriesColor
+      title="cardinal"
+      className="!aspect-square !h-auto bg-radial-cardinal"
+    />
+    <StoriesColor
+      title="ruby"
+      className="!aspect-square !h-auto bg-radial-ruby"
+    />
+    <StoriesColor
+      title="orange"
+      className="!aspect-square !h-auto bg-radial-orange"
+    />
+    <StoriesColor
+      title="yellow"
+      className="!aspect-square !h-auto bg-radial-yellow"
+    />
+    <StoriesColor
+      title="danger"
+      className="!aspect-square !h-auto bg-radial-danger"
+    />
+    <StoriesColor
+      title="warning"
+      className="!aspect-square !h-auto bg-radial-warning"
+    />
+    <StoriesColor
+      title="success"
+      className="!aspect-square !h-auto bg-radial-success"
+    />
+  </div>
+  {/* <div className="flex flex-wrap gap-2">
+    <StoriesColor
+      title="light-blue"
+      className="bg-radial !aspect-square !h-auto from-[#0097DE]/50"
+    />
+    <StoriesColor
+      title="dark-blue"
+      className="bg-radial !aspect-square !h-auto from-[#1451A0]/80"
+    />
+    <StoriesColor
+      title="purple"
+      className="bg-radial !aspect-square !h-auto from-[#472C75]/80"
+    />
+    <StoriesColor
+      title="burgundy"
+      className="bg-radial !aspect-square !h-auto from-[#822661]/50"
+    />
+    <StoriesColor
+      title="cardinal"
+      className="bg-radial !aspect-square !h-auto from-[#C13246]/50"
+    />
+    <StoriesColor
+      title="ruby"
+      className="bg-radial !aspect-square !h-auto from-[#D70043]/50"
+    />
+  </div> */}
+  <div className="flex flex-wrap gap-2">
+    <StoriesColor
+      title="custom"
+      className="!aspect-square !h-auto from-orange-500 to-purple-500/50 bg-radial"
+    />
+  </div>
 </div>
