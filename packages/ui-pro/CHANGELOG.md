@@ -1,5 +1,11 @@
 # @openbb/ui-pro
 
+## 0.7.7
+
+### Patch Changes
+
+- 54255ad: feat: add Carousel component
+
 ## 0.7.6
 
 ### Patch Changes
