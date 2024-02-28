@@ -1,5 +1,12 @@
 # @openbb/ui
 
+## 0.7.6
+
+### Patch Changes
+
+- 70a52d8: fix: make radials as plugin
+- 6cdd080: fix: add more icons
+
 ## 0.7.5
 
 ### Patch Changes
