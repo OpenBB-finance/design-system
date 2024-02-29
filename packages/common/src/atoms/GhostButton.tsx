@@ -6,7 +6,7 @@ import { cn } from "utils";
 
 export const ghostButtonVariants = cva(
   [
-    "BB-GhostButton group inline-flex items-center justify-center rounded-sm px-1 ring-offset-background",
+    "BB-GhostButton group inline-flex w-fit items-center justify-center rounded-sm px-1 ring-offset-background",
     "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-grey-200",
     "focus-visible:px-0",
     "disabled:pointer-events-none",
