@@ -7,19 +7,19 @@ import { cn } from "utils";
 export const ghostButtonVariants = cva(
   [
     "BB-GhostButton group inline-flex w-fit items-center justify-center rounded-sm px-1 ring-offset-background",
-    "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-grey-200",
-    "focus-visible:px-0",
+    "focus-visible:px-0 focus-visible:outline-none focus-visible:ring-4",
     "disabled:pointer-events-none",
     "transition",
 
     "border-grey-700 text-grey-700",
     "hover:border-accent-400 hover:text-grey-850",
+    "focus-visible:ring-grey-200",
     "disabled:border-grey-300 disabled:text-grey-300",
 
     "dark:border-grey-300 dark:text-grey-300",
-    "dark:hover:border-accent-400 dark:hover:text-grey-300",
-    "dark:focus-visible:border-accent-600",
-    "dark:disabled:border-grey-700 dark:disabled:text-grey-700",
+    "dark:hover:border-white dark:hover:text-white",
+    "dark:focus-visible:border-grey-500",
+    "dark:disabled:border-dark-200 dark:disabled:text-dark-200",
   ],
   {
     variants: {
