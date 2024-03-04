@@ -1,5 +1,14 @@
 # @openbb/ui-pro
 
+## 0.7.9
+
+### Patch Changes
+
+- f69403a: fix: GhostButton colors
+- ba66424: fix: GhostButton width
+- 5ff8a65: fix: forwardRef warnings
+- 75eeab5: fix: carousel card
+
 ## 0.7.8
 
 ### Patch Changes
