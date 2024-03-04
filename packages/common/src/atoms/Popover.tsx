@@ -60,9 +60,9 @@ export interface PopoverProps extends TooltipProps {
 
 /** `Popover` is a hint, same as `Tooltip`, but appears on click or manually */
 export const Popover = React.forwardRef<
-  React.ElementRef<typeof PopoverTrigger>,
+  React.ElementRef<typeof PopoverContent>,
   PopoverProps
->((props) => {
+>((props, ref) => {
   const {
     children,
     content,
@@ -75,7 +75,7 @@ export const Popover = React.forwardRef<
     <PopoverRoot {...{ open, onOpenChange }}>
       <PopoverTrigger asChild>{children}</PopoverTrigger>
       <PopoverPortal>
-        <PopoverContent {...contentProps}>
+        <PopoverContent ref={ref} {...contentProps}>
           {content}
           {arrow && <PopoverArrow />}
         </PopoverContent>

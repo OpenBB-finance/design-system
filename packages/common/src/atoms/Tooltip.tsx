@@ -69,16 +69,16 @@ export interface TooltipProps
 
 /** `Tooltip` is a hint that appears on hover */
 export const Tooltip = React.forwardRef<
-  React.ElementRef<typeof TooltipTrigger>,
+  React.ElementRef<typeof TooltipContent>,
   TooltipProps
->((props) => {
+>((props, ref) => {
   const { children, content, arrow = false, ...contentProps } = props;
   return (
     <TooltipProvider>
       <TooltipRoot>
         <TooltipTrigger asChild>{children}</TooltipTrigger>
         <TooltipPortal>
-          <TooltipContent {...contentProps}>
+          <TooltipContent ref={ref} {...contentProps}>
             {content}
             {arrow && <TooltipArrow />}
           </TooltipContent>
