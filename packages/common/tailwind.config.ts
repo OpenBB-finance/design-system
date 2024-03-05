@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import animatePlugin from "tailwindcss-animate";
+import radixPlugin from "tailwindcss-radix";
 import { bgRadialPlugin } from "./plugins/bg-radial";
 import { typographyPlugin } from "./plugins/typography";
 import { colors, gradients } from "./src/styles/colors";
@@ -96,5 +97,5 @@ export default {
       },
     },
   },
-  plugins: [animatePlugin, typographyPlugin, bgRadialPlugin],
+  plugins: [radixPlugin, animatePlugin, typographyPlugin, bgRadialPlugin],
 } satisfies Config;

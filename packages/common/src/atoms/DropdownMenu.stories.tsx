@@ -28,7 +28,7 @@ const render: Story["render"] = () => {
       <DropdownMenuTrigger>
         <Button size="sm">Open</Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="space-y-2">
+      <DropdownMenuContent>
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>Profile</DropdownMenuItem>

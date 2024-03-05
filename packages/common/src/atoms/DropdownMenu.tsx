@@ -6,7 +6,7 @@ import * as React from "react";
 import { cn } from "utils";
 
 export const DropdownMenuContentVariants = cva([
-  "BB-DropdownMenuContent shadow-1 relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-sm body-xs-regular",
+  "BB-DropdownMenuContent shadow-1 relative z-50 max-h-96 min-w-[8rem] space-y-2 overflow-hidden rounded-sm p-2 body-xs-regular",
   "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
   "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
   "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
@@ -18,12 +18,15 @@ export const DropdownMenuContentVariants = cva([
 
 export const DropdownMenuItemVariants = cva([
   "BB-DropdownMenuItem relative flex w-full cursor-default select-none items-center rounded-sm p-1 pr-8 outline-none transition body-xs-regular",
+  "cursor-pointer",
   "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
   /* Light theme */
   "text-grey-750",
+  "hover:bg-grey-50 hover:text-grey-750",
   "focus:bg-grey-50 focus:text-grey-750",
   /* Dark theme */
   "dark:text-grey-200",
+  "dark:hover:bg-dark-600 dark:hover:text-grey-200",
   "dark:focus:bg-dark-600 dark:focus:text-grey-200",
 ]);
 
