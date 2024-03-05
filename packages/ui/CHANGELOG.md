@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.7.10
+
+### Patch Changes
+
+- 3e02996: fix: dropdown menu classes
+
 ## 0.7.9
 
 ### Patch Changes
