@@ -153,7 +153,7 @@ const SelectContent = React.forwardRef<
         className={cn(
           "space-y-2 p-2",
           position === "popper" &&
-            "h-radix-select-trigger-height w-full min-w-[var(--radix-select-trigger-width)]",
+            "w-full min-w-[var(--radix-select-trigger-width)] h-radix-select-trigger-height",
         )}
       >
         {children}
