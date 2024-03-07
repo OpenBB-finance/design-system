@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.8.0
+
+### Minor Changes
+
+- 8130a4c: fix!: KICK OUT UI-PRO! And merge into single package
+
 ## 0.7.10
 
 ### Patch Changes

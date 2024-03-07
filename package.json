@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "turbo build --no-cache --force",
-    "lint": "npx eslint src --fix && npx prettier --write src",
+    "lint": "turbo lint",
     "storybook": "npm run dev -w workshop",
     "publish-packages": "turbo lint && changeset version && turbo build && changeset publish",
     "chromatic": "npm run chromatic -w workshop"
