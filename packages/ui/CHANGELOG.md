@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.8.1
+
+### Patch Changes
+
+- 1076810: fix: build tailwind config
+
 ## 0.8.0
 
 ### Minor Changes
