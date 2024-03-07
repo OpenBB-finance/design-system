@@ -24,9 +24,9 @@ const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-40 bg-grey-600/30 transition-all dark:bg-dark-900/80",
-      "data-[state=open]:animate-in data-[state=open]:fade-in-0",
-      "data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
+      "BB-DialogOverlay fixed inset-0 z-40 bg-grey-600/30 transition-all dark:bg-dark-900/80",
+      "radix-state-open:animate-in radix-state-open:fade-in-0",
+      "radix-state-closed:animate-out radix-state-closed:fade-out-0",
       className,
     )}
     {...props}
@@ -49,8 +49,8 @@ const DialogContent = React.forwardRef<
         "shadow-3 flex w-[calc(100%-1rem*2)] max-w-xl flex-col gap-6 rounded-sm border border-grey-600 bg-white p-6 body-sm-regular",
         "dark:bg-dark-850",
         "md:gap-10 md:p-10 lg:max-w-[750px]",
-        "data-[state=open]:duration-100 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
-        "data-[state=open]:duration-200 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%]",
+        "radix-state-open:duration-100 radix-state-open:animate-in radix-state-open:fade-in-0 radix-state-open:zoom-in-95 radix-state-open:slide-in-from-left-1/2 radix-state-open:slide-in-from-top-[48%]",
+        "radix-state-closed:duration-200 radix-state-closed:animate-out radix-state-closed:fade-out-0 radix-state-closed:zoom-out-95 radix-state-closed:slide-out-to-left-1/2 radix-state-closed:slide-out-to-top-[48%]",
         className,
       )}
       {...props}
