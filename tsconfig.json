@@ -1,11 +1,5 @@
 {
-  "extends": "common/tsconfig.json",
-
+  "extends": "./packages/ui/tsconfig.json",
   "include": ["./packages/**/*", "./apps/**/*"],
   "exclude": ["**/dist", "**/build", "node_modules"]
-  // "compilerOptions": {
-  //   "paths": {
-  //     "common/*": ["./packages/common/*"]
-  //   }
-  // }
 }

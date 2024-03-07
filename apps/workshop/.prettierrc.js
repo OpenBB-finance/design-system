@@ -1,2 +1,2 @@
-import conf from "common/.eslintrc";
+import conf from "../../packages/ui/.prettierrc.js";
 export default conf;

@@ -22,7 +22,8 @@
     "tailwind.config.ts"
   ],
   "scripts": {
-    "build": "npm run build-vite && npm run build-dts",
+    "build": "npm run build-vite",
+    "_build": "npm run build-vite && npm run build-dts",
     "build-vite": "vite build",
     "build-dts": "tsup",
     "lint": "npx eslint src --fix && npx prettier --write src",
@@ -44,12 +45,13 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "embla-carousel-react": "^8.0.0",
     "react-hook-form": "^7.50.1",
     "tailwind-merge": "^2.2.1",
     "zod": "^3.22.4"
   },
-  "devDependencies": {
-    "common": "*",
-    "utils": "*"
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

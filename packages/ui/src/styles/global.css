@@ -1,0 +1,136 @@
+/* Theming */
+
+@layer base {
+  :root {
+    --background: theme(colors.white);
+    --foreground: theme(colors.grey.850);
+
+    --card: theme(colors.grey.50);
+    --card-foreground: theme(colors.grey.850);
+
+    --popover: theme(colors.grey.50);
+    --popover-foreground: theme(colors.grey.850);
+
+    --primary: theme(colors.black);
+    --primary-foreground: theme(colors.grey.100);
+
+    --secondary: theme(colors.grey.100);
+    --secondary-foreground: theme(colors.grey.900);
+
+    --muted: theme(colors.grey.200);
+    --muted-foreground: theme(colors.grey.300);
+
+    /* --accent: hsl(0 0% 96.1%);
+    --accent-foreground: hsl(0 0% 9%); */
+
+    --destructive: theme(colors.danger.600);
+    --destructive-foreground: theme(colors.grey.100);
+
+    --border: theme(colors.grey.400);
+    --input: theme(colors.grey.400);
+    --ring: theme(colors.grey.300);
+
+    --radius: 0.5rem;
+  }
+
+  :root[class~="dark"] {
+    --background: theme(colors.grey.850);
+    --foreground: theme(colors.grey.100);
+
+    --card: theme(colors.grey.850);
+    --card-foreground: theme(colors.grey.100);
+
+    --popover: theme(colors.grey.900);
+    --popover-foreground: theme(colors.grey.100);
+
+    --primary: theme(colors.grey.100);
+    --primary-foreground: theme(colors.grey.800);
+
+    --secondary: theme(colors.grey.300);
+    --secondary-foreground: theme(colors.grey.800);
+
+    --tertiary: theme(colors.grey.900);
+    --tertiary-foreground: theme(colors.grey.50);
+
+    --muted: theme(colors.grey.400);
+    --muted-foreground: theme(colors.grey.600);
+
+    /* --accent: theme(colors.grey.300);
+    --accent-foreground: theme(colors.grey.100); */
+
+    --destructive: theme(colors.danger.600);
+    --destructive-foreground: theme(colors.grey.100);
+
+    --border: theme(colors.grey.300);
+    --input: theme(colors.grey.400);
+    --ring: theme(colors.grey.400);
+  }
+}
+
+/* Components */
+
+@layer base {
+  :root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    @apply bg-background text-foreground;
+  }
+
+  hr {
+    @apply m-0 border-grey-200 dark:border-dark-500;
+  }
+
+  input.BB-Input[type="date"]::-webkit-inner-spin-button,
+  input.BB-Input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .shadow-1 {
+    @apply shadow-light-1 dark:shadow-dark-1;
+  }
+  .shadow-2 {
+    @apply shadow-light-2 dark:shadow-dark-2;
+  }
+  .shadow-3 {
+    @apply shadow-light-3 dark:shadow-dark-3;
+  }
+}
+
+/* Fonts */
+
+@font-face {
+  font-family: "aktiv-grotesk-extended";
+  src: url("https://use.typekit.net/af/5a2c6f/00000000000000003b9ad13c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3")
+    format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "aktiv-grotesk-extended";
+  src: url("https://use.typekit.net/af/3f03c1/00000000000000003b9ad13e/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+    format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter.var.woff2") format("woff2-variations");
+  font-weight: 1 999;
+  font-display: swap;
+}

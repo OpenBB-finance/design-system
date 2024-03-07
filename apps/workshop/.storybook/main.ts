@@ -14,23 +14,13 @@ const config: StorybookConfig = {
     "../src/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
     {
-      directory: "../../../packages/common/src/stories/**",
-      titlePrefix: "Common",
+      directory: "../../../packages/ui/src/**",
+      titlePrefix: "@openbb-ui",
       files: "*.mdx",
-    },
-    {
-      directory: "../../../packages/common/src/**",
-      titlePrefix: "Common",
-      files: "*.stories.*",
     },
     {
       directory: "../../../packages/ui/src/**",
       titlePrefix: "@openbb-ui",
-      files: "*.stories.*",
-    },
-    {
-      directory: "../../../packages/ui-pro/src/**",
-      titlePrefix: "@openbb-ui-pro",
       files: "*.stories.*",
     },
   ],

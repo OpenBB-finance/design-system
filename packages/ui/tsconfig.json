@@ -1,10 +1,23 @@
 {
-  "extends": "common/tsconfig.json",
-  "include": [
-    "./src/**/*",
-    "../common/*",
-    "../common/src/**/*",
-    "../common/plugins/*"
-  ],
-  "exclude": ["../common/**/*.stories.tsx"]
+  "include": ["./*", "./src/**/*", "./plugins/*"],
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "strict": true,
+    "target": "ESNext",
+    "types": ["vite-plugin-svg-icons/client", "vite/client"]
+  }
 }
