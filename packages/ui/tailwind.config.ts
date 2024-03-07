@@ -1,9 +1,9 @@
 import type { Config } from "tailwindcss";
 import animatePlugin from "tailwindcss-animate";
 import radixPlugin from "tailwindcss-radix";
-import { colors, gradients } from "~/styles/colors";
 import { bgRadialPlugin } from "./plugins/bg-radial";
 import { typographyPlugin } from "./plugins/typography";
+import { colors, gradients } from "./src/styles/colors";
 
 export default {
   darkMode: "class",
