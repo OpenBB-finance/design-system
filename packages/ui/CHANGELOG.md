@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.8.2
+
+### Patch Changes
+
+- 01c6097: fix: typings path
+
 ## 0.8.1
 
 ### Patch Changes
