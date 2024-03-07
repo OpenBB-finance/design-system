@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.8.3
+
+### Patch Changes
+
+- fix: return back css file to bundle
+
 ## 0.8.2
 
 ### Patch Changes
