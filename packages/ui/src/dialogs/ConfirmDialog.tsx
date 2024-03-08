@@ -58,12 +58,12 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
   function renderActions() {
     return (
       <DialogFooter>
-        {renderConfirmButton()}
         <DialogClose asChild>
           <Button variant="secondary" onClick={onClose}>
             {cancelText}
           </Button>
         </DialogClose>
+        {renderConfirmButton()}
       </DialogFooter>
     );
   }
