@@ -3,11 +3,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { z } from "zod";
 import ThemedPreview from "~/utils/ThemedPreview";
-import { Button } from "./Button";
-import { Checkbox } from "./Checkbox";
+import { Button } from "../atoms/Button";
+import { Checkbox } from "../atoms/Checkbox";
+import { FormInput } from "../atoms/Input";
+import { FormSelect } from "../atoms/Select";
 import { Form, FormControl, FormField, FormItem, useForm } from "./Form";
-import { FormInput } from "./Input";
-import { FormSelect } from "./Select";
 
 const options = [
   { value: "1", label: "Option 1" },

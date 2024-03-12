@@ -3,8 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import ThemedPreview from "~/utils/ThemedPreview";
+import { Form, FormField, useForm } from "../molecules/Form";
 import { Button } from "./Button";
-import { Form, FormField, useForm } from "./Form";
 import { Label } from "./Label";
 import {
   FormSelect,

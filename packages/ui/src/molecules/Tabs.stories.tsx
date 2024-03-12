@@ -3,7 +3,7 @@ import ThemedPreview from "~/utils/ThemedPreview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./Tabs";
 
 const meta = {
-  title: "Atoms/Tabs",
+  title: "Molecules/Tabs",
   component: Tabs,
   parameters: {
     layout: "centered",

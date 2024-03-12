@@ -9,7 +9,7 @@ import {
   useFormContext,
 } from "react-hook-form";
 import { cn } from "~/utils";
-import { Label, Message } from "./Label";
+import { Label, Message } from "../atoms/Label";
 
 const Form = FormProvider;
 
@@ -168,5 +168,6 @@ export {
   FormLabel,
   FormMessage,
   useForm,
-  useFormField,
+  useFormField
 };
+
