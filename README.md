@@ -136,7 +136,7 @@ npm ci
 Use [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) to update dependencies.
 
 ```bash
-ncu -u
+ncu -x eslint-plugin-unused-imports -u
 npm i
 ```
 
