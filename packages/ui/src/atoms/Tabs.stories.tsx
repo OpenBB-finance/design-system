@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
+import ThemedPreview from "~/utils/ThemedPreview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./Tabs";
 
 const meta = {
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 const render: Story["render"] = () => {
   return (
-    <div className="p-4">
+    <ThemedPreview>
       <Tabs defaultValue="1">
         <TabsList>
           <TabsTrigger value="1">Tab 1</TabsTrigger>
@@ -27,7 +27,7 @@ const render: Story["render"] = () => {
         <TabsContent value="2">Tab 2 content</TabsContent>
         <TabsContent value="3">Tab 3 content</TabsContent>
       </Tabs>
-    </div>
+    </ThemedPreview>
   );
 };
 
