@@ -1,5 +1,14 @@
 # @openbb/ui
 
+## 0.8.4
+
+### Patch Changes
+
+- eca806f: fix: deprecate LinkButton
+- 3aeafb3: fix: move Form and Tabs to molecules
+- 2fb078b: fix: expose Tabs classes
+- 6f52dc5: fix: move cancel button in confirm dialog
+
 ## 0.8.3
 
 ### Patch Changes
