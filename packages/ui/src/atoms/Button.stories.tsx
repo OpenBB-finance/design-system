@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { DesignSystemContext } from "~/utils/DesignSystemContext";
 import ThemedPreview from "~/utils/ThemedPreview";
 import { Button } from "./Button";
 import { Icon } from "./Icon";
@@ -18,23 +17,21 @@ type Story = StoryObj<typeof meta>;
 
 const render: Story["render"] = (args) => {
   return (
-    <DesignSystemContext.Provider value={{ tailwind }}>
-      <ThemedPreview>
-        <div className="flex items-end gap-4">
-          <div className="flex flex-col items-center gap-4">
-            <Button {...args} />
-          </div>
-          <div className="flex flex-col items-center gap-4">
-            <span className="text-xs text-grey-300">:disabled</span>
-            <Button {...args} disabled />
-          </div>
-          <div className="flex flex-col items-center gap-4">
-            <span className="text-xs text-grey-300">:focus</span>
-            <Button {...args} autoFocus />
-          </div>
+    <ThemedPreview>
+      <div className="flex items-end gap-4">
+        <div className="flex flex-col items-center gap-4">
+          <Button {...args} />
         </div>
-      </ThemedPreview>
-    </DesignSystemContext.Provider>
+        <div className="flex flex-col items-center gap-4">
+          <span className="text-xs text-grey-300">:disabled</span>
+          <Button {...args} disabled />
+        </div>
+        <div className="flex flex-col items-center gap-4">
+          <span className="text-xs text-grey-300">:focus</span>
+          <Button {...args} autoFocus />
+        </div>
+      </div>
+    </ThemedPreview>
   );
 };
 
