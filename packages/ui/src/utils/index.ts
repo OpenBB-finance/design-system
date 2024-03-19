@@ -18,3 +18,9 @@ export function makeRandomId(name?: string) {
   const suffix = Math.random().toString(36).substring(6);
   return [name, suffix].filter(Boolean).join("-");
 }
+
+/* String */
+
+export function capitalizeString<T extends string>(string: T) {
+  return (string.charAt(0).toUpperCase() + string.slice(1)) as Capitalize<T>;
+}
