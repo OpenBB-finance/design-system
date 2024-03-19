@@ -169,7 +169,7 @@ export const CarouselContent = React.forwardRef<
         ref={ref}
         className={cn(
           "relative flex",
-          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+          orientation === "vertical" && "flex-col",
           className,
         )}
         {...props}
@@ -201,8 +201,7 @@ export const CarouselItem = React.forwardRef<HTMLDivElement, CarouselItemProps>(
         data-active={isActive}
         className={cn(
           "CarouselItem min-w-0 shrink-0 grow-0 basis-full",
-          orientation === "horizontal" ? "pl-4" : "pt-4",
-
+          orientation === "horizontal" ? "px-2" : "py-2",
           className,
         )}
         {...props}
