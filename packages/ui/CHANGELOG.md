@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.8.6
+
+### Patch Changes
+
+- 30c00b4: fix: useBreakpoints SSR
+
 ## 0.8.5
 
 ### Patch Changes
