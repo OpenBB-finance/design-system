@@ -40,7 +40,7 @@ const render: Story["render"] = () => {
   });
 
   function handleSubmit(values: TForm) {
-    console.log(`✅ Valid form submitted with values:`, values);
+    console.info(`✅ Valid form submitted with values:`, values);
   }
 
   return (

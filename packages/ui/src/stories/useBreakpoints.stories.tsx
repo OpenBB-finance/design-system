@@ -31,10 +31,7 @@ const render: Story["render"] = (args) => {
 function TestBreakpoints() {
   const { tailwind } = useContext(DesignSystemContext);
   const screens = (tailwind.theme?.screens ?? {}) as Record<string, string>;
-  console.log("🚀 ~ TestBreakpoints ~ screens:", screens);
-
   const { width, ...bp } = useBreakpoints();
-  console.log("🚀 ~ TestBreakpoints ~ bp:", width, bp);
 
   if (!screens) return null;
   return (
