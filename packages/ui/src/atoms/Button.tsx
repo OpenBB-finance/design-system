@@ -1,3 +1,4 @@
+import { Loader2 } from "lucide-react"
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
@@ -89,16 +90,21 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   /** Apply props and styles to child component  */
   asChild?: boolean;
+  loading?: boolean;
+  loadingChildren?: React.ReactNode;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const {
       className,
+      children,
       variant = "primary",
       size = "md",
       icon = false,
       asChild = false,
+      loading = false,
+      loadingChildren = "Loading...",
       ...rest
     } = props;
     const Comp = asChild ? Slot : "button";
@@ -107,7 +113,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ variant, size, icon }), className)}
         ref={ref}
         {...rest}
-      />
+      >
+        {loading ? (
+          <><Loader2 className="size-3/4" /> {loadingChildren}</>
+        ) : children}
+      </Comp>
     );
   },
 );
