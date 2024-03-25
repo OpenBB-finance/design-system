@@ -118,7 +118,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...rest}
       >
         {loading ? (
-          <><Loader2 className="size-3/4 animate-spin" /> {loadingChildren}</>
+          <><Loader2 className="size-3/4 animate-spin" />{loadingChildren}</>
         ) : children}
       </Comp>
     );
