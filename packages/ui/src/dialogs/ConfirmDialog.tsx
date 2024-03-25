@@ -49,7 +49,7 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
     const { confirmText = "Confirm", onConfirm } = props;
 
     return (
-      <Button variant="primary" onClick={onConfirm}>
+      <Button variant="primary" size="sm" onClick={onConfirm}>
         {confirmText}
       </Button>
     );
@@ -59,7 +59,7 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
     return (
       <DialogFooter>
         <DialogClose asChild>
-          <Button variant="secondary" onClick={onClose}>
+          <Button variant="outlined" size="sm" onClick={onClose}>
             {cancelText}
           </Button>
         </DialogClose>
