@@ -103,6 +103,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       variant = "primary",
       size = "md",
       icon = false,
+      disabled = false,
       asChild = false,
       loading = false,
       loadingChildren = "Loading...",
@@ -113,10 +114,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         className={cn(buttonVariants({ variant, size, icon }), className)}
         ref={ref}
+        disabled={disabled || loading}
         {...rest}
       >
         {loading ? (
-          <><Loader2 className="size-3/4" /> {loadingChildren}</>
+          <><Loader2 className="size-3/4 animate-spin" /> {loadingChildren}</>
         ) : children}
       </Comp>
     );
