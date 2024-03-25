@@ -1,5 +1,16 @@
 # @openbb/ui
 
+## 0.9.0
+
+### Minor Changes
+
+- fd82dd1: fix!: container breakpoints that might break your markup
+
+### Patch Changes
+
+- 9f7463a: fix: change cancel button to outlined
+- 9928fcb: feat: Added a loading option to the button component
+
 ## 0.8.6
 
 ### Patch Changes

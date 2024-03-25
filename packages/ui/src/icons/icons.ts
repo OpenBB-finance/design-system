@@ -167,7 +167,7 @@ export const iconNames = [
   "pie-chart-01",
   "settings-01",
   "trash-04",
-  "user-circle"
+  "user-circle",
 ] as const;
 
-export type IconName = typeof iconNames[number];
+export type IconName = (typeof iconNames)[number];
