@@ -77,8 +77,12 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
     >
       {children ?? (
         <>
-          {title && <DialogTitle>{title}</DialogTitle>}
-          {description && <DialogDescription>{description}</DialogDescription>}
+          <div className="space-y-3">
+            {title && <DialogTitle>{title}</DialogTitle>}
+            {description && (
+              <DialogDescription>{description}</DialogDescription>
+            )}
+          </div>
           {renderActions()}
         </>
       )}
