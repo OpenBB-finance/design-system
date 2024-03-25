@@ -118,6 +118,15 @@ export const XtraLarge: Story = {
   render,
 };
 
+export const Loading: Story = {
+  args: {
+    size: "xl",
+    loading: true,
+    children: "Button",
+  },
+  render,
+};
+
 export const IconSize: Story = {
   args: {
     icon: true,
