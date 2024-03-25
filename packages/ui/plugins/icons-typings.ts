@@ -34,7 +34,7 @@ export function buildIcons(rootDir: string) {
           fs.renameSync(oldPath, newPath);
           icon.name = newName;
         } else {
-          console.log(`File ${newPath} already exists! File is deleted.`);
+          console.info(`File ${newPath} already exists! File is deleted.`);
           fs.unlinkSync(oldPath);
           return null;
         }

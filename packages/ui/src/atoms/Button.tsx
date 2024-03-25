@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 import { cn } from "~/utils";
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   [
     "BB-Button inline-flex items-center justify-center gap-2 rounded-sm font-normal ring-offset-background",
     "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring",
@@ -72,6 +72,7 @@ const buttonVariants = cva(
         sm: "h-8 px-3 body-xs-medium",
         md: "h-10 px-4 body-sm-medium",
         lg: "h-12 px-5 body-md-medium",
+        xl: "h-14 px-5 body-lg-medium",
       },
       icon: {
         true: "aspect-square p-0",
@@ -94,7 +95,7 @@ export interface ButtonProps
   loadingChildren?: React.ReactNode;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
     const {
       className,
@@ -122,5 +123,3 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 Button.displayName = "Button";
-
-export { Button, buttonVariants };

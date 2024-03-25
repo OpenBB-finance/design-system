@@ -1,9 +1,13 @@
 import type { Config } from "tailwindcss";
 import animatePlugin from "tailwindcss-animate";
 import radixPlugin from "tailwindcss-radix";
+import resolveConfig from "tailwindcss/resolveConfig";
 import { bgRadialPlugin } from "./plugins/bg-radial";
 import { typographyPlugin } from "./plugins/typography";
 import { colors, gradients } from "./src/styles/colors";
+
+const defaultConfig = resolveConfig({ content: [] });
+const { "2xl": _, ...screens } = defaultConfig.theme.screens;
 
 export default {
   darkMode: "class",
@@ -11,10 +15,11 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
+      padding: {
+        DEFAULT: "2rem",
+        xl: "40px",
       },
+      screens,
     },
     colors,
     extend: {

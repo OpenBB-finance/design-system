@@ -52,7 +52,7 @@ export const Stateless: Story = {
   args: {
     title: "Do you really want to delete thing?",
     description: "This action cannot be undone.",
-    onConfirm: () => console.log("Confirmed!"),
+    onConfirm: () => console.info("Confirmed!"),
   },
   render,
   play: async ({ canvasElement }) => {

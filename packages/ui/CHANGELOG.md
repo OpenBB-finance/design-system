@@ -1,5 +1,19 @@
 # @openbb/ui
 
+## 0.8.6
+
+### Patch Changes
+
+- 30c00b4: fix: useBreakpoints SSR
+
+## 0.8.5
+
+### Patch Changes
+
+- cc444ef: feat: Button new size xl
+- 8a2cec9: feat: Carousel dots
+- a3d122c: feat: useBreakpoints
+
 ## 0.8.4
 
 ### Patch Changes

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
 import ThemedPreview from "~/utils/ThemedPreview";
 import { Button } from "./Button";
 import { Icon } from "./Icon";
@@ -111,10 +110,18 @@ export const Large: Story = {
   render,
 };
 
+export const XtraLarge: Story = {
+  args: {
+    size: "xl",
+    children: "Button",
+  },
+  render,
+};
+
 export const IconSize: Story = {
   args: {
     icon: true,
-    children: <Icon name="x" className="h-4 w-4" />,
+    children: <Icon name="x" className="size-4" />,
   },
   render,
 };

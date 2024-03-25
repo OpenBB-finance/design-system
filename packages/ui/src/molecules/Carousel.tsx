@@ -2,6 +2,7 @@ import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
 import * as React from "react";
+import { useImperativeHandle } from "react";
 import { cn } from "~/utils";
 import type { ButtonProps } from "../atoms/Button";
 import { Button } from "../atoms/Button";
@@ -22,6 +23,7 @@ type TCarouselProps = {
 type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0];
   api: ReturnType<typeof useEmblaCarousel>[1];
+  current: number;
   scrollPrev: () => void;
   scrollNext: () => void;
   canScrollPrev: boolean;
@@ -30,7 +32,7 @@ type CarouselContextProps = {
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
 
-function useCarousel() {
+export function useCarousel() {
   const context = React.useContext(CarouselContext);
 
   if (!context) {
@@ -66,12 +68,14 @@ export const CarouselRoot = React.forwardRef<HTMLDivElement, CarouselProps>(
     );
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);
+    const [current, setCurrent] = React.useState(0);
 
     const onSelect = React.useCallback((api: CarouselApi) => {
       if (!api) {
         return;
       }
 
+      setCurrent(api.selectedScrollSnap());
       setCanScrollPrev(api.canScrollPrev());
       setCanScrollNext(api.canScrollNext());
     }, []);
@@ -123,10 +127,11 @@ export const CarouselRoot = React.forwardRef<HTMLDivElement, CarouselProps>(
       <CarouselContext.Provider
         value={{
           carouselRef,
-          api: api,
+          api,
           opts,
           orientation:
             orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
+          current,
           scrollPrev,
           scrollNext,
           canScrollPrev,
@@ -163,8 +168,8 @@ export const CarouselContent = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "flex",
-          orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+          "relative flex",
+          orientation === "vertical" && "flex-col",
           className,
         )}
         {...props}
@@ -178,17 +183,25 @@ interface CarouselItemProps
   extends React.HTMLAttributes<HTMLDivElement>,
     TCarouselProps {}
 export const CarouselItem = React.forwardRef<HTMLDivElement, CarouselItemProps>(
-  ({ className, ...props }, ref) => {
-    const { orientation } = useCarousel();
+  ({ className, ...props }, forwardedRef) => {
+    const { orientation, current, api } = useCarousel();
+    const ref = React.useRef<HTMLDivElement>(null);
+    useImperativeHandle(forwardedRef, () => ref.current!);
+
+    const slides = api?.slideNodes() ?? [];
+    const index = ref.current ? Array.from(slides).indexOf(ref.current) : null;
+    const isActive = index === current;
 
     return (
       <div
         ref={ref}
         role="group"
         aria-roledescription="slide"
+        data-index={index}
+        data-active={isActive}
         className={cn(
-          "min-w-0 shrink-0 grow-0 basis-full",
-          orientation === "horizontal" ? "pl-4" : "pt-4",
+          "CarouselItem min-w-0 shrink-0 grow-0 basis-full",
+          orientation === "horizontal" ? "px-2" : "py-2",
           className,
         )}
         {...props}
@@ -244,6 +257,37 @@ export const CarouselNext = React.forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 CarouselNext.displayName = "CarouselNext";
+
+interface CarouselDotsProps {
+  className?: string;
+}
+export const CarouselDots = React.forwardRef<HTMLDivElement, CarouselDotsProps>(
+  (props, ref) => {
+    const { className } = props;
+    const { api, current } = useCarousel();
+
+    return (
+      <div
+        className={cn("CarouselDots flex items-center gap-3.5", className)}
+        ref={ref}
+      >
+        {api
+          ?.slideNodes()
+          .map((slide, i) => (
+            <div
+              key={i}
+              onClick={() => api?.scrollTo(i)}
+              className={cn(
+                "CarouselDot aspect-square h-fit w-2.5 cursor-pointer rounded-full bg-white/30 transition",
+                i === current && "_active scale-[1.20] bg-white",
+              )}
+            />
+          ))}
+      </div>
+    );
+  },
+);
+CarouselDots.displayName = "CarouselDots";
 
 /* Composited component */
 
