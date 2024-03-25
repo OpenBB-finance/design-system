@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.9.1
+
+### Patch Changes
+
+- fix: Confirm dialog spacings
+
 ## 0.9.0
 
 ### Minor Changes
