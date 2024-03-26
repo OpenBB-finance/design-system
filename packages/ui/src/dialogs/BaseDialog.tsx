@@ -20,8 +20,6 @@ export function BaseDialog(props: Props) {
     if (!open) onClose?.();
   }
 
-  console.log("RUNNING")
-
   return (
     <Dialog open={open} onOpenChange={handleOpenChange} {...rest}>
       {trigger ? <DialogTrigger asChild>{trigger}</DialogTrigger> : null}
