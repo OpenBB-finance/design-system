@@ -6,7 +6,7 @@ import { cn } from "~/utils";
 /* Label */
 
 const labelVariants = cva([
-  "BB-Label mb-1 text-grey-400 body-xs-regular",
+  "BB-Label mb-1 inline-block text-grey-400 body-xs-regular",
   "group-aria-disabled:cursor-not-allowed group-aria-disabled:text-grey-300",
   "peer-disabled:cursor-not-allowed peer-disabled:text-grey-300",
 
