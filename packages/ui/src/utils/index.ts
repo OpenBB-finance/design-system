@@ -24,3 +24,7 @@ export function makeRandomId(name?: string) {
 export function capitalizeString<T extends string>(string: T) {
   return (string.charAt(0).toUpperCase() + string.slice(1)) as Capitalize<T>;
 }
+
+/* Types */
+
+export type CanBeImmutable<T> = T | Readonly<T>;

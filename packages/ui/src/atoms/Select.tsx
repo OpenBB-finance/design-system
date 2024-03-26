@@ -1,6 +1,7 @@
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
+import type { CanBeImmutable } from "~/utils";
 import { cn } from "~/utils";
 import { FormItem, FormLabel, FormMessage } from "../molecules/Form";
 import {
@@ -233,14 +234,14 @@ export type SelectOption = SelectOptionObject | string;
 
 export interface SelectOptionGroup {
   label: string;
-  options: SelectOption[];
+  options: CanBeImmutable<SelectOption[]>;
 }
 
 interface SelectProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>,
     VariantProps<typeof SelectTriggerVariants> {
   // Model
-  options: SelectOption[] | SelectOptionGroup[];
+  options: CanBeImmutable<SelectOption[] | SelectOptionGroup[]>;
   onChange?: SelectPrimitive.SelectProps["onValueChange"];
   // Trigger
   className?: string;

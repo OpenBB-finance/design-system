@@ -115,7 +115,7 @@ const options = [
   { label: "Light", value: "light" },
   { label: "Dark", value: "dark" },
   { label: "System", value: "system" },
-];
+] as const;
 
 const groupedOptions = [
   {
@@ -134,7 +134,7 @@ const groupedOptions = [
       { label: "Broccoli", value: "broccoli" },
     ],
   },
-];
+] as const;
 
 export const Default: Story = {
   args: { options, label: "Theme", placeholder: "Theme" },
