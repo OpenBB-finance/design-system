@@ -153,6 +153,7 @@ export const iconNames = [
   "clock",
   "copy-03",
   "database-01",
+  "diamond-01",
   "edit-02",
   "edit-03",
   "file-02",
@@ -165,6 +166,7 @@ export const iconNames = [
   "log-in-02",
   "monitor-01",
   "pie-chart-01",
+  "rocket-02",
   "settings-01",
   "trash-04",
   "user-circle"
