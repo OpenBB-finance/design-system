@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.9.7
+
+### Patch Changes
+
+- e53ac1d: fix: change how we send the dialog attributes
+
 ## 0.9.6
 
 ### Patch Changes
