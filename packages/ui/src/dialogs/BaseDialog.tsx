@@ -23,8 +23,8 @@ export function BaseDialog(props: Props) {
     className,
     trigger,
     children,
-    modal = true,
     onPointerDownOutside,
+    ...rest
   } = props;
 
   function handleOpenChange(open: boolean) {
@@ -32,7 +32,7 @@ export function BaseDialog(props: Props) {
   }
 
   return (
-    <Dialog open={open} onOpenChange={handleOpenChange} modal={modal}>
+    <Dialog open={open} onOpenChange={handleOpenChange} {...rest}>
       {trigger ? <DialogTrigger asChild>{trigger}</DialogTrigger> : null}
       <DialogContent
         onPointerDownOutside={onPointerDownOutside}
