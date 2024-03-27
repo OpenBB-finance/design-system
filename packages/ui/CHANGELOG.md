@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.9.4
+
+### Patch Changes
+
+- feat: allow sending onPointerDownOutside to be sent to dialogcontent
+
 ## 0.9.3
 
 ### Patch Changes
