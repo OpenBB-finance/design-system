@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.9.6
+
+### Patch Changes
+
+- 0c7b52b: fix: made dialog modal attribute default to true
+
 ## 0.9.5
 
 ### Patch Changes
