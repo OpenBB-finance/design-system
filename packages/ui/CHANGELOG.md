@@ -1,5 +1,19 @@
 # @openbb/ui
 
+## 0.9.3
+
+### Patch Changes
+
+- fix: remove the console.log
+
+## 0.9.2
+
+### Patch Changes
+
+- a5a1f93: Feat: send additional props to BaseDialog
+- aae427b: fix: Label's margin
+- 9f9a409: fix: readonly options for Select
+
 ## 0.9.1
 
 ### Patch Changes
