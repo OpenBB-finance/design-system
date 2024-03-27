@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.9.9
+
+### Patch Changes
+
+- 4f86013: fix: properly handle modals in base dialog
+
 ## 0.9.8
 
 ### Patch Changes
