@@ -156,7 +156,7 @@ npm run storybook
 **Note:** If the story book is not working, use the following command:
 
 ```bash
-npm run build -w @openbb/ui
+npm run build
 ```
 
 ### Link to another project
