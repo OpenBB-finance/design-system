@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.9.8
+
+### Patch Changes
+
+- ebfc15c: fix: optimize tailwind config
+
 ## 0.9.7
 
 ### Patch Changes

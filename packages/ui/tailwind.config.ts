@@ -1,13 +1,9 @@
 import type { Config } from "tailwindcss";
 import animatePlugin from "tailwindcss-animate";
 import radixPlugin from "tailwindcss-radix";
-import resolveConfig from "tailwindcss/resolveConfig";
 import { bgRadialPlugin } from "./plugins/bg-radial";
 import { typographyPlugin } from "./plugins/typography";
 import { colors, gradients } from "./src/styles/colors";
-
-const defaultConfig = resolveConfig({ content: [] });
-const { "2xl": _, ...screens } = defaultConfig.theme.screens;
 
 export default {
   darkMode: "class",
@@ -19,7 +15,14 @@ export default {
         DEFAULT: "2rem",
         xl: "40px",
       },
-      screens,
+      // Define container breakpoints to match Tailwind's default screens, excluding 2xl
+      //! WARN: Don't try to get values from tailwind config, as it will blow up file size and cause issues. If you need to override, make it directly.
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+      },
     },
     colors,
     extend: {
