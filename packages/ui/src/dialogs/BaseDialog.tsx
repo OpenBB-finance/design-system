@@ -23,7 +23,7 @@ export function BaseDialog(props: Props) {
     className,
     trigger,
     children,
-    modal,
+    modal = true,
     onPointerDownOutside,
   } = props;
 
