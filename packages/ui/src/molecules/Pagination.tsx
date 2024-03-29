@@ -1,7 +1,8 @@
 import * as React from "react";
 import { Icon } from "~/atoms/Icon";
 import { clamp, cn } from "~/utils";
-import { Button, ButtonProps } from "../atoms/Button";
+import type { ButtonProps } from "../atoms/Button";
+import { Button } from "../atoms/Button";
 
 interface PaginationItemProps extends ButtonProps {}
 
