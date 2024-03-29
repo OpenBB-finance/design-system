@@ -64,7 +64,7 @@
 
 ## 0.9.0
 
-### Minor Changes
+### BREAKING Changes
 
 - fd82dd1: fix!: container breakpoints that might break your markup
 
@@ -116,7 +116,7 @@
 
 ## 0.8.0
 
-### Minor Changes
+### BREAKING Changes
 
 - 8130a4c: fix!: KICK OUT UI-PRO! And merge into single package
 
@@ -187,7 +187,7 @@
 
 ## 0.7.0
 
-### Minor Changes
+### BREAKING Changes
 
 - 6783da7: fix!: building styles
 
@@ -258,7 +258,7 @@
 
 ## 0.6.0
 
-### Minor Changes
+### BREAKING Changes
 
 - 7976204: fix!: composed Tooltip
 
@@ -336,10 +336,10 @@ deprecated: forgot to export Tag
 
 ## 0.5.0
 
-### Minor Changes
+### BREAKING Changes
 
-- Breaking: Split Input component into Input and FormInput
-- Breaking: Split Select component into Select and FormSelect
+- fix!: Split Input component into Input and FormInput
+- fix!: Split Select component into Select and FormSelect
 
 ### Patch Changes
 
