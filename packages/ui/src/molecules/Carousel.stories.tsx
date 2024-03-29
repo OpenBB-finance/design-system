@@ -41,7 +41,7 @@ const render: Story["render"] = (args) => {
 };
 
 /** Example of how to compose Carousel from parts */
-function CompositedCarousel(args: any) {
+function ComposedCarousel(args: any) {
   return (
     <CarouselRoot {...args}>
       <CarouselContent>
@@ -63,10 +63,10 @@ function CompositedCarousel(args: any) {
   );
 }
 
-const renderComposited: Story["render"] = (args) => {
+const renderComposed: Story["render"] = (args) => {
   return (
     <ThemedPreview>
-      <CompositedCarousel {...args} />
+      <ComposedCarousel {...args} />
     </ThemedPreview>
   );
 };
@@ -78,12 +78,12 @@ export const Default: Story = {
   render,
 };
 
-export const Composited: Story = {
+export const Composed: Story = {
   args: {
     opts: {
       align: "start",
       loop: true,
     },
   },
-  render: renderComposited,
+  render: renderComposed,
 };

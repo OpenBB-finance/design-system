@@ -41,7 +41,7 @@ const render: Story["render"] = (args) => {
 };
 
 /** Example of how to compose select from parts */
-function CompositedSelect(args: any) {
+function ComposedSelect(args: any) {
   return (
     <div>
       <SelectRoot>
@@ -59,13 +59,13 @@ function CompositedSelect(args: any) {
   );
 }
 
-const renderComposited: Story["render"] = (args) => {
+const renderComposed: Story["render"] = (args) => {
   return (
     <ThemedPreview>
       <div className="flex items-end gap-4">
-        <CompositedSelect {...args} />
-        <CompositedSelect {...args} label=":disabled" disabled />
-        <CompositedSelect {...args} label=":focused" autoFocus />
+        <ComposedSelect {...args} />
+        <ComposedSelect {...args} label=":disabled" disabled />
+        <ComposedSelect {...args} label=":focused" autoFocus />
       </div>
     </ThemedPreview>
   );
@@ -169,10 +169,10 @@ export const Error: Story = {
   render,
 };
 
-export const Composited: Story = {
+export const Composed: Story = {
   // @ts-expect-error no args required
   args: {},
-  render: renderComposited,
+  render: renderComposed,
 };
 
 export const InFormValidation: Story = {

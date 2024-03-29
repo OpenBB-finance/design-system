@@ -289,7 +289,7 @@ export const CarouselDots = React.forwardRef<HTMLDivElement, CarouselDotsProps>(
 );
 CarouselDots.displayName = "CarouselDots";
 
-/* Composited component */
+/* Composed component */
 
 /**
  * @see {@link https://ui.shadcn.com/docs/components/carousel | Shadcn/ui Docs - Carousel} for more information
