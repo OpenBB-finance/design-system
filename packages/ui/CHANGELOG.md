@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.9.10
+
+### Patch Changes
+
+- 1c31ad2: feat: add Pagination component
+
 ## 0.9.9
 
 ### Patch Changes
