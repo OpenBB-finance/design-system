@@ -19,6 +19,10 @@ export function makeRandomId(name?: string) {
   return [name, suffix].filter(Boolean).join("-");
 }
 
+export function clamp(x: number, min: number, max: number) {
+  return Math.min(Math.max(x, min), max);
+}
+
 /* String */
 
 export function capitalizeString<T extends string>(string: T) {
