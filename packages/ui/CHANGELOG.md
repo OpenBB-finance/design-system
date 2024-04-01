@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.9.12
+
+### Patch Changes
+
+- 6cec7a5: fix: add icons
+
 ## 0.9.11
 
 ### Patch Changes
