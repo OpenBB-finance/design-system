@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.9.11
+
+### Patch Changes
+
+- ef7795f: fix: add icons
+
 ## 0.9.10
 
 ### Patch Changes
