@@ -176,7 +176,7 @@ export const iconNames = [
   "rocket-02",
   "settings-01",
   "trash-04",
-  "user-circle"
+  "user-circle",
 ] as const;
 
-export type IconName = typeof iconNames[number];
+export type IconName = (typeof iconNames)[number];

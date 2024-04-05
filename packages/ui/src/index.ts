@@ -4,6 +4,7 @@ export * from "./atoms";
 export * from "./dialogs";
 export * from "./molecules";
 /* utils */
+export * from "./styles/screens";
 export * from "./utils/DesignSystemContext";
 export * from "./utils/useBreakpoints";
 

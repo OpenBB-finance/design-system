@@ -4,6 +4,7 @@ import radixPlugin from "tailwindcss-radix";
 import { bgRadialPlugin } from "./plugins/bg-radial";
 import { typographyPlugin } from "./plugins/typography";
 import { colors, gradients } from "./src/styles/colors";
+import { screens } from "./src/styles/screens";
 
 export default {
   darkMode: "class",
@@ -16,13 +17,8 @@ export default {
         xl: "40px",
       },
       // Define container breakpoints to match Tailwind's default screens, excluding 2xl
-      //! WARN: Don't try to get values from tailwind config, as it will blow up file size and cause issues. If you need to override, make it directly.
-      screens: {
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px",
-      },
+      //! WARN: Don't try to get values from default tailwind config, as it will blow up bundle size and cause issues. If you need to override, make it directly in project.
+      screens,
     },
     colors,
     extend: {

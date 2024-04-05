@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { capitalizeString } from ".";
 import { DesignSystemContext } from "./DesignSystemContext";
+import { screens as defaultScreens } from "../styles/screens";
 
 const isClient = typeof window === "object";
 
@@ -20,7 +21,7 @@ type UseBreakpointsResult = { width: number } & { [key: string]: boolean };
  */
 export function useBreakpoints(additionalScreens?: number[]) {
   const { tailwind } = useContext(DesignSystemContext);
-  const { screens } = tailwind.theme ?? {};
+  const { screens } = tailwind.theme ?? { screens: defaultScreens };
 
   const [width, setWidth] = useState(isClient ? window.innerWidth : 1200);
 
