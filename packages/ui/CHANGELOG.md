@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.9.13
+
+### Patch Changes
+
+- a7860ea: fix: optimize tailwind config in bundle
+
 ## 0.9.12
 
 ### Patch Changes
