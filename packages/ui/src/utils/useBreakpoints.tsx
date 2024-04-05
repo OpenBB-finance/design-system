@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { capitalizeString } from ".";
-import { DesignSystemContext } from "./DesignSystemContext";
 import { screens as defaultScreens } from "../styles/screens";
+import { DesignSystemContext } from "./DesignSystemContext";
 
 const isClient = typeof window === "object";
 
