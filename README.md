@@ -84,11 +84,17 @@ Modify your `index.css`:
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "@openbb/ui/dist/style.css";
+@import "@openbb/ui/dist/global.css";
 
 @layer base {
   /* Overriding code here */
 }
+```
+
+Add fonts as a separate CSS chunk:
+
+```js
+import "@openbb/ui/dist/fonts.css";
 ```
 
 #### Step 4: Copy icons spritemap

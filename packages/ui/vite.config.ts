@@ -24,7 +24,8 @@ export default defineConfig({
     },
   },
   build: {
-    minify: false,
+    // minify: false,
+    cssCodeSplit: true,
     lib: {
       entry: {
         lib: "src/index.ts",

@@ -11,7 +11,8 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/lib.umd.js"
     },
-    "./style.css": "./dist/style.css",
+    "./fonts.css": "./dist/fonts.css",
+    "./global.css": "./dist/global.css",
     "./tailwind.config": "./dist/tailwind.config.js",
     "./src/*": "./src/*",
     "./dist/*": "./dist/*"
