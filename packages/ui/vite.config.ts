@@ -24,7 +24,7 @@ export default defineConfig({
     },
   },
   build: {
-    // minify: false,
+    cssMinify: false,
     cssCodeSplit: true,
     lib: {
       entry: {
