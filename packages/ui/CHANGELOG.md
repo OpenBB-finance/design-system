@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.10.0
+
+### Minor Changes
+
+- e2254aa: fix!: split css into chunks
+
 ## 0.9.13
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@openbb/ui",
-  "version": "0.9.13",
+  "version": "0.10.0",
   "sideEffects": false,
   "type": "module",
   "main": "./src/index.ts",
@@ -12,7 +12,7 @@
       "require": "./dist/lib.umd.js"
     },
     "./fonts.css": "./dist/fonts.css",
-    "./global.css": "./dist/global.css",
+    "./lib.css": "./dist/lib.css",
     "./tailwind.config": "./dist/tailwind.config.js",
     "./src/*": "./src/*",
     "./dist/*": "./dist/*"
