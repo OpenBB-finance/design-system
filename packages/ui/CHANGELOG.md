@@ -1,16 +1,15 @@
 # @openbb/ui
 
-## 0.10.1
-
-### Patch Changes
-
-- 6650725: fix: typings
-
-## 0.10.0
+## 0.10.2
 
 ### Breaking Changes
 
 - e2254aa: fix!: split css into chunks
+
+### Patch Changes
+
+- 507ad1c: fix: cssMinify
+- 6650725: fix: typings
 
 ## 0.9.13
 
