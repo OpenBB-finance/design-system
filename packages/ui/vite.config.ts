@@ -29,6 +29,7 @@ export default defineConfig({
     lib: {
       entry: {
         lib: "src/index.ts",
+        fonts: "src/fonts/fonts.ts",
       },
       name: "UI",
       fileName: (format, name) => `${name}.${format}.js`,
