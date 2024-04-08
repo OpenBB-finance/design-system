@@ -4,11 +4,11 @@
   "sideEffects": false,
   "type": "module",
   "main": "./src/index.ts",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/lib.d.ts",
   "exports": {
     ".": {
       "import": "./dist/lib.es.js",
-      "types": "./dist/index.d.ts",
+      "types": "./dist/lib.d.ts",
       "require": "./dist/lib.umd.js"
     },
     "./fonts.css": "./dist/fonts.css",
