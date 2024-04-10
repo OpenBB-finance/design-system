@@ -84,7 +84,7 @@ Modify your `index.css`:
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-@import "@openbb/ui/dist/global.css";
+@import "@openbb/ui/dist/lib.css";
 
 @layer base {
   /* Overriding code here */
@@ -132,6 +132,25 @@ If your bundler does not support copying assets, you can override `Icon.defaultU
 import { Icon } from "@openbb/ui";
 import spritemapUrl from "@openbb/ui/dist/assets/spritemap.svg";
 Icon.defaultUrl = spritemapUrl;
+```
+
+#### Step 5: PostCSS
+
+Make sure your `postcss.config.js` contains the following plugins:
+
+```bash
+npm i -D autoprefixer
+```
+
+```js
+export default {
+  plugins: {
+    "postcss-import": {},
+    "tailwindcss/nesting": {},
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
 ```
 
 ## Development
