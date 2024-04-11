@@ -12,6 +12,7 @@ export const RADIAL_COLORS = {
   danger: "from-danger-500/50",
   warning: "from-warning-500/50",
   success: "from-success-500/50",
+  accent: "from-accent-500/50",
 } as const;
 
 export const bgRadialPlugin = plugin(function ({ addUtilities }) {
