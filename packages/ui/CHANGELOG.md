@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.10.3
+
+### Patch Changes
+
+- 49f2ed9: fix: add bg-radial accent color
+
 ## 0.10.2
 
 ### Breaking Changes
