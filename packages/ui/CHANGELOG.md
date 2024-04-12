@@ -1,5 +1,12 @@
 # @openbb/ui
 
+## 0.10.4
+
+### Patch Changes
+
+- ab584da: feat: add stroke-width variable for icons
+- `size` attr of Icon component is deprecated now
+
 ## 0.10.3
 
 ### Patch Changes
