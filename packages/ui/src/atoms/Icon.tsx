@@ -13,7 +13,7 @@ export function Icon(props: Props) {
 
   return (
     <svg
-      className={cn("BB-Icon block size-4 stroke-2", className)}
+      className={cn("BB-Icon block size-4", className)}
       width={size}
       height={size}
       {...rest}

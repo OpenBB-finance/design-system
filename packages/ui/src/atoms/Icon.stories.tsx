@@ -38,6 +38,7 @@ const renderHearts: Story["render"] = (args) => {
     "stroke-1",
     "stroke-1.5",
     "stroke-2",
+    "stroke-2.5",
     "stroke-3",
     "stroke-4",
     "stroke-5",
