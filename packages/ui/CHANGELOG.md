@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.10.5
+
+### Patch Changes
+
+- d50a60b: fix: add stroke-2.5 rule
+
 ## 0.10.4
 
 ### Patch Changes
