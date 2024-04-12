@@ -4,6 +4,7 @@ import { cn } from "~/utils";
 
 interface Props extends React.SVGProps<SVGSVGElement> {
   name: IconName;
+  /** @deprecated use tailwind class e.g. `size-4` instead */
   size?: number;
 }
 
@@ -12,7 +13,7 @@ export function Icon(props: Props) {
 
   return (
     <svg
-      className={cn("BB-Icon block", className)}
+      className={cn("BB-Icon block size-4 stroke-2", className)}
       width={size}
       height={size}
       {...rest}

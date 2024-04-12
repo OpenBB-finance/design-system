@@ -2,9 +2,9 @@
   <g clip-path="url(#clip0_1126_9)">
     <path
       d="M11.4695 1.91971C16.1183 1.63331 20.4812 4.64213 21.7334 9.3152C23.1628 14.6499 19.9969 20.1332 14.6623 21.5626C9.32762 22.9921 3.84425 19.8262 2.41484 14.4916C1.45684 10.9163 2.56288 7.27421 5.00253 4.83046"
-      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      stroke="currentColor" stroke-width="var(--stroke-width, 1.5)" stroke-linecap="round" stroke-linejoin="round" />
     <path d="M1.05151 5.53943L5.88114 4.24533L7.04583 8.592" stroke="currentColor"
-      stroke-width="1.5"
+      stroke-width="var(--stroke-width, 1.5)"
       stroke-linecap="round" stroke-linejoin="round" />
   </g>
   <defs>

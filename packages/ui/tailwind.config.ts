@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 import animatePlugin from "tailwindcss-animate";
 import radixPlugin from "tailwindcss-radix";
 import { bgRadialPlugin } from "./plugins/bg-radial";
+import { strokeWidthPlugin } from "./plugins/stroke";
 import { typographyPlugin } from "./plugins/typography";
 import { colors, gradients } from "./src/styles/colors";
 import { screens } from "./src/styles/screens";
@@ -75,6 +76,15 @@ export default {
         "dark-2": "2px 4px 15px 0px rgba(0, 0, 0, 0.60)",
         "dark-3": "0px 2px 10px 0px rgba(0, 0, 0, 0.80)",
       },
+      strokeWidth: {
+        0.5: "0.5px",
+        1: "1px",
+        1.5: "1.5px",
+        2: "2px",
+        3: "3px",
+        4: "4px",
+        5: "5px",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -101,5 +111,11 @@ export default {
       },
     },
   },
-  plugins: [radixPlugin, animatePlugin, typographyPlugin, bgRadialPlugin],
+  plugins: [
+    radixPlugin,
+    animatePlugin,
+    typographyPlugin,
+    bgRadialPlugin,
+    strokeWidthPlugin,
+  ],
 } satisfies Config;

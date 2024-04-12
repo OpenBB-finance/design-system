@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { cn } from "~/utils";
 import ThemedPreview from "~/utils/ThemedPreview";
 import { iconNames } from "../icons/icons";
 import { Icon } from "./Icon";
@@ -30,5 +31,46 @@ const render: Story["render"] = (args) => {
   );
 };
 
+const renderHearts: Story["render"] = (args) => {
+  const sizes = ["size-3", "size-4", "size-6", "size-10"];
+  const strokes = [
+    "stroke-0.5",
+    "stroke-1",
+    "stroke-1.5",
+    "stroke-2",
+    "stroke-3",
+    "stroke-4",
+    "stroke-5",
+    "[--stroke-width:10]",
+  ];
+  return (
+    <ThemedPreview>
+      <div className="grid grid-cols-5 items-center justify-items-center gap-4 stroke-1 stroke-[1.5]">
+        <div />
+        {sizes.map((sizes) => (
+          <div>{sizes}</div>
+        ))}
+        {strokes.flatMap((stroke) => (
+          <>
+            <div className="justify-self-start">{stroke}</div>
+            {sizes.map((size) => (
+              <Icon
+                key={`${size} ${stroke}`}
+                {...args}
+                className={cn(size, stroke)}
+              />
+            ))}
+          </>
+        ))}
+      </div>
+    </ThemedPreview>
+  );
+};
+
 // @ts-expect-error we're not using all the args in this story
 export const Default: Story = { render };
+
+export const SizesAndStrokes: Story = {
+  render: renderHearts,
+  args: { name: "heart" },
+};

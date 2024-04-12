@@ -46,7 +46,12 @@ export function buildIcons(rootDir: string) {
       const content = fs.readFileSync(fullPath, "utf-8");
       const newContent = content
         .replace(/stroke="(?!none).*?"/gi, 'stroke="currentColor"')
-        .replace(/fill="(?!none).*?"/gi, 'fill="currentColor"');
+        .replace(/fill="(?!none).*?"/gi, 'fill="currentColor"')
+        // Replace all stroke-width attrs with "var(--stroke-width, $1)" string if it's not started with "var"
+        .replace(
+          /stroke-width="(?!var)(.*?)"/gi,
+          'stroke-width="var(--stroke-width, $1)"',
+        );
 
       if (newContent !== content) {
         fs.writeFileSync(fullPath, newContent);
@@ -55,6 +60,7 @@ export function buildIcons(rootDir: string) {
       return icon;
     })
     .filter(Boolean) as Icon[];
+  icons.sort((a, b) => a.name.localeCompare(b.name));
 
   /* Typings */
 
