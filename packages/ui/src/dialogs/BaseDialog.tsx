@@ -24,7 +24,7 @@ export function BaseDialog(props: Props) {
     trigger,
     children,
     onPointerDownOutside,
-    modal = false,
+    modal,
   } = props;
 
   function handleOpenChange(open: boolean) {
