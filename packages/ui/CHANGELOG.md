@@ -1,5 +1,12 @@
 # @openbb/ui
 
+## null
+
+### Patch Changes
+
+- 42b5a76: fix: base dialog modal default true
+- 17992ca: feat: filled tabs
+
 ## 0.10.5
 
 ### Patch Changes
