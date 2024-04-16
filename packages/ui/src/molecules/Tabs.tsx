@@ -36,7 +36,7 @@ export const TabListVariants = cva(["BB-TabList flex"], {
   variants: {
     variant: {
       default: "gap-6 body-sm-medium",
-      filled: "_filled gap-1 body-xs-medium",
+      filled: "gap-1 body-xs-medium",
     },
   },
   defaultVariants: {
@@ -78,7 +78,7 @@ export const TabTriggerVariants = cva(["BB-TabTrigger transition"], {
         "dark:[&.active]:border-current dark:[&.active]:text-light-blue-400",
       ],
       filled: [
-        "rounded-t-sm px-2.5",
+        "text-nowrap rounded-t-sm px-2.5",
         "disabled:pointer-events-none disabled:opacity-50", // TODO: fix with colors
         /* Light theme */
         "bg-grey-100 text-grey-500",
