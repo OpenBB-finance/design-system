@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.10.7
+
+### Patch Changes
+
+- c8b7118: fix: add nowrap to filled tabs
+
 ## null
 
 ### Patch Changes
