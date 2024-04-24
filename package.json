@@ -44,7 +44,14 @@
     "typescript": "^5.4.2",
     "vite": "^5.1.6",
     "vite-plugin-dts": "^3.7.3",
-    "vite-plugin-svg-icons": "^2.0.1"
+    "vite-plugin-svg-icons": "^2.0.1",
+    "lodash": ">=4.17.21",
+    "qs": ">=6.5.3",
+    "moment": ">=2.29.2",
+    "express": ">=4.19.2",
+    "jsonwebtoken": ">=9.0.0",
+    "ws": ">=6.2.2",
+    "ajv": ">=6.12.3"
   },
   "resolutions": {
     "jackspeak": "2.1.1"
