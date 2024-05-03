@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.10.8
+
+### Patch Changes
+
+- cdcdb97: fix: add more icons
+
 ## 0.10.7
 
 ### Patch Changes
