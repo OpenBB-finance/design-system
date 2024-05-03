@@ -2,6 +2,8 @@ import React from "react";
 import type { IconName } from "~/icons/icons";
 import { cn } from "~/utils";
 
+export type { IconName } from "~/icons/icons";
+
 interface Props extends React.SVGProps<SVGSVGElement> {
   name: IconName;
   /** @deprecated use tailwind class e.g. `size-4` instead */
