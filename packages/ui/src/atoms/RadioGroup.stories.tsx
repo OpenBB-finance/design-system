@@ -60,12 +60,15 @@ const render: Story["render"] = (args) => {
 /* Variants */
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    value: "",
+  },
   render,
 };
 
 export const WithLabel: Story = {
   args: {
+    ...Primary.args,
     label: "Remember me",
   },
   render,
@@ -73,6 +76,7 @@ export const WithLabel: Story = {
 
 export const MultilineLabel: Story = {
   args: {
+    ...Primary.args,
     label: (
       <>
         Remember me
@@ -86,6 +90,7 @@ export const MultilineLabel: Story = {
 
 export const Error: Story = {
   args: {
+    ...Primary.args,
     label: "Remember me",
     error: true,
   },
