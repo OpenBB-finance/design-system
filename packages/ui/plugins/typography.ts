@@ -49,7 +49,7 @@ type Style = keyof typeof STYLE;
 type Size<T extends Style> = keyof (typeof SIZE)[T];
 type Weight = keyof typeof WEIGHT;
 
-export const typographyPlugin = plugin(function ({ addUtilities }) {
+export const typographyPlugin = plugin(({ addUtilities }) => {
   for (const _style in SIZE) {
     const style = _style as Style;
     for (const _size in SIZE[style]) {

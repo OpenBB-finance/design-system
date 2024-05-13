@@ -1,5 +1,5 @@
 import * as PopoverPrimitive from "@radix-ui/react-popover";
-import * as React from "react";
+import React from "react";
 import { cn } from "~/utils";
 import type { TooltipProps } from "./Tooltip";
 import { tooltipArrowClasses, tooltipContentClasses } from "./Tooltip";
@@ -72,7 +72,7 @@ export const Popover = React.forwardRef<
   } = props;
   return (
     <PopoverRoot {...{ open, onOpenChange }}>
-      <PopoverTrigger asChild>{children}</PopoverTrigger>
+      <PopoverTrigger asChild={true}>{children}</PopoverTrigger>
       <PopoverPortal>
         <PopoverContent ref={ref} {...contentProps}>
           {content}

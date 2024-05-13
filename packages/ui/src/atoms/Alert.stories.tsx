@@ -52,6 +52,7 @@ export const Success: Story = {
   render,
 };
 
+// biome-ignore lint/suspicious/noShadowRestrictedNames: name of variant, doesn't cause problems
 export const Error: Story = {
   args: {
     variant: "error",

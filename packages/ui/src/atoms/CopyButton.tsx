@@ -1,3 +1,4 @@
+import type React from "react";
 import { useState } from "react";
 import { sleep } from "~/utils";
 import { Button, type ButtonProps } from "./Button";
@@ -30,7 +31,7 @@ export function CopyButton(props: Props) {
       <Button
         size="sm"
         variant="secondary"
-        icon
+        icon={true}
         {...buttonProps}
         onClick={handleClick}
       >

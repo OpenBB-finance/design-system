@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { Icon } from "~/atoms/Icon";
 import { clamp, cn } from "~/utils";
 import type { ButtonProps } from "../atoms/Button";
@@ -6,86 +6,82 @@ import { Button } from "../atoms/Button";
 
 interface PaginationItemProps extends ButtonProps {}
 
-export const PaginationItem = React.forwardRef<
-  HTMLButtonElement,
-  PaginationItemProps
->((props, ref) => {
-  const { className, ...rest } = props;
-  return (
-    <Button
-      className={cn(
-        "min-w-8 border-0 px-0.5 !subtitle-xs-bold",
-        "duration-0", //! It looks not good with animation
-        "radix-state-active:!bg-accent-600 radix-state-active:!text-grey-100",
-        /* Light theme */
-        "hover:bg-grey-100",
-        /* Dark theme */
-        "dark:hover:bg-dark-600",
-        className,
-      )}
-      variant="outlined"
-      size="sm"
-      ref={ref}
-      {...rest}
-    />
-  );
-});
+export const PaginationItem = React.forwardRef<HTMLButtonElement, PaginationItemProps>(
+  (props, ref) => {
+    const { className, ...rest } = props;
+    return (
+      <Button
+        className={cn(
+          "!subtitle-xs-bold min-w-8 border-0 px-0.5",
+          "duration-0", //! It looks not good with animation
+          "radix-state-active:!bg-accent-600 radix-state-active:!text-grey-100",
+          /* Light theme */
+          "hover:bg-grey-100",
+          /* Dark theme */
+          "dark:hover:bg-dark-600",
+          className,
+        )}
+        variant="outlined"
+        size="sm"
+        ref={ref}
+        {...rest}
+      />
+    );
+  },
+);
 PaginationItem.displayName = "PaginationItem";
 
 interface PaginationArrowProps extends ButtonProps {}
 
-const PaginationArrow = React.forwardRef<
-  HTMLButtonElement,
-  PaginationArrowProps
->((props, ref) => {
-  const { className, ...rest } = props;
-  return (
-    <Button
-      className={cn(
-        "border-0",
-        "duration-0", //! I have to switch off the animation because PaginationItem has it
-        /* Light theme */
-        "text-accent-600",
-        "hover:bg-grey-100 hover:text-accent-400",
-        "disabled:bg-transparent",
-        /* Dark theme */
-        "dark:text-accent-600",
-        "dark:hover:bg-dark-600 dark:hover:text-accent-600",
-        "dark:disabled:bg-transparent",
-        className,
-      )}
-      variant="outlined"
-      size="sm"
-      icon
-      ref={ref}
-      {...rest}
-    />
-  );
-});
+const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
+  (props, ref) => {
+    const { className, ...rest } = props;
+    return (
+      <Button
+        className={cn(
+          "border-0",
+          "duration-0", //! I have to switch off the animation because PaginationItem has it
+          /* Light theme */
+          "text-accent-600",
+          "hover:bg-grey-100 hover:text-accent-400",
+          "disabled:bg-transparent",
+          /* Dark theme */
+          "dark:text-accent-600",
+          "dark:hover:bg-dark-600 dark:hover:text-accent-600",
+          "dark:disabled:bg-transparent",
+          className,
+        )}
+        variant="outlined"
+        size="sm"
+        icon={true}
+        ref={ref}
+        {...rest}
+      />
+    );
+  },
+);
 PaginationArrow.displayName = "PaginationArrow";
 
-export const PaginationPrev = React.forwardRef<
-  HTMLButtonElement,
-  PaginationArrowProps
->((props, ref) => {
-  return (
-    <PaginationArrow {...props} aria-label="Go to previous page" ref={ref}>
-      <Icon name="chevron-left" className="size-4" />
-    </PaginationArrow>
-  );
-});
+export const PaginationPrev = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
+  (props, ref) => {
+    return (
+      <PaginationArrow {...props} aria-label="Go to previous page" ref={ref}>
+        <Icon name="chevron-left" className="size-4" />
+      </PaginationArrow>
+    );
+  },
+);
 PaginationPrev.displayName = "PaginationPrev";
 
-export const PaginationNext = React.forwardRef<
-  HTMLButtonElement,
-  PaginationArrowProps
->((props, ref) => {
-  return (
-    <PaginationArrow {...props} aria-label="Go to next page" ref={ref}>
-      <Icon name="chevron-right" className="size-4" />
-    </PaginationArrow>
-  );
-});
+export const PaginationNext = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
+  (props, ref) => {
+    return (
+      <PaginationArrow {...props} aria-label="Go to next page" ref={ref}>
+        <Icon name="chevron-right" className="size-4" />
+      </PaginationArrow>
+    );
+  },
+);
 PaginationNext.displayName = "PaginationNext";
 
 /* Composed component */
@@ -99,7 +95,7 @@ export interface PaginationProps extends React.ComponentProps<"nav"> {
 }
 
 export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
-  (props, ref) => {
+  (props, _ref) => {
     const {
       className,
       items,
@@ -145,21 +141,23 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
       }
     }, [currentPage, lastPage, onPageChange]);
 
-    if (lastPage <= 1) return null;
+    if (lastPage <= 1) {
+      return null;
+    }
 
     return (
       <nav
         role="navigation"
         aria-label="pagination"
         className={cn(
-          "shadow-1 mx-auto flex w-full justify-center gap-4 rounded-xl px-10 py-2.5",
+          "mx-auto flex w-full justify-center gap-4 rounded-xl px-10 py-2.5 shadow-1",
           "bg-white",
           "dark:bg-dark-800",
           className,
         )}
         {...rest}
       >
-        <PaginationPrev icon disabled={!canPrev} onClick={handlePrev} />
+        <PaginationPrev icon={true} disabled={!canPrev} onClick={handlePrev} />
         {pageRange.map((p) => (
           <PaginationItem
             key={p}
@@ -169,7 +167,7 @@ export const Pagination = React.forwardRef<HTMLDivElement, PaginationProps>(
             {p}
           </PaginationItem>
         ))}
-        <PaginationNext icon disabled={!canNext} onClick={handleNext} />
+        <PaginationNext icon={true} disabled={!canNext} onClick={handleNext} />
       </nav>
     );
   },

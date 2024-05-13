@@ -27,10 +27,7 @@ const render: Story["render"] = (args) => {
       <div className="flex items-end gap-4">
         <Carousel className="w-[50vw] max-w-[500px]" {...args}>
           {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={index}
-              className="flex aspect-square items-center justify-center"
-            >
+            <div key={index} className="flex aspect-square items-center justify-center">
               <span className="title-lg-bold">{index + 1}</span>
             </div>
           ))}
@@ -46,9 +43,9 @@ function ComposedCarousel(args: any) {
     <CarouselRoot {...args}>
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem key={index} className="lg:basis-1/3 md:basis-1/2">
             <div className="px-1 py-4">
-              <div className="shadow-2 flex aspect-square items-center justify-center rounded-lg bg-grey-100 p-6 dark:bg-dark-850">
+              <div className="flex aspect-square items-center justify-center rounded-lg bg-grey-100 p-6 shadow-2 dark:bg-dark-850">
                 <span className="title-lg-bold">{index + 1}</span>
               </div>
             </div>

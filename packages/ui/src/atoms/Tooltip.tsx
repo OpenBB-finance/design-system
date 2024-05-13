@@ -1,5 +1,5 @@
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import * as React from "react";
+import React from "react";
 import { cn } from "~/utils";
 
 export const TooltipProvider = TooltipPrimitive.Provider;
@@ -8,11 +8,11 @@ export const TooltipTrigger = TooltipPrimitive.Trigger;
 export const TooltipPortal = TooltipPrimitive.Portal;
 
 export const tooltipContentClasses = cn([
-  "shadow-1 z-50 max-w-xs overflow-hidden rounded-sm px-2 py-1 outline-none body-xs-regular",
+  "body-xs-regular z-50 max-w-xs overflow-hidden rounded-sm px-2 py-1 shadow-1 outline-none",
   "bg-white text-grey-600",
   "dark:bg-dark-600 dark:text-grey-100",
-  "animate-in fade-in-0 zoom-in-95",
-  "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
+  "fade-in-0 zoom-in-95 animate-in",
+  "data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=closed]:animate-out",
   "data-[side=bottom]:slide-in-from-top-2",
   "data-[side=left]:slide-in-from-right-2",
   "data-[side=right]:slide-in-from-left-2",
@@ -75,7 +75,7 @@ export const Tooltip = React.forwardRef<
   return (
     <TooltipProvider>
       <TooltipRoot>
-        <TooltipTrigger asChild>{children}</TooltipTrigger>
+        <TooltipTrigger asChild={true}>{children}</TooltipTrigger>
         <TooltipPortal>
           <TooltipContent ref={ref} {...contentProps}>
             {content}

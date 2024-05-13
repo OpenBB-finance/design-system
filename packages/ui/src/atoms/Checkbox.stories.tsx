@@ -23,16 +23,16 @@ const render: Story["render"] = (args) => {
           <Checkbox {...args} />
         </div>
         <div className="flex w-16 flex-col items-center gap-4">
-          <span className="text-xs text-grey-300">:checked</span>
-          <Checkbox {...args} checked />
+          <span className="text-grey-300 text-xs">:checked</span>
+          <Checkbox {...args} checked={true} />
         </div>
         <div className="flex w-16 flex-col items-center gap-4">
-          <span className="text-xs text-grey-300">:disabled</span>
-          <Checkbox {...args} disabled />
+          <span className="text-grey-300 text-xs">:disabled</span>
+          <Checkbox {...args} disabled={true} />
         </div>
         <div className="flex w-16 flex-col items-center gap-4">
-          <span className="text-xs text-grey-300">:focus</span>
-          <Checkbox {...args} autoFocus />
+          <span className="text-grey-300 text-xs">:focus</span>
+          <Checkbox {...args} autoFocus={true} />
         </div>
       </div>
     </ThemedPreview>
@@ -74,7 +74,7 @@ export const MultilineLabel: Story = {
   render: renderSimple,
 };
 
-export const Error: Story = {
+export const ErrorState: Story = {
   args: {
     label: "Remember me",
     error: true,

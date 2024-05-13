@@ -26,7 +26,7 @@ export function useBreakpoints(additionalScreens?: number[]) {
   const [width, setWidth] = useState(isClient ? window.innerWidth : 1200);
 
   useEffect(() => {
-    if (!isClient) return;
+    if (!isClient) { return; }
     function handleResize() {
       setWidth(window.innerWidth);
     }
@@ -38,7 +38,7 @@ export function useBreakpoints(additionalScreens?: number[]) {
   const result = { width } as UseBreakpointsResult;
 
   for (const name in screens) {
-    const minWidth = parseInt(screens[name as keyof typeof screens]);
+    const minWidth = Number.parseInt(screens[name as keyof typeof screens]);
     result[name] = width >= minWidth;
     result[`max-${name}`] = width < minWidth;
     result[`max${capitalizeString(name)}`] = width < minWidth;

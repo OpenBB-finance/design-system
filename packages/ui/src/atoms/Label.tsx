@@ -1,12 +1,12 @@
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { cva, type VariantProps } from "class-variance-authority";
-import * as React from "react";
+import React from "react";
 import { cn } from "~/utils";
 
 /* Label */
 
 const labelVariants = cva([
-  "BB-Label mb-1 inline-block text-grey-400 body-xs-regular",
+  "BB-Label body-xs-regular mb-1 inline-block text-grey-400",
   "group-aria-disabled:cursor-not-allowed group-aria-disabled:text-grey-300",
   "peer-disabled:cursor-not-allowed peer-disabled:text-grey-300",
 
@@ -24,7 +24,9 @@ export const Label = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
     VariantProps<typeof labelVariants>
 >(({ className, ...props }, ref) => {
-  if (!props.children) return null;
+  if (!props.children) {
+    return null;
+  }
   return (
     <LabelPrimitive.Root
       ref={ref}
@@ -49,13 +51,15 @@ interface MessageProps {
  */
 export const Message = React.forwardRef<HTMLDivElement, MessageProps>(
   ({ className, error, ...props }, ref) => {
-    if (!props.children) return null;
+    if (!props.children) {
+      return null;
+    }
     return (
       <div
         ref={ref}
         className={cn(
-          "BB-Message mt-1 body-xs-regular",
-          error && "text-red-500 body-xs-medium",
+          "BB-Message body-xs-regular mt-1",
+          error && "body-xs-medium text-red-500",
           className,
         )}
         {...props}

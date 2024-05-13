@@ -1,7 +1,7 @@
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
-import * as React from "react";
+import React from "react";
 import type { IconName } from "~/icons/icons";
 import { cn } from "~/utils";
 import { Icon } from "./Icon";
@@ -14,10 +14,10 @@ const avatarVariants = cva(
   {
     variants: {
       size: {
-        xs: "w-6 subtitle-2xs-medium",
-        sm: "w-8 body-xs-medium",
-        md: "w-10 subtitle-sm-medium",
-        lg: "w-12 subtitle-md-medium",
+        xs: "subtitle-2xs-medium w-6",
+        sm: "body-xs-medium w-8",
+        md: "subtitle-sm-medium w-10",
+        lg: "subtitle-md-medium w-12",
       },
     },
     defaultVariants: {

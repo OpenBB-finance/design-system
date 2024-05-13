@@ -1,7 +1,7 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
-import * as React from "react";
+import React from "react";
 import { cn } from "~/utils";
 
 export const buttonVariants = cva(
@@ -68,11 +68,11 @@ export const buttonVariants = cva(
         ],
       },
       size: {
-        xs: "px-2 py-1 body-xs-medium",
-        sm: "h-8 px-3 body-xs-medium",
-        md: "h-10 px-4 body-sm-medium",
-        lg: "h-12 px-5 body-md-medium",
-        xl: "h-14 px-5 body-lg-medium",
+        xs: "body-xs-medium px-2 py-1",
+        sm: "body-xs-medium h-8 px-3",
+        md: "body-sm-medium h-10 px-4",
+        lg: "body-md-medium h-12 px-5",
+        xl: "body-lg-medium h-14 px-5",
       },
       icon: {
         true: "aspect-square p-0",
@@ -95,38 +95,36 @@ export interface ButtonProps
   loadingChildren?: React.ReactNode;
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => {
-    const {
-      className,
-      children,
-      variant = "primary",
-      size = "md",
-      icon = false,
-      disabled = false,
-      asChild = false,
-      loading = false,
-      loadingChildren = "Loading...",
-      ...rest
-    } = props;
-    const Comp = asChild ? Slot : "button";
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, icon }), className)}
-        ref={ref}
-        disabled={disabled || loading}
-        {...rest}
-      >
-        {loading ? (
-          <>
-            <Loader2 className="size-3/4 animate-spin" />
-            {loadingChildren}
-          </>
-        ) : (
-          children
-        )}
-      </Comp>
-    );
-  },
-);
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+  const {
+    className,
+    children,
+    variant = "primary",
+    size = "md",
+    icon = false,
+    disabled = false,
+    asChild = false,
+    loading = false,
+    loadingChildren = "Loading...",
+    ...rest
+  } = props;
+  const Comp = asChild ? Slot : "button";
+  return (
+    <Comp
+      className={cn(buttonVariants({ variant, size, icon }), className)}
+      ref={ref}
+      disabled={disabled || loading}
+      {...rest}
+    >
+      {loading ? (
+        <>
+          <Loader2 className="size-3/4 animate-spin" />
+          {loadingChildren}
+        </>
+      ) : (
+        children
+      )}
+    </Comp>
+  );
+});
 Button.displayName = "Button";

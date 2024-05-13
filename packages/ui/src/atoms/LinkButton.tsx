@@ -1,6 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import * as React from "react";
+import React from "react";
 import { cn } from "~/utils";
 
 /**
@@ -8,7 +8,7 @@ import { cn } from "~/utils";
  */
 const linkButtonVariants = cva(
   [
-    "BB-LinkButton inline-flex items-center justify-center gap-2 rounded-sm p-2 font-normal text-grey-400 body-sm-regular",
+    "BB-LinkButton body-sm-regular inline-flex items-center justify-center gap-2 rounded-sm p-2 font-normal text-grey-400",
     "hover:text-grey-200",
     "active:text-white",
     "focus-visible:text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring",

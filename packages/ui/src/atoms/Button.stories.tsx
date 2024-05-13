@@ -23,12 +23,12 @@ const render: Story["render"] = (args) => {
           <Button {...args} />
         </div>
         <div className="flex flex-col items-center gap-4">
-          <span className="text-xs text-grey-300">:disabled</span>
-          <Button {...args} disabled />
+          <span className="text-grey-300 text-xs">:disabled</span>
+          <Button {...args} disabled={true} />
         </div>
         <div className="flex flex-col items-center gap-4">
-          <span className="text-xs text-grey-300">:focus</span>
-          <Button {...args} autoFocus />
+          <span className="text-grey-300 text-xs">:focus</span>
+          <Button {...args} autoFocus={true} />
         </div>
       </div>
     </ThemedPreview>

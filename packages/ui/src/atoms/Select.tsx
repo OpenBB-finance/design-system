@@ -1,30 +1,27 @@
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { cva, type VariantProps } from "class-variance-authority";
-import * as React from "react";
+import React from "react";
 import type { CanBeImmutable } from "~/utils";
 import { cn } from "~/utils";
 import { FormItem, FormLabel, FormMessage } from "../molecules/Form";
-import {
-  DropdownMenuContentVariants,
-  DropdownMenuItemVariants,
-} from "./DropdownMenu";
+import { DropdownMenuContentVariants, DropdownMenuItemVariants } from "./DropdownMenu";
 import { Icon } from "./Icon";
 import { Label, Message } from "./Label";
 
 export const SelectTriggerVariants = cva(
   [
-    "BB-Select flex w-full items-center justify-between rounded-sm border body-xs-regular [&>span]:line-clamp-1",
+    "BB-Select body-xs-regular flex w-full items-center justify-between rounded-sm border [&>span]:line-clamp-1",
     "transition",
     /* Light theme */
     "border-grey-200 bg-white text-grey-900 data-[placeholder]:text-grey-500",
     "hover:enabled:text-grey-900",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-grey-300",
-    "disabled:cursor-not-allowed disabled:border-grey-200 disabled:bg-grey-200 disabled:text-grey-400 disabled:data-[placeholder]:text-grey-400",
+    "disabled:cursor-not-allowed disabled:border-grey-200 disabled:bg-grey-200 disabled:data-[placeholder]:text-grey-400 disabled:text-grey-400",
     /* Dark theme */
-    "dark:border-dark-600 dark:bg-dark-800 dark:text-grey-50 dark:data-[placeholder]:text-grey-500",
+    "dark:border-dark-600 dark:bg-dark-800 dark:data-[placeholder]:text-grey-500 dark:text-grey-50",
     "dark:hover:enabled:border-dark-400 dark:hover:enabled:bg-dark-600 dark:hover:enabled:text-grey-300",
     "dark:focus-visible:ring-dark-50",
-    "dark:disabled:border-dark-750 dark:disabled:bg-dark-800 dark:disabled:text-dark-400 dark:disabled:data-[placeholder]:text-dark-400",
+    "dark:disabled:border-dark-750 dark:disabled:bg-dark-800 dark:disabled:data-[placeholder]:text-dark-400 dark:disabled:text-dark-400",
   ],
   {
     variants: {
@@ -45,7 +42,7 @@ export const SelectContentVariants = cva(DropdownMenuContentVariants(), {
   variants: {
     position: {
       popper:
-        "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+        "data-[side=left]:-translate-x-1 data-[side=top]:-translate-y-1 data-[side=right]:translate-x-1 data-[side=bottom]:translate-y-1",
       "item-aligned": "",
     },
   },
@@ -71,7 +68,7 @@ const SelectTrigger = React.forwardRef<
     {...props}
   >
     {children}
-    <SelectPrimitive.Icon asChild>
+    <SelectPrimitive.Icon asChild={true}>
       <Icon
         name="chevron-down"
         size={16}
@@ -83,19 +80,14 @@ const SelectTrigger = React.forwardRef<
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
 interface SelectScrollUpButtonProps
-  extends React.ComponentPropsWithoutRef<
-    typeof SelectPrimitive.ScrollUpButton
-  > {}
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton> {}
 const SelectScrollUpButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
   SelectScrollUpButtonProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollUpButton
     ref={ref}
-    className={cn(
-      "flex cursor-default items-center justify-center py-1",
-      className,
-    )}
+    className={cn("flex cursor-default items-center justify-center py-1", className)}
     {...props}
   >
     <Icon name="chevron-down" size={16} className="text-grey-600" />
@@ -104,30 +96,20 @@ const SelectScrollUpButton = React.forwardRef<
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
 
 interface SelectScrollDownButtonProps
-  extends React.ComponentPropsWithoutRef<
-    typeof SelectPrimitive.ScrollDownButton
-  > {}
+  extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton> {}
 const SelectScrollDownButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
   SelectScrollDownButtonProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollDownButton
     ref={ref}
-    className={cn(
-      "flex cursor-default items-center justify-center py-1",
-      className,
-    )}
+    className={cn("flex cursor-default items-center justify-center py-1", className)}
     {...props}
   >
-    <Icon
-      name="chevron-down"
-      size={16}
-      className="text-grey-600 dark:text-grey-400"
-    />
+    <Icon name="chevron-down" size={16} className="text-grey-600 dark:text-grey-400" />
   </SelectPrimitive.ScrollDownButton>
 ));
-SelectScrollDownButton.displayName =
-  SelectPrimitive.ScrollDownButton.displayName;
+SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName;
 
 // @ts-ignore props overlapping
 interface SelectContentProps
@@ -141,11 +123,7 @@ const SelectContent = React.forwardRef<
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
       ref={ref}
-      className={cn(
-        SelectContentVariants({ position }),
-        "space-y-0 p-0",
-        className,
-      )}
+      className={cn(SelectContentVariants({ position }), "space-y-0 p-0", className)}
       position={position}
       {...props}
     >
@@ -154,7 +132,7 @@ const SelectContent = React.forwardRef<
         className={cn(
           "space-y-2 p-2",
           position === "popper" &&
-            "w-full min-w-[var(--radix-select-trigger-width)] h-radix-select-trigger-height",
+            "h-radix-select-trigger-height w-full min-w-[var(--radix-select-trigger-width)]",
         )}
       >
         {children}
@@ -174,7 +152,7 @@ const SelectGroupLabel = React.forwardRef<
   <SelectPrimitive.Label
     ref={ref}
     className={cn(
-      "mb-1.5 text-grey-400 body-xs-regular",
+      "body-xs-regular mb-1.5 text-grey-400",
       "dark:text-dark-50",
       className,
     )}
@@ -196,11 +174,7 @@ const SelectItem = React.forwardRef<
   >
     <span className="absolute right-2 flex h-3.5 w-3.5 items-center justify-center">
       <SelectPrimitive.ItemIndicator>
-        <Icon
-          name="check"
-          size={16}
-          className="text-grey-600 dark:text-grey-400"
-        />
+        <Icon name="check" size={16} className="text-grey-600 dark:text-grey-400" />
       </SelectPrimitive.ItemIndicator>
     </span>
 

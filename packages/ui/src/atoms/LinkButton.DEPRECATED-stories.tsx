@@ -24,16 +24,16 @@ const render: Story["render"] = (args) => {
           <LinkButton {...args} />
         </div>
         <div className="flex flex-col items-center gap-4">
-          <span className="text-xs text-grey-300">:disabled</span>
-          <LinkButton {...args} disabled />
+          <span className="text-grey-300 text-xs">:disabled</span>
+          <LinkButton {...args} disabled={true} />
         </div>
         <div className="flex flex-col items-center gap-4">
-          <span className="text-xs text-grey-300">:focus</span>
-          <LinkButton {...args} autoFocus />
+          <span className="text-grey-300 text-xs">:focus</span>
+          <LinkButton {...args} autoFocus={true} />
         </div>
         <div className="flex flex-col items-center gap-4">
-          <span className="text-xs text-grey-300">icon</span>
-          <LinkButton variant={args.variant} icon>
+          <span className="text-grey-300 text-xs">icon</span>
+          <LinkButton variant={args.variant} icon={true}>
             <Icon name="copy" className="h-[18px] w-[18px]" />
           </LinkButton>
         </div>
