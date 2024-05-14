@@ -15,11 +15,10 @@ export const RADIAL_COLORS = {
   accent: "from-accent-500/50",
 } as const;
 
-export const bgRadialPlugin = plugin(function ({ addUtilities }) {
+export const bgRadialPlugin = plugin(({ addUtilities }) => {
   addUtilities({
     ".bg-radial": {
-      backgroundImage:
-        "radial-gradient(50% 50% at 50% 50%, var(--tw-gradient-stops))",
+      backgroundImage: "radial-gradient(50% 50% at 50% 50%, var(--tw-gradient-stops))",
     },
   });
 

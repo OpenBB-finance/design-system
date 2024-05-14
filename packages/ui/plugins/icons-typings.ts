@@ -30,14 +30,13 @@ export function buildIcons(rootDir: string) {
 
         const oldPath = path.join(rootDir, originalPath);
         const newPath = path.join(rootDir, dir, `${newName}${ext}`);
-        if (!fs.existsSync(newPath)) {
-          fs.renameSync(oldPath, newPath);
-          icon.name = newName;
-        } else {
+        if (fs.existsSync(newPath)) {
           console.info(`File ${newPath} already exists! File is deleted.`);
           fs.unlinkSync(oldPath);
           return null;
         }
+        fs.renameSync(oldPath, newPath);
+        icon.name = newName;
       }
 
       const fullPath = path.join(rootDir, icon.dir, `${icon.name}${ext}`);

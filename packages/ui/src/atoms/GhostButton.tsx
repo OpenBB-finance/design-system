@@ -1,6 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import * as React from "react";
+import React from "react";
 import { cn } from "~/utils";
 
 export const ghostButtonVariants = cva(
@@ -23,10 +23,10 @@ export const ghostButtonVariants = cva(
   {
     variants: {
       size: {
-        xs: "gap-1 rounded-md body-xs-medium",
-        sm: "gap-2 rounded-md body-xs-medium",
-        md: "gap-2 rounded-md body-sm-medium",
-        lg: "gap-3 rounded-md body-md-medium",
+        xs: "body-xs-medium gap-1 rounded-md",
+        sm: "body-xs-medium gap-2 rounded-md",
+        md: "body-sm-medium gap-2 rounded-md",
+        lg: "body-md-medium gap-3 rounded-md",
       },
       icon: {
         true: "aspect-square p-1 [&>.border-b]:border-0",
@@ -46,29 +46,28 @@ export interface GhostButtonProps
   asChild?: boolean;
 }
 
-export const GhostButton = React.forwardRef<
-  HTMLButtonElement,
-  GhostButtonProps
->((props, ref) => {
-  const {
-    className,
-    size = "md",
-    icon = false,
-    asChild = false,
-    children,
-    ...rest
-  } = props;
-  const Comp = asChild ? Slot : "button";
-  return (
-    <Comp
-      className={cn(ghostButtonVariants({ size, icon }), className)}
-      ref={ref}
-      {...rest}
-    >
-      <span className="inline-flex items-center justify-center border-b border-inherit transition group-focus-visible:rounded-md group-focus-visible:px-1">
-        {children}
-      </span>
-    </Comp>
-  );
-});
+export const GhostButton = React.forwardRef<HTMLButtonElement, GhostButtonProps>(
+  (props, ref) => {
+    const {
+      className,
+      size = "md",
+      icon = false,
+      asChild = false,
+      children,
+      ...rest
+    } = props;
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        className={cn(ghostButtonVariants({ size, icon }), className)}
+        ref={ref}
+        {...rest}
+      >
+        <span className="inline-flex items-center justify-center border-inherit border-b transition group-focus-visible:rounded-md group-focus-visible:px-1">
+          {children}
+        </span>
+      </Comp>
+    );
+  },
+);
 GhostButton.displayName = "GhostButton";

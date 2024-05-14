@@ -1,3 +1,4 @@
+import type React from "react";
 import { createContext } from "react";
 import type { Config } from "tailwindcss";
 

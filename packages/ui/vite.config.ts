@@ -1,7 +1,7 @@
 import VitePluginSvgSpritemap from "@spiriit/vite-plugin-svg-spritemap";
 import react from "@vitejs/plugin-react";
-import { execSync } from "child_process";
-import path from "path";
+import { execSync } from "node:child_process";
+import path from "node:path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import packageData from "./package.json";

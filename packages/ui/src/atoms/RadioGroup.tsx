@@ -1,6 +1,6 @@
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { Circle } from "lucide-react";
-import * as React from "react";
+import React from "react";
 import { cn } from "~/utils";
 
 interface RadioGroupProps
@@ -59,7 +59,7 @@ const RadioGroupItem = React.forwardRef<
       {label && (
         <label
           className={cn(
-            "cursor-pointer body-xs-regular",
+            "body-xs-regular cursor-pointer",
             "max-w-[calc(100%-1rem-0.5rem)]",
             "peer-disabled:cursor-not-allowed",
             "transition",
@@ -88,7 +88,7 @@ const RadioGroupLabel = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "mb-1.5 text-grey-400 body-xs-regular",
+      "body-xs-regular mb-1.5 text-grey-400",
       "dark:text-dark-50",
       className,
     )}

@@ -1,5 +1,5 @@
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import * as React from "react";
+import React from "react";
 import { cn, makeRandomId } from "~/utils";
 import { Icon } from "./Icon";
 
@@ -13,13 +13,7 @@ const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
   CheckboxProps
 >((props, ref) => {
-  const {
-    className,
-    label,
-    error,
-    id = makeRandomId(props.name),
-    ...rest
-  } = props;
+  const { className, label, error, id = makeRandomId(props.name), ...rest } = props;
 
   return (
     <div className="flex gap-2">
@@ -29,7 +23,7 @@ const Checkbox = React.forwardRef<
           "BB-Checkbox peer h-4 w-4 shrink-0 rounded-[2px] border ring-offset-background",
           "disabled:cursor-not-allowed",
           "data-[error]:!border-danger-500",
-          "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring ",
+          "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring",
           "transition",
           // Light theme
           "border-grey-400",
@@ -62,7 +56,7 @@ const Checkbox = React.forwardRef<
       {label && (
         <label
           className={cn(
-            "cursor-pointer body-xs-regular",
+            "body-xs-regular cursor-pointer",
             "max-w-[calc(100%-1rem-0.5rem)]",
             "peer-disabled:cursor-not-allowed",
             "transition",

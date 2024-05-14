@@ -1,13 +1,8 @@
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { cn } from "~/utils";
 import { Button } from "../atoms";
 import { BaseDialog, type BaseDialogProps } from "./BaseDialog";
-import {
-  DialogClose,
-  DialogDescription,
-  DialogFooter,
-  DialogTitle,
-} from "./Dialog";
+import { DialogClose, DialogDescription, DialogFooter, DialogTitle } from "./Dialog";
 
 interface BaseProps extends BaseDialogProps {
   title: string;
@@ -25,9 +20,7 @@ interface PropsWithConfirmParams extends BaseProps {
   onConfirm: () => void;
 }
 
-export type ConfirmDialogProps =
-  | PropsWithConfirmButton
-  | PropsWithConfirmParams;
+export type ConfirmDialogProps = PropsWithConfirmButton | PropsWithConfirmParams;
 
 export function ConfirmDialog(props: ConfirmDialogProps) {
   const {
@@ -44,7 +37,7 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
   const dialogClasses = cn("gap-4 md:gap-6", className);
 
   function renderConfirmButton() {
-    if ("confirmButton" in props) return props.confirmButton;
+    if ("confirmButton" in props) { return props.confirmButton; }
 
     const { confirmText = "Confirm", onConfirm } = props;
 
@@ -58,7 +51,7 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
   function renderActions() {
     return (
       <DialogFooter>
-        <DialogClose asChild>
+        <DialogClose asChild={true}>
           <Button variant="outlined" size="sm" onClick={onClose}>
             {cancelText}
           </Button>
@@ -79,9 +72,7 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
         <>
           <div className="space-y-3">
             {title && <DialogTitle>{title}</DialogTitle>}
-            {description && (
-              <DialogDescription>{description}</DialogDescription>
-            )}
+            {description && <DialogDescription>{description}</DialogDescription>}
           </div>
           {renderActions()}
         </>

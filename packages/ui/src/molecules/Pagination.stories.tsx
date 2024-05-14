@@ -32,7 +32,7 @@ const render: Story["render"] = (args) => {
           {paginatedItems.map((n) => (
             <div
               key={n}
-              className="flex aspect-square items-center justify-center rounded-lg bg-dark-50 p-4 text-dark-800 subtitle-lg-bold"
+              className="subtitle-lg-bold flex aspect-square items-center justify-center rounded-lg bg-dark-50 p-4 text-dark-800"
             >
               {n}
             </div>

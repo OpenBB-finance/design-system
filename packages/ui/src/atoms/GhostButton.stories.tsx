@@ -22,12 +22,12 @@ const render: Story["render"] = (args) => {
         <GhostButton {...args} />
       </div>
       <div className="flex flex-col items-center gap-4">
-        <span className="text-xs text-grey-300">:disabled</span>
-        <GhostButton {...args} disabled />
+        <span className="text-grey-300 text-xs">:disabled</span>
+        <GhostButton {...args} disabled={true} />
       </div>
       <div className="flex flex-col items-center gap-4">
-        <span className="text-xs text-grey-300">:focus</span>
-        <GhostButton {...args} autoFocus />
+        <span className="text-grey-300 text-xs">:focus</span>
+        <GhostButton {...args} autoFocus={true} />
       </div>
     </div>
   );

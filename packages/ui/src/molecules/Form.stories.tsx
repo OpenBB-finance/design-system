@@ -40,7 +40,7 @@ const render: Story["render"] = () => {
   });
 
   function handleSubmit(values: TForm) {
-    console.info(`✅ Valid form submitted with values:`, values);
+    console.info("✅ Valid form submitted with values:", values);
   }
 
   return (
@@ -86,7 +86,7 @@ const render: Story["render"] = () => {
               name="input4"
               render={({ field }) => {
                 return (
-                  <FormInput label="This one is disabled" disabled {...field} />
+                  <FormInput label="This one is disabled" disabled={true} {...field} />
                 );
               }}
             />
@@ -97,7 +97,7 @@ const render: Story["render"] = () => {
                   <FormInput
                     label="This one is disabled"
                     placeholder="Placeholder is here"
-                    disabled
+                    disabled={true}
                     {...field}
                   />
                 );
@@ -110,7 +110,7 @@ const render: Story["render"] = () => {
                   <FormInput
                     label="This one is disabled"
                     defaultValue="With value"
-                    disabled
+                    disabled={true}
                     {...field}
                   />
                 );
@@ -167,7 +167,7 @@ const render: Story["render"] = () => {
                   <FormSelect
                     label="This one is disabled"
                     options={options}
-                    disabled
+                    disabled={true}
                     {...field}
                   />
                 );
@@ -181,7 +181,7 @@ const render: Story["render"] = () => {
                     label="This one is disabled"
                     placeholder="Placeholder is here"
                     options={options}
-                    disabled
+                    disabled={true}
                     {...field}
                   />
                 );
@@ -195,7 +195,7 @@ const render: Story["render"] = () => {
                     label="This one is disabled"
                     defaultValue="2"
                     options={options}
-                    disabled
+                    disabled={true}
                     {...field}
                   />
                 );
@@ -226,7 +226,7 @@ const render: Story["render"] = () => {
                     <FormControl>
                       <Checkbox
                         label="Checked checkbox"
-                        defaultChecked
+                        defaultChecked={true}
                         {...field}
                       />
                     </FormControl>
@@ -241,7 +241,7 @@ const render: Story["render"] = () => {
                 return (
                   <FormItem>
                     <FormControl>
-                      <Checkbox label="Disabled checkbox" disabled {...field} />
+                      <Checkbox label="Disabled checkbox" disabled={true} {...field} />
                     </FormControl>
                   </FormItem>
                 );
@@ -255,8 +255,8 @@ const render: Story["render"] = () => {
                     <FormControl>
                       <Checkbox
                         label="Disabled checked checkbox"
-                        defaultChecked
-                        disabled
+                        defaultChecked={true}
+                        disabled={true}
                         {...field}
                       />
                     </FormControl>

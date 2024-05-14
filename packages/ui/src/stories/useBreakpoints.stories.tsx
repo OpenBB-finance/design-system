@@ -20,7 +20,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const render: Story["render"] = (args) => {
+const render: Story["render"] = (_args) => {
   return (
     <DesignSystemContext.Provider value={{ tailwind }}>
       <TestBreakpoints />
@@ -33,9 +33,9 @@ function TestBreakpoints() {
   const screens = (tailwind.theme?.screens ?? {}) as Record<string, string>;
   const { width, ...bp } = useBreakpoints();
 
-  if (!screens) return null;
+  if (!screens) { return null; }
   return (
-    <div className="max-w-2xl overflow-hidden border border-grey-600 body-sm-medium">
+    <div className="body-sm-medium max-w-2xl overflow-hidden border border-grey-600">
       <div className="grid grid-cols-6 bg-grey-300 text-center">
         <div className="border-r border-r-grey-600 bg-green-300 p-2">
           default (xs):
@@ -60,7 +60,7 @@ function TestBreakpoints() {
         <div className="border-r border-r-grey-600 p-2 xl:bg-green-300">
           xl:
           <br />
-          &gt;={screens["xl"]}
+          &gt;={screens.xl}
         </div>
         <div className="p-2 2xl:bg-green-300">
           2xl:
@@ -68,7 +68,7 @@ function TestBreakpoints() {
           &gt;={screens["2xl"]}
         </div>
       </div>
-      <div className="p-2 text-center body-xl-bold">width: {width}px</div>
+      <div className="body-xl-bold p-2 text-center">width: {width}px</div>
       <div className="grid grid-cols-6 bg-grey-300 text-center">
         <div className="border-r border-r-grey-600 p-2 max-sm:bg-green-300">
           max-sm:
@@ -88,7 +88,7 @@ function TestBreakpoints() {
         <div className="border-r border-r-grey-600 p-2 max-xl:bg-green-300">
           max-xl:
           <br />
-          &lt;{screens["xl"]}
+          &lt;{screens.xl}
         </div>
         <div className="border-r border-r-grey-600 p-2 max-2xl:bg-green-300">
           max-2xl:
@@ -112,9 +112,7 @@ function TestBreakpoints() {
         </div>
         <div className="space-y-2 p-2 text-center">
           <div>Button variant based on breakpoint:</div>
-          <Button
-            variant={bp.maxMd ? "secondary" : bp.maxLg ? "primary" : "accent"}
-          >
+          <Button variant={bp.maxMd ? "secondary" : bp.maxLg ? "primary" : "accent"}>
             variant = {bp.maxMd ? "secondary" : bp.maxLg ? "primary" : "accent"}
           </Button>
         </div>

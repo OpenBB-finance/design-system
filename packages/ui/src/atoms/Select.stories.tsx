@@ -33,8 +33,8 @@ const render: Story["render"] = (args) => {
     <ThemedPreview>
       <div className="flex items-end gap-4">
         <Select className="w-[180px]" {...args} />
-        <Select className="w-[180px]" {...args} label=":disabled" disabled />
-        <Select className="w-[180px]" {...args} label=":focus" autoFocus />
+        <Select className="w-[180px]" {...args} label=":disabled" disabled={true} />
+        <Select className="w-[180px]" {...args} label=":focus" autoFocus={true} />
       </div>
     </ThemedPreview>
   );
@@ -64,8 +64,8 @@ const renderComposed: Story["render"] = (args) => {
     <ThemedPreview>
       <div className="flex items-end gap-4">
         <ComposedSelect {...args} />
-        <ComposedSelect {...args} label=":disabled" disabled />
-        <ComposedSelect {...args} label=":focused" autoFocus />
+        <ComposedSelect {...args} label=":disabled" disabled={true} />
+        <ComposedSelect {...args} label=":focused" autoFocus={true} />
       </div>
     </ThemedPreview>
   );
@@ -87,7 +87,7 @@ const renderInForm: Story["render"] = (args) => {
   });
 
   function handleSubmit(values: TForm) {
-    console.info(`✅ Valid form submitted with values:`, values);
+    console.info("✅ Valid form submitted with values:", values);
   }
 
   return (
@@ -164,7 +164,7 @@ export const SizeLG: Story = {
   render,
 };
 
-export const Error: Story = {
+export const ErrorState: Story = {
   args: { ...Default.args, message: "This field is required", error: true },
   render,
 };

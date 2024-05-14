@@ -1,6 +1,6 @@
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cva } from "class-variance-authority";
-import * as React from "react";
+import React from "react";
 import { cn } from "~/utils";
 
 interface TabsContextValue {
@@ -23,11 +23,7 @@ export const Tabs = React.forwardRef<
   TabsProps
 >(({ className, variant, ...props }, ref) => (
   <TabsContext.Provider value={{ variant }}>
-    <TabsPrimitive.Root
-      ref={ref}
-      className={cn("BB-Tabs", className)}
-      {...props}
-    />
+    <TabsPrimitive.Root ref={ref} className={cn("BB-Tabs", className)} {...props} />
   </TabsContext.Provider>
 ));
 Tabs.displayName = TabsPrimitive.Root.displayName;
@@ -35,8 +31,8 @@ Tabs.displayName = TabsPrimitive.Root.displayName;
 export const TabListVariants = cva(["BB-TabList flex"], {
   variants: {
     variant: {
-      default: "gap-6 body-sm-medium",
-      filled: "gap-1 body-xs-medium",
+      default: "body-sm-medium gap-6",
+      filled: "body-xs-medium gap-1",
     },
   },
   defaultVariants: {
@@ -65,7 +61,7 @@ export const TabTriggerVariants = cva(["BB-TabTrigger transition"], {
   variants: {
     variant: {
       default: [
-        "border-b border-transparent",
+        "border-transparent border-b",
         "disabled:pointer-events-none disabled:opacity-50", // TODO: fix with colors
         /* Light theme */
         "text-grey-600",

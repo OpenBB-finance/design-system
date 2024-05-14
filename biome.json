@@ -1,0 +1,82 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.7.0/schema.json",
+  "organizeImports": {
+    "enabled": true,
+    "ignore": ["node_modules", "dist", "storybook-static"]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "all": true,
+      "suspicious": {
+        "noExplicitAny": "off",
+        "noArrayIndexKey": "off",
+        "useValidTypeof": "off",
+        "noPrototypeBuiltins": "off",
+        "noAssignInExpressions": "off"
+      },
+      "style": {
+        "noParameterAssign": "off",
+        "noArguments": "off",
+        "noNonNullAssertion": "off",
+        "useNamingConvention": "off",
+        "useFilenamingConvention": "off",
+        "noDefaultExport": "off"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "off",
+        "useButtonType": "off",
+        "useValidAnchor": "off",
+        "useKeyWithClickEvents": "off",
+        "useIframeTitle": "off",
+        "useAltText": "off",
+        "useMediaCaption": "off"
+      },
+      "correctness": {
+        "noInnerDeclarations": "off",
+        "noChildrenProp": "off",
+        "useExhaustiveDependencies": "off"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
+      "complexity": {
+        "noUselessSwitchCase": "off",
+        "noBannedTypes": "off",
+        "noForEach": "off"
+      },
+      "nursery": {
+        "useImportRestrictions": "off",
+        "useSortedClasses": {
+          "level": "error",
+          "options": {
+            "functions": ["clsx", "cva", "tw", "twMerge", "cn"]
+          }
+        }
+      },
+      "performance": {
+        "noReExportAll": "off",
+        "noBarrelFile": "off"
+      }
+    },
+    "ignore": ["node_modules", "dist", "storybook-static"]
+  },
+  "files": {
+    "ignore": ["node_modules", "dist", "storybook-static"]
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 88,
+    "lineEnding": "lf",
+    "ignore": ["node_modules", "dist", "storybook-static"]
+  },
+  "javascript": {
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "double"
+    }
+  }
+}

@@ -90,7 +90,7 @@ const renderInForm: Story["render"] = (args) => {
   });
 
   function handleSubmit(values: TForm) {
-    console.info(`✅ Valid form submitted with values:`, values);
+    console.info("✅ Valid form submitted with values:", values);
   }
 
   return (
@@ -224,7 +224,7 @@ export const Message: Story = {
   render,
 };
 
-export const Error: Story = {
+export const ErrorState: Story = {
   args: {
     ...Default.args,
     defaultValue: "Wrong",

@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import * as React from "react";
+import React from "react";
 import type { IconName } from "~/icons/icons";
 import { cn } from "~/utils";
 import { Icon } from "./Icon";
@@ -7,7 +7,7 @@ import { Icon } from "./Icon";
 const alertVariants = cva(
   [
     "BB-Alert relative flex w-full items-start gap-2 rounded-md p-4",
-    "transition data-[open=false]:duration-300 data-[open=true]:duration-100 data-[open=false]:fade-out data-[open=true]:fade-in",
+    "data-[open=false]:fade-out data-[open=true]:fade-in transition data-[open=false]:duration-300 data-[open=true]:duration-100",
   ],
   {
     variants: {
@@ -87,18 +87,12 @@ const AlertTitle = React.forwardRef<HTMLParagraphElement, AlertTitleProps>(
 );
 AlertTitle.displayName = "AlertTitle";
 
-interface AlertDescriptionProps
-  extends React.HTMLAttributes<HTMLParagraphElement> {}
-const AlertDescription = React.forwardRef<
-  HTMLParagraphElement,
-  AlertDescriptionProps
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("text-sm body-xs-regular", className)}
-    {...props}
-  />
-));
+interface AlertDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+const AlertDescription = React.forwardRef<HTMLParagraphElement, AlertDescriptionProps>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("body-xs-regular text-sm", className)} {...props} />
+  ),
+);
 AlertDescription.displayName = "AlertDescription";
 
 export { Alert, AlertDescription, AlertTitle };

@@ -179,7 +179,7 @@ export const iconNames = [
   "x",
   "x-outline-circle",
   "zoom-in",
-  "zoom-out"
+  "zoom-out",
 ] as const;
 
-export type IconName = typeof iconNames[number];
+export type IconName = (typeof iconNames)[number];

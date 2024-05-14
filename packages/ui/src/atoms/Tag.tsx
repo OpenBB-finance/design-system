@@ -1,12 +1,12 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import * as React from "react";
+import React from "react";
 import { cn } from "~/utils";
 
 /* Tag */
 
 const tagVariants = cva(
   [
-    "BB-Tag inline-flex items-center justify-center rounded-full px-1.5 body-xs-regular",
+    "BB-Tag body-xs-regular inline-flex items-center justify-center rounded-full px-1.5",
   ],
   {
     variants: {
@@ -44,13 +44,11 @@ export interface TagProps extends SpanProps, VariantProps<typeof tagVariants> {}
 
 export const Tag = React.forwardRef<HTMLSpanElement, TagProps>(
   ({ className, color, ...props }, ref) => {
-    if (!props.children) return null;
+    if (!props.children) {
+      return null;
+    }
     return (
-      <span
-        ref={ref}
-        className={cn(tagVariants({ color }), className)}
-        {...props}
-      />
+      <span ref={ref} className={cn(tagVariants({ color }), className)} {...props} />
     );
   },
 );

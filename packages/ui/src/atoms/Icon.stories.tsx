@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Fragment } from "react/jsx-runtime";
 import { cn } from "~/utils";
 import ThemedPreview from "~/utils/ThemedPreview";
 import { iconNames } from "../icons/icons";
@@ -19,11 +20,11 @@ type Story = StoryObj<typeof meta>;
 const render: Story["render"] = (args) => {
   return (
     <ThemedPreview>
-      <div className="grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-6">
+      <div className="grid grid-cols-3 gap-4 lg:grid-cols-6 md:grid-cols-4">
         {iconNames.map((name) => (
           <div key={name} className="flex flex-col items-center gap-2">
             <Icon {...args} name={name} />
-            <span className="text-center text-xs text-grey-300">{name}</span>
+            <span className="text-center text-grey-300 text-xs">{name}</span>
           </div>
         ))}
       </div>
@@ -48,20 +49,16 @@ const renderHearts: Story["render"] = (args) => {
     <ThemedPreview>
       <div className="grid grid-cols-5 items-center justify-items-center gap-4 stroke-1 stroke-[1.5]">
         <div />
-        {sizes.map((sizes) => (
-          <div>{sizes}</div>
+        {sizes.map((size) => (
+          <div key={size}>{size}</div>
         ))}
         {strokes.flatMap((stroke) => (
-          <>
+          <Fragment key={stroke}>
             <div className="justify-self-start">{stroke}</div>
             {sizes.map((size) => (
-              <Icon
-                key={`${size} ${stroke}`}
-                {...args}
-                className={cn(size, stroke)}
-              />
+              <Icon key={`${size} ${stroke}`} {...args} className={cn(size, stroke)} />
             ))}
-          </>
+          </Fragment>
         ))}
       </div>
     </ThemedPreview>
