@@ -8,7 +8,10 @@
   },
   "private": true,
   "type": "module",
-  "workspaces": ["packages/*", "apps/*"],
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "scripts": {
     "build": "turbo build --no-cache --force",
     "lint": "turbo lint",
@@ -41,6 +44,7 @@
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vite-plugin-dts": "^3.7.3",
+    "vite-plugin-svg-icons": "^2.0.1",
     "ws": ">=6.2.2"
   },
   "overrides": {
@@ -50,14 +54,15 @@
     "ws": ">=6.2.2"
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "dependencies": {
-    "vite-plugin-svg-icons": "https://gitpkg.now.sh/Disorrder/vite-plugin-svg-icons/packages/core?dependabot"
   }
 }
