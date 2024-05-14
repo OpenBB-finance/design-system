@@ -1,6 +1,6 @@
 {
   "name": "@openbb/ui",
-  "version": "0.10.8",
+  "version": "0.10.9",
   "sideEffects": false,
   "type": "module",
   "main": "./src/index.ts",
@@ -17,7 +17,11 @@
     "./src/*": "./src/*",
     "./dist/*": "./dist/*"
   },
-  "files": ["dist/**/*", "src/**/*", "tailwind.config.ts"],
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "tailwind.config.ts"
+  ],
   "scripts": {
     "build": "npm run build-vite && npm run build-dts",
     "build-vite": "vite build",

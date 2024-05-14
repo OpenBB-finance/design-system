@@ -1,5 +1,18 @@
 # @openbb/ui
 
+## 0.10.9
+
+### Patch Changes
+
+- 329097d: fix: add new icons: folder, folder-open, folder-closed, dots-horizontal, dots-vertical
+
+### Development Changes
+
+- Upgrade Storybook to v8
+- Upgrade other dependencies to latest versions
+- Fixed all dependabot vulnerabilities
+- Replace ESLint + Prettier to Biome
+
 ## 0.10.8
 
 ### Patch Changes
