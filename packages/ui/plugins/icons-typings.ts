@@ -69,10 +69,10 @@ export function buildIcons(rootDir: string) {
 // Do not edit it manually!
 
 export const iconNames = [
-${names.map((name) => `  "${name}"`).join(",\n")}
+${names.map((name) => `  "${name}"`).join(",\n")},
 ] as const;
 
-export type IconName = typeof iconNames[number];
+export type IconName = (typeof iconNames)[number];
 `;
   fs.writeFileSync(`${rootDir}/icons.ts`, file);
 }
