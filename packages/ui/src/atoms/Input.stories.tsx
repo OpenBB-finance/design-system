@@ -2,6 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react";
 import type { FC } from "react";
 import { z } from "zod";
+import ThemedPreview from "~/utils/ThemedPreview";
 import { Form, FormField, useForm } from "../molecules/Form";
 import { Button } from "./Button";
 import { Icon } from "./Icon";
@@ -67,9 +68,11 @@ type Story = StoryObj<typeof meta>;
 
 const render: Story["render"] = (args) => {
   return (
-    <div className="w-60 p-4">
-      <Input label="Full name" {...args} />
-    </div>
+    <ThemedPreview>
+      <div className="w-60 p-4">
+        <Input label="Full name" {...args} />
+      </div>
+    </ThemedPreview>
   );
 };
 
@@ -94,21 +97,23 @@ const renderInForm: Story["render"] = (args) => {
   }
 
   return (
-    <Form {...form}>
-      <form
-        className="flex w-60 flex-col gap-4 p-4"
-        onSubmit={form.handleSubmit(handleSubmit)}
-      >
-        <FormField
-          name="port"
-          control={form.control}
-          render={({ field }) => {
-            return <FormInput {...args} {...field} />;
-          }}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+    <ThemedPreview>
+      <Form {...form}>
+        <form
+          className="flex w-60 flex-col gap-4 p-4"
+          onSubmit={form.handleSubmit(handleSubmit)}
+        >
+          <FormField
+            name="port"
+            control={form.control}
+            render={({ field }) => {
+              return <FormInput {...args} {...field} />;
+            }}
+          />
+          <Button type="submit">Submit</Button>
+        </form>
+      </Form>
+    </ThemedPreview>
   );
 };
 
@@ -241,6 +246,14 @@ export const InFormValidation: Story = {
     message: "Try to submit empty form",
   },
   render: renderInForm,
+};
+
+export const SizeXS: Story = {
+  args: {
+    ...WithValue.args,
+    size: "xs",
+  },
+  render,
 };
 
 export const SizeSM: Story = {
