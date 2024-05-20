@@ -68,7 +68,7 @@ export const buttonVariants = cva(
         ],
       },
       size: {
-        xs: "body-xs-medium px-2 py-1",
+        xs: "body-xs-medium h-[26px] px-2 [&_.BB-Icon]:size-3",
         sm: "body-xs-medium h-8 px-3",
         md: "body-sm-medium h-10 px-4",
         lg: "body-md-medium h-12 px-5",
