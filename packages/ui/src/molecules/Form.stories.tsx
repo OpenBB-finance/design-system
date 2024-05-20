@@ -2,6 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { z } from "zod";
+import { FormTextarea } from "~/atoms/Textarea";
 import ThemedPreview from "~/utils/ThemedPreview";
 import { Button } from "../atoms/Button";
 import { Checkbox } from "../atoms/Checkbox";
@@ -205,6 +206,80 @@ const render: Story["render"] = () => {
 
           <div />
 
+          <div className="grid grid-cols-3 gap-4">
+            <FormField
+              name="textarea1"
+              render={({ field }) => {
+                return <FormTextarea label="Just an empty textarea" {...field} />;
+              }}
+            />
+            <FormField
+              name="textarea2"
+              render={({ field }) => {
+                return (
+                  <FormTextarea
+                    label="Just an textarea"
+                    placeholder="Placeholder is here"
+                    {...field}
+                  />
+                );
+              }}
+            />
+            <FormField
+              name="textarea3"
+              render={({ field }) => {
+                return (
+                  <FormTextarea
+                    label="Just an textarea"
+                    defaultValue="With value"
+                    {...field}
+                  />
+                );
+              }}
+            />
+
+            <FormField
+              name="textarea4"
+              render={({ field }) => {
+                return (
+                  <FormTextarea
+                    label="This one is disabled"
+                    disabled={true}
+                    {...field}
+                  />
+                );
+              }}
+            />
+            <FormField
+              name="textarea5"
+              render={({ field }) => {
+                return (
+                  <FormTextarea
+                    label="This one is disabled"
+                    placeholder="Placeholder is here"
+                    disabled={true}
+                    {...field}
+                  />
+                );
+              }}
+            />
+            <FormField
+              name="textarea6"
+              render={({ field }) => {
+                return (
+                  <FormTextarea
+                    label="This one is disabled"
+                    defaultValue="With value"
+                    disabled={true}
+                    {...field}
+                  />
+                );
+              }}
+            />
+          </div>
+
+          <div />
+
           <div className="grid grid-cols-2 gap-4">
             <FormField
               name="checkbox1"
@@ -267,6 +342,7 @@ const render: Story["render"] = () => {
           </div>
 
           <div />
+
           <Button type="submit">Submit</Button>
         </form>
       </Form>

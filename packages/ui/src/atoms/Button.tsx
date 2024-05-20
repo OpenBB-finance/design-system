@@ -38,12 +38,12 @@ export const buttonVariants = cva(
           "border border-grey-300 text-grey-700",
           "hover:border-grey-600 hover:text-grey-850",
           "focus-visible:ring-grey-200",
-          "disabled:border-grey-300 disabled:bg-grey-100 disabled:text-grey-300",
+          "disabled:border-grey-300 disabled:text-grey-300",
 
           "dark:border-dark-400 dark:text-grey-300",
           "dark:hover:border-dark-100 dark:hover:text-grey-100",
           "dark:focus-visible:text-grey-100 dark:focus-visible:ring-grey-300",
-          "dark:disabled:border-dark-500 dark:disabled:bg-dark-850 dark:disabled:text-dark-600",
+          "dark:disabled:border-dark-500 dark:disabled:text-dark-600",
         ],
         accent: [
           "bg-accent-600 text-white",
@@ -68,7 +68,7 @@ export const buttonVariants = cva(
         ],
       },
       size: {
-        xs: "body-xs-medium px-2 py-1",
+        xs: "body-xs-medium h-[26px] px-2 [&_.BB-Icon]:size-3",
         sm: "body-xs-medium h-8 px-3",
         md: "body-sm-medium h-10 px-4",
         lg: "body-md-medium h-12 px-5",

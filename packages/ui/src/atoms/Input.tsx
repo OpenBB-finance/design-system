@@ -31,12 +31,14 @@ const groupVariants = cva(
       },
       size: {
         //! Keep pl and pr, don't use px! It's overriding below.
+        xs: "gap-1 pr-1 pl-1 [&_.BB-Icon]:size-3 [&_button]:max-h-3",
         sm: "gap-1 pr-2 pl-2 [&_button]:max-h-4",
         md: "gap-2 pr-3 pl-3 [&_button]:max-h-6",
         lg: "gap-2 pr-3 pl-3 [&_button]:max-h-8",
       },
     },
     defaultVariants: {
+      state: "default",
       size: "md",
     },
   },
@@ -63,6 +65,7 @@ const inputVariants = cva(
   {
     variants: {
       size: {
+        xs: "py-0 pl-1",
         sm: "py-1 pl-2",
         md: "py-2 pl-3",
         lg: "py-3 pl-3",
@@ -94,7 +97,7 @@ export interface InputProps extends ReactInputProps {
   prefix?: React.ReactNode;
   /** Add React element inside border after input. */
   suffix?: React.ReactNode;
-  size?: "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg";
   value?: InputValue;
   /** Text below input */
   message?: React.ReactNode;
@@ -197,7 +200,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
       >
         {prefix && <div className="inline-flex flex-[0]">{prefix}</div>}
         <div className="relative h-full min-w-[3rem] flex-1">
-          {/* @ts-ignore I didn't spend time for type mismatches */}
           <input
             key="qwe"
             type={type}
@@ -218,7 +220,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
           {defaultType === "date" && (
             <Icon
               name="calendar"
-              className="-mb-2 pointer-events-none absolute right-0 bottom-1/2 h-4 w-4"
+              className="-mb-2 pointer-events-none absolute right-0 bottom-1/2 size-4"
             />
           )}
         </div>
@@ -232,7 +234,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
               clear();
             }}
           >
-            <Icon name="x" className="h-4 w-4" />
+            <Icon name="x" className="size-4" />
           </button>
         )}
         {copiable && hasValue && (
@@ -253,9 +255,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
             }}
           >
             {isHidden ? (
-              <Icon name="eye" className="h-4 w-4" />
+              <Icon name="eye" className="size-4" />
             ) : (
-              <Icon name="eye-off" className="h-4 w-4" />
+              <Icon name="eye-off" className="size-4" />
             )}
           </button>
         )}

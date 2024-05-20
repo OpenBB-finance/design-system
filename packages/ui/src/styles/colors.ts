@@ -143,6 +143,19 @@ export const yellow = {
   900: "#2E2A00",
 } as const;
 
+export const ai = {
+  50: "#F0EBF9",
+  100: "#E2D7F3",
+  200: "#C5AFE7",
+  300: "#9974D6",
+  400: "#7C4CCA",
+  500: "#6D38C4",
+  600: "#6232B0",
+  700: "#4C2789",
+  800: "#371C62",
+  900: "#21113B",
+} as const;
+
 /* Feedback colors */
 
 export const danger = {
@@ -209,6 +222,7 @@ export const colors = {
   ruby,
   orange,
   yellow,
+  ai,
 
   danger,
   warning,

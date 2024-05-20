@@ -5,63 +5,17 @@ import { z } from "zod";
 import ThemedPreview from "~/utils/ThemedPreview";
 import { Form, FormField, useForm } from "../molecules/Form";
 import { Button } from "./Button";
-import { Icon } from "./Icon";
-import type { InputProps } from "./Input";
-import { FormInput, Input } from "./Input";
+import type { TextareaProps } from "./Textarea";
+import { FormTextarea, Textarea } from "./Textarea";
 
 const meta = {
-  title: "Atoms/Input",
-  component: Input as FC<InputProps>,
+  title: "Atoms/Textarea",
+  component: Textarea as FC<TextareaProps>,
   parameters: {
     layout: "centered",
   },
-  // TODO: fix autodocs!
-  argTypes: {
-    type: {
-      options: ["text", "password", "date"],
-      control: { type: "select" },
-    },
-    defaultValue: {
-      control: { type: "text" },
-    },
-    label: {
-      control: { type: "text" },
-    },
-    placeholder: {
-      control: { type: "text" },
-    },
-    message: {
-      control: { type: "text" },
-    },
-    prefix: {
-      control: { type: "text" },
-    },
-    suffix: {
-      control: { type: "text" },
-    },
-    clearable: {
-      defaultValue: true,
-      control: { type: "boolean" },
-    },
-    disabled: {
-      control: { type: "boolean" },
-    },
-    readOnly: {
-      control: { type: "boolean" },
-    },
-    error: {
-      control: { type: "boolean" },
-    },
-    copiable: {
-      control: { type: "boolean" },
-    },
-    size: {
-      options: ["sm", "md", "lg"],
-      control: { type: "select" },
-    },
-  },
   tags: ["autodocs"],
-} satisfies Meta<typeof Input>;
+} satisfies Meta<typeof Textarea>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -70,7 +24,7 @@ const render: Story["render"] = (args) => {
   return (
     <ThemedPreview>
       <div className="w-60 p-4">
-        <Input label="Full name" {...args} />
+        <Textarea label="Full name" {...args} />
       </div>
     </ThemedPreview>
   );
@@ -107,7 +61,7 @@ const renderInForm: Story["render"] = (args) => {
             name="port"
             control={form.control}
             render={({ field }) => {
-              return <FormInput {...args} {...field} />;
+              return <FormTextarea {...args} {...field} />;
             }}
           />
           <Button type="submit">Submit</Button>
@@ -177,6 +131,15 @@ export const ReadonlyWithValue: Story = {
   render,
 };
 
+export const ResizingCorner: Story = {
+  args: {
+    ...Default.args,
+    className: "resize-y",
+    message: "Hint: just add `resize-y` class to make it resizable",
+  },
+  render,
+};
+
 export const Copiable: Story = {
   args: {
     ...WithValue.args,
@@ -199,33 +162,6 @@ export const ReadonlyCopiable: Story = {
     ...ReadonlyWithValue.args,
     readOnly: true,
     copiable: true,
-  },
-  render,
-};
-
-export const Password: Story = {
-  args: {
-    defaultValue: "Password",
-    type: "password",
-    clearable: false,
-  },
-  render,
-};
-
-export const PrefixAndSuffix: Story = {
-  args: {
-    ...Default.args,
-    prefix: <Icon name="calendar" className="h-4 w-4" />,
-    suffix: <Icon name="calendar" className="h-4 w-4" />,
-  },
-  render,
-};
-
-export const DatePicker: Story = {
-  args: {
-    type: "date",
-    label: "Date of birth",
-    defaultValue: "2019-03-12",
   },
   render,
 };
@@ -255,28 +191,4 @@ export const InFormValidation: Story = {
     message: "Try to submit empty form",
   },
   render: renderInForm,
-};
-
-export const SizeXS: Story = {
-  args: {
-    ...WithValue.args,
-    size: "xs",
-  },
-  render,
-};
-
-export const SizeSM: Story = {
-  args: {
-    ...WithValue.args,
-    size: "sm",
-  },
-  render,
-};
-
-export const SizeLG: Story = {
-  args: {
-    ...WithValue.args,
-    size: "lg",
-  },
-  render,
 };
