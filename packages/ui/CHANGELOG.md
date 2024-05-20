@@ -1,5 +1,14 @@
 # @openbb/ui
 
+## 0.10.10
+
+### Patch Changes
+
+- 79598e7: fix: add Input size xs
+- 8f4cb20: fix: outlined button disabled state
+- ea5aed6: fix: add new color palette `ai`
+- 8f7c584: feat: add Textarea component
+
 ## 0.10.9
 
 ### Patch Changes
