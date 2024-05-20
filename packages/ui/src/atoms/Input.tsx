@@ -38,6 +38,7 @@ const groupVariants = cva(
       },
     },
     defaultVariants: {
+      state: "default",
       size: "md",
     },
   },
@@ -199,7 +200,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
       >
         {prefix && <div className="inline-flex flex-[0]">{prefix}</div>}
         <div className="relative h-full min-w-[3rem] flex-1">
-          {/* @ts-ignore I didn't spend time for type mismatches */}
           <input
             key="qwe"
             type={type}
