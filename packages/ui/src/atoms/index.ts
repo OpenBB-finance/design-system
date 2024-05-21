@@ -13,4 +13,5 @@ export * from "./Popover";
 export * from "./RadioGroup";
 export * from "./Select";
 export * from "./Tag";
+export * from "./Textarea";
 export * from "./Tooltip";
