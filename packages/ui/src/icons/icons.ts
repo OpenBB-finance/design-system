@@ -107,6 +107,7 @@ export const iconNames = [
   "lightbulb-02",
   "link-03",
   "link-external-01",
+  "link-external-02",
   "loader",
   "lock-01",
   "log-in-02",
