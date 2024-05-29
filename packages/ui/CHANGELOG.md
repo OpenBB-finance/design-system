@@ -1,5 +1,25 @@
 # @openbb/ui
 
+## 0.11.0
+
+### Minor Changes
+
+- 4d84e10: feat: export `cn` util, merge typography classes
+  For example:
+
+  ```tsx
+  import { cn } from "@openbb/ui";
+
+  cn("subtitle-xs-regular", "body-md-medium");
+  // => "body-md-medium"
+  ```
+
+### Patch Changes
+
+- 8094960: fix: ConfirmDialog now accept ReactNode in props
+- 54f1731: fix: add icons: link-external-02
+- e215113: fix: add icons: bar-chart-circle-01, dataflow-04, sliders-03, tag-01, users-plus
+
 ## 0.10.11
 
 ### Patch Changes
