@@ -48,22 +48,30 @@ const WEIGHT = {
 type Style = keyof typeof STYLE;
 type Size<T extends Style> = keyof (typeof SIZE)[T];
 type Weight = keyof typeof WEIGHT;
+// type TypographyClass = `${Style}-${Size<Style>}-${Weight}`; //? not sure I need it
+type TypographyObject = Record<string, string>;
 
-export const typographyPlugin = plugin(({ addUtilities }) => {
-  for (const _style in SIZE) {
-    const style = _style as Style;
-    for (const _size in SIZE[style]) {
-      const size = _size as Size<typeof style>;
-      for (const _weight in WEIGHT) {
-        const weight = _weight as Weight;
-        addUtilities({
-          [`.${style}-${size}-${weight}`]: {
-            ...STYLE[style],
-            ...SIZE[style][size],
-            ...WEIGHT[weight],
-          },
-        });
-      }
+const classMap = new Map<string, TypographyObject>();
+for (const _style in STYLE) {
+  const style = _style as Style;
+  for (const _size in SIZE[style]) {
+    const size = _size as Size<typeof style>;
+    for (const _weight in WEIGHT) {
+      const weight = _weight as Weight;
+      classMap.set(`${style}-${size}-${weight}`, {
+        ...STYLE[style],
+        ...SIZE[style][size],
+        ...WEIGHT[weight],
+      });
     }
   }
+}
+export const typographyClassGroup = [...classMap.keys()];
+
+export const typographyPlugin = plugin(({ addUtilities }) => {
+  classMap.forEach((value, key) => {
+    addUtilities({
+      [`.${key}`]: value,
+    });
+  });
 });

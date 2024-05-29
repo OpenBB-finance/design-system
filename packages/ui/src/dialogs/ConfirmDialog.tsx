@@ -5,8 +5,8 @@ import { BaseDialog, type BaseDialogProps } from "./BaseDialog";
 import { DialogClose, DialogDescription, DialogFooter, DialogTitle } from "./Dialog";
 
 interface BaseProps extends BaseDialogProps {
-  title: string;
-  description?: string;
+  title: ReactNode;
+  description?: ReactNode;
   cancelText?: string;
   children?: ReactNode;
 }
@@ -37,7 +37,9 @@ export function ConfirmDialog(props: ConfirmDialogProps) {
   const dialogClasses = cn("gap-4 md:gap-6", className);
 
   function renderConfirmButton() {
-    if ("confirmButton" in props) { return props.confirmButton; }
+    if ("confirmButton" in props) {
+      return props.confirmButton;
+    }
 
     const { confirmText = "Confirm", onConfirm } = props;
 

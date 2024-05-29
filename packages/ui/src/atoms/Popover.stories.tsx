@@ -22,7 +22,7 @@ const render: Story["render"] = (args) => {
         <PopoverTrigger>
           <Button>Click me</Button>
         </PopoverTrigger>
-        <PopoverContent>You clicked the button</PopoverContent>
+        <PopoverContent>{args.content}</PopoverContent>
       </PopoverRoot>
     </div>
   );
@@ -31,5 +31,8 @@ const render: Story["render"] = (args) => {
 /* Variants */
 
 export const Primary: Story = {
+  args: {
+    content: "You hovered the button",
+  },
   render,
 };

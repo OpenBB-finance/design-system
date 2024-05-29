@@ -3,7 +3,7 @@
 Created on top of Figma [Styleguide](https://www.figma.com/file/Gbu811BkBJBtez3ajbr7lw/Styleguide?type=design&node-id=23-26&mode=design&t=ACcxkQNaADUUe1PL-4) and [Components](https://www.figma.com/file/RFg3HgmBqsbX3OuLaJTAbb/Components?type=design&node-id=1139-129&mode=dev).
 Most of the components are based on [shadcn/ui](https://ui.shadcn.com/docs) which is based on [Radix UI](https://www.radix-ui.com/themes/docs). You can find more information and examples there.
 
-## 0.8 Work in progress:
+## 0.11 Work in progress:
 
 #### Atoms
 
@@ -20,6 +20,7 @@ Most of the components are based on [shadcn/ui](https://ui.shadcn.com/docs) whic
 - [x] Tooltip & Popover
 - [ ] Loader
 - [x] Input
+- [x] Textarea
 
 #### Molecules
 
@@ -31,7 +32,6 @@ Most of the components are based on [shadcn/ui](https://ui.shadcn.com/docs) whic
 - [x] Dialog (Modal)
 - [x] BaseDialog
 - [x] ConfirmDialog
-- [ ] Tab
 - [ ] Error
 - [x] Toast message (Alert)
 - [ ] Calendar
