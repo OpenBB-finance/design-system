@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.12.0
+
+### Minor Changes
+
+- 718fc87: fix: add hash to spritemap file name
+
 ## 0.11.1
 
 ### Patch Changes

@@ -52,9 +52,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    VitePluginSvgSpritemap("./src/icons/**/*.svg", {
-      output: "spritemap.svg", //! removes hash from filename to have a constant url
-    }),
+    VitePluginSvgSpritemap("./src/icons/**/*.svg"),
     dts({ rollupTypes: true }),
   ],
 });
