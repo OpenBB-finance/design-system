@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.13.1
+
+### Patch Changes
+
+- d506855: fix!: title letter spacing
+
 ## 0.13.0
 
 ### Minor Changes (Breaking)
