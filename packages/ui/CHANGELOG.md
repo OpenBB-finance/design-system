@@ -1,5 +1,16 @@
 # @openbb/ui
 
+## 0.13.0
+
+### Minor Changes
+
+- bdcde59: fix!: typography
+- 12832ca: fix: remove aktiv-grotesk-extended font
+
+### Patch Changes
+
+- 65f6b71: fix: linkedin icon
+
 ## 0.12.1
 
 ### Patch Changes
