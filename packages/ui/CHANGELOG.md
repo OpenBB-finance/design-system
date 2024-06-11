@@ -1,5 +1,12 @@
 # @openbb/ui
 
+## 0.12.1
+
+### Patch Changes
+
+- 4f9566c: fix: add brand icons
+- c4e9933: fix: Button loading state markup
+
 ## 0.12.0
 
 ### Minor Changes
