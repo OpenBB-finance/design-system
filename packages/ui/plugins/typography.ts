@@ -3,7 +3,6 @@ import plugin from "tailwindcss/plugin";
 const STYLE = {
   title: {
     fontFamily: "Inter",
-    letterSpacing: "0.1em",
   },
   subtitle: {
     fontFamily: "Inter",
