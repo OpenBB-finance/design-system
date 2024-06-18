@@ -234,3 +234,16 @@ npm run publish-packages
 ```
 
 and commit bumped versions.
+
+## Caveats
+
+#### App crashes after using browser's Google Translate feature
+
+Some components may throw runtime errors when being translated. You can fix it by adding `translate="no"` to breaking component. Use this patch for debugging:
+
+```js
+import { patchNode } from "@openbb/ui";
+patchNode();
+```
+
+Read more about it: https://github.com/facebook/react/issues/11538#issuecomment-2136914960

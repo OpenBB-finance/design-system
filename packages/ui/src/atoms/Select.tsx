@@ -271,6 +271,7 @@ const Select = React.forwardRef<
           className={className}
           size={size}
           autoFocus={autoFocus}
+          translate="no"
         >
           <SelectValue placeholder={placeholder} />
         </SelectTrigger>
