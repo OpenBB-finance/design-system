@@ -2,9 +2,7 @@ import plugin from "tailwindcss/plugin";
 
 const STYLE = {
   title: {
-    fontFamily: "aktiv-grotesk-extended, Inter",
-    textTransform: "uppercase",
-    letterSpacing: "0.1em",
+    fontFamily: "Inter",
   },
   subtitle: {
     fontFamily: "Inter",
@@ -36,6 +34,7 @@ const SIZE = {
     md: { fontSize: "1rem", lineHeight: "1.5rem" },
     lg: { fontSize: "1.125rem", lineHeight: "1.75rem" },
     xl: { fontSize: "1.25rem", lineHeight: "1.875rem" },
+    subtitle: { fontSize: "2rem", lineHeight: "3rem" },
   },
 } as const;
 

@@ -50,7 +50,8 @@ export function buildIcons(rootDir: string) {
         .replace(
           /stroke-width="(?!var)(.*?)"/gi,
           'stroke-width="var(--stroke-width, $1)"',
-        );
+        )
+        .replace(/clip-path="(?!none).*?"/gi, "");
 
       if (newContent !== content) {
         fs.writeFileSync(fullPath, newContent);

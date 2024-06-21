@@ -1,5 +1,22 @@
 # @openbb/ui
 
+## 0.13.1
+
+### Patch Changes
+
+- d506855: fix!: title letter spacing
+
+## 0.13.0
+
+### Minor Changes (Breaking)
+
+- bdcde59: fix!: typography
+- 12832ca: fix: remove aktiv-grotesk-extended font (Downloading assets decreased by ~50KB)
+
+### Patch Changes
+
+- 65f6b71: fix: linkedin icon replaced
+
 ## 0.12.1
 
 ### Patch Changes
@@ -9,7 +26,7 @@
 
 ## 0.12.0
 
-### Minor Changes
+### Minor Changes (Breaking)
 
 - 718fc87: fix: add hash to spritemap file name
 
@@ -21,7 +38,7 @@
 
 ## 0.11.0
 
-### Minor Changes
+### Minor Changes (Breaking)
 
 - 4d84e10: feat: export `cn` util, merge typography classes
   For example:

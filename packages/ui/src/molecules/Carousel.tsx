@@ -217,9 +217,10 @@ export const CarouselPrevious = React.forwardRef<HTMLButtonElement, ButtonProps>
         icon={icon}
         disabled={!canScrollPrev}
         onClick={scrollPrev}
+        aria-label="Previous"
         {...rest}
       >
-        <Icon name="chevron-left" size={18} />
+        <Icon name="chevron-left" className="size-[18px]" />
         <span className="sr-only">Previous slide</span>
       </Button>
     );
@@ -240,9 +241,10 @@ export const CarouselNext = React.forwardRef<HTMLButtonElement, ButtonProps>(
         icon={icon}
         disabled={!canScrollNext}
         onClick={scrollNext}
+        aria-label="Next"
         {...rest}
       >
-        <Icon name="chevron-right" size={18} />
+        <Icon name="chevron-right" className="size-[18px]" />
         <span className="sr-only">Next slide</span>
       </Button>
     );
