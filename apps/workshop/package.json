@@ -7,7 +7,7 @@
     "dev": "storybook dev -p 6006",
     "build-": "build-storybook",
     "format": "npx @biomejs/biome format . --write",
-    "lint": "npx @biomejs/biome lint . --apply-unsafe",
+    "lint": "npx @biomejs/biome lint . --write",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",

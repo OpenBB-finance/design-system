@@ -1,3 +1,4 @@
+// biome-ignore lint/style/noNamespaceImport: Use all Radix imports
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import React from "react";
 import { cn } from "~/utils";

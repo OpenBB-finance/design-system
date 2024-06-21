@@ -1,3 +1,4 @@
+// biome-ignore lint/style/noNamespaceImport: Use all Radix imports
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { cva } from "class-variance-authority";
 import { Check, ChevronRight, Circle } from "lucide-react";

@@ -1,3 +1,4 @@
+// biome-ignore lint/style/noNamespaceImport: Use all Radix imports
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";

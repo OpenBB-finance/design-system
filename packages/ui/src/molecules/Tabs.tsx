@@ -1,3 +1,4 @@
+// biome-ignore lint/style/noNamespaceImport: Use all Radix imports
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { cva } from "class-variance-authority";
 import React from "react";

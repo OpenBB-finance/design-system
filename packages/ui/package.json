@@ -27,7 +27,7 @@
     "build-vite": "vite build",
     "build-dts": "tsup",
     "format": "npx @biomejs/biome format . --write",
-    "lint": "npx @biomejs/biome lint . --apply-unsafe",
+    "lint": "npx @biomejs/biome lint . --write",
     "storybook": "npm run dev -w workshop",
     "postversion": "npm run build"
   },
