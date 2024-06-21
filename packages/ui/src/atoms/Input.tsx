@@ -224,19 +224,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
             />
           )}
         </div>
-        {clearable && hasValue && canEdit && (
-          <button
-            type="button"
-            className="inline-flex flex-[0] bg-transparent text-inherit transition-all dark:hover:text-grey-100 hover:text-grey-900"
-            tabIndex={-1}
-            onClick={(e) => {
-              e.stopPropagation();
-              clear();
-            }}
-          >
-            <Icon name="x" className="size-4" />
-          </button>
-        )}
         {copiable && hasValue && (
           <CopyButton
             className="text-inherit transition-all group-aria-disabled:bg-transparent dark:hover:text-grey-100 hover:text-grey-900"
@@ -262,6 +249,19 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
           </button>
         )}
         {suffix && <div className="inline-flex flex-[0] items-center">{suffix}</div>}
+        {clearable && hasValue && canEdit && (
+          <button
+            type="button"
+            className="inline-flex flex-[0] bg-transparent text-inherit transition-all dark:hover:text-grey-100 hover:text-grey-900"
+            tabIndex={-1}
+            onClick={(e) => {
+              e.stopPropagation();
+              clear();
+            }}
+          >
+            <Icon name="x" className="size-4" />
+          </button>
+        )}
       </div>
       <Message error={error}>{message}</Message>
     </div>
