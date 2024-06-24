@@ -157,8 +157,10 @@ export default {
 
 ### Install dependencies
 
+> **Important!** use YARN to install dependencies. Npm and Bun doesn't work properly.
+
 ```bash
-npm ci
+yarn ci
 ```
 
 ### Update dependencies
@@ -171,6 +173,7 @@ npm i
 ```
 
 > **Important!** dont't update `tailwindcss-radix`! It should be `2.8.0`
+> **Important!** `@radix-ui/react-tooltip@1.1.0` is broken, use previous minor version.
 
 ### Storybook
 

@@ -1,6 +1,6 @@
 {
   "name": "@openbb/design-system",
-  "version": "0.10.0",
+  "version": "0.13.0",
   "homepage": "http://openbb-finance.github.io/design-system",
   "description": "OpenBB UI is a React component library for OpenBB Finance",
   "author": {
@@ -13,6 +13,8 @@
     "apps/*"
   ],
   "scripts": {
+    "-preinstall": "npx only-allow bun",
+    "postinstall": "rm -rf ./packages/ui/node_modules/@radix-ui/react-tooltip",
     "build-turbo": "turbo build --no-cache --force",
     "lint": "turbo lint",
     "build": "npm run build -w @openbb/ui",
@@ -30,7 +32,6 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "ajv": ">=6.12.6",
     "autoprefixer": "^10.4.19",
     "babel-loader": "^9.1.3",
     "braces": ">=3.0.3",
@@ -41,7 +42,7 @@
     "postcss": "^8.4.38",
     "prop-types": "^15.8.1",
     "qs": ">=6.12.1",
-    "tailwindcss-radix": "^2.8.0 && <2.9.0",
+    "tailwindcss-radix": "~2.8.0",
     "tsup": "^8.1.0",
     "typescript": "^5.5.2",
     "vite": "^5.3.1",
@@ -67,5 +68,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "npm@10.7.0"
+  "packageManager": "yarn@4.3.1"
 }
