@@ -15,9 +15,8 @@
   "scripts": {
     "-preinstall": "npx only-allow bun",
     "postinstall": "rm -rf ./packages/ui/node_modules/@radix-ui/react-tooltip",
-    "build-turbo": "turbo build --no-cache --force",
+    "build": "turbo build --no-cache --force",
     "lint": "turbo lint",
-    "build": "npm run build -w @openbb/ui",
     "storybook": "npm run dev -w workshop",
     "publish-packages": "turbo lint && changeset version && turbo build && changeset publish",
     "chromatic": "npm run chromatic -w workshop"
