@@ -166,11 +166,11 @@ npm ci
 Use [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) to update dependencies.
 
 ```bash
-ncu -x eslint-plugin-unused-imports -u
+ncu -u
 npm i
 ```
 
-> **Important!** dont't update `eslint-plugin-unused-imports`! It should be `2.0.0`
+> **Important!** dont't update `tailwindcss-radix`! It should be `2.8.0`
 
 ### Storybook
 

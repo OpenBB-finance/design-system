@@ -17,7 +17,7 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof TooltipContent>;
+} satisfies Meta<typeof Tooltip>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
