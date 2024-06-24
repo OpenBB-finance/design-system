@@ -1,5 +1,15 @@
 # @openbb/ui
 
+## 0.13.3
+
+### Patch Changes
+
+- 39e9ed1: fix: add aria-labels to Carousel buttons
+- c0309a1: fix: (AA-2637) switch off translateion on Select value.
+- 2b742bb: fix: remove clip-path from icons
+- b37275e: update dependencies, fix dependabot alerts
+- use YARN: https://github.com/OpenBB-finance/design-system/pull/22#issue-2370214682
+
 ## 0.13.1
 
 ### Patch Changes

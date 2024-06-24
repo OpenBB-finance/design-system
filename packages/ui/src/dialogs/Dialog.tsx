@@ -1,3 +1,4 @@
+// biome-ignore lint/style/noNamespaceImport: Use all Radix imports
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import React from "react";
 import { cn } from "~/utils";

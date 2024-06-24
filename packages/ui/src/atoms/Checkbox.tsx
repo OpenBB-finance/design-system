@@ -1,3 +1,4 @@
+// biome-ignore lint/style/noNamespaceImport: Use all Radix imports
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import React from "react";
 import { cn, makeRandomId } from "~/utils";

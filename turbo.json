@@ -1,8 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "pipeline": {
+  "tasks": {
     "build": {
-      "outputs": ["dist/**", "storybook-static/**"]
+      "outputs": [
+        "dist/**",
+        "storybook-static/**"
+      ]
     },
     "lint": {}
   }
