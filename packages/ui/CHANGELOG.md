@@ -1,5 +1,15 @@
 # @openbb/ui
 
+## 0.14.0
+
+### Minor Changes
+
+- 4021a3c: fix: make clearable the last icon shown for the input component
+
+### Patch Changes
+
+- 387d118: fix: add icons: code-01, grid-01
+
 ## 0.13.3
 
 ### Patch Changes
