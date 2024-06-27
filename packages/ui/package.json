@@ -17,7 +17,11 @@
     "./src/*": "./src/*",
     "./dist/*": "./dist/*"
   },
-  "files": ["dist/**/*", "src/**/*", "tailwind.config.ts"],
+  "files": [
+    "dist/**/*",
+    "src/**/*",
+    "tailwind.config.ts"
+  ],
   "scripts": {
     "build": "npm run build-vite && npm run build-dts",
     "build-vite": "vite build",
