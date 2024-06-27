@@ -17,16 +17,12 @@
     "./src/*": "./src/*",
     "./dist/*": "./dist/*"
   },
-  "files": [
-    "dist/**/*",
-    "src/**/*",
-    "tailwind.config.ts"
-  ],
+  "files": ["dist/**/*", "src/**/*", "tailwind.config.ts"],
   "scripts": {
     "build": "npm run build-vite && npm run build-dts",
     "build-vite": "vite build",
     "build-dts": "tsup",
-    "format": "npx @biomejs/biome format . --write",
+    "format": "npx @biomejs/biome lint . --write --unsafe",
     "lint": "npx @biomejs/biome lint . --write",
     "storybook": "npm run dev -w workshop",
     "postversion": "npm run build"

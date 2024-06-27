@@ -30,7 +30,7 @@
 		"commands": [
 			{
 				"match": "\\.(ts|tsx|js|jsx|html)$",
-				"cmd": "npx @biomejs/biome lint ${file} --apply-unsafe"
+				"cmd": "npx @biomejs/biome lint ${file} --write --unsafe"
 			}
 		]
 	}

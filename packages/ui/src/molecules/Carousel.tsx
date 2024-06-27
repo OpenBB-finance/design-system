@@ -293,7 +293,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
       <CarouselRoot ref={ref} opts={opts} {...rest}>
         <CarouselContent>
           {React.Children.map(children, (child, index) => (
-            <CarouselItem key={index} className="lg:basis-1/3 md:basis-1/2">
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
               <div className="px-1 py-4">
                 <div className="rounded-lg bg-grey-100 shadow-2 dark:bg-dark-850">
                   {child}

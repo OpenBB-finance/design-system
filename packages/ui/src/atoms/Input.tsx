@@ -55,12 +55,12 @@ const inputVariants = cva(
     "text-grey-900",
     "placeholder:text-grey-500",
     "focus:placeholder:text-grey-500",
-    "disabled:placeholder:text-grey-400 disabled:text-grey-400",
+    "disabled:text-grey-400 disabled:placeholder:text-grey-400",
 
     "dark:text-grey-50",
     "dark:placeholder:text-grey-500",
     "dark:focus:placeholder:text-grey-400",
-    "dark:disabled:placeholder:text-dark-400 dark:disabled:text-dark-400",
+    "dark:disabled:text-dark-400 dark:disabled:placeholder:text-dark-400",
   ],
   {
     variants: {
@@ -226,7 +226,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
         </div>
         {copiable && hasValue && (
           <CopyButton
-            className="text-inherit transition-all group-aria-disabled:bg-transparent dark:hover:text-grey-100 hover:text-grey-900"
+            className="text-inherit transition-all hover:text-grey-900 group-aria-disabled:bg-transparent dark:hover:text-grey-100"
             text={value as string}
             tabIndex={-1}
           />
@@ -234,7 +234,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
         {revealable && (
           <button
             type="button"
-            className="inline-flex flex-[0] bg-transparent text-inherit transition-all dark:hover:text-grey-100 hover:text-grey-900"
+            className="inline-flex flex-[0] bg-transparent text-inherit transition-all hover:text-grey-900 dark:hover:text-grey-100"
             tabIndex={-1}
             onClick={(e) => {
               e.stopPropagation();
@@ -252,7 +252,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
         {clearable && hasValue && canEdit && (
           <button
             type="button"
-            className="inline-flex flex-[0] bg-transparent text-inherit transition-all dark:hover:text-grey-100 hover:text-grey-900"
+            className="inline-flex flex-[0] bg-transparent text-inherit transition-all hover:text-grey-900 dark:hover:text-grey-100"
             tabIndex={-1}
             onClick={(e) => {
               e.stopPropagation();
