@@ -33,7 +33,9 @@ function TestBreakpoints() {
   const screens = (tailwind.theme?.screens ?? {}) as Record<string, string>;
   const { width, ...bp } = useBreakpoints();
 
-  if (!screens) { return null; }
+  if (!screens) {
+    return null;
+  }
   return (
     <div className="body-sm-medium max-w-2xl overflow-hidden border border-grey-600">
       <div className="grid grid-cols-6 bg-grey-300 text-center">

@@ -18,7 +18,7 @@ const textareaVariants = cva(
 
     "dark:border-dark-600 dark:bg-dark-800 dark:text-grey-50",
     "dark:data-[enabled]:hover:bg-dark-700",
-    "dark:disabled:border-dark-700 dark:disabled:bg-dark-800 dark:disabled:placeholder:text-dark-400 dark:disabled:text-dark-200",
+    "dark:disabled:border-dark-700 dark:disabled:bg-dark-800 dark:disabled:text-dark-200 dark:disabled:placeholder:text-dark-400",
   ],
   {
     variants: {
@@ -95,7 +95,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         {copiable && hasValue && (
           <CopyButton
             size="xs"
-            className="absolute top-2 right-2 text-inherit transition-all group-aria-disabled:bg-transparent dark:hover:text-grey-100 hover:text-grey-900"
+            className="absolute top-2 right-2 text-inherit transition-all hover:text-grey-900 group-aria-disabled:bg-transparent dark:hover:text-grey-100"
             text={value as string}
             tabIndex={-1}
           />

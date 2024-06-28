@@ -1,6 +1,6 @@
 // biome-ignore lint/style/noNamespaceImport: Use all Radix imports
 import * as SelectPrimitive from "@radix-ui/react-select";
-import { cva, type VariantProps } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
 import React from "react";
 import type { CanBeImmutable } from "~/utils";
 import { cn } from "~/utils";
@@ -17,12 +17,12 @@ export const SelectTriggerVariants = cva(
     "border-grey-200 bg-white text-grey-900 data-[placeholder]:text-grey-500",
     "hover:enabled:text-grey-900",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-grey-300",
-    "disabled:cursor-not-allowed disabled:border-grey-200 disabled:bg-grey-200 disabled:data-[placeholder]:text-grey-400 disabled:text-grey-400",
+    "disabled:cursor-not-allowed disabled:border-grey-200 disabled:bg-grey-200 disabled:text-grey-400 disabled:data-[placeholder]:text-grey-400",
     /* Dark theme */
-    "dark:border-dark-600 dark:bg-dark-800 dark:data-[placeholder]:text-grey-500 dark:text-grey-50",
+    "dark:border-dark-600 dark:bg-dark-800 dark:text-grey-50 dark:data-[placeholder]:text-grey-500",
     "dark:hover:enabled:border-dark-400 dark:hover:enabled:bg-dark-600 dark:hover:enabled:text-grey-300",
     "dark:focus-visible:ring-dark-50",
-    "dark:disabled:border-dark-750 dark:disabled:bg-dark-800 dark:disabled:data-[placeholder]:text-dark-400 dark:disabled:text-dark-400",
+    "dark:disabled:border-dark-750 dark:disabled:bg-dark-800 dark:disabled:text-dark-400 dark:disabled:data-[placeholder]:text-dark-400",
   ],
   {
     variants: {

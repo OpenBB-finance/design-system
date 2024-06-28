@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 const render: Story["render"] = (args) => {
   return (
     <ThemedPreview>
-      <div className="grid grid-cols-3 gap-4 lg:grid-cols-6 md:grid-cols-4">
+      <div className="grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-6">
         {iconNames.map((name) => (
           <div key={name} className="flex flex-col items-center gap-2">
             <Icon {...args} name={name} />

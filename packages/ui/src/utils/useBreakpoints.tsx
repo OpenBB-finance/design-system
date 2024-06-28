@@ -26,7 +26,9 @@ export function useBreakpoints(additionalScreens?: number[]) {
   const [width, setWidth] = useState(isClient ? window.innerWidth : 1200);
 
   useEffect(() => {
-    if (!isClient) { return; }
+    if (!isClient) {
+      return;
+    }
     function handleResize() {
       setWidth(window.innerWidth);
     }
