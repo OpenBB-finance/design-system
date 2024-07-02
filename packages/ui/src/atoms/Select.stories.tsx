@@ -149,6 +149,11 @@ export const GroupedOptions: Story = {
   render,
 };
 
+export const Size2XS: Story = {
+  args: { ...Default.args, size: "2xs" },
+  render,
+};
+
 export const SizeXS: Story = {
   args: { ...Default.args, size: "xs" },
   render,
@@ -159,8 +164,8 @@ export const SizeSM: Story = {
   render,
 };
 
-export const SizeLG: Story = {
-  args: { ...Default.args, size: "lg" },
+export const SizeMD: Story = {
+  args: { ...Default.args, size: "md" },
   render,
 };
 

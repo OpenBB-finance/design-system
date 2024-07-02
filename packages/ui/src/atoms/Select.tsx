@@ -12,29 +12,31 @@ import { Label, Message } from "./Label";
 export const SelectTriggerVariants = cva(
   [
     "BB-Select body-xs-regular flex w-full items-center justify-between rounded-sm border [&>span]:line-clamp-1",
+    "focus-visible:outline-none focus-visible:ring-2",
+    "disabled:cursor-not-allowed",
     "transition",
     /* Light theme */
-    "border-grey-200 bg-white text-grey-900 data-[placeholder]:text-grey-500",
-    "hover:enabled:text-grey-900",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-grey-300",
-    "disabled:cursor-not-allowed disabled:border-grey-200 disabled:bg-grey-200 disabled:text-grey-400 disabled:data-[placeholder]:text-grey-400",
+    "border-grey-300 bg-white text-grey-900 data-[placeholder]:text-grey-400",
+    "hover:enabled:border-grey-500",
+    "focus-visible:ring-grey-300",
+    "disabled:border-grey-200 disabled:bg-grey-100 disabled:text-grey-400 disabled:data-[placeholder]:text-grey-400",
     /* Dark theme */
-    "dark:border-dark-600 dark:bg-dark-800 dark:text-grey-50 dark:data-[placeholder]:text-grey-500",
-    "dark:hover:enabled:border-dark-400 dark:hover:enabled:bg-dark-600 dark:hover:enabled:text-grey-300",
+    "dark:border-dark-400 dark:bg-dark-800 dark:text-grey-100 dark:data-[placeholder]:text-dark-100",
+    "dark:hover:enabled:border-dark-50",
     "dark:focus-visible:ring-dark-50",
-    "dark:disabled:border-dark-750 dark:disabled:bg-dark-800 dark:disabled:text-dark-400 dark:disabled:data-[placeholder]:text-dark-400",
+    "dark:disabled:border-dark-700 dark:disabled:bg-dark-800 dark:disabled:text-dark-200 dark:disabled:data-[placeholder]:text-dark-200",
   ],
   {
     variants: {
       size: {
-        xs: "gap-1 px-1",
-        sm: "gap-2 px-2 py-1",
-        md: "gap-2 p-2",
-        lg: "gap-2 p-3",
+        "2xs": "!leading-4 gap-1 px-2 h-[18px]",
+        xs: "gap-2 px-2 py-0.5 h-6",
+        sm: "gap-2 px-3 py-1.5 h-8",
+        md: "gap-2 px-3 py-3 h-10",
       },
     },
     defaultVariants: {
-      size: "md",
+      size: "sm",
     },
   },
 );
@@ -62,7 +64,7 @@ interface SelectTriggerProps
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   SelectTriggerProps
->(({ className, children, size = "md", ...props }, ref) => (
+>(({ className, children, size = "sm", ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(SelectTriggerVariants({ size }), className)}

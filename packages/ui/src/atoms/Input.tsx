@@ -9,18 +9,21 @@ import { Label, Message } from "./Label";
 const groupVariants = cva(
   [
     "BB-Input group body-xs-regular flex w-full items-center gap-2 rounded-sm border",
-    // "data-[focused]:ring-4 data-[focused]:ring-ring", //! focus-visible wont work here, so this is normal focus
-    "disabled:cursor-not-allowed",
+    //! native focus and focus-visible won't work here, so data-focused and data-focus-visible are used instead
+    "data-[focus-visible]:ring-2 data-[focus-visible]:ring-ring",
+    "group-aria-disabled:cursor-not-allowed",
     "transition",
-
-    "border-grey-300 bg-white text-grey-600",
-    "data-[enabled]:hover:bg-white",
-    "data-[focused]:text-grey-900", //! focus-visible wont work here, so this is normal focus
-    "group-aria-disabled:border-grey-200 group-aria-disabled:bg-grey-200 group-aria-disabled:text-grey-600",
-
-    "dark:border-dark-600 dark:bg-dark-800 dark:text-grey-400",
-    "dark:data-[enabled]:hover:bg-dark-700",
-    "dark:data-[focused]:text-grey-50", //! focus-visible wont work here, so this is normal focus
+    /* Light theme */
+    "border-grey-300 bg-white text-grey-900",
+    "data-[enabled]:hover:border-grey-500",
+    "data-[focused]:border-grey-600 data-[focused]:hover:border-grey-600",
+    "data-[focus-visible]:ring-grey-300",
+    "group-aria-disabled:border-grey-200 group-aria-disabled:bg-grey-100 group-aria-disabled:text-grey-600",
+    /* Dark theme */
+    "dark:border-dark-400 dark:bg-dark-800 dark:text-grey-100",
+    "dark:data-[enabled]:hover:border-dark-50",
+    "dark:data-[focused]:border-grey-100 dark:data-[focused]:hover:border-grey-100",
+    "dark:data-[focus-visible]:ring-dark-50",
     "dark:group-aria-disabled:border-dark-700 dark:group-aria-disabled:bg-dark-800 dark:group-aria-disabled:text-dark-200",
   ],
   {
@@ -31,15 +34,15 @@ const groupVariants = cva(
       },
       size: {
         //! Keep pl and pr, don't use px! It's overriding below.
-        xs: "gap-1 pr-1 pl-1 [&_.BB-Icon]:size-3 [&_button]:max-h-3",
-        sm: "gap-1 pr-2 pl-2 [&_button]:max-h-4",
-        md: "gap-2 pr-3 pl-3 [&_button]:max-h-6",
-        lg: "gap-2 pr-3 pl-3 [&_button]:max-h-8",
+        "2xs": "!leading-4 gap-1 pr-2 pl-2 [&_.BB-Icon]:size-3 [&_button]:max-h-3",
+        xs: "gap-1 pr-2 pl-2 [&_button]:max-h-4",
+        sm: "gap-2 pr-3 pl-3 [&_button]:max-h-6",
+        md: "gap-2 pr-3 pl-3 [&_button]:max-h-8",
       },
     },
     defaultVariants: {
       state: "default",
-      size: "md",
+      size: "sm",
     },
   },
 );
@@ -51,28 +54,26 @@ const inputVariants = cva(
     "disabled:cursor-not-allowed disabled:bg-transparent",
     "focus-visible:outline-none",
     "transition",
-
+    /* Light theme */
     "text-grey-900",
-    "placeholder:text-grey-500",
-    "focus:placeholder:text-grey-500",
+    "placeholder:text-grey-400",
     "disabled:text-grey-400 disabled:placeholder:text-grey-400",
-
-    "dark:text-grey-50",
-    "dark:placeholder:text-grey-500",
-    "dark:focus:placeholder:text-grey-400",
-    "dark:disabled:text-dark-400 dark:disabled:placeholder:text-dark-400",
+    /* Dark theme */
+    "dark:text-grey-100",
+    "dark:placeholder:text-dark-100",
+    "dark:disabled:text-dark-200 dark:disabled:placeholder:text-dark-200",
   ],
   {
     variants: {
       size: {
-        xs: "py-0 pl-1",
-        sm: "py-1 pl-2",
-        md: "py-2 pl-3",
-        lg: "py-3 pl-3",
+        "2xs": "py-0 pl-1",
+        xs: "py-0.5 pl-2",
+        sm: "py-1.5 pl-3",
+        md: "py-3 pl-3",
       },
     },
     defaultVariants: {
-      size: "md",
+      size: "sm",
     },
   },
 );
@@ -97,7 +98,7 @@ export interface InputProps extends ReactInputProps {
   prefix?: React.ReactNode;
   /** Add React element inside border after input. */
   suffix?: React.ReactNode;
-  size?: "xs" | "sm" | "md" | "lg";
+  size?: "2xs" | "xs" | "sm" | "md";
   value?: InputValue;
   /** Text below input */
   message?: React.ReactNode;
@@ -106,6 +107,8 @@ export interface InputProps extends ReactInputProps {
   /** TODO: Replace password with 🦋. */
   // butterflies?: boolean;
   onChange?: (value: InputValue) => void;
+  // Test purposes
+  "data-focused"?: boolean;
 }
 
 /** Plain input component, can be used in form or outside it */
@@ -117,11 +120,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
     placeholder,
     onFocus,
     onBlur,
+    onClick: onMouseDown,
     // custom props
     label,
     prefix,
     suffix,
-    size = "md",
+    size = "sm",
     message,
     onChange,
     disabled,
@@ -140,6 +144,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
 
   const [type, setType] = useState(defaultType ?? "text");
   const [isFocused, setFocused] = useState(false);
+  const [focusVisible, setFocusVisible] = useState(true);
   const isHidden = type === "password";
 
   const value = props.value ?? ref.current?.value ?? props.defaultValue ?? "";
@@ -159,7 +164,13 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
 
   function handleBlur(e: React.FocusEvent<HTMLInputElement>) {
     setFocused(false);
+    setFocusVisible(true);
     onBlur?.(e);
+  }
+
+  function handleMouseDown(e: React.MouseEvent<HTMLInputElement>) {
+    setFocusVisible(false);
+    onMouseDown?.(e);
   }
 
   function switchReveal() {
@@ -195,8 +206,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
       <Label>{label}</Label>
       <div
         className={groupClasses}
-        data-focused={isFocused || null}
+        data-focused={(isFocused && !focusVisible) || props["data-focused"] || null}
+        data-focus-visible={(isFocused && focusVisible) || null}
         data-enabled={canEdit || null}
+        onMouseDown={handleMouseDown}
       >
         {prefix && <div className="inline-flex flex-[0]">{prefix}</div>}
         <div className="relative h-full min-w-[3rem] flex-1">
