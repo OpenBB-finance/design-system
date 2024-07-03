@@ -29,10 +29,10 @@ export const SelectTriggerVariants = cva(
   {
     variants: {
       size: {
-        "2xs": "!leading-4 gap-1 px-2 h-[18px]",
-        xs: "gap-2 px-2 py-0.5 h-6",
-        sm: "gap-2 px-3 py-1.5 h-8",
-        md: "gap-2 px-3 py-3 h-10",
+        "2xs": "!leading-4 h-[18px] gap-1 px-2",
+        xs: "h-6 gap-2 px-2 py-0.5",
+        sm: "h-8 gap-2 px-3 py-1.5",
+        md: "h-10 gap-2 px-3 py-3",
       },
     },
     defaultVariants: {
