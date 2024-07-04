@@ -88,7 +88,7 @@ const renderInForm: Story["render"] = (args) => {
   const form = useForm<TForm>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: args.defaultValue as string,
+      port: Number(args.defaultValue) || undefined,
     },
   });
 

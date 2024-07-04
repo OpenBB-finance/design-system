@@ -4,7 +4,7 @@ import { type VariantProps, cva } from "class-variance-authority";
 import React from "react";
 import type { CanBeImmutable } from "~/utils";
 import { cn } from "~/utils";
-import { FormItem, FormLabel, FormMessage } from "../molecules/Form";
+import { FormItem, FormLabel, FormMessage, useFormField } from "../molecules/Form";
 import { DropdownMenuContentVariants, DropdownMenuItemVariants } from "./DropdownMenu";
 import { Icon } from "./Icon";
 import { Label, Message } from "./Label";
@@ -302,11 +302,12 @@ const FormSelect = React.forwardRef<
   FormSelectProps
 >((props, ref) => {
   const { label, message, ...rest } = props;
+  const { error } = useFormField();
 
   return (
     <FormItem className="BB-FormSelect group" aria-disabled={props.disabled}>
       <FormLabel>{label}</FormLabel>
-      <Select ref={ref} {...rest} />
+      <Select ref={ref} error={!!error} {...rest} />
       <FormMessage>{message}</FormMessage>
     </FormItem>
   );

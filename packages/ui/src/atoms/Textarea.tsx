@@ -1,7 +1,13 @@
 import { cva } from "class-variance-authority";
 import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
 import { cn } from "~/utils";
-import { FormControl, FormItem, FormLabel, FormMessage } from "../molecules/Form";
+import {
+  FormControl,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  useFormField,
+} from "../molecules/Form";
 import { CopyButton } from "./CopyButton";
 import { Label, Message } from "./Label";
 
@@ -161,12 +167,13 @@ type FormTextareaProps = Omit<TextareaProps, "error">;
 export const FormTextarea = React.forwardRef<HTMLTextAreaElement, FormTextareaProps>(
   (props, ref) => {
     const { label, message, ...rest } = props;
+    const { error } = useFormField();
 
     return (
       <FormItem className="BB-FormTextarea group" aria-disabled={props.disabled}>
         <FormLabel>{label}</FormLabel>
         <FormControl>
-          <Textarea ref={ref} {...rest} />
+          <Textarea ref={ref} error={!!error} {...rest} />
         </FormControl>
         <FormMessage>{message}</FormMessage>
       </FormItem>

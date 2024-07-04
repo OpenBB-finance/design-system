@@ -1,7 +1,13 @@
 import { cva } from "class-variance-authority";
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "~/utils";
-import { FormControl, FormItem, FormLabel, FormMessage } from "../molecules/Form";
+import {
+  FormControl,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  useFormField,
+} from "../molecules/Form";
 import { CopyButton } from "./CopyButton";
 import { Icon } from "./Icon";
 import { Label, Message } from "./Label";
@@ -290,12 +296,13 @@ type FormInputProps = Omit<InputProps, "error">;
 export const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
   (props, ref) => {
     const { label, message, ...rest } = props;
+    const { error } = useFormField();
 
     return (
       <FormItem className="BB-FormInput group" aria-disabled={props.disabled}>
         <FormLabel>{label}</FormLabel>
         <FormControl>
-          <Input ref={ref} {...rest} />
+          <Input ref={ref} error={!!error} {...rest} />
         </FormControl>
         <FormMessage>{message}</FormMessage>
       </FormItem>
