@@ -208,17 +208,24 @@ npm run build
 
 ## Publish
 
-### CHANGELOGs
+### GitFlow
 
-On every sufficient commit (fix, feat) you need to create a changeset. Follow instructions in terminal, pick modified packages and bump versions:
+We use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) workflow. Please, follow it strictly to keep a consistent versioning and release safety.
+
+### Changesets And Changelogs
+
+We use [Changesets](https://github.com/changesets/changesets) to generate changelogs and bump versions.
+Also, commit messages are recommended to follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) standard. It's helpful for changelog generation with external tools.
+
+On every sufficient commit like `fix` or `feat` you need to create a changeset. Follow instructions in terminal, pick modified packages and bump versions:
 
 ```bash
 npx changeset
 ```
 
-Keep in mind that if you change code in `common` package, you need to bump version of all packages that depend on it.
+After that select `@openbb/ui` package, bump level, and add a short description of your changes (can be a commit message itself). You need to include generated .md file to your commit.
 
-### Test on Chromatic (will be removed after CI integration)
+### Test on Chromatic (TODO: CI integration)
 
 Before making a PR, please test your changes on Chromatic:
 
@@ -228,12 +235,44 @@ npm run chromatic
 
 If some tests failed and you know why, you need to review and approve changes by the following link.
 
-### Publish packages
+## Publish packages
 
-Then, run this command:
+Before publishing, you need to bump version of all packages that depend on it.
+
+### Major release conditions
+
+Regarding to [SemVer](https://semver.org/) rules, we bump major version when we break compatibility with previous versions:
+
+- Changing or removing public API of any component
+- Changing design of any component
+
+### Pre-Release (Optional)
+
+If you're not sure about the version bump, you can use `prerelease` command:
 
 ```bash
-npm run publish-packages
+npm run prerelease
+npx changeset pre exit
+```
+
+This command will create a RC (Release Candidate) version that you can test safely and publish it to npm.
+
+### Release
+
+After all tests done, you need to create a release. Run this command:
+
+```bash
+npm run release
+```
+
+This command will create a final version that you can publish to npm.
+
+### Publish to npm
+
+Finally, run this command:
+
+```bash
+npm run publish
 ```
 
 and commit bumped versions.

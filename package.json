@@ -19,8 +19,10 @@
     "lint": "turbo lint",
     "format": "npm run format -w @openbb/ui",
     "storybook": "npm run dev -w workshop",
-    "publish-packages": "turbo lint && changeset version && turbo build && changeset publish",
-    "chromatic": "npm run chromatic -w workshop"
+    "test": "npm run chromatic -w workshop",
+    "prerelease": "npm run lint && changeset pre enter rc && npm run build",
+    "release": "npm run lint && changeset version && npm run build",
+    "publish": "npm run test && changeset publish"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
