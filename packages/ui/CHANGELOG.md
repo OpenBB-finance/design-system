@@ -1,5 +1,14 @@
 # @openbb/ui
 
+## 1.0.0-rc.0
+
+### Major Changes
+
+- 6ea2d74: fix!: Label style
+- 1dbbbba: fix!: Input sizes and colors
+- c919665: fix!: Button colors and sizes
+- f19305a: fix!: Textarea style
+
 ## 0.14.0
 
 ### Minor Changes

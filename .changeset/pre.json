@@ -1,0 +1,14 @@
+{
+  "mode": "pre",
+  "tag": "rc",
+  "initialVersions": {
+    "workshop": "1.0.0",
+    "@openbb/ui": "0.14.0"
+  },
+  "changesets": [
+    "funny-falcons-impress",
+    "proud-dragons-enjoy",
+    "rude-clocks-poke",
+    "wise-peas-itch"
+  ]
+}
