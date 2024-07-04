@@ -3,6 +3,7 @@ import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
 import { cn } from "~/utils";
 import { FormControl, FormItem, FormLabel, FormMessage } from "../molecules/Form";
 import { CopyButton } from "./CopyButton";
+import { Label, Message } from "./Label";
 
 const textareaVariants = cva(
   [
@@ -17,7 +18,6 @@ const textareaVariants = cva(
     "data-[focused]:border-grey-600 data-[focused]:hover:border-grey-600",
     "data-[focus-visible]:ring-grey-300",
     "disabled:border-grey-200 disabled:bg-grey-100 disabled:text-grey-400 disabled:placeholder:text-grey-400",
-
     /* Dark theme */
     "dark:border-dark-400 dark:bg-dark-800 dark:text-grey-100 dark:placeholder:text-dark-100",
     "dark:hover:enabled:border-dark-50",
@@ -70,6 +70,8 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       copiable,
       className,
       error,
+      label,
+      message,
       onChange,
       onFocus,
       onBlur,
@@ -121,26 +123,30 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     });
 
     return (
-      <div className="group relative">
-        <textarea
-          className={cn(textareaVariants({ state }), className)}
-          ref={ref}
-          data-focused={(isFocused && !focusVisible) || props["data-focused"] || null}
-          data-focus-visible={(isFocused && focusVisible) || null}
-          onChange={handleChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onMouseDown={handleMouseDown}
-          {...rest}
-        />
-        {copiable && hasValue && (
-          <CopyButton
-            size="xs"
-            className="absolute top-2 right-2 text-inherit transition-all hover:text-grey-900 group-aria-disabled:bg-transparent dark:hover:text-grey-100"
-            text={value as string}
-            tabIndex={-1}
+      <div aria-disabled={props.disabled} className="group">
+        <Label>{label}</Label>
+        <div className="relative">
+          <textarea
+            className={cn(textareaVariants({ state }), className)}
+            ref={ref}
+            data-focused={(isFocused && !focusVisible) || props["data-focused"] || null}
+            data-focus-visible={(isFocused && focusVisible) || null}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onMouseDown={handleMouseDown}
+            {...rest}
           />
-        )}
+          {copiable && hasValue && (
+            <CopyButton
+              size="xs"
+              className="absolute top-2 right-2 text-inherit transition-all hover:text-grey-900 group-aria-disabled:bg-transparent dark:hover:text-grey-100"
+              text={value as string}
+              tabIndex={-1}
+            />
+          )}
+        </div>
+        <Message error={error}>{message}</Message>
       </div>
     );
   },

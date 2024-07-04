@@ -7,11 +7,15 @@ import { cn } from "~/utils";
 /* Label */
 
 const labelVariants = cva([
-  "BB-Label body-xs-regular mb-1 inline-block text-grey-400",
-  "group-aria-disabled:cursor-not-allowed group-aria-disabled:text-grey-300",
-  "peer-disabled:cursor-not-allowed peer-disabled:text-grey-300",
-
-  "dark:text-dark-50",
+  "BB-Label body-xs-regular mb-1 inline-block",
+  "group-aria-disabled:cursor-not-allowed",
+  "peer-disabled:cursor-not-allowed",
+  /* Light Theme */
+  "text-grey-600",
+  "group-aria-disabled:text-grey-400",
+  "peer-disabled:text-grey-400",
+  /* Dark Theme */
+  "dark:text-grey-200",
   "dark:group-aria-disabled:text-dark-200",
   "dark:peer-disabled:text-dark-200",
 ]);
