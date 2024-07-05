@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 1.0.0-rc.1
+
+### Patch Changes
+
+- eec6f4e: feat: add Tooltip delay props
+
 ## 1.0.0-rc.0
 
 ### Major Changes

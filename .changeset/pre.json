@@ -6,6 +6,7 @@
     "@openbb/ui": "0.14.0"
   },
   "changesets": [
+    "fifty-zoos-greet",
     "funny-falcons-impress",
     "proud-dragons-enjoy",
     "rude-clocks-poke",
