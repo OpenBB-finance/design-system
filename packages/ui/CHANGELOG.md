@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 1.0.0-rc.3
+
+### Major Changes
+
+- d146b4c: fix!: Input jumping on min width and typings
+
 ## 1.0.0-rc.2
 
 ### Patch Changes
