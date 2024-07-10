@@ -14,7 +14,7 @@ import { Label, Message } from "./Label";
 
 const groupVariants = cva(
   [
-    "BB-Input group body-xs-regular flex w-full items-center gap-2 rounded-sm border",
+    "BB-Input group body-xs-regular flex w-full min-w-[3rem] items-center gap-2 rounded-sm border",
     //! native focus and focus-visible won't work here, so data-focused and data-focus-visible are used instead
     "data-[focus-visible]:ring-2 data-[focus-visible]:ring-ring",
     "group-aria-disabled:cursor-not-allowed",
@@ -86,12 +86,14 @@ const inputVariants = cva(
 
 type ReactInputProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
-  "onChange" | "prefix" | "size" | "value"
+  "onChange" | "prefix" | "size" | "value" | "defaultValue" | "type"
 >;
 
-type InputValue = string | number;
-
 export interface InputProps extends ReactInputProps {
+  type?: "text" | "password" | "date" | "email" | "datetime-local" | "tel";
+  value?: string | number; //? Not sure about number values, if we don't support onChange for them. But needed for zod validation.
+  defaultValue?: string | number;
+  onChange?: (value: string) => void;
   /** Add floating label. Requires `placeholder`. */
   label?: React.ReactNode;
   /** When value is not empty, x icon appears to clear input. */
@@ -105,14 +107,12 @@ export interface InputProps extends ReactInputProps {
   /** Add React element inside border after input. */
   suffix?: React.ReactNode;
   size?: "2xs" | "xs" | "sm" | "md";
-  value?: InputValue;
   /** Text below input */
   message?: React.ReactNode;
   /** Make it red and display error message */
   error?: boolean;
   /** TODO: Replace password with 🦋. */
   // butterflies?: boolean;
-  onChange?: (value: InputValue) => void;
   // Test purposes
   "data-focused"?: boolean;
 }
@@ -160,6 +160,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
   const state = canEdit && error ? "error" : "default";
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    // @ts-ignore Argument of type 'string' is not assignable to parameter of type 'never'.ts(2345)
     onChange?.(e.target.value);
   }
 
@@ -184,7 +185,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
   }
 
   function clear() {
-    const onChange = props.onChange! as (value: string) => void;
+    const onChange = props.onChange;
     if (onChange) {
       onChange("");
     } else {
@@ -218,7 +219,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
         onMouseDown={handleMouseDown}
       >
         {prefix && <div className="inline-flex flex-[0]">{prefix}</div>}
-        <div className="relative h-full min-w-[3rem] flex-1">
+        <div className="relative h-full flex-1">
           <input
             key="qwe"
             type={type}
