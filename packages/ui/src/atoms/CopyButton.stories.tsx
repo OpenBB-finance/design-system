@@ -18,6 +18,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    text: "You was hacked!",
+    text: "You were hacked!",
   },
 };

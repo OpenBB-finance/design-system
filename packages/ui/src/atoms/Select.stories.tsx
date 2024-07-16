@@ -136,6 +136,39 @@ const groupedOptions = [
   },
 ] as const;
 
+const longOptions = [
+  "Apple",
+  "Apricot",
+  "Banana",
+  "Blackberry",
+  "Cantaloupe",
+  "Cherry",
+  "Date",
+  "Dragonfruit",
+  "Elderberry",
+  "Eggplant",
+  "Fennel",
+  "Fig",
+  "Grape",
+  "Honeydew",
+  "Kiwi",
+  "Lemon",
+  "Mango",
+  "Nectarine",
+  "Orange",
+  "Papaya",
+  "Quince",
+  "Raspberry",
+  "Strawberry",
+  "Tangerine",
+  "Ugli",
+  "Vanilla",
+  "Watermelon",
+  "Xigua",
+  "Yam",
+  "Zucchini",
+] as const;
+
 export const Default: Story = {
   args: { options, label: "Theme", placeholder: "Theme" },
   render,
@@ -145,6 +178,14 @@ export const GroupedOptions: Story = {
   args: {
     options: groupedOptions,
     placeholder: "Theme",
+  },
+  render,
+};
+
+export const LongOptions: Story = {
+  args: {
+    options: longOptions,
+    placeholder: "Pick one",
   },
   render,
 };

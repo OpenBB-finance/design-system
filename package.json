@@ -29,6 +29,7 @@
     "@babel/core": "^7.24.7",
     "@biomejs/biome": "1.8.3",
     "@changesets/cli": "^2.27.6",
+    "@radix-ui/react-scroll-area": "^1.1.0",
     "@remix-run/eslint-config": "^2.9.2",
     "@spiriit/vite-plugin-svg-spritemap": "^2.2.4",
     "@types/node": "^20.14.8",
