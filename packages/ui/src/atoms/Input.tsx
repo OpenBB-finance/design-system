@@ -73,10 +73,10 @@ const inputVariants = cva(
   {
     variants: {
       size: {
-        "2xs": "py-0 pl-1",
-        xs: "py-0.5 pl-2",
-        sm: "py-1.5 pl-3",
-        md: "py-3 pl-3",
+        "2xs": "py-0 pr-1 pl-1",
+        xs: "py-0.5 pr-2 pl-2",
+        sm: "py-1.5 pr-3 pl-3",
+        md: "py-3 pr-3 pl-3",
       },
     },
     defaultVariants: {
