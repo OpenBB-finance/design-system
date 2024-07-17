@@ -251,7 +251,9 @@ Regarding to [SemVer](https://semver.org/) rules, we bump major version when we 
 If you're not sure about the version bump, you can use `prerelease` command:
 
 ```bash
-npm run prerelease
+npx changeset pre enter rc
+npm run release
+# run release as many time as needed
 npx changeset pre exit
 ```
 
