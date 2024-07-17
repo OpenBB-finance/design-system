@@ -1,5 +1,12 @@
 # @openbb/ui
 
+## 1.0.0-rc.4
+
+### Patch Changes
+
+- f2860c0: fix: Input paddings with suffix and prefix
+- 8472035: feat: add a search input to Select
+
 ## 1.0.0-rc.3
 
 ### Major Changes
