@@ -17,6 +17,7 @@ const groupVariants = cva(
     "BB-Input group body-xs-regular flex w-full min-w-[3rem] items-center gap-2 rounded-sm border",
     //! native focus and focus-visible won't work here, so data-focused and data-focus-visible are used instead
     "data-[focus-visible]:ring-2 data-[focus-visible]:ring-ring",
+    "data-[has-suffix]:pr-1 data-[has-prefix]:pl-1",
     "group-aria-disabled:cursor-not-allowed",
     "transition",
     /* Light theme */
@@ -42,8 +43,8 @@ const groupVariants = cva(
         //! Keep pl and pr, don't use px! It's overriding below.
         "2xs": "!leading-4 gap-1 pr-2 pl-2 [&_.BB-Icon]:size-3 [&_button]:max-h-3",
         xs: "gap-1 pr-2 pl-2 [&_button]:max-h-4",
-        sm: "gap-2 pr-3 pl-3 [&_button]:max-h-6",
-        md: "gap-2 pr-3 pl-3 [&_button]:max-h-8",
+        sm: "gap-2 pr-3 pl-3 data-[has-suffix]:pr-2 data-[has-prefix]:pl-2 [&_button]:max-h-6",
+        md: "gap-2 pr-3 pl-3 data-[has-suffix]:pr-2 data-[has-prefix]:pl-2 [&_button]:max-h-8",
       },
     },
     defaultVariants: {
@@ -157,6 +158,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
   const hasValue = !!value;
   const canEdit = !(props.disabled || props.readOnly);
 
+  const hasPrefix = !!prefix;
+  const showCopyButton = copiable && hasValue;
+  const showRevealButton = revealable;
+  const showClearButton = clearable && hasValue && canEdit;
+  const hasSuffix = !!suffix || showCopyButton || showRevealButton || showClearButton;
+
   const state = canEdit && error ? "error" : "default";
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -200,12 +207,18 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
     setType(defaultType ?? "text");
   }, [defaultType]);
 
-  const groupClasses = cn(groupVariants({ state, size }), className, !prefix && "pl-0");
+  const groupClasses = cn(
+    groupVariants({ state, size }),
+    className,
+    !hasPrefix && "pl-0",
+    !hasSuffix && "pr-0",
+  );
 
   const inputClasses = cn(
     inputVariants({ size }),
     type === "date" && "cursor-text",
-    prefix && "pl-0",
+    hasPrefix && "pl-0",
+    hasSuffix && "pr-0",
   );
 
   return (
@@ -216,6 +229,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
         data-focused={(isFocused && !focusVisible) || props["data-focused"] || null}
         data-focus-visible={(isFocused && focusVisible) || null}
         data-enabled={canEdit || null}
+        data-has-prefix={hasPrefix || null}
+        data-has-suffix={hasSuffix || null}
         onMouseDown={handleMouseDown}
       >
         {prefix && <div className="inline-flex flex-[0]">{prefix}</div>}
@@ -246,7 +261,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRe
         </div>
         {copiable && hasValue && (
           <CopyButton
-            className="text-inherit transition-all hover:text-grey-900 group-aria-disabled:bg-transparent dark:hover:text-grey-100"
+            className="bg-transparent text-inherit transition-all hover:text-grey-900 group-aria-disabled:bg-transparent dark:bg-transparent dark:hover:text-grey-100"
             text={value as string}
             tabIndex={-1}
           />
