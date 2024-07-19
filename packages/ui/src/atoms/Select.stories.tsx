@@ -33,8 +33,18 @@ const render: Story["render"] = (args) => {
     <ThemedPreview>
       <div className="flex items-end gap-4">
         <Select className="w-[180px]" {...args} />
-        <Select className="w-[180px]" {...args} label=":disabled" disabled={true} />
-        <Select className="w-[180px]" {...args} label=":focus" autoFocus={true} />
+        <Select
+          className="w-[180px]"
+          {...args}
+          label=":disabled"
+          disabled={true}
+        />
+        <Select
+          className="w-[180px]"
+          {...args}
+          label=":focus"
+          autoFocus={true}
+        />
       </div>
     </ThemedPreview>
   );

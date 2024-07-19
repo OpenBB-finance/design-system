@@ -56,7 +56,11 @@ const renderHearts: Story["render"] = (args) => {
           <Fragment key={stroke}>
             <div className="justify-self-start">{stroke}</div>
             {sizes.map((size) => (
-              <Icon key={`${size} ${stroke}`} {...args} className={cn(size, stroke)} />
+              <Icon
+                key={`${size} ${stroke}`}
+                {...args}
+                className={cn(size, stroke)}
+              />
             ))}
           </Fragment>
         ))}

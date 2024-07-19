@@ -30,7 +30,11 @@ const renderTest: Story["render"] = () => {
         ))}
         {sizes.map((size) => (
           <div className="flex h-full items-center justify-center" key={size}>
-            <Avatar size={size} fallback="AA" className="bg-accent-100 text-black" />
+            <Avatar
+              size={size}
+              fallback="AA"
+              className="bg-accent-100 text-black"
+            />
           </div>
         ))}
         {sizes.map((size) => (

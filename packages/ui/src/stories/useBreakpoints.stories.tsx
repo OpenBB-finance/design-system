@@ -114,7 +114,9 @@ function TestBreakpoints() {
         </div>
         <div className="space-y-2 p-2 text-center">
           <div>Button variant based on breakpoint:</div>
-          <Button variant={bp.maxMd ? "secondary" : bp.maxLg ? "primary" : "accent"}>
+          <Button
+            variant={bp.maxMd ? "secondary" : bp.maxLg ? "primary" : "accent"}
+          >
             variant = {bp.maxMd ? "secondary" : bp.maxLg ? "primary" : "accent"}
           </Button>
         </div>
