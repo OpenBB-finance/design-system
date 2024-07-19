@@ -1,5 +1,33 @@
 # @openbb/ui
 
+## 1.0.0-rc.4
+
+### Patch Changes
+
+- f2860c0: fix: Input paddings with suffix and prefix
+- 8472035: feat: add a search input to Select
+
+## 1.0.0-rc.3
+
+### Major Changes
+
+- d146b4c: fix!: Input jumping on min width and typings
+
+## 1.0.0-rc.2
+
+### Patch Changes
+
+- eec6f4e: feat: add Tooltip delay props
+
+## 1.0.0-rc.0
+
+### Major Changes
+
+- 6ea2d74: fix!: Label style
+- 1dbbbba: fix!: Input sizes and colors
+- c919665: fix!: Button colors and sizes
+- f19305a: fix!: Textarea style
+
 ## 0.14.0
 
 ### Minor Changes

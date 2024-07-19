@@ -87,7 +87,11 @@ const render: Story["render"] = () => {
               name="input4"
               render={({ field }) => {
                 return (
-                  <FormInput label="This one is disabled" disabled={true} {...field} />
+                  <FormInput
+                    label="This one is disabled"
+                    disabled={true}
+                    {...field}
+                  />
                 );
               }}
             />
@@ -210,7 +214,9 @@ const render: Story["render"] = () => {
             <FormField
               name="textarea1"
               render={({ field }) => {
-                return <FormTextarea label="Just an empty textarea" {...field} />;
+                return (
+                  <FormTextarea label="Just an empty textarea" {...field} />
+                );
               }}
             />
             <FormField
@@ -316,7 +322,11 @@ const render: Story["render"] = () => {
                 return (
                   <FormItem>
                     <FormControl>
-                      <Checkbox label="Disabled checkbox" disabled={true} {...field} />
+                      <Checkbox
+                        label="Disabled checkbox"
+                        disabled={true}
+                        {...field}
+                      />
                     </FormControl>
                   </FormItem>
                 );

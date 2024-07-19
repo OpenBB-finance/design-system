@@ -1,24 +1,35 @@
 import { cva } from "class-variance-authority";
-import React, { useEffect, useImperativeHandle, useRef } from "react";
+import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
 import { cn } from "~/utils";
-import { FormControl, FormItem, FormLabel, FormMessage } from "../molecules/Form";
+import {
+  FormControl,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  useFormField,
+} from "../molecules/Form";
 import { CopyButton } from "./CopyButton";
+import { Label, Message } from "./Label";
 
 const textareaVariants = cva(
   [
     "BB-Textarea body-xs-regular flex min-h-[80px] w-full rounded-sm border",
     "resize-none",
-    "focus-visible:outline-none",
+    "focus:outline-none focus:data-[focus-visible]:ring-2",
     "disabled:cursor-not-allowed",
     "transition",
-
-    "border-grey-300 bg-white text-grey-900",
-    "data-[enabled]:hover:bg-white",
-    "disabled:border-grey-200 disabled:bg-grey-200 disabled:text-grey-600",
-
-    "dark:border-dark-600 dark:bg-dark-800 dark:text-grey-50",
-    "dark:data-[enabled]:hover:bg-dark-700",
-    "dark:disabled:border-dark-700 dark:disabled:bg-dark-800 dark:disabled:text-dark-200 dark:disabled:placeholder:text-dark-400",
+    /* Light theme */
+    "border-grey-300 bg-white text-grey-900 placeholder:text-grey-400",
+    "hover:enabled:border-grey-500",
+    "data-[focused]:border-grey-600 data-[focused]:hover:border-grey-600",
+    "data-[focus-visible]:ring-grey-300",
+    "disabled:border-grey-200 disabled:bg-grey-100 disabled:text-grey-400 disabled:placeholder:text-grey-400",
+    /* Dark theme */
+    "dark:border-dark-400 dark:bg-dark-800 dark:text-grey-100 dark:placeholder:text-dark-100",
+    "dark:hover:enabled:border-dark-50",
+    "dark:data-[focused]:border-grey-100 dark:data-[focused]:hover:border-grey-100",
+    "dark:data-[focus-visible]:ring-dark-50",
+    "dark:disabled:border-dark-700 dark:disabled:bg-dark-800 dark:disabled:text-dark-200 dark:disabled:placeholder:text-dark-200",
   ],
   {
     variants: {
@@ -27,12 +38,12 @@ const textareaVariants = cva(
         default: "",
       },
       size: {
-        md: "p-3",
+        sm: "p-3",
       },
     },
     defaultVariants: {
       state: "default",
-      size: "md",
+      size: "sm",
     },
   },
 );
@@ -54,14 +65,31 @@ export interface TextareaProps extends ReactTextareaProps {
   /** Make it red and display error message */
   error?: boolean;
   onChange?: (value: string) => void;
+  // Test purposes
+  "data-focused"?: boolean;
 }
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (props, fwRef) => {
-    const { autoheight = true, copiable, className, error, onChange, ...rest } = props;
+    const {
+      autoheight = true,
+      copiable,
+      className,
+      error,
+      label,
+      message,
+      onChange,
+      onFocus,
+      onBlur,
+      onMouseDown,
+      ...rest
+    } = props;
 
     const ref = useRef<HTMLTextAreaElement>(null);
     useImperativeHandle(fwRef, () => ref.current!);
+
+    const [isFocused, setFocused] = useState(false);
+    const [focusVisible, setFocusVisible] = useState(true);
 
     const value = props.value ?? ref.current?.value ?? props.defaultValue ?? "";
     const hasValue = !!value;
@@ -71,6 +99,22 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
     function handleChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
       onChange?.(event.target.value);
+    }
+
+    function handleFocus(e: React.FocusEvent<HTMLTextAreaElement>) {
+      setFocused(true);
+      onFocus?.(e);
+    }
+
+    function handleBlur(e: React.FocusEvent<HTMLTextAreaElement>) {
+      setFocused(false);
+      setFocusVisible(true);
+      onBlur?.(e);
+    }
+
+    function handleMouseDown(e: React.MouseEvent<HTMLTextAreaElement>) {
+      setFocusVisible(false);
+      onMouseDown?.(e);
     }
 
     useEffect(() => {
@@ -85,21 +129,30 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     });
 
     return (
-      <div className="group relative">
-        <textarea
-          className={cn(textareaVariants({ state }), className)}
-          ref={ref}
-          onChange={handleChange}
-          {...rest}
-        />
-        {copiable && hasValue && (
-          <CopyButton
-            size="xs"
-            className="absolute top-2 right-2 text-inherit transition-all hover:text-grey-900 group-aria-disabled:bg-transparent dark:hover:text-grey-100"
-            text={value as string}
-            tabIndex={-1}
+      <div aria-disabled={props.disabled} className="group">
+        <Label>{label}</Label>
+        <div className="relative">
+          <textarea
+            className={cn(textareaVariants({ state }), className)}
+            ref={ref}
+            data-focused={(isFocused && !focusVisible) || props["data-focused"] || null}
+            data-focus-visible={(isFocused && focusVisible) || null}
+            onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onMouseDown={handleMouseDown}
+            {...rest}
           />
-        )}
+          {copiable && hasValue && (
+            <CopyButton
+              size="xs"
+              className="absolute top-2 right-2 text-inherit transition-all hover:text-grey-900 group-aria-disabled:bg-transparent dark:hover:text-grey-100"
+              text={value as string}
+              tabIndex={-1}
+            />
+          )}
+        </div>
+        <Message error={error}>{message}</Message>
       </div>
     );
   },
@@ -114,12 +167,13 @@ type FormTextareaProps = Omit<TextareaProps, "error">;
 export const FormTextarea = React.forwardRef<HTMLTextAreaElement, FormTextareaProps>(
   (props, ref) => {
     const { label, message, ...rest } = props;
+    const { error } = useFormField();
 
     return (
       <FormItem className="BB-FormTextarea group" aria-disabled={props.disabled}>
         <FormLabel>{label}</FormLabel>
         <FormControl>
-          <Textarea ref={ref} {...rest} />
+          <Textarea ref={ref} error={!!error} {...rest} />
         </FormControl>
         <FormMessage>{message}</FormMessage>
       </FormItem>

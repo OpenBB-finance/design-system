@@ -63,126 +63,140 @@ export function renderRadials() {
 ## Neutral colors
 
 <div className="sb-unstyled flex flex-wrap gap-2">
-  <StoriesColor
-    title="white"
-    color={colors.white}
-    className="border border-input"
-  />
+  <StoriesColor title="white" color={colors.white} className="border border-input" />
+
   <StoriesColor title="black" color={colors.black} />
 </div>
 
 ## Grey palette
 
-<div className="sb-unstyled flex flex-wrap gap-2">{renderPalette("grey")}</div>
-<div className="sb-unstyled flex flex-wrap gap-2">{renderPalette("dark")}</div>
+<div className="sb-unstyled flex flex-wrap gap-2">
+  {renderPalette("grey")}
+</div>
+
+<div className="sb-unstyled flex flex-wrap gap-2">
+  {renderPalette("dark")}
+</div>
 
 ## Feedback palette
 
 <div className="sb-unstyled flex flex-col gap-4">
-  <div className="flex flex-wrap gap-2">{renderPalette("success")}</div>
-  <div className="flex flex-wrap gap-2">{renderPalette("warning")}</div>
-  <div className="flex flex-wrap gap-2">{renderPalette("danger")}</div>
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("success")}
+  </div>
+
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("warning")}
+  </div>
+
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("danger")}
+  </div>
 </div>
 
 ## Primary colors
 
 <div className="sb-unstyled flex flex-col gap-4">
-  <div className="flex flex-wrap gap-2">{renderPalette("light-blue")}</div>
-  <div className="flex flex-wrap gap-2">{renderPalette("dark-blue")}</div>
-  <div className="flex flex-wrap gap-2">{renderPalette("purple")}</div>
-  <div className="flex flex-wrap gap-2">{renderPalette("burgundy")}</div>
-  <div className="flex flex-wrap gap-2">{renderPalette("cardinal")}</div>
-  <div className="flex flex-wrap gap-2">{renderPalette("ruby")}</div>
-  <div className="flex flex-wrap gap-2">{renderPalette("orange")}</div>
-  <div className="flex flex-wrap gap-2">{renderPalette("yellow")}</div>
-  <div className="flex flex-wrap gap-2">{renderPalette("ai")}</div>
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("light-blue")}
+  </div>
+
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("dark-blue")}
+  </div>
+
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("purple")}
+  </div>
+
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("burgundy")}
+  </div>
+
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("cardinal")}
+  </div>
+
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("ruby")}
+  </div>
+
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("orange")}
+  </div>
+
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("yellow")}
+  </div>
+
+  <div className="flex flex-wrap gap-2">
+    {renderPalette("ai")}
+  </div>
 </div>
 
 ## Linear gradients
 
 <div className="sb-unstyled flex flex-col gap-4">
-  <div className="flex flex-wrap gap-2">{renderGradients()}</div>
+  <div className="flex flex-wrap gap-2">
+    {renderGradients()}
+  </div>
 </div>
 
 ## Radial gradients
 
 <div className="sb-unstyled flex flex-col gap-4">
   <div className="flex flex-wrap gap-2">
-    <StoriesColor
-      title="light-blue"
-      className="!aspect-square !h-auto bg-radial-light-blue"
-    />
-    <StoriesColor
-      title="dark-blue"
-      className="!aspect-square !h-auto bg-radial-dark-blue"
-    />
-    <StoriesColor
-      title="purple"
-      className="!aspect-square !h-auto bg-radial-purple"
-    />
-    <StoriesColor
-      title="burgundy"
-      className="!aspect-square !h-auto bg-radial-burgundy"
-    />
-    <StoriesColor
-      title="cardinal"
-      className="!aspect-square !h-auto bg-radial-cardinal"
-    />
-    <StoriesColor
-      title="ruby"
-      className="!aspect-square !h-auto bg-radial-ruby"
-    />
-    <StoriesColor
-      title="orange"
-      className="!aspect-square !h-auto bg-radial-orange"
-    />
-    <StoriesColor
-      title="yellow"
-      className="!aspect-square !h-auto bg-radial-yellow"
-    />
-    <StoriesColor
-      title="danger"
-      className="!aspect-square !h-auto bg-radial-danger"
-    />
-    <StoriesColor
-      title="warning"
-      className="!aspect-square !h-auto bg-radial-warning"
-    />
-    <StoriesColor
-      title="success"
-      className="!aspect-square !h-auto bg-radial-success"
-    />
+    <StoriesColor title="light-blue" className="!aspect-square !h-auto bg-radial-light-blue" />
+
+    <StoriesColor title="dark-blue" className="!aspect-square !h-auto bg-radial-dark-blue" />
+
+    <StoriesColor title="purple" className="!aspect-square !h-auto bg-radial-purple" />
+
+    <StoriesColor title="burgundy" className="!aspect-square !h-auto bg-radial-burgundy" />
+
+    <StoriesColor title="cardinal" className="!aspect-square !h-auto bg-radial-cardinal" />
+
+    <StoriesColor title="ruby" className="!aspect-square !h-auto bg-radial-ruby" />
+
+    <StoriesColor title="orange" className="!aspect-square !h-auto bg-radial-orange" />
+
+    <StoriesColor title="yellow" className="!aspect-square !h-auto bg-radial-yellow" />
+
+    <StoriesColor title="danger" className="!aspect-square !h-auto bg-radial-danger" />
+
+    <StoriesColor title="warning" className="!aspect-square !h-auto bg-radial-warning" />
+
+    <StoriesColor title="success" className="!aspect-square !h-auto bg-radial-success" />
   </div>
+
   {/* <div className="flex flex-wrap gap-2">
-    <StoriesColor
-      title="light-blue"
-      className="bg-radial !aspect-square !h-auto from-[#0097DE]/50"
-    />
-    <StoriesColor
-      title="dark-blue"
-      className="bg-radial !aspect-square !h-auto from-[#1451A0]/80"
-    />
-    <StoriesColor
-      title="purple"
-      className="bg-radial !aspect-square !h-auto from-[#472C75]/80"
-    />
-    <StoriesColor
-      title="burgundy"
-      className="bg-radial !aspect-square !h-auto from-[#822661]/50"
-    />
-    <StoriesColor
-      title="cardinal"
-      className="bg-radial !aspect-square !h-auto from-[#C13246]/50"
-    />
-    <StoriesColor
-      title="ruby"
-      className="bg-radial !aspect-square !h-auto from-[#D70043]/50"
-    />
-  </div> */}
+      <StoriesColor
+        title="light-blue"
+        className="bg-radial !aspect-square !h-auto from-[#0097DE]/50"
+      />
+      <StoriesColor
+        title="dark-blue"
+        className="bg-radial !aspect-square !h-auto from-[#1451A0]/80"
+      />
+      <StoriesColor
+        title="purple"
+        className="bg-radial !aspect-square !h-auto from-[#472C75]/80"
+      />
+      <StoriesColor
+        title="burgundy"
+        className="bg-radial !aspect-square !h-auto from-[#822661]/50"
+      />
+      <StoriesColor
+        title="cardinal"
+        className="bg-radial !aspect-square !h-auto from-[#C13246]/50"
+      />
+      <StoriesColor
+        title="ruby"
+        className="bg-radial !aspect-square !h-auto from-[#D70043]/50"
+      />
+    </div> */}
+
   <div className="flex flex-wrap gap-2">
-    <StoriesColor
-      title="custom"
-      className="!aspect-square !h-auto from-orange-500 to-purple-500/50 bg-radial"
-    />
+    <StoriesColor title="custom" className="!aspect-square !h-auto from-orange-500 to-purple-500/50 bg-radial" />
   </div>
 </div>

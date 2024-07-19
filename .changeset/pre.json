@@ -1,0 +1,18 @@
+{
+  "mode": "pre",
+  "tag": "rc",
+  "initialVersions": {
+    "workshop": "1.0.0",
+    "@openbb/ui": "0.14.0"
+  },
+  "changesets": [
+    "beige-singers-decide",
+    "fifty-zoos-greet",
+    "funny-falcons-impress",
+    "proud-dragons-enjoy",
+    "proud-pots-melt",
+    "red-turkeys-attack",
+    "rude-clocks-poke",
+    "wise-peas-itch"
+  ]
+}
