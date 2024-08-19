@@ -22,7 +22,7 @@ export const tooltipContentClasses = cn([
 
 export const tooltipArrowClasses = cn(["fill-white dark:fill-dark-600"]);
 
-interface TooltipContentProps
+export interface TooltipContentProps
   extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> {}
 
 export const TooltipContent = React.forwardRef<
@@ -41,7 +41,7 @@ export const TooltipContent = React.forwardRef<
 });
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
-interface TooltipArrowProps
+export interface TooltipArrowProps
   extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Arrow> {}
 
 export const TooltipArrow = React.forwardRef<

@@ -39,7 +39,7 @@ const tagVariants = cva(
   },
 );
 
-type SpanProps = Omit<React.HTMLAttributes<HTMLSpanElement>, "color">;
+export type SpanProps = Omit<React.HTMLAttributes<HTMLSpanElement>, "color">;
 export interface TagProps extends SpanProps, VariantProps<typeof tagVariants> {}
 
 export const Tag = React.forwardRef<HTMLSpanElement, TagProps>(

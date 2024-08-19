@@ -8,7 +8,7 @@ import { Label, Message } from "../atoms/Label";
 
 const Form = FormProvider;
 
-type FormFieldContextValue<
+export type FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = {
@@ -56,7 +56,7 @@ const useFormField = () => {
   };
 };
 
-type FormItemContextValue = {
+export type FormItemContextValue = {
   id: string;
 };
 
@@ -64,7 +64,7 @@ const FormItemContext = React.createContext<FormItemContextValue>(
   {} as FormItemContextValue,
 );
 
-interface FormItemProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface FormItemProps extends React.HTMLAttributes<HTMLDivElement> {}
 const FormItem = React.forwardRef<HTMLDivElement, FormItemProps>((props, ref) => {
   const { className, ...rest } = props;
   const id = React.useId();
@@ -78,7 +78,7 @@ const FormItem = React.forwardRef<HTMLDivElement, FormItemProps>((props, ref) =>
 });
 FormItem.displayName = "FormItem";
 
-interface FormLabelProps
+export interface FormLabelProps
   extends React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> {}
 /** A label form field. Use inside <Form> component only. */
 const FormLabel = React.forwardRef<
@@ -113,7 +113,7 @@ const FormControl = React.forwardRef<
 });
 FormControl.displayName = "FormControl";
 
-interface FormDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+export interface FormDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
 const FormDescription = React.forwardRef<HTMLParagraphElement, FormDescriptionProps>(
   ({ className, ...props }, ref) => {
     const { formDescriptionId } = useFormField();
@@ -130,7 +130,7 @@ const FormDescription = React.forwardRef<HTMLParagraphElement, FormDescriptionPr
 );
 FormDescription.displayName = "FormDescription";
 
-interface FormMessageProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+export interface FormMessageProps extends React.HTMLAttributes<HTMLParagraphElement> {}
 /** Shows validation error or children content by default. Use inside <Form> component only. */
 const FormMessage = React.forwardRef<HTMLParagraphElement, FormMessageProps>(
   (props, ref) => {

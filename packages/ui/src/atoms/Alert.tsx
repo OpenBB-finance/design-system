@@ -28,7 +28,7 @@ const icons = {
   info: "exclamation-outline-circle",
 } as const;
 
-interface Props
+export interface AlertProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "title">,
     VariantProps<typeof alertVariants> {
   open?: boolean;
@@ -37,7 +37,7 @@ interface Props
   title?: React.ReactNode;
 }
 
-const Alert = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
   const {
     className,
     variant,
@@ -79,7 +79,7 @@ const Alert = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
 });
 Alert.displayName = "Alert";
 
-interface AlertTitleProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+export interface AlertTitleProps extends React.HTMLAttributes<HTMLParagraphElement> {}
 const AlertTitle = React.forwardRef<HTMLParagraphElement, AlertTitleProps>(
   ({ className, ...props }, ref) => (
     <h5 ref={ref} className={cn("body-xs-bold", className)} {...props} />
@@ -87,7 +87,7 @@ const AlertTitle = React.forwardRef<HTMLParagraphElement, AlertTitleProps>(
 );
 AlertTitle.displayName = "AlertTitle";
 
-interface AlertDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+export interface AlertDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
 const AlertDescription = React.forwardRef<HTMLParagraphElement, AlertDescriptionProps>(
   ({ className, ...props }, ref) => (
     <div ref={ref} className={cn("body-xs-regular text-sm", className)} {...props} />

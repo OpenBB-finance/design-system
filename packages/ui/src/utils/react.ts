@@ -4,10 +4,10 @@
  * using browser's Google Translate feature or 3rd party plugins
  * @see https://github.com/facebook/react/issues/11538#issuecomment-417504600
  */
-export function patchNode() {
+export function patchNode(this: Node): void {
   if (typeof Node === "function" && Node.prototype) {
     const originalRemoveChild = Node.prototype.removeChild;
-    Node.prototype.removeChild = function (child) {
+    Node.prototype.removeChild = <T extends Node>(child: T): T => {
       if (child.parentNode !== this) {
         if (console) {
           console.error(
@@ -19,11 +19,11 @@ export function patchNode() {
         }
         return child;
       }
-      return originalRemoveChild.apply(this, arguments);
+      return originalRemoveChild.call(this, child) as T;
     };
 
     const originalInsertBefore = Node.prototype.insertBefore;
-    Node.prototype.insertBefore = function (newNode, referenceNode) {
+    Node.prototype.insertBefore = <T extends Node>(newNode: T, referenceNode: Node | null): T => {
       if (referenceNode && referenceNode.parentNode !== this) {
         if (console) {
           console.error(
@@ -35,7 +35,7 @@ export function patchNode() {
         }
         return newNode;
       }
-      return originalInsertBefore.apply(this, arguments);
+      return originalInsertBefore.call(this, newNode, referenceNode) as T;
     };
   }
 }

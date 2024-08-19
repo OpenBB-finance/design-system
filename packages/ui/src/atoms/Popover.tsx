@@ -10,7 +10,7 @@ export const PopoverClose = PopoverPrimitive.Close;
 export const PopoverPortal = PopoverPrimitive.Portal;
 export const PopoverTrigger = PopoverPrimitive.Trigger;
 
-interface ContentProps
+export interface ContentProps
   extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> {}
 
 export const PopoverContent = React.forwardRef<
@@ -33,7 +33,7 @@ export const PopoverContent = React.forwardRef<
 });
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
-interface PopoverArrowProps
+export interface PopoverArrowProps
   extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Arrow> {}
 
 export const PopoverArrow = React.forwardRef<

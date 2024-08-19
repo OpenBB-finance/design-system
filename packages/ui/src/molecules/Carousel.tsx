@@ -6,18 +6,18 @@ import { Button } from "../atoms/Button";
 import { Icon } from "../atoms/Icon";
 
 export type CarouselApi = UseEmblaCarouselType[1];
-type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
-type CarouselOptions = UseCarouselParameters[0];
-type CarouselPlugin = UseCarouselParameters[1];
+export type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
+export type CarouselOptions = UseCarouselParameters[0];
+export type CarouselPlugin = UseCarouselParameters[1];
 
-type TCarouselProps = {
+export type TCarouselProps = {
   opts?: CarouselOptions;
   plugins?: CarouselPlugin;
   orientation?: "horizontal" | "vertical";
   setApi?: (api: CarouselApi) => void;
 };
 
-type CarouselContextProps = {
+export type CarouselContextProps = {
   carouselRef: ReturnType<typeof useEmblaCarousel>[0];
   api: ReturnType<typeof useEmblaCarousel>[1];
   current: number;
@@ -39,7 +39,7 @@ export function useCarousel() {
   return context;
 }
 
-interface CarouselProps extends React.HTMLAttributes<HTMLDivElement>, TCarouselProps {}
+export interface CarouselProps extends React.HTMLAttributes<HTMLDivElement>, TCarouselProps {}
 /**
  * @see {@link https://ui.shadcn.com/docs/components/carousel | Shadcn/ui Docs - Carousel} for more information
  */
@@ -148,7 +148,7 @@ export const CarouselRoot = React.forwardRef<HTMLDivElement, CarouselProps>(
 );
 CarouselRoot.displayName = "Carousel";
 
-interface CarouselContentProps
+export interface CarouselContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     TCarouselProps {}
 export const CarouselContent = React.forwardRef<HTMLDivElement, CarouselContentProps>(
@@ -172,7 +172,7 @@ export const CarouselContent = React.forwardRef<HTMLDivElement, CarouselContentP
 );
 CarouselContent.displayName = "CarouselContent";
 
-interface CarouselItemProps
+export interface CarouselItemProps
   extends React.HTMLAttributes<HTMLDivElement>,
     TCarouselProps {}
 export const CarouselItem = React.forwardRef<HTMLDivElement, CarouselItemProps>(
@@ -252,7 +252,7 @@ export const CarouselNext = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 CarouselNext.displayName = "CarouselNext";
 
-interface CarouselDotsProps {
+export interface CarouselDotsProps {
   className?: string;
 }
 export const CarouselDots = React.forwardRef<HTMLDivElement, CarouselDotsProps>(
