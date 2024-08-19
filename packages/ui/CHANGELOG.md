@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.14.1
+
+### Minor Changes
+
+- adds `skipDelayDuration` and `delayDuration` to `Tooltip`
+
 ## 0.14.0
 
 ### Minor Changes
