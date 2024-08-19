@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.14.5
+
+### Patch Changes
+
+- updates the icon
+
 ## 0.14.4
 
 ### Patch Changes
