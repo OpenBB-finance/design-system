@@ -1,6 +1,6 @@
 {
   "name": "@openbb/design-system",
-  "version": "0.13.0",
+  "version": "0.14.1",
   "homepage": "http://openbb-finance.github.io/design-system",
   "description": "OpenBB UI is a React component library for OpenBB Finance",
   "author": {

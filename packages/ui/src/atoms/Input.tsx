@@ -109,6 +109,7 @@ export interface InputProps extends ReactInputProps {
 }
 
 /** Plain input component, can be used in form or outside it */
+// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: <explanation>
 export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, fwRef) => {
   const {
     // default props
