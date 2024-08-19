@@ -1,5 +1,17 @@
 # @openbb/ui
 
+## 0.14.4
+
+### Patch Changes
+
+- adds icon
+
+## 0.14.3
+
+### Patch Changes
+
+- tooltip fix
+
 ## 0.14.2
 
 ### Patch Changes

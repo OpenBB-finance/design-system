@@ -41,6 +41,7 @@ export const iconNames = [
   "cloud-upload",
   "code",
   "code-01",
+  "code-browser",
   "coffee",
   "cog",
   "coins-hand",
