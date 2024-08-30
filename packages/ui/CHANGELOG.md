@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.14.6
+
+### Patch Changes
+
+- adds indeterminate state to checkbox
+
 ## 0.14.5
 
 ### Patch Changes
