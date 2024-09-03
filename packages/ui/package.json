@@ -1,6 +1,6 @@
 {
   "name": "@openbb/ui",
-  "version": "0.14.6",
+  "version": "0.14.7",
   "sideEffects": false,
   "type": "module",
   "main": "./src/index.ts",

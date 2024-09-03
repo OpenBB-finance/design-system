@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.14.7
+
+### Patch Changes
+
+- adds rss feed
+
 ## 0.14.6
 
 ### Patch Changes
