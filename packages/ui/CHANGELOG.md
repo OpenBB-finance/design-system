@@ -1,5 +1,17 @@
 # @openbb/ui
 
+## 0.14.10
+
+### Patch Changes
+
+- mistake on cva
+
+## 0.14.9
+
+### Patch Changes
+
+- fix variant on popover
+
 ## 0.14.8
 
 ### Patch Changes

@@ -26,7 +26,7 @@ export const PopoverContent = React.forwardRef<
         ref={ref}
         align={align}
         sideOffset={sideOffset}
-        className={cn("BB-Popover", DropdownMenuContentVariants, className)}
+        className={cn("BB-Popover", DropdownMenuContentVariants(), className)}
         {...rest}
       />
     </PopoverPortal>
@@ -45,7 +45,12 @@ export const PopoverArrow = React.forwardRef<
   return (
     <PopoverPrimitive.Arrow
       ref={ref}
-      className={cn("BB-PopoverArrow", tooltipArrowClasses, className)}
+      className={cn(
+        "BB-PopoverArrow",
+        tooltipArrowClasses,
+        "bg-white text-grey-750 dark:bg-dark-750 dark:text-grey-200",
+        className,
+      )}
       {...rest}
     />
   );
