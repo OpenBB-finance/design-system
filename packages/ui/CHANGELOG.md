@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.14.8
+
+### Patch Changes
+
+- changes popover+dropdown styles
+
 ## 0.14.7
 
 ### Patch Changes

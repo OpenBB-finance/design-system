@@ -6,14 +6,14 @@ import React from "react";
 import { cn } from "~/utils";
 
 export const DropdownMenuContentVariants = cva([
-  "BB-DropdownMenuContent body-xs-regular relative z-50 max-h-96 min-w-[8rem] space-y-2 overflow-hidden rounded-sm p-2 shadow-1",
+  "BB-DropdownMenuContent body-xs-regular relative z-50 max-h-96 min-w-[8rem] space-y-2 overflow-hidden rounded-sm border p-2",
   "data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:animate-in",
   "data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=closed]:animate-out",
   "data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
   /* Light theme */
-  "bg-white text-grey-750",
+  "border-grey-200 bg-white text-grey-750 shadow-[0_2px_10px_0px_rgba(0,0,0,0.10)]",
   /* Dark theme */
-  "dark:bg-dark-750 dark:text-grey-200",
+  "dark:border-dark-400 dark:bg-dark-750 dark:text-grey-200 dark:shadow-[0px_2px_10px_0px_rgba(0,0,0,0.4)]",
 ]);
 
 export const DropdownMenuItemVariants = cva([

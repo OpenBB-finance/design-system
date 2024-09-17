@@ -2,8 +2,9 @@
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import React from "react";
 import { cn } from "~/utils";
+import { DropdownMenuContentVariants } from "./DropdownMenu";
 import type { TooltipProps } from "./Tooltip";
-import { tooltipArrowClasses, tooltipContentClasses } from "./Tooltip";
+import { tooltipArrowClasses } from "./Tooltip";
 
 export const PopoverRoot = PopoverPrimitive.Root;
 export const PopoverClose = PopoverPrimitive.Close;
@@ -25,7 +26,7 @@ export const PopoverContent = React.forwardRef<
         ref={ref}
         align={align}
         sideOffset={sideOffset}
-        className={cn("BB-Popover", tooltipContentClasses, className)}
+        className={cn("BB-Popover", DropdownMenuContentVariants, className)}
         {...rest}
       />
     </PopoverPortal>
