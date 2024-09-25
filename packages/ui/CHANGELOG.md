@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.14.11
+
+### Patch Changes
+
+- change dropdown color
+
 ## 0.14.10
 
 ### Patch Changes

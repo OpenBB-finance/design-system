@@ -13,7 +13,7 @@ export const DropdownMenuContentVariants = cva([
   /* Light theme */
   "border-grey-200 bg-white text-grey-750 shadow-[0_2px_10px_0px_rgba(0,0,0,0.10)]",
   /* Dark theme */
-  "dark:border-dark-400 dark:bg-dark-750 dark:text-grey-200 dark:shadow-[0px_2px_10px_0px_rgba(0,0,0,0.4)]",
+  "dark:border-dark-500 dark:bg-dark-750 dark:text-grey-200 dark:shadow-[0px_2px_10px_0px_rgba(0,0,0,0.4)]",
 ]);
 
 export const DropdownMenuItemVariants = cva([
