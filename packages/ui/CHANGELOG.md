@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.14.12
+
+### Patch Changes
+
+- adds youtube + widget icons
+
 ## 0.14.11
 
 ### Patch Changes
