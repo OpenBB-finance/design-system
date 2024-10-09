@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.14.13
+
+### Patch Changes
+
+- adds no translate to button when loading
+
 ## 0.14.12
 
 ### Patch Changes
