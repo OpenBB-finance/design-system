@@ -5,11 +5,11 @@ import { Button, type ButtonProps } from "./Button";
 import { Icon } from "./Icon";
 import { Popover } from "./Popover";
 
-interface Props extends ButtonProps {
+export interface CopyButtonProps extends ButtonProps {
   text: string;
 }
 
-export function CopyButton(props: Props) {
+export function CopyButton(props: CopyButtonProps) {
   const { text, onClick, ...buttonProps } = props;
 
   const [open, setOpen] = useState(false);

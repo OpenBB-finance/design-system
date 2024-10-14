@@ -8,6 +8,7 @@ export interface CheckboxProps
   extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
   label?: React.ReactNode;
   error?: boolean;
+  checked?: boolean | "indeterminate";
 }
 
 const Checkbox = React.forwardRef<
@@ -21,7 +22,7 @@ const Checkbox = React.forwardRef<
       <CheckboxPrimitive.Root
         ref={ref}
         className={cn(
-          "BB-Checkbox peer h-4 w-4 shrink-0 rounded-[2px] border ring-offset-background",
+          "BB-Checkbox group peer h-4 w-4 shrink-0 rounded-[2px] border ring-offset-background",
           "disabled:cursor-not-allowed",
           "data-[error]:!border-danger-500",
           "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring",
@@ -34,6 +35,10 @@ const Checkbox = React.forwardRef<
           "data-[state=checked]:border-grey-800 data-[state=checked]:bg-grey-800 data-[state=checked]:text-grey-100",
           "data-[state=checked]:hover:enabled:border-grey-900 data-[state=checked]:hover:enabled:bg-grey-900 data-[state=checked]:hover:enabled:text-white",
           "data-[state=checked]:disabled:border-grey-300 data-[state=checked]:disabled:bg-grey-300 data-[state=checked]:disabled:text-grey-400",
+          "data-[state=indeterminate]:border-grey-800 data-[state=indeterminate]:bg-grey-800 data-[state=indeterminate]:text-grey-100",
+          "data-[state=indeterminate]:hover:enabled:border-grey-900 data-[state=indeterminate]:hover:enabled:bg-grey-900 data-[state=indeterminate]:hover:enabled:text-white",
+          "data-[state=indeterminate]:disabled:border-grey-300 data-[state=indeterminate]:disabled:bg-grey-300 data-[state=indeterminate]:disabled:text-grey-400",
+
           // Dark theme
           "dark:border-dark-50",
           "dark:hover:enabled:border-grey-400 dark:hover:enabled:bg-grey-850",
@@ -42,6 +47,10 @@ const Checkbox = React.forwardRef<
           "dark:data-[state=checked]:border-grey-50 dark:data-[state=checked]:bg-grey-50 dark:data-[state=checked]:text-grey-900",
           "dark:data-[state=checked]:hover:enabled:border-grey-200 dark:data-[state=checked]:hover:enabled:bg-grey-200 dark:data-[state=checked]:hover:enabled:text-grey-900",
           "dark:data-[state=checked]:disabled:border-dark-400 dark:data-[state=checked]:disabled:bg-dark-400 dark:data-[state=checked]:disabled:text-dark-800",
+          "dark:data-[state=indeterminate]:border-grey-50 dark:data-[state=indeterminate]:bg-grey-50 dark:data-[state=indeterminate]:text-grey-900",
+          "dark:data-[state=indeterminate]:hover:enabled:border-grey-200 dark:data-[state=indeterminate]:hover:enabled:bg-grey-200 dark:data-[state=indeterminate]:hover:enabled:text-grey-900",
+          "dark:data-[state=indeterminate]:disabled:border-dark-400 dark:data-[state=indeterminate]:disabled:bg-dark-400 dark:data-[state=indeterminate]:disabled:text-dark-800",
+
           className,
         )}
         id={id}
@@ -51,7 +60,16 @@ const Checkbox = React.forwardRef<
         <CheckboxPrimitive.Indicator
           className={cn("flex items-center justify-center text-current")}
         >
-          <Icon name="check" size={16} />
+          <Icon
+            name="check"
+            size={16}
+            className="hidden group-data-[state=checked]:block"
+          />
+          <Icon
+            name="minus"
+            size={16}
+            className="hidden group-data-[state=indeterminate]:block"
+          />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
       {label && (

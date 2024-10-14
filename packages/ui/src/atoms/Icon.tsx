@@ -4,13 +4,13 @@ import { cn } from "~/utils";
 
 export type { IconName } from "~/icons/icons";
 
-interface Props extends React.SVGProps<SVGSVGElement> {
+export interface IconProps extends React.SVGProps<SVGSVGElement> {
   name: IconName;
   /** @deprecated use tailwind class e.g. `size-4` instead */
   size?: number;
 }
 
-export function Icon(props: Props) {
+export function Icon(props: IconProps) {
   const { name, className, size = 16, ...rest } = props;
 
   return (

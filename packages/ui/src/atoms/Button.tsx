@@ -1,5 +1,5 @@
 import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
 import React from "react";
 import { cn } from "~/utils";
@@ -111,7 +111,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
   const Comp = asChild ? Slot : "button";
   return (
     <Comp
-      className={cn(buttonVariants({ variant, size, icon }), className)}
+      className={cn(buttonVariants({ variant, size, icon }), className, {
+        notranslate: loading,
+      })}
       ref={ref}
       disabled={disabled || loading}
       {...rest}

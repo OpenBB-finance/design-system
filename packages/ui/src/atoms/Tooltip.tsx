@@ -22,7 +22,7 @@ export const tooltipContentClasses = cn([
 
 export const tooltipArrowClasses = cn(["fill-white dark:fill-dark-600"]);
 
-interface TooltipContentProps
+export interface TooltipContentProps
   extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> {}
 
 export const TooltipContent = React.forwardRef<
@@ -41,7 +41,7 @@ export const TooltipContent = React.forwardRef<
 });
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
-interface TooltipArrowProps
+export interface TooltipArrowProps
   extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Arrow> {}
 
 export const TooltipArrow = React.forwardRef<
@@ -62,7 +62,11 @@ TooltipArrow.displayName = TooltipPrimitive.Arrow.displayName;
 /* Composed Component */
 
 export interface TooltipProps
-  extends Omit<React.ComponentProps<typeof TooltipContent>, "content"> {
+  extends Omit<React.ComponentProps<typeof TooltipContent>, "content">,
+    Pick<
+      React.ComponentProps<typeof TooltipProvider>,
+      "delayDuration" | "skipDelayDuration"
+    > {
   content: React.ReactNode;
   arrow?: boolean;
 }
@@ -72,9 +76,19 @@ export const Tooltip = React.forwardRef<
   React.ElementRef<typeof TooltipContent>,
   TooltipProps
 >((props, ref) => {
-  const { children, content, arrow = false, ...contentProps } = props;
+  const {
+    children,
+    content,
+    arrow = false,
+    delayDuration,
+    skipDelayDuration,
+    ...contentProps
+  } = props;
   return (
-    <TooltipProvider>
+    <TooltipProvider
+      delayDuration={delayDuration}
+      skipDelayDuration={skipDelayDuration}
+    >
       <TooltipRoot>
         <TooltipTrigger asChild={true}>{children}</TooltipTrigger>
         <TooltipPortal>

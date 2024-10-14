@@ -2,7 +2,7 @@ import type React from "react";
 import type { ReactNode } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "./Dialog";
 
-type PointerDownOutsideEvent = CustomEvent<{ originalEvent: PointerEvent }>;
+export type PointerDownOutsideEvent = CustomEvent<{ originalEvent: PointerEvent }>;
 
 export interface BaseDialogProps extends React.ComponentProps<typeof Dialog> {
   open?: boolean;
@@ -11,15 +11,24 @@ export interface BaseDialogProps extends React.ComponentProps<typeof Dialog> {
   trigger?: ReactNode;
   modal?: boolean;
   onPointerDownOutside?: (event: PointerDownOutsideEvent) => void;
+  focusOnOpen?: boolean;
 }
 
-interface Props extends BaseDialogProps {
+export interface BaseDialogElementProps extends BaseDialogProps {
   children?: ReactNode;
 }
 
-export function BaseDialog(props: Props) {
-  const { open, onClose, className, trigger, children, onPointerDownOutside, modal } =
-    props;
+export function BaseDialog(props: BaseDialogElementProps) {
+  const {
+    open,
+    onClose,
+    className,
+    trigger,
+    children,
+    onPointerDownOutside,
+    modal,
+    focusOnOpen = true,
+  } = props;
 
   function handleOpenChange(open: boolean) {
     if (!open) {
@@ -30,7 +39,15 @@ export function BaseDialog(props: Props) {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange} modal={modal}>
       {trigger ? <DialogTrigger asChild={true}>{trigger}</DialogTrigger> : null}
-      <DialogContent onPointerDownOutside={onPointerDownOutside} className={className}>
+      <DialogContent
+        className={className}
+        onPointerDownOutside={onPointerDownOutside}
+        onOpenAutoFocus={(e) => {
+          if (!focusOnOpen) {
+            e.preventDefault();
+          }
+        }}
+      >
         {children}
       </DialogContent>
     </Dialog>

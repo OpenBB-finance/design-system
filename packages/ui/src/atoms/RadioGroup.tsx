@@ -4,7 +4,7 @@ import { Circle } from "lucide-react";
 import React from "react";
 import { cn } from "~/utils";
 
-interface RadioGroupProps
+export interface RadioGroupProps
   extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> {}
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
@@ -20,7 +20,7 @@ const RadioGroup = React.forwardRef<
 });
 RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
 
-interface RadioGroupItemProps
+export interface RadioGroupItemProps
   extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> {
   label?: React.ReactNode;
   error?: boolean;
@@ -81,7 +81,7 @@ const RadioGroupItem = React.forwardRef<
 });
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
 
-interface RadioGroupLabelProps extends React.ComponentPropsWithoutRef<"div"> {}
+export interface RadioGroupLabelProps extends React.ComponentPropsWithoutRef<"div"> {}
 const RadioGroupLabel = React.forwardRef<
   React.ElementRef<React.FC>,
   RadioGroupLabelProps

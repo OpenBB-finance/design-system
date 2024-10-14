@@ -1,5 +1,84 @@
 # @openbb/ui
 
+## 0.14.15
+
+### Patch Changes
+
+- - adds `delayMs` prop to `Avatar` for `AvatarFallback`
+  - adds `focusOnOpen` prop to `BaseDialog`
+
+## 0.14.13
+
+### Patch Changes
+
+- adds no translate to button when loading
+
+## 0.14.12
+
+### Patch Changes
+
+- adds youtube + widget icons
+
+## 0.14.11
+
+### Patch Changes
+
+- change dropdown color
+
+## 0.14.10
+
+### Patch Changes
+
+- mistake on cva
+
+## 0.14.9
+
+### Patch Changes
+
+- fix variant on popover
+
+## 0.14.8
+
+### Patch Changes
+
+- changes popover+dropdown styles
+
+## 0.14.7
+
+### Patch Changes
+
+- adds rss feed
+
+## 0.14.6
+
+### Patch Changes
+
+- adds indeterminate state to checkbox
+
+## 0.14.5
+
+### Patch Changes
+
+- updates the icon
+
+## 0.14.4
+
+### Patch Changes
+
+- adds icon
+
+## 0.14.3
+
+### Patch Changes
+
+- tooltip fix
+
+## 0.14.2
+
+### Patch Changes
+
+- adds skipDuration and delayDuration to tooltip
+
 ## 0.14.0
 
 ### Minor Changes

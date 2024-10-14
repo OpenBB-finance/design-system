@@ -51,6 +51,7 @@ export const Default: Story = {
     items: 65,
     perPage: 6,
     currentPage: 3,
+    onPageChange: () => {},
   },
   render,
 };
