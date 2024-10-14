@@ -272,7 +272,7 @@ Input.displayName = "Input";
 
 /* Form */
 
-type FormInputProps = Omit<InputProps, "error">;
+type FormInputProps = InputProps;
 
 /** Input field used inside <Form> only. */
 export const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(

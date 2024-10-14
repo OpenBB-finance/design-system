@@ -1,5 +1,12 @@
 # @openbb/ui
 
+## 0.14.15
+
+### Patch Changes
+
+- - adds `delayMs` prop to `Avatar` for `AvatarFallback`
+  - adds `focusOnOpen` prop to `BaseDialog`
+
 ## 0.14.13
 
 ### Patch Changes

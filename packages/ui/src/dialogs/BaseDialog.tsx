@@ -11,6 +11,7 @@ export interface BaseDialogProps extends React.ComponentProps<typeof Dialog> {
   trigger?: ReactNode;
   modal?: boolean;
   onPointerDownOutside?: (event: PointerDownOutsideEvent) => void;
+  focusOnOpen?: boolean;
 }
 
 export interface BaseDialogElementProps extends BaseDialogProps {
@@ -18,8 +19,16 @@ export interface BaseDialogElementProps extends BaseDialogProps {
 }
 
 export function BaseDialog(props: BaseDialogElementProps) {
-  const { open, onClose, className, trigger, children, onPointerDownOutside, modal } =
-    props;
+  const {
+    open,
+    onClose,
+    className,
+    trigger,
+    children,
+    onPointerDownOutside,
+    modal,
+    focusOnOpen = true,
+  } = props;
 
   function handleOpenChange(open: boolean) {
     if (!open) {
@@ -30,7 +39,15 @@ export function BaseDialog(props: BaseDialogElementProps) {
   return (
     <Dialog open={open} onOpenChange={handleOpenChange} modal={modal}>
       {trigger ? <DialogTrigger asChild={true}>{trigger}</DialogTrigger> : null}
-      <DialogContent onPointerDownOutside={onPointerDownOutside} className={className}>
+      <DialogContent
+        className={className}
+        onPointerDownOutside={onPointerDownOutside}
+        onOpenAutoFocus={(e) => {
+          if (!focusOnOpen) {
+            e.preventDefault();
+          }
+        }}
+      >
         {children}
       </DialogContent>
     </Dialog>

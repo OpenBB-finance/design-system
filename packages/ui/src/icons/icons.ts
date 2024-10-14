@@ -203,10 +203,12 @@ export const iconNames = [
   "watch",
   "webhook",
   "webhooks",
+  "widget",
   "wrench",
   "x",
   "x-com",
   "x-outline-circle",
+  "youtube",
   "zoom-in",
   "zoom-out",
 ] as const;

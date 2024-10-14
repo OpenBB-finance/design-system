@@ -86,14 +86,18 @@ export interface AvatarProps extends AvatarRootProps {
   alt?: string;
   icon?: IconName;
   fallback?: React.ReactNode;
+  /** Delay in milliseconds to show the fallback */
+  delayMs?: number;
 }
 
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
-  ({ src, alt, icon, fallback, ...props }, ref) => {
+  ({ src, alt, icon, fallback, delayMs, ...props }, ref) => {
     return (
       <AvatarRoot {...props} ref={ref}>
         <AvatarImage src={src} alt={alt} />
-        <AvatarFallback icon={icon}>{fallback}</AvatarFallback>
+        <AvatarFallback icon={icon} delayMs={delayMs}>
+          {fallback}
+        </AvatarFallback>
       </AvatarRoot>
     );
   },

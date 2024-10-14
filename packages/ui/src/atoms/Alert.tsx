@@ -1,4 +1,4 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
 import React from "react";
 import type { IconName } from "~/icons/icons";
 import { cn } from "~/utils";
@@ -87,7 +87,8 @@ const AlertTitle = React.forwardRef<HTMLParagraphElement, AlertTitleProps>(
 );
 AlertTitle.displayName = "AlertTitle";
 
-export interface AlertDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+export interface AlertDescriptionProps
+  extends React.HTMLAttributes<HTMLParagraphElement> {}
 const AlertDescription = React.forwardRef<HTMLParagraphElement, AlertDescriptionProps>(
   ({ className, ...props }, ref) => (
     <div ref={ref} className={cn("body-xs-regular text-sm", className)} {...props} />
