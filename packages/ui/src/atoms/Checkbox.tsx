@@ -63,12 +63,12 @@ const Checkbox = React.forwardRef<
           <Icon
             name="check"
             size={16}
-            className="hidden group-data-[state=checked]:block"
+            className="hidden stroke-2 group-data-[state=checked]:block"
           />
           <Icon
             name="minus"
             size={16}
-            className="hidden group-data-[state=indeterminate]:block"
+            className="hidden stroke-2 group-data-[state=indeterminate]:block"
           />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>

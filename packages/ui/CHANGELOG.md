@@ -1,5 +1,11 @@
 # @openbb/ui
 
+## 0.14.17
+
+### Patch Changes
+
+- updates stroke on checkbox icon
+
 ## 0.14.15
 
 ### Patch Changes
