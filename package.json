@@ -1,6 +1,6 @@
 {
   "name": "@openbb/design-system",
-  "version": "0.13.0",
+  "version": "1.0.0",
   "homepage": "http://openbb-finance.github.io/design-system",
   "description": "OpenBB UI is a React component library for OpenBB Finance",
   "author": {
@@ -17,14 +17,18 @@
     "postinstall": "rm -rf ./packages/ui/node_modules/@radix-ui/react-tooltip",
     "build": "turbo build --no-cache --force",
     "lint": "turbo lint",
+    "format": "npm run format -w @openbb/ui",
     "storybook": "npm run dev -w workshop",
-    "publish-packages": "turbo lint && changeset version && turbo build && changeset publish",
-    "chromatic": "npm run chromatic -w workshop"
+    "test": "npm run chromatic -w workshop",
+    "release": "npm run lint && changeset version && npm run build && npm run bump",
+    "bump": "git restore ./apps && git add . && git commit -m 'chore: bump'",
+    "publish": "npm run test && changeset publish"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
     "@biomejs/biome": "1.8.3",
     "@changesets/cli": "^2.27.6",
+    "@radix-ui/react-scroll-area": "^1.1.0",
     "@remix-run/eslint-config": "^2.9.2",
     "@spiriit/vite-plugin-svg-spritemap": "^2.2.4",
     "@types/node": "^20.14.8",

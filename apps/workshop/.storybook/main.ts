@@ -10,20 +10,15 @@ function getAbsolutePath(value: string): any {
   return dirname(require.resolve(join(value, "package.json")));
 }
 const config: StorybookConfig = {
-  stories: [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
-    {
-      directory: "../../../packages/ui/src/**",
-      titlePrefix: "@openbb-ui",
-      files: "*.mdx",
-    },
-    {
-      directory: "../../../packages/ui/src/**",
-      titlePrefix: "@openbb-ui",
-      files: "*.stories.*",
-    },
-  ],
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)", {
+    directory: "../../../packages/ui/src/**",
+    titlePrefix: "@openbb-ui",
+    files: "*.mdx"
+  }, {
+    directory: "../../../packages/ui/src/**",
+    titlePrefix: "@openbb-ui",
+    files: "*.@(mdx|stories.*)"
+  }],
   addons: [
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"),
@@ -33,13 +28,13 @@ const config: StorybookConfig = {
       name: getAbsolutePath("@storybook/addon-themes"),
       options: {},
     },
+    getAbsolutePath("@storybook/addon-mdx-gfm"),
+    "@chromatic-com/storybook"
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
-  docs: {
-    autodocs: "tag",
-  },
+  docs: {},
 };
 export default config;

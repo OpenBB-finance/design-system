@@ -27,7 +27,10 @@ const render: Story["render"] = (args) => {
       <div className="flex items-end gap-4">
         <Carousel className="w-[50vw] max-w-[500px]" {...args}>
           {Array.from({ length: 5 }).map((_, index) => (
-            <div key={index} className="flex aspect-square items-center justify-center">
+            <div
+              key={index}
+              className="flex aspect-square items-center justify-center"
+            >
               <span className="title-lg-bold">{index + 1}</span>
             </div>
           ))}

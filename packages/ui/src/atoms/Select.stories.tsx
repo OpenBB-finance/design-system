@@ -33,8 +33,18 @@ const render: Story["render"] = (args) => {
     <ThemedPreview>
       <div className="flex items-end gap-4">
         <Select className="w-[180px]" {...args} />
-        <Select className="w-[180px]" {...args} label=":disabled" disabled={true} />
-        <Select className="w-[180px]" {...args} label=":focus" autoFocus={true} />
+        <Select
+          className="w-[180px]"
+          {...args}
+          label=":disabled"
+          disabled={true}
+        />
+        <Select
+          className="w-[180px]"
+          {...args}
+          label=":focus"
+          autoFocus={true}
+        />
       </div>
     </ThemedPreview>
   );
@@ -136,6 +146,39 @@ const groupedOptions = [
   },
 ] as const;
 
+const longOptions = [
+  "Apple",
+  "Apricot",
+  "Banana",
+  "Blackberry",
+  "Cantaloupe",
+  "Cherry",
+  "Date",
+  "Dragonfruit",
+  "Elderberry",
+  "Eggplant",
+  "Fennel",
+  "Fig",
+  "Grape",
+  "Honeydew",
+  "Kiwi",
+  "Lemon",
+  "Mango",
+  "Nectarine",
+  "Orange",
+  "Papaya",
+  "Quince",
+  "Raspberry",
+  "Strawberry",
+  "Tangerine",
+  "Ugli",
+  "Vanilla",
+  "Watermelon",
+  "Xigua",
+  "Yam",
+  "Zucchini",
+] as const;
+
 export const Default: Story = {
   args: { options, label: "Theme", placeholder: "Theme" },
   render,
@@ -149,6 +192,19 @@ export const GroupedOptions: Story = {
   render,
 };
 
+export const LongOptions: Story = {
+  args: {
+    options: longOptions,
+    placeholder: "Pick one",
+  },
+  render,
+};
+
+export const Size2XS: Story = {
+  args: { ...Default.args, size: "2xs" },
+  render,
+};
+
 export const SizeXS: Story = {
   args: { ...Default.args, size: "xs" },
   render,
@@ -159,8 +215,8 @@ export const SizeSM: Story = {
   render,
 };
 
-export const SizeLG: Story = {
-  args: { ...Default.args, size: "lg" },
+export const SizeMD: Story = {
+  args: { ...Default.args, size: "md" },
   render,
 };
 

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { waitFor, within } from "@storybook/testing-library";
+import { waitFor, within } from "@storybook/test";
 import { useState } from "react";
 
 import { sleep } from "~/utils";

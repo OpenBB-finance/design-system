@@ -88,7 +88,7 @@ const renderInForm: Story["render"] = (args) => {
   const form = useForm<TForm>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: args.defaultValue as string,
+      port: Number(args.defaultValue) || undefined,
     },
   });
 
@@ -139,6 +139,7 @@ export const Focus: Story = {
   args: {
     ...Default.args,
     autoFocus: true,
+    "data-focused": true,
   },
   render,
 };
@@ -257,6 +258,14 @@ export const InFormValidation: Story = {
   render: renderInForm,
 };
 
+export const Size2XS: Story = {
+  args: {
+    ...WithValue.args,
+    size: "2xs",
+  },
+  render,
+};
+
 export const SizeXS: Story = {
   args: {
     ...WithValue.args,
@@ -273,10 +282,10 @@ export const SizeSM: Story = {
   render,
 };
 
-export const SizeLG: Story = {
+export const SizeMD: Story = {
   args: {
     ...WithValue.args,
-    size: "lg",
+    size: "md",
   },
   render,
 };

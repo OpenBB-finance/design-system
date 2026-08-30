@@ -1,40 +1,46 @@
 // biome-ignore lint/style/noNamespaceImport: Use all Radix imports
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { type VariantProps, cva } from "class-variance-authority";
-import React from "react";
+import React, { useMemo, useState } from "react";
 import type { CanBeImmutable } from "~/utils";
 import { cn } from "~/utils";
-import { FormItem, FormLabel, FormMessage } from "../molecules/Form";
+import { FormItem, FormLabel, FormMessage, useFormField } from "../molecules/Form";
 import { DropdownMenuContentVariants, DropdownMenuItemVariants } from "./DropdownMenu";
 import { Icon } from "./Icon";
+import { Input } from "./Input";
 import { Label, Message } from "./Label";
+
+/** Show search input after this number of options if showSearch is "auto" */
+export const SELECT_SHOW_SEARCH_AFTER = 20;
 
 export const SelectTriggerVariants = cva(
   [
     "BB-Select body-xs-regular flex w-full items-center justify-between rounded-sm border [&>span]:line-clamp-1",
+    "focus-visible:outline-none focus-visible:ring-2",
+    "disabled:cursor-not-allowed",
     "transition",
     /* Light theme */
-    "border-grey-200 bg-white text-grey-900 data-[placeholder]:text-grey-500",
-    "hover:enabled:text-grey-900",
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-grey-300",
-    "disabled:cursor-not-allowed disabled:border-grey-200 disabled:bg-grey-200 disabled:text-grey-400 disabled:data-[placeholder]:text-grey-400",
+    "border-grey-300 bg-white text-grey-900 data-[placeholder]:text-grey-400",
+    "hover:enabled:border-grey-500",
+    "focus-visible:ring-grey-300",
+    "disabled:border-grey-200 disabled:bg-grey-100 disabled:text-grey-400 disabled:data-[placeholder]:text-grey-400",
     /* Dark theme */
-    "dark:border-dark-600 dark:bg-dark-800 dark:text-grey-50 dark:data-[placeholder]:text-grey-500",
-    "dark:hover:enabled:border-dark-400 dark:hover:enabled:bg-dark-600 dark:hover:enabled:text-grey-300",
+    "dark:border-dark-400 dark:bg-dark-800 dark:text-grey-100 dark:data-[placeholder]:text-dark-100",
+    "dark:hover:enabled:border-dark-50",
     "dark:focus-visible:ring-dark-50",
-    "dark:disabled:border-dark-750 dark:disabled:bg-dark-800 dark:disabled:text-dark-400 dark:disabled:data-[placeholder]:text-dark-400",
+    "dark:disabled:border-dark-700 dark:disabled:bg-dark-800 dark:disabled:text-dark-200 dark:disabled:data-[placeholder]:text-dark-200",
   ],
   {
     variants: {
       size: {
-        xs: "gap-1 px-1",
-        sm: "gap-2 px-2 py-1",
-        md: "gap-2 p-2",
-        lg: "gap-2 p-3",
+        "2xs": "!leading-4 h-[18px] gap-1 px-2",
+        xs: "h-6 gap-2 px-2 py-0.5",
+        sm: "h-8 gap-2 px-3 py-1.5",
+        md: "h-10 gap-2 px-3 py-3",
       },
     },
     defaultVariants: {
-      size: "md",
+      size: "sm",
     },
   },
 );
@@ -49,20 +55,20 @@ export const SelectContentVariants = cva(DropdownMenuContentVariants(), {
   },
 });
 
-const SelectRoot = SelectPrimitive.Root;
+export const SelectRoot = SelectPrimitive.Root;
 
-const SelectGroup = SelectPrimitive.Group;
+export const SelectGroup = SelectPrimitive.Group;
 
-const SelectValue = SelectPrimitive.Value;
+export const SelectValue = SelectPrimitive.Value;
 
 interface SelectTriggerProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>,
     VariantProps<typeof SelectTriggerVariants> {}
 
-const SelectTrigger = React.forwardRef<
+export const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   SelectTriggerProps
->(({ className, children, size = "md", ...props }, ref) => (
+>(({ className, children, size = "sm", ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(SelectTriggerVariants({ size }), className)}
@@ -78,7 +84,7 @@ SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
 interface SelectScrollUpButtonProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton> {}
-const SelectScrollUpButton = React.forwardRef<
+export const SelectScrollUpButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
   SelectScrollUpButtonProps
 >(({ className, ...props }, ref) => (
@@ -87,14 +93,14 @@ const SelectScrollUpButton = React.forwardRef<
     className={cn("flex cursor-default items-center justify-center py-1", className)}
     {...props}
   >
-    <Icon name="chevron-down" className="size-4 text-grey-600" />
+    <Icon name="chevron-up" className="size-4 text-grey-600" />
   </SelectPrimitive.ScrollUpButton>
 ));
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
 
 interface SelectScrollDownButtonProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton> {}
-const SelectScrollDownButton = React.forwardRef<
+export const SelectScrollDownButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
   SelectScrollDownButtonProps
 >(({ className, ...props }, ref) => (
@@ -111,12 +117,14 @@ SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayNam
 // @ts-ignore props overlapping
 interface SelectContentProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>,
-    VariantProps<typeof SelectContentVariants> {}
+    VariantProps<typeof SelectContentVariants> {
+  renderSearch?: React.ReactNode;
+}
 
-const SelectContent = React.forwardRef<
+export const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
   SelectContentProps
->(({ className, children, position = "popper", ...props }, ref) => (
+>(({ className, children, position = "popper", renderSearch, ...props }, ref) => (
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
       ref={ref}
@@ -124,12 +132,13 @@ const SelectContent = React.forwardRef<
       position={position}
       {...props}
     >
+      {renderSearch}
       <SelectScrollUpButton />
       <SelectPrimitive.Viewport
         className={cn(
-          "space-y-2 p-2",
+          "h-full w-full p-2",
           position === "popper" &&
-            "h-radix-select-trigger-height w-full min-w-[var(--radix-select-trigger-width)]",
+            "h-radix-select-trigger-height min-w-[var(--radix-select-trigger-width)]",
         )}
       >
         {children}
@@ -142,7 +151,7 @@ SelectContent.displayName = SelectPrimitive.Content.displayName;
 
 interface SelectGroupLabelProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label> {}
-const SelectGroupLabel = React.forwardRef<
+export const SelectGroupLabel = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,
   SelectGroupLabelProps
 >(({ className, ...props }, ref) => (
@@ -160,7 +169,7 @@ SelectGroupLabel.displayName = SelectPrimitive.Label.displayName;
 
 interface SelectItemProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> {}
-const SelectItem = React.forwardRef<
+export const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
   SelectItemProps
 >(({ className, children, ...props }, ref) => (
@@ -182,7 +191,7 @@ SelectItem.displayName = SelectPrimitive.Item.displayName;
 
 interface SelectSeparatorProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator> {}
-const SelectSeparator = React.forwardRef<
+export const SelectSeparator = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Separator>,
   SelectSeparatorProps
 >(({ className, ...props }, ref) => (
@@ -214,6 +223,10 @@ interface SelectProps
   // Model
   options: CanBeImmutable<SelectOption[] | SelectOptionGroup[]>;
   onChange?: SelectPrimitive.SelectProps["onValueChange"];
+  // Search
+  /** Show search input inside the options list */
+  showSearch?: boolean | "auto";
+  filterFn?: (search: string, option: SelectOption) => boolean;
   // Trigger
   className?: string;
   placeholder?: string;
@@ -224,7 +237,7 @@ interface SelectProps
   error?: boolean;
 }
 /** Plain select component, can be used in form or outside it */
-const Select = React.forwardRef<
+export const Select = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Root>,
   SelectProps
 >((props, ref) => {
@@ -232,6 +245,9 @@ const Select = React.forwardRef<
     // Model
     options,
     onChange,
+    // Search
+    showSearch = "auto",
+    filterFn = defaultSearchFn,
     // Trigger
     className,
     placeholder,
@@ -244,16 +260,68 @@ const Select = React.forwardRef<
     ...rest
   } = props;
 
+  const flatOptions = useMemo(() => {
+    return options.flatMap((option) => {
+      if (typeof option === "object" && "options" in option) {
+        return option.options;
+      }
+      return option;
+    });
+  }, [options]);
+
+  const [search, setSearch] = useState("");
+  const isSearchVisible =
+    showSearch === "auto" ? flatOptions.length > SELECT_SHOW_SEARCH_AFTER : showSearch;
+
+  const filteredOptions = useMemo(() => {
+    if (!search) {
+      return new Set(flatOptions);
+    }
+    const filteredArray = flatOptions.filter((option) => filterFn(search, option));
+    return new Set(filteredArray);
+  }, [flatOptions, search, filterFn]);
+
+  function renderSearch() {
+    if (!isSearchVisible) {
+      return null;
+    }
+    return (
+      <div className="px-2">
+        <Input
+          className="w-fit"
+          placeholder="Search"
+          autoFocus={true}
+          value={search}
+          onChange={setSearch}
+          onKeyDown={(e) => {
+            e.stopPropagation();
+          }}
+        />
+      </div>
+    );
+  }
+
   function renderGroup(group: SelectOptionGroup) {
+    const options = group.options.map((option) => renderOption(option)).filter(Boolean);
+    const isVisible = options.length > 0;
+    if (!isVisible) {
+      return null;
+    }
+
     return (
       <SelectGroup key={group.label}>
         <SelectGroupLabel>{group.label}</SelectGroupLabel>
-        {group.options.map((option) => renderOption(option))}
+        {options}
       </SelectGroup>
     );
   }
 
   function renderOption(option: SelectOption) {
+    const isVisible = filteredOptions.has(option);
+    if (!isVisible) {
+      return null;
+    }
+
     const value = typeof option === "string" ? option : option.value;
     const label = typeof option === "string" ? option : option.label;
     return (
@@ -278,7 +346,7 @@ const Select = React.forwardRef<
         </SelectTrigger>
         <Message error={error}>{message}</Message>
       </div>
-      <SelectContent>
+      <SelectContent renderSearch={renderSearch()}>
         {options.map((option) =>
           typeof option === "object" && "options" in option
             ? renderGroup(option)
@@ -295,33 +363,31 @@ Select.displayName = "Select";
 type FormSelectProps = Omit<SelectProps, "error">;
 
 /** Select field used inside <Form> only. */
-const FormSelect = React.forwardRef<
+export const FormSelect = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Root>,
   FormSelectProps
 >((props, ref) => {
   const { label, message, ...rest } = props;
+  const { error } = useFormField();
 
   return (
     <FormItem className="BB-FormSelect group" aria-disabled={props.disabled}>
       <FormLabel>{label}</FormLabel>
-      <Select ref={ref} {...rest} />
+      <Select ref={ref} error={!!error} {...rest} />
       <FormMessage>{message}</FormMessage>
     </FormItem>
   );
 });
 FormSelect.displayName = "FormSelect";
 
-export {
-  FormSelect,
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectGroupLabel,
-  SelectItem,
-  SelectRoot,
-  SelectScrollDownButton,
-  SelectScrollUpButton,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
-};
+function defaultSearchFn(search: string, option: SelectOption) {
+  if (typeof option === "string") {
+    return searchIgnoreCase(option, search);
+  }
+  const { label, value } = option;
+  return searchIgnoreCase(label, search) || searchIgnoreCase(value, search);
+}
+
+function searchIgnoreCase(str: string, substr: string) {
+  return str.toLowerCase().includes(substr.toLowerCase());
+}

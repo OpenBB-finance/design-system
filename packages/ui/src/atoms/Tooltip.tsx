@@ -62,7 +62,11 @@ TooltipArrow.displayName = TooltipPrimitive.Arrow.displayName;
 /* Composed Component */
 
 export interface TooltipProps
-  extends Omit<React.ComponentProps<typeof TooltipContent>, "content"> {
+  extends Omit<React.ComponentProps<typeof TooltipContent>, "content">,
+    Pick<
+      React.ComponentProps<typeof TooltipProvider>,
+      "delayDuration" | "skipDelayDuration"
+    > {
   content: React.ReactNode;
   arrow?: boolean;
 }
@@ -72,9 +76,19 @@ export const Tooltip = React.forwardRef<
   React.ElementRef<typeof TooltipContent>,
   TooltipProps
 >((props, ref) => {
-  const { children, content, arrow = false, ...contentProps } = props;
+  const {
+    children,
+    content,
+    arrow = false,
+    delayDuration,
+    skipDelayDuration,
+    ...contentProps
+  } = props;
   return (
-    <TooltipProvider>
+    <TooltipProvider
+      delayDuration={delayDuration}
+      skipDelayDuration={skipDelayDuration}
+    >
       <TooltipRoot>
         <TooltipTrigger asChild={true}>{children}</TooltipTrigger>
         <TooltipPortal>
