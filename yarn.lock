@@ -2754,7 +2754,6 @@ __metadata:
     jackspeak: "npm:2.3.6"
     lodash: "npm:>=4.17.21"
     lucide-react: "npm:^0.396.0"
-    postcss: "npm:^8.4.38"
     prop-types: "npm:^15.8.1"
     qs: "npm:>=6.12.1"
     tailwindcss-radix: "npm:~2.8.0"
