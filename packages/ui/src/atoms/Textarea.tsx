@@ -37,7 +37,7 @@ const textareaVariants = cva(
   },
 );
 
-type ReactTextareaProps = Omit<
+export type ReactTextareaProps = Omit<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>,
   "onChange"
 >;
@@ -108,7 +108,7 @@ Textarea.displayName = "Textarea";
 
 /* Form */
 
-type FormTextareaProps = Omit<TextareaProps, "error">;
+export type FormTextareaProps = Omit<TextareaProps, "error">;
 
 /** Input field used inside <Form> only. */
 export const FormTextarea = React.forwardRef<HTMLTextAreaElement, FormTextareaProps>(

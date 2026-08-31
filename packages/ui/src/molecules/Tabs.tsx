@@ -4,7 +4,7 @@ import { cva } from "class-variance-authority";
 import React from "react";
 import { cn } from "~/utils";
 
-interface TabsContextValue {
+export interface TabsContextValue {
   variant?: "default" | "filled";
 }
 
@@ -12,7 +12,7 @@ const TabsContext = React.createContext<TabsContextValue>({
   variant: "default",
 });
 
-interface TabsProps
+export interface TabsProps
   extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>,
     TabsContextValue {}
 
@@ -41,7 +41,7 @@ export const TabListVariants = cva(["BB-TabList flex"], {
   },
 });
 
-interface TabsListProps
+export interface TabsListProps
   extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.List> {}
 export const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
@@ -95,7 +95,7 @@ export const TabTriggerVariants = cva(["BB-TabTrigger transition"], {
   },
 });
 
-interface TabsTriggerProps
+export interface TabsTriggerProps
   extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> {}
 export const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
@@ -112,7 +112,7 @@ export const TabsTrigger = React.forwardRef<
 });
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
-interface TabsContentProps
+export interface TabsContentProps
   extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content> {}
 export const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,

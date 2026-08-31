@@ -2,15 +2,16 @@
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import React from "react";
 import { cn } from "~/utils";
+import { DropdownMenuContentVariants } from "./DropdownMenu";
 import type { TooltipProps } from "./Tooltip";
-import { tooltipArrowClasses, tooltipContentClasses } from "./Tooltip";
+import { tooltipArrowClasses } from "./Tooltip";
 
 export const PopoverRoot = PopoverPrimitive.Root;
 export const PopoverClose = PopoverPrimitive.Close;
 export const PopoverPortal = PopoverPrimitive.Portal;
 export const PopoverTrigger = PopoverPrimitive.Trigger;
 
-interface ContentProps
+export interface ContentProps
   extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> {}
 
 export const PopoverContent = React.forwardRef<
@@ -25,7 +26,7 @@ export const PopoverContent = React.forwardRef<
         ref={ref}
         align={align}
         sideOffset={sideOffset}
-        className={cn("BB-Popover", tooltipContentClasses, className)}
+        className={cn("BB-Popover", DropdownMenuContentVariants(), className)}
         {...rest}
       />
     </PopoverPortal>
@@ -33,7 +34,7 @@ export const PopoverContent = React.forwardRef<
 });
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
-interface PopoverArrowProps
+export interface PopoverArrowProps
   extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Arrow> {}
 
 export const PopoverArrow = React.forwardRef<
@@ -44,7 +45,12 @@ export const PopoverArrow = React.forwardRef<
   return (
     <PopoverPrimitive.Arrow
       ref={ref}
-      className={cn("BB-PopoverArrow", tooltipArrowClasses, className)}
+      className={cn(
+        "BB-PopoverArrow",
+        tooltipArrowClasses,
+        "bg-white text-grey-750 dark:bg-dark-750 dark:text-grey-200",
+        className,
+      )}
       {...rest}
     />
   );

@@ -4,7 +4,7 @@ import { clamp, cn } from "~/utils";
 import type { ButtonProps } from "../atoms/Button";
 import { Button } from "../atoms/Button";
 
-interface PaginationItemProps extends ButtonProps {}
+export interface PaginationItemProps extends ButtonProps {}
 
 export const PaginationItem = React.forwardRef<HTMLButtonElement, PaginationItemProps>(
   (props, ref) => {
@@ -31,7 +31,7 @@ export const PaginationItem = React.forwardRef<HTMLButtonElement, PaginationItem
 );
 PaginationItem.displayName = "PaginationItem";
 
-interface PaginationArrowProps extends ButtonProps {}
+export interface PaginationArrowProps extends ButtonProps {}
 
 const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
   (props, ref) => {

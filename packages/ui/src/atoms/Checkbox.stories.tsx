@@ -27,6 +27,10 @@ const render: Story["render"] = (args) => {
           <Checkbox {...args} checked={true} />
         </div>
         <div className="flex w-16 flex-col items-center gap-4">
+          <span className="text-grey-300 text-xs">:indeterminate</span>
+          <Checkbox {...args} checked={"indeterminate"} />
+        </div>
+        <div className="flex w-16 flex-col items-center gap-4">
           <span className="text-grey-300 text-xs">:disabled</span>
           <Checkbox {...args} disabled={true} />
         </div>
